@@ -1,12 +1,12 @@
 # FRP HOME Vercel Production Deployment Checklist
 
-Production domain: `https://www.ourfrphome.com`
+Production domain: `https://www.myfrphome.com`
 
 GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git`
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project and GitHub connection are prepared. Vercel production-target deployments are Ready, but public cutover is not complete because Aliyun / HiChina DNS has not been changed yet. Do not change DNS or finish domain cutover until the business owner confirms.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, and Vercel domain verification are prepared for `myfrphome.com`. The current working branch contains the production URL change to `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed, and deploying the latest commit.
 
 Stable Vercel project aliases:
 
@@ -71,7 +71,7 @@ Deployment upload note:
 These variables should exist in Vercel Production, Preview, and Development environments:
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://www.ourfrphome.com
+NEXT_PUBLIC_SITE_URL=https://www.myfrphome.com
 NEXT_PUBLIC_CONTACT_EMAIL=sales@tzcarbon.com
 NEXT_PUBLIC_CONTACT_PHONE=+86-13586461443
 NEXT_PUBLIC_CONTACT_WHATSAPP=+86-13586461443
@@ -160,20 +160,22 @@ vercel --prod
 
 Completed in Vercel:
 
-- Added `www.ourfrphome.com`.
-- Added `ourfrphome.com`.
+- Added `www.myfrphome.com`.
+- Added `myfrphome.com`.
+- Vercel verifies both custom domains as configured correctly.
 - Latest Ready deployment has aliases for both custom domains.
 
 Still required:
 
-- Add or update DNS records in Aliyun / HiChina.
-- Wait for DNS and SSL validation.
-- Keep `www.ourfrphome.com` as the primary public URL.
+- Add `RESEND_API_KEY` in Vercel before live RFQ email testing.
+- Deploy the latest commit after final approval.
+- Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production URL if the dashboard still shows a different primary domain.
+- Keep `www.myfrphome.com` as the primary public URL.
 
 Final canonical production URL:
 
 ```text
-https://www.ourfrphome.com
+https://www.myfrphome.com
 ```
 
 ## 7. DNS Records For Aliyun / HiChina
@@ -185,7 +187,7 @@ dns15.hichina.com
 dns16.hichina.com
 ```
 
-Vercel verification currently recommends these records.
+Vercel verification recommends these records. They were added in Aliyun / HiChina on 2026-06-27 and verified by Vercel CLI.
 
 Preferred records:
 
@@ -211,9 +213,15 @@ Before saving DNS:
 After saving DNS:
 
 ```bash
-vercel domains verify ourfrphome.com
-vercel domains verify www.ourfrphome.com
+vercel domains verify myfrphome.com
+vercel domains verify www.myfrphome.com
 ```
+
+Current verification result:
+
+- PASS: `myfrphome.com` is configured correctly by A records.
+- PASS: `www.myfrphome.com` is configured correctly by CNAME.
+- PASS: Aliyun / HiChina nameservers are `dns15.hichina.com` and `dns16.hichina.com`.
 
 ## 8. Primary Domain And Redirect
 
@@ -221,47 +229,47 @@ Required final behavior:
 
 | URL | Expected result |
 | --- | --- |
-| `https://www.ourfrphome.com` | Main production website |
-| `https://ourfrphome.com` | Redirects to `https://www.ourfrphome.com` |
-| `http://www.ourfrphome.com` | Redirects to HTTPS |
-| `http://ourfrphome.com` | Redirects to HTTPS and `www` |
+| `https://www.myfrphome.com` | Main production website |
+| `https://myfrphome.com` | Redirects to `https://www.myfrphome.com` |
+| `http://www.myfrphome.com` | Redirects to HTTPS |
+| `http://myfrphome.com` | Redirects to HTTPS and `www` |
 
 Code-level redirect is already included in `next.config.ts`:
 
 ```text
-ourfrphome.com/:path* -> https://www.ourfrphome.com/:path*
+myfrphome.com/:path* -> https://www.myfrphome.com/:path*
 ```
 
-Also confirm in Vercel Domains that `www.ourfrphome.com` is treated as the primary production URL after DNS validates.
+Also confirm in Vercel Domains that `www.myfrphome.com` is treated as the primary production URL. The CLI does not expose a direct primary-domain command in the installed Vercel version, so this is a dashboard confirmation step.
 
 ## 9. Production SEO Verification
 
-After DNS is live, verify:
+After the latest commit is deployed, verify:
 
 ```text
-https://www.ourfrphome.com/sitemap.xml
-https://www.ourfrphome.com/robots.txt
-https://www.ourfrphome.com/products
-https://www.ourfrphome.com/catalog
-https://www.ourfrphome.com/contact
+https://www.myfrphome.com/sitemap.xml
+https://www.myfrphome.com/robots.txt
+https://www.myfrphome.com/products
+https://www.myfrphome.com/catalog
+https://www.myfrphome.com/contact
 ```
 
 Expected SEO results:
 
-- `sitemap.xml` contains only `https://www.ourfrphome.com` URLs.
-- `sitemap.xml` includes `https://www.ourfrphome.com/catalog`.
-- `robots.txt` references `https://www.ourfrphome.com/sitemap.xml`.
-- Canonical URLs use `https://www.ourfrphome.com`.
-- OpenGraph URLs use `https://www.ourfrphome.com`.
-- JSON-LD Organization schema uses `https://www.ourfrphome.com/#organization`.
-- JSON-LD WebSite schema uses `https://www.ourfrphome.com/#website`.
+- `sitemap.xml` contains only `https://www.myfrphome.com` URLs.
+- `sitemap.xml` includes `https://www.myfrphome.com/catalog`.
+- `robots.txt` references `https://www.myfrphome.com/sitemap.xml`.
+- Canonical URLs use `https://www.myfrphome.com`.
+- OpenGraph URLs use `https://www.myfrphome.com`.
+- JSON-LD Organization schema uses `https://www.myfrphome.com/#organization`.
+- JSON-LD WebSite schema uses `https://www.myfrphome.com/#website`.
 - Product pages include Product schema.
 - Product pages include BreadcrumbList schema.
 - FAQ sections include FAQPage schema where applicable.
 
 ## 10. Post-Deployment Test Checklist
 
-Run these checks after DNS and `RESEND_API_KEY` are ready:
+Run these checks after the latest commit is deployed and `RESEND_API_KEY` is ready:
 
 - Open the home page on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.
@@ -274,10 +282,10 @@ Run these checks after DNS and `RESEND_API_KEY` are ready:
 - Submit a valid PDF or image attachment under 4 MB.
 - Confirm the attachment arrives.
 - Try an invalid or oversized attachment and confirm it is rejected.
-- Open `/sitemap.xml` and confirm all URLs use `https://www.ourfrphome.com`.
+- Open `/sitemap.xml` and confirm all URLs use `https://www.myfrphome.com`.
 - Open `/robots.txt` and confirm the sitemap line is correct.
 - Test a nonexistent URL and confirm the 404 page appears.
-- Submit `https://www.ourfrphome.com/sitemap.xml` in Google Search Console.
+- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.
 
 ## 11. Rollback Method
 
@@ -305,7 +313,7 @@ DNS rollback:
 
 1. Restore the previous Aliyun records for `@` and `www`.
 2. Wait for DNS propagation.
-3. Re-check `https://www.ourfrphome.com`, sitemap, robots, and contact form.
+3. Re-check `https://www.myfrphome.com`, sitemap, robots, and contact form.
 
 Emergency fallback:
 

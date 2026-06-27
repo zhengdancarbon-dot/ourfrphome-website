@@ -1,5 +1,5 @@
 const productionUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.ourfrphome.com"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.myfrphome.com"
 ).replace(/\/+$/, "");
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sales@tzcarbon.com";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+86-13586461443";

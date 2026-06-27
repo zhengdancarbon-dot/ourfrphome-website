@@ -18,7 +18,7 @@
 ## Exact Fixes Completed
 
 1. Added `/catalog` to the sitemap static routes.
-   - Route: `https://www.ourfrphome.com/catalog`
+   - Route: `https://www.myfrphome.com/catalog`
    - Change frequency: `monthly`
    - Priority: `0.75`
 
@@ -48,8 +48,8 @@
 | --- | --- | --- |
 | `pnpm lint` | PASS | `eslint .` completed successfully |
 | `pnpm build` | PASS | `next build --webpack` completed successfully; `/catalog` listed as a static route |
-| Generated sitemap output | PASS | `.next/server/app/sitemap.xml.body` includes `<loc>https://www.ourfrphome.com/catalog</loc>` |
-| Local sitemap route | PASS | `http://127.0.0.1:3000/sitemap.xml` includes `https://www.ourfrphome.com/catalog` |
+| Generated sitemap output | PASS | `.next/server/app/sitemap.xml.body` includes `<loc>https://www.myfrphome.com/catalog</loc>` |
+| Local sitemap route | PASS | `http://127.0.0.1:3000/sitemap.xml` includes `https://www.myfrphome.com/catalog` |
 | Contact links on `/contact` | PASS | Browser-rendered page has 2 `mailto`, 2 `tel`, and 2 WhatsApp links |
 | Contact links on `/catalog` | PASS | Browser-rendered page has 4 `mailto`, 4 `tel`, and 4 WhatsApp links |
 | Product desktop layout | PASS | `1440x980`: H1 `61.92px`, hero bottom `688px`, next section top `760px`, no horizontal overflow |

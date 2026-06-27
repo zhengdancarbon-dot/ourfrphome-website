@@ -121,7 +121,7 @@ The old PDF lists multiple legacy emails and phone contacts. The current FRP HOM
 
 - Email: `sales@tzcarbon.com`
 - Phone / WhatsApp: `+86-13586461443`
-- Website: `www.ourfrphome.com`
+- Website: `www.myfrphome.com`
 - Location: Haining, Zhejiang, China
 
 Confirm the legal address, active sales contacts and QR destination before final release. Legacy domains such as `carbonzd.com` and `zdcarbonfiber.com` should not remain visible on the FRP HOME production website.

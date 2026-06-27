@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "ourfrphome.com" }],
-        destination: "https://www.ourfrphome.com/:path*",
+        has: [{ type: "host", value: "myfrphome.com" }],
+        destination: "https://www.myfrphome.com/:path*",
         permanent: true,
       },
       {

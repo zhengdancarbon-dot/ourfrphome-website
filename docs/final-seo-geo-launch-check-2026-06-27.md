@@ -1,8 +1,8 @@
 # Final SEO/GEO Launch Check - 2026-06-27
 
-Production domain checked: `https://www.ourfrphome.com`
+Production domain checked: `https://www.myfrphome.com`
 
-Deployment status: not deployed. Changes remain in the current working branch until approval.
+Deployment status: DNS and Vercel domain verification are ready for `myfrphome.com`; the latest domain-change commit still needs to be deployed before the production HTML is final.
 
 ## Final Brand Standard
 
@@ -11,7 +11,7 @@ Deployment status: not deployed. Changes remain in the current working branch un
 | Brand | FRP HOME |
 | English company name | Zhejiang FRPHome New Material Co., Ltd. |
 | Chinese company name | 浙江福昊新材料有限公司 |
-| Production domain | https://www.ourfrphome.com |
+| Production domain | https://www.myfrphome.com |
 | Positioning | Carbon fiber and composite materials supplier |
 | Sales email | sales@tzcarbon.com |
 | Phone | +86-13586461443 |
@@ -58,7 +58,7 @@ Active website and launch files were checked for:
 - `zdcarbonfiber.com`
 - `carbonzd.com`
 - `tzcarbon.com`
-- `ourfrphome.com`
+- `myfrphome.com`
 - `Zhengdan`
 - `Zhonglong`
 - `Fuhao`
@@ -68,7 +68,7 @@ Result:
 
 | Term | Result |
 | --- | --- |
-| `ourfrphome.com` | Kept as the only production website domain. |
+| `myfrphome.com` | Kept as the only production website domain. |
 | `tzcarbon.com` | Kept only for email infrastructure and `sales@tzcarbon.com`. |
 | `FRP HOME` | Kept as the public brand. |
 | `Zhejiang FRPHome New Material Co., Ltd.` | Kept as the English company name. |
@@ -89,7 +89,7 @@ These should not be uploaded to production unless regenerated with the final FRP
 ## Required Fixes Completed
 
 1. Added `/catalog` to `app/sitemap.ts`.
-   - Generated URL: `https://www.ourfrphome.com/catalog`
+   - Generated URL: `https://www.myfrphome.com/catalog`
    - Change frequency: `monthly`
    - Priority: `0.75`
 
@@ -113,12 +113,12 @@ These should not be uploaded to production unless regenerated with the final FRP
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| `robots.txt` | PASS | Status `200`; sitemap line is `Sitemap: https://www.ourfrphome.com/sitemap.xml`. |
-| `sitemap.xml` domain | PASS | 26 URLs; every `<loc>` uses `https://www.ourfrphome.com`. |
-| `/catalog` in sitemap | PASS | `https://www.ourfrphome.com/catalog` is present. |
+| `robots.txt` | PASS | Status `200`; sitemap line is `Sitemap: https://www.myfrphome.com/sitemap.xml`. |
+| `sitemap.xml` domain | PASS | 26 URLs; every `<loc>` uses `https://www.myfrphome.com`. |
+| `/catalog` in sitemap | PASS | `https://www.myfrphome.com/catalog` is present. |
 | Page statuses | PASS | 26 sitemap pages checked; no non-200 statuses. |
-| Canonical tags | PASS | No missing canonicals; no canonical points outside `https://www.ourfrphome.com`. |
-| OpenGraph URLs | PASS | No `og:url` points outside `https://www.ourfrphome.com`. |
+| Canonical tags | PASS | No missing canonicals; no canonical points outside `https://www.myfrphome.com`. |
+| OpenGraph URLs | PASS | No `og:url` points outside `https://www.myfrphome.com`. |
 | Hreflang URLs | PASS | No bad alternate URL detected. |
 | Legacy domain leaks in rendered HTML | PASS | No `zdcarbonfiber.com` or `carbonzd.com` production HTML leaks found. |
 | Internal links | PASS | 26 sitemap pages checked; no broken internal links found. |
@@ -128,8 +128,8 @@ These should not be uploaded to production unless regenerated with the final FRP
 
 | Schema | Result | Evidence |
 | --- | --- | --- |
-| Organization | PASS | `@id`: `https://www.ourfrphome.com/#organization`; `url`: `https://www.ourfrphome.com`. |
-| WebSite | PASS | `@id`: `https://www.ourfrphome.com/#website`; `url`: `https://www.ourfrphome.com`. |
+| Organization | PASS | `@id`: `https://www.myfrphome.com/#organization`; `url`: `https://www.myfrphome.com`. |
+| WebSite | PASS | `@id`: `https://www.myfrphome.com/#website`; `url`: `https://www.myfrphome.com`. |
 | Product | PASS | 15 product detail pages checked; no Product schema missing. |
 | FAQPage | PASS | Product FAQ sections checked; no FAQPage schema missing. |
 | BreadcrumbList | PASS | Product detail pages checked; no breadcrumb schema missing. |
@@ -162,7 +162,8 @@ No blocking SEO/GEO or QA issue remains open in the current working branch.
 
 Remaining recommendations before public launch:
 
-- Do not deploy until the business owner confirms.
 - Do not upload legacy files from `output/`, `tmp/`, or `.codex-output-work/` unless regenerated with the final FRP HOME standard.
-- After deployment, run a production-domain smoke test against `https://www.ourfrphome.com`.
-- Submit `https://www.ourfrphome.com/sitemap.xml` in Google Search Console after production DNS and HTTPS are confirmed.
+- Add `RESEND_API_KEY` in Vercel before the live inquiry-form email test.
+- Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain if needed.
+- After deployment, run a production-domain smoke test against `https://www.myfrphome.com`.
+- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console after production HTTPS is confirmed.

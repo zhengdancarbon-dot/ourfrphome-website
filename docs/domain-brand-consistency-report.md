@@ -9,7 +9,7 @@ Generated: 2026-06-27
 | Brand | FRP HOME |
 | English company name | Zhejiang FRPHome New Material Co., Ltd. |
 | Chinese company name | 浙江福昊新材料有限公司 |
-| Production domain | https://www.ourfrphome.com |
+| Production domain | https://www.myfrphome.com |
 | Main positioning | Carbon fiber and composite materials supplier |
 | Sales email | sales@tzcarbon.com |
 | Phone / WhatsApp | +86-13586461443 |
@@ -42,7 +42,7 @@ Scope checked:
 
 | Term | Where it appears | Keep or replace | Recommended final wording |
 | --- | --- | --- | --- |
-| `ourfrphome.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, prior QA docs | Keep | Use only `https://www.ourfrphome.com` for production URLs |
+| `myfrphome.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, prior QA docs | Keep | Use only `https://www.myfrphome.com` for production URLs |
 | `tzcarbon.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, `app/api/inquiry/route.ts`, prior QA docs | Keep for email only | `sales@tzcarbon.com`, `website@tzcarbon.com`, and Resend/mail verification notes |
 | `FRP HOME` | Site metadata, header/footer, catalog, product copy, reports, README | Keep | `FRP HOME` |
 | `Zhejiang FRPHome New Material Co., Ltd.` | `lib/site-config.ts`, `app/layout.tsx`, footer, about page, catalog, README | Keep | `Zhejiang FRPHome New Material Co., Ltd.` |
@@ -84,7 +84,7 @@ The FRP HOME website should keep:
 
 - `FRP HOME`
 - `Zhejiang FRPHome New Material Co., Ltd.`
-- `https://www.ourfrphome.com`
+- `https://www.myfrphome.com`
 - `sales@tzcarbon.com`
 - `tel:+8613586461443`
 - `https://wa.me/8613586461443`

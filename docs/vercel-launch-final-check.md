@@ -2,13 +2,13 @@
 
 Generated: 2026-06-27
 
-Production domain: `https://www.ourfrphome.com`
+Production domain: `https://www.myfrphome.com`
 
 GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git`
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, and Ready Vercel deployments are prepared. Final public cutover is waiting for Aliyun / HiChina DNS and `RESEND_API_KEY`.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, and Vercel verification are prepared for `myfrphome.com`. The remaining launch blockers are deploying the latest domain-change commit, adding `RESEND_API_KEY`, and confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed.
 
 ## Deployment Result
 
@@ -20,8 +20,8 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | Latest deployment status | PASS | Vercel reports status `Ready`. |
 | Stable Vercel project alias | PASS | `https://ourfrphome-website.vercel.app` |
 | Example generated deployment URL | PASS | `https://ourfrphome-website-m1nbunqlq-zhendgan.vercel.app` |
-| Custom domains in Vercel | PASS | `ourfrphome.com` and `www.ourfrphome.com` are added as aliases. |
-| DNS cutover | PENDING | Aliyun / HiChina records still need to be updated. |
+| Custom domains in Vercel | PASS | `myfrphome.com` and `www.myfrphome.com` are added as aliases. |
+| DNS cutover | PASS | Aliyun / HiChina records were added and Vercel verifies both `myfrphome.com` and `www.myfrphome.com`. |
 
 Example generated deployment verified during setup:
 
@@ -96,13 +96,13 @@ Build artifact checked:
 Result:
 
 - PASS: sitemap contains 26 URLs.
-- PASS: every sitemap URL starts with `https://www.ourfrphome.com`.
-- PASS: sitemap includes `https://www.ourfrphome.com/catalog`.
+- PASS: every sitemap URL starts with `https://www.myfrphome.com`.
+- PASS: sitemap includes `https://www.myfrphome.com/catalog`.
 - PASS: no `zdcarbonfiber.com` or `carbonzd.com` sitemap URL found.
 
 Live check status:
 
-- PENDING on custom domain until Aliyun DNS resolves.
+- READY after the latest domain-change commit is deployed.
 
 ## Robots.txt Status
 
@@ -114,11 +114,11 @@ Build artifact checked:
 
 Result:
 
-- PASS: `robots.txt` references `Sitemap: https://www.ourfrphome.com/sitemap.xml`.
+- PASS: `robots.txt` references `Sitemap: https://www.myfrphome.com/sitemap.xml`.
 
 Live check status:
 
-- PENDING on custom domain until Aliyun DNS resolves.
+- READY after the latest domain-change commit is deployed.
 
 ## Production SEO URL Status
 
@@ -144,21 +144,21 @@ No production HTML output contains active `zdcarbonfiber.com` or `carbonzd.com` 
 
 Vercel aliases on the latest Ready deployment:
 
-- `https://ourfrphome.com`
-- `https://www.ourfrphome.com`
+- `https://myfrphome.com`
+- `https://www.myfrphome.com`
 - `https://ourfrphome-website.vercel.app`
 - `https://ourfrphome-website-zhendgan.vercel.app`
 - `https://ourfrphome-website-git-main-zhendgan.vercel.app`
 
 Code-level redirect:
 
-- PASS: `next.config.ts` redirects `ourfrphome.com/:path*` to `https://www.ourfrphome.com/:path*`.
+- PASS: `next.config.ts` redirects `myfrphome.com/:path*` to `https://www.myfrphome.com/:path*`.
 
 Live redirect check:
 
-- PENDING until Aliyun DNS is updated and SSL is valid.
+- READY after the latest domain-change commit is deployed.
 
-## DNS Records Needed
+## DNS Records Configured
 
 Current nameservers detected:
 
@@ -167,7 +167,7 @@ dns15.hichina.com
 dns16.hichina.com
 ```
 
-Preferred records from Vercel verification:
+Configured records from Vercel verification:
 
 | Host Record | Type | Value | TTL |
 | --- | --- | --- | --- |
@@ -175,14 +175,14 @@ Preferred records from Vercel verification:
 | `@` | `A` | `64.29.17.1` | `600` or default |
 | `www` | `CNAME` | `c91344a3f5377e63.vercel-dns-017.com` | `600` or default |
 
-Fallback records if the Aliyun UI or Vercel domain screen requires the simpler Vercel default:
+Fallback records if the Aliyun UI or Vercel domain screen ever requires the simpler Vercel default:
 
 | Host Record | Type | Value | TTL |
 | --- | --- | --- | --- |
 | `@` | `A` | `76.76.21.21` | `600` or default |
 | `www` | `CNAME` | `cname.vercel-dns.com` | `600` or default |
 
-Remove conflicting old website records for `@` and `www`. Keep mail-related MX/TXT records.
+Conflicting old website records for `@` and `www` were replaced. Mail-related MX/TXT records were kept.
 
 ## Browser And Live Checks
 
@@ -190,11 +190,11 @@ Current result:
 
 - Vercel API and CLI inspection work and report the latest deployment as Ready.
 - Local browser/curl access to the `*.vercel.app` URL timed out from this network during testing.
-- Custom-domain browser checks are blocked until Aliyun DNS is updated.
+- Custom-domain browser checks are ready after the latest domain-change commit deploys.
 
 Required after DNS:
 
-- Open `https://www.ourfrphome.com` on desktop and mobile.
+- Open `https://www.myfrphome.com` on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.
 - Confirm no horizontal overflow on mobile.
 - Confirm all product images load.
@@ -202,9 +202,9 @@ Required after DNS:
 - Submit the contact form without attachment.
 - Confirm inquiry email arrives at `sales@tzcarbon.com`.
 - Submit a valid PDF or image attachment under 4 MB.
-- Open `/sitemap.xml` and confirm all URLs use `https://www.ourfrphome.com`.
+- Open `/sitemap.xml` and confirm all URLs use `https://www.myfrphome.com`.
 - Open `/robots.txt` and confirm the sitemap line is correct.
-- Confirm `https://ourfrphome.com` redirects to `https://www.ourfrphome.com`.
+- Confirm `https://myfrphome.com` redirects to `https://www.myfrphome.com`.
 
 ## Domain Configuration Checklist
 
@@ -219,16 +219,14 @@ Completed:
 Still required:
 
 - Add `RESEND_API_KEY` in Vercel.
-- Configure Aliyun / HiChina DNS records.
-- Wait for DNS propagation and Vercel SSL validation.
-- Set or confirm `www.ourfrphome.com` as the primary domain in Vercel.
+- Deploy the latest domain-change commit.
+- Set or confirm `www.myfrphome.com` as the primary domain in Vercel.
 - Re-test robots, sitemap, canonical, mobile pages, and inquiry form on the live custom domain.
-- Submit `https://www.ourfrphome.com/sitemap.xml` in Google Search Console.
+- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.
 
 ## Remaining Risks
 
 - Contact form cannot send email until `RESEND_API_KEY` is set.
 - `INQUIRY_FROM_EMAIL` must match a Resend-verified sender/domain.
-- DNS propagation can take minutes to several hours after Aliyun changes.
-- Live browser checks on the custom domain are not possible until DNS is changed.
-- Local network access to `*.vercel.app` timed out during this check, even though Vercel reports deployment Ready.
+- The previous custom domain remains in Vercel and should only be removed or redirected after the business owner confirms.
+- The installed Vercel CLI does not expose a direct primary-domain command, so primary-domain confirmation should be done in the Vercel dashboard.
