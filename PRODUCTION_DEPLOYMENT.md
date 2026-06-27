@@ -6,15 +6,22 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project and GitHub connection are prepared. A Vercel production-target deployment is Ready, but public cutover is not complete because Aliyun / HiChina DNS has not been changed yet. Do not change DNS or finish domain cutover until the business owner confirms.
+Current status: Vercel project and GitHub connection are prepared. Vercel production-target deployments are Ready, but public cutover is not complete because Aliyun / HiChina DNS has not been changed yet. Do not change DNS or finish domain cutover until the business owner confirms.
 
-Latest Vercel deployment checked:
+Stable Vercel project aliases:
 
 ```text
-https://ourfrphome-website-9nuajy63b-zhendgan.vercel.app
-Deployment ID: dpl_CrMAVirVmEjEsAzaLDLya3sJDP7T
+https://ourfrphome-website.vercel.app
+https://ourfrphome-website-zhendgan.vercel.app
+```
+
+Example generated deployment verified during setup:
+
+```text
+https://ourfrphome-website-m1nbunqlq-zhendgan.vercel.app
+Deployment ID: dpl_8x8uw95uKyvXwbyZuc23q3MtzRFz
 Status: Ready
-Created: 2026-06-27 17:10 CST
+Created: 2026-06-27 17:17 CST
 ```
 
 ## 1. Supported Deployment Method

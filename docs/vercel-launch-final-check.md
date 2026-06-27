@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, and a Ready Vercel deployment are prepared. Final public cutover is waiting for Aliyun / HiChina DNS and `RESEND_API_KEY`.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, and Ready Vercel deployments are prepared. Final public cutover is waiting for Aliyun / HiChina DNS and `RESEND_API_KEY`.
 
 ## Deployment Result
 
@@ -17,18 +17,19 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | GitHub repository | PASS | `zhengdancarbon-dot/ourfrphome-website` created and pushed. |
 | Vercel project | PASS | `zhendgan/ourfrphome-website` created. |
 | GitHub integration | PASS | Vercel GitHub App installed for this repository. |
-| Latest deployment | PASS | Vercel reports status `Ready`. |
-| Temporary deployment URL | PASS | `https://ourfrphome-website-9nuajy63b-zhendgan.vercel.app` |
+| Latest deployment status | PASS | Vercel reports status `Ready`. |
+| Stable Vercel project alias | PASS | `https://ourfrphome-website.vercel.app` |
+| Example generated deployment URL | PASS | `https://ourfrphome-website-m1nbunqlq-zhendgan.vercel.app` |
 | Custom domains in Vercel | PASS | `ourfrphome.com` and `www.ourfrphome.com` are added as aliases. |
 | DNS cutover | PENDING | Aliyun / HiChina records still need to be updated. |
 
-Latest deployment:
+Example generated deployment verified during setup:
 
 ```text
-Deployment ID: dpl_CrMAVirVmEjEsAzaLDLya3sJDP7T
+Deployment ID: dpl_8x8uw95uKyvXwbyZuc23q3MtzRFz
 Target: production
 Status: Ready
-Created: 2026-06-27 17:10 CST
+Created: 2026-06-27 17:17 CST
 ```
 
 ## Build Result
