@@ -2,7 +2,20 @@
 
 Production domain: `https://www.ourfrphome.com`
 
-Deployment status: not deployed. Deploy only after business owner confirmation.
+GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git`
+
+Vercel project: `zhendgan/ourfrphome-website`
+
+Current status: Vercel project and GitHub connection are prepared. A Vercel production-target deployment is Ready, but public cutover is not complete because Aliyun / HiChina DNS has not been changed yet. Do not change DNS or finish domain cutover until the business owner confirms.
+
+Latest Vercel deployment checked:
+
+```text
+https://ourfrphome-website-9nuajy63b-zhendgan.vercel.app
+Deployment ID: dpl_CrMAVirVmEjEsAzaLDLya3sJDP7T
+Status: Ready
+Created: 2026-06-27 17:10 CST
+```
 
 ## 1. Supported Deployment Method
 
@@ -13,7 +26,7 @@ Reasons:
 - It is a Next.js App Router project.
 - `package.json` uses standard Next.js commands.
 - `/api/inquiry` is a Next.js Route Handler and declares `export const runtime = "nodejs"`.
-- The contact form depends on server-side environment variables and Resend API delivery.
+- The contact form depends on server-side environment variables and Resend email delivery.
 
 Other deployment methods:
 
@@ -42,26 +55,34 @@ pnpm lint
 pnpm build
 ```
 
+Deployment upload note:
+
+- `.vercelignore` is included to prevent local caches, `.next`, `node_modules`, screenshots, and old output folders from being uploaded to Vercel.
+
 ## 3. Required Environment Variables
 
-Add these variables to the Vercel Production environment before deploying:
+These variables should exist in Vercel Production, Preview, and Development environments:
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://www.ourfrphome.com
 NEXT_PUBLIC_CONTACT_EMAIL=sales@tzcarbon.com
 NEXT_PUBLIC_CONTACT_PHONE=+86-13586461443
 NEXT_PUBLIC_CONTACT_WHATSAPP=+86-13586461443
-RESEND_API_KEY=re_your_production_key
 INQUIRY_TO_EMAIL=sales@tzcarbon.com
 INQUIRY_FROM_EMAIL=FRP HOME Website <website@tzcarbon.com>
+RESEND_API_KEY=re_your_production_key
 ```
+
+Current setup result:
+
+- Configured in Vercel: all variables above except `RESEND_API_KEY`.
+- Still required: add `RESEND_API_KEY` securely in Vercel. Do not paste the secret into chat or commit it to Git.
 
 Important notes:
 
 - `RESEND_API_KEY` is required for the contact/RFQ form to send email.
 - `INQUIRY_FROM_EMAIL` must use a domain or subdomain verified in Resend.
 - If `website@tzcarbon.com` is not verified in Resend, use the exact verified sender shown in Resend.
-- If `sales@tzcarbon.com` is not ready, temporarily set `INQUIRY_TO_EMAIL` to a working company-controlled mailbox for testing.
 - Redeploy after changing environment variables.
 
 ## 4. API Route Check
@@ -82,7 +103,7 @@ Expected behavior:
 
 - Invalid RFQ payload returns `400` with validation errors.
 - Valid RFQ payload without `RESEND_API_KEY` returns `503` with `Email service is temporarily unavailable.`
-- Valid RFQ payload with `RESEND_API_KEY`, verified sender and working recipient should send email through Resend.
+- Valid RFQ payload with `RESEND_API_KEY`, verified sender, and working recipient should send email through Resend.
 
 The route uses:
 
@@ -92,18 +113,33 @@ The route uses:
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_CONTACT_EMAIL`
 
+Vercel compatibility:
+
+- PASS: Route Handler uses the Vercel-compatible Node.js runtime.
+- Remaining: live form email delivery test after `RESEND_API_KEY` is added.
+
 ## 5. Deploy To Vercel
 
-Option A: deploy from Git.
+Preferred method: GitHub integration.
 
-1. Push the final branch to GitHub/GitLab/Bitbucket.
-2. In Vercel, choose `Add New Project`.
-3. Import this repository.
-4. Confirm the project settings in section 2.
-5. Add all Production environment variables in section 3.
-6. Deploy the Production branch.
+Completed:
 
-Option B: deploy with Vercel CLI.
+1. GitHub repository created: `zhengdancarbon-dot/ourfrphome-website`.
+2. Local `main` branch pushed to GitHub.
+3. Vercel project created: `zhendgan/ourfrphome-website`.
+4. Vercel account connected to GitHub.
+5. Vercel GitHub App installed for this repository.
+6. GitHub repository connected in Vercel project settings.
+7. Latest push auto-deployed successfully.
+
+Future deploy flow:
+
+1. Commit changes locally.
+2. Push to `main`.
+3. Vercel automatically creates a production deployment.
+4. Check the deployment in Vercel before domain cutover or announcement.
+
+Manual CLI deploy, if needed:
 
 ```bash
 pnpm install
@@ -113,18 +149,19 @@ vercel link
 vercel --prod
 ```
 
-Do not run `vercel --prod` until deployment is confirmed.
-
 ## 6. Add Custom Domains In Vercel
 
-In the Vercel project:
+Completed in Vercel:
 
-1. Open `Settings` -> `Domains`.
-2. Add `www.ourfrphome.com`.
-3. Add `ourfrphome.com`.
-4. Set `www.ourfrphome.com` as the primary domain.
-5. Configure `ourfrphome.com` to redirect to `www.ourfrphome.com`.
-6. Wait until both domains show valid DNS and valid SSL status.
+- Added `www.ourfrphome.com`.
+- Added `ourfrphome.com`.
+- Latest Ready deployment has aliases for both custom domains.
+
+Still required:
+
+- Add or update DNS records in Aliyun / HiChina.
+- Wait for DNS and SSL validation.
+- Keep `www.ourfrphome.com` as the primary public URL.
 
 Final canonical production URL:
 
@@ -141,20 +178,35 @@ dns15.hichina.com
 dns16.hichina.com
 ```
 
-Add these DNS records in Aliyun / HiChina DNS:
+Vercel verification currently recommends these records.
+
+Preferred records:
+
+| Host Record | Type | Value | TTL |
+| --- | --- | --- | --- |
+| `@` | `A` | `216.198.79.1` | `600` or default |
+| `@` | `A` | `64.29.17.1` | `600` or default |
+| `www` | `CNAME` | `c91344a3f5377e63.vercel-dns-017.com` | `600` or default |
+
+Fallback records if Aliyun refuses the two apex `A` records or Vercel shows a simpler fallback:
 
 | Host Record | Type | Value | TTL |
 | --- | --- | --- | --- |
 | `@` | `A` | `76.76.21.21` | `600` or default |
 | `www` | `CNAME` | `cname.vercel-dns.com` | `600` or default |
 
-If Vercel shows a different CNAME target in the project domain screen, use the exact Vercel-provided value instead of `cname.vercel-dns.com`.
-
-Do not create conflicting records for the same host:
+Before saving DNS:
 
 - Remove old `A`, `AAAA`, or `CNAME` records for `@` if they point to another website host.
 - Remove old `A`, `AAAA`, or `CNAME` records for `www` if they point to another website host.
-- Keep unrelated MX/TXT records for email verification and mail delivery.
+- Keep unrelated MX/TXT records for business email, SPF, DKIM, DMARC, Google Search Console, and Resend verification.
+
+After saving DNS:
+
+```bash
+vercel domains verify ourfrphome.com
+vercel domains verify www.ourfrphome.com
+```
 
 ## 8. Primary Domain And Redirect
 
@@ -167,15 +219,17 @@ Required final behavior:
 | `http://www.ourfrphome.com` | Redirects to HTTPS |
 | `http://ourfrphome.com` | Redirects to HTTPS and `www` |
 
-In Vercel:
+Code-level redirect is already included in `next.config.ts`:
 
-1. Keep both `www.ourfrphome.com` and `ourfrphome.com` added to the project.
-2. Use the Vercel Domains screen to make `www.ourfrphome.com` primary.
-3. Enable the apex-to-www redirect when prompted.
+```text
+ourfrphome.com/:path* -> https://www.ourfrphome.com/:path*
+```
+
+Also confirm in Vercel Domains that `www.ourfrphome.com` is treated as the primary production URL after DNS validates.
 
 ## 9. Production SEO Verification
 
-After deployment, verify:
+After DNS is live, verify:
 
 ```text
 https://www.ourfrphome.com/sitemap.xml
@@ -200,7 +254,7 @@ Expected SEO results:
 
 ## 10. Post-Deployment Test Checklist
 
-Run these checks after the Vercel deployment is live:
+Run these checks after DNS and `RESEND_API_KEY` are ready:
 
 - Open the home page on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.
@@ -220,15 +274,31 @@ Run these checks after the Vercel deployment is live:
 
 ## 11. Rollback Method
 
-If a deployment has a problem:
+Vercel dashboard rollback:
 
 1. Open the Vercel project.
 2. Go to `Deployments`.
 3. Find the last known good production deployment.
 4. Use Vercel's redeploy/promote/instant rollback action for that deployment.
 5. Re-test home, products, contact form, sitemap and robots.
-6. If the problem was caused by environment variables, restore the previous values and redeploy.
-7. If DNS was changed incorrectly, restore the records in section 7 and wait for propagation.
+
+CLI rollback:
+
+```bash
+vercel rollback
+```
+
+Environment variable rollback:
+
+1. Restore the previous Vercel environment variable values.
+2. Redeploy the last known good commit.
+3. Re-test `/api/inquiry`.
+
+DNS rollback:
+
+1. Restore the previous Aliyun records for `@` and `www`.
+2. Wait for DNS propagation.
+3. Re-check `https://www.ourfrphome.com`, sitemap, robots, and contact form.
 
 Emergency fallback:
 
