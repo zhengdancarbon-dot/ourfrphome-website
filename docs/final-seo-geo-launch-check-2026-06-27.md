@@ -2,7 +2,7 @@
 
 Production domain checked: `https://www.myfrphome.com`
 
-Deployment status: DNS, Vercel domain verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`.
+Deployment status: DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`.
 
 ## Final Brand Standard
 
@@ -116,6 +116,7 @@ These should not be uploaded to production unless regenerated with the final FRP
 | `robots.txt` | PASS | Status `200`; sitemap line is `Sitemap: https://www.myfrphome.com/sitemap.xml`. |
 | `sitemap.xml` domain | PASS | 26 URLs; every `<loc>` uses `https://www.myfrphome.com`. |
 | `/catalog` in sitemap | PASS | `https://www.myfrphome.com/catalog` is present. |
+| Apex-to-`www` redirect | PASS | `https://myfrphome.com` returns `308` to `https://www.myfrphome.com/`. |
 | Google Search Console domain verification | PASS | `myfrphome.com` verified by Aliyun DNS TXT. |
 | Google Search Console sitemap submission | PASS | `https://www.myfrphome.com/sitemap.xml` submitted successfully. |
 | Page statuses | PASS | 26 sitemap pages checked; no non-200 statuses. |
@@ -162,9 +163,9 @@ Browser screenshot evidence:
 
 No blocking SEO/GEO or QA issue remains open in the current working branch.
 
+Public primary-domain behavior is now enforced by both code-level redirect and Vercel domain-level `308` redirect from `myfrphome.com` to `www.myfrphome.com`.
+
 Remaining recommendations before public launch:
 
 - Do not upload legacy files from `output/`, `tmp/`, or `.codex-output-work/` unless regenerated with the final FRP HOME standard.
 - Add `RESEND_API_KEY` in Vercel before the live inquiry-form email test.
-- Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain if needed.
-- After deployment, run a production-domain smoke test against `https://www.myfrphome.com`.

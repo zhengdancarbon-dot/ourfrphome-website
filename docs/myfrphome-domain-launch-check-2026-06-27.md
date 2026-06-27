@@ -57,6 +57,12 @@ Vercel CLI verification result:
 
 The previous custom domain was removed from Vercel after business owner confirmation. The Vercel team domain list now contains only `myfrphome.com`.
 
+Vercel domain redirect:
+
+| Source | Target | Status |
+| --- | --- | --- |
+| `myfrphome.com` | `www.myfrphome.com` | PASS: `308` |
+
 ## SEO URL Verification
 
 Generated output after `pnpm build`:
@@ -132,5 +138,4 @@ The inquiry form cannot send real email until `RESEND_API_KEY` is added in Verce
 
 ## Remaining Actions
 
-- Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain.
 - Add `RESEND_API_KEY` in Vercel before the live inquiry-form test.

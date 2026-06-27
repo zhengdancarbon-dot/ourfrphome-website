@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch blockers are adding `RESEND_API_KEY` and confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch blocker is adding `RESEND_API_KEY` before the live inquiry-form email test.
 
 ## Deployment Result
 
@@ -22,6 +22,7 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | Example generated deployment URL | PASS | `https://ourfrphome-website-m1nbunqlq-zhendgan.vercel.app` |
 | Custom domains in Vercel | PASS | `myfrphome.com` and `www.myfrphome.com` are added as aliases. |
 | DNS cutover | PASS | Aliyun / HiChina records were added and Vercel verifies both `myfrphome.com` and `www.myfrphome.com`. |
+| Vercel apex redirect | PASS | `myfrphome.com` redirects to `www.myfrphome.com` with status `308`. |
 | Latest domain deployment | PASS | Vercel production deployment reached `Ready` after commit `c31a6e3`. |
 | Google Search Console domain verification | PASS | Domain property `myfrphome.com` verified through Aliyun DNS TXT. |
 | Google Search Console sitemap submission | PASS | `https://www.myfrphome.com/sitemap.xml` submitted successfully. |
@@ -157,6 +158,10 @@ Code-level redirect:
 
 - PASS: `next.config.ts` redirects `myfrphome.com/:path*` to `https://www.myfrphome.com/:path*`.
 
+Vercel domain-level redirect:
+
+- PASS: Vercel project domain `myfrphome.com` has `redirect: "www.myfrphome.com"` and `redirectStatusCode: 308`.
+
 Live redirect check:
 
 - PASS: `https://myfrphome.com` returns `308` to `https://www.myfrphome.com/`.
@@ -198,8 +203,7 @@ Conflicting old website records for `@` and `www` were replaced. Mail-related MX
 Current result:
 
 - Vercel API and CLI inspection work and report the latest deployment as Ready.
-- Local browser/curl access to the `*.vercel.app` URL timed out from this network during testing.
-- Custom-domain browser checks are ready after the latest domain-change commit deploys.
+- Live custom-domain smoke checks pass for home, robots, sitemap, contact links, canonical URLs, Organization schema, and WebSite schema.
 - Google Search Console verified the domain property `myfrphome.com`.
 - Google Search Console accepted `https://www.myfrphome.com/sitemap.xml`.
 
@@ -225,17 +229,18 @@ Completed:
 - GitHub repo connected.
 - Custom domains added in Vercel.
 - Apex-to-www redirect added in code.
+- Apex-to-www redirect added in Vercel domain settings.
 - Latest deployment Ready.
+- Live robots, sitemap, canonical, and contact-link checks pass on `https://www.myfrphome.com`.
 
 Still required:
 
 - Add `RESEND_API_KEY` in Vercel.
-- Set or confirm `www.myfrphome.com` as the primary domain in Vercel.
-- Re-test robots, sitemap, canonical, mobile pages, and inquiry form on the live custom domain.
+- Re-test the inquiry form email delivery after `RESEND_API_KEY` is added.
 
 ## Remaining Risks
 
 - Contact form cannot send email until `RESEND_API_KEY` is set.
 - `INQUIRY_FROM_EMAIL` must match a Resend-verified sender/domain.
 - The previous custom domain was removed from Vercel after business owner confirmation.
-- The installed Vercel CLI does not expose a direct primary-domain command, so primary-domain confirmation should be done in the Vercel dashboard.
+- Vercel project listing may still display the latest production URL as `https://myfrphome.com`, but the edge redirect now sends visitors and crawlers to `https://www.myfrphome.com/`.

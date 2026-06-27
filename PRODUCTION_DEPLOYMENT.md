@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY` and confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch item is adding `RESEND_API_KEY` before the live inquiry-form email test.
 
 Stable Vercel project aliases:
 
@@ -163,12 +163,12 @@ Completed in Vercel:
 - Added `www.myfrphome.com`.
 - Added `myfrphome.com`.
 - Vercel verifies both custom domains as configured correctly.
+- Vercel domain settings redirect `myfrphome.com` to `www.myfrphome.com` with status `308`.
 - Latest Ready deployment has aliases for both custom domains.
 
 Still required:
 
 - Add `RESEND_API_KEY` in Vercel before live RFQ email testing.
-- Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production URL if the dashboard still shows a different primary domain.
 - Keep `www.myfrphome.com` as the primary public URL.
 
 Final canonical production URL:
@@ -243,7 +243,19 @@ Code-level redirect is already included in `next.config.ts`:
 myfrphome.com/:path* -> https://www.myfrphome.com/:path*
 ```
 
-Also confirm in Vercel Domains that `www.myfrphome.com` is treated as the primary production URL. The CLI does not expose a direct primary-domain command in the installed Vercel version, so this is a dashboard confirmation step.
+Vercel domain-level redirect is also configured:
+
+```text
+myfrphome.com -> www.myfrphome.com
+Status: 308
+```
+
+Live verification on 2026-06-27:
+
+```text
+https://myfrphome.com -> 308 Location: https://www.myfrphome.com/
+https://www.myfrphome.com -> 200
+```
 
 ## 9. Production SEO Verification
 
