@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, and Vercel verification are prepared for `myfrphome.com`. The remaining launch blockers are deploying the latest domain-change commit, adding `RESEND_API_KEY`, and confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, and production deployment are live for `https://www.myfrphome.com`. The remaining launch blockers are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed, and submitting the new sitemap to Google Search Console.
 
 ## Deployment Result
 
@@ -22,6 +22,7 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | Example generated deployment URL | PASS | `https://ourfrphome-website-m1nbunqlq-zhendgan.vercel.app` |
 | Custom domains in Vercel | PASS | `myfrphome.com` and `www.myfrphome.com` are added as aliases. |
 | DNS cutover | PASS | Aliyun / HiChina records were added and Vercel verifies both `myfrphome.com` and `www.myfrphome.com`. |
+| Latest domain deployment | PASS | Vercel production deployment reached `Ready` after commit `c31a6e3`. |
 
 Example generated deployment verified during setup:
 
@@ -102,7 +103,7 @@ Result:
 
 Live check status:
 
-- READY after the latest domain-change commit is deployed.
+- PASS: live custom-domain sitemap returns 26 URLs, all under `https://www.myfrphome.com`, including `/catalog`.
 
 ## Robots.txt Status
 
@@ -118,7 +119,7 @@ Result:
 
 Live check status:
 
-- READY after the latest domain-change commit is deployed.
+- PASS: live `robots.txt` references `Sitemap: https://www.myfrphome.com/sitemap.xml`.
 
 ## Production SEO URL Status
 
@@ -156,7 +157,7 @@ Code-level redirect:
 
 Live redirect check:
 
-- READY after the latest domain-change commit is deployed.
+- PASS: `https://myfrphome.com` returns `308` to `https://www.myfrphome.com/`.
 
 ## DNS Records Configured
 
@@ -219,7 +220,6 @@ Completed:
 Still required:
 
 - Add `RESEND_API_KEY` in Vercel.
-- Deploy the latest domain-change commit.
 - Set or confirm `www.myfrphome.com` as the primary domain in Vercel.
 - Re-test robots, sitemap, canonical, mobile pages, and inquiry form on the live custom domain.
 - Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.

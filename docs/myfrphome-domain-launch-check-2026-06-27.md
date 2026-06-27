@@ -79,11 +79,13 @@ Build artifact verification:
 | Production HTML legacy-domain scan | PASS: 29 HTML files checked, 0 old-domain hits |
 | Visible contact links | PASS: `mailto`, `tel`, and WhatsApp links found in generated HTML |
 
-Live custom-domain note:
+Live custom-domain result:
 
-- `https://www.myfrphome.com` already resolves through Vercel.
-- Before this domain-change commit is deployed, live `robots.txt` may still show the previous production sitemap URL.
-- Re-check live `robots.txt`, `sitemap.xml`, canonical tags, and apex-to-`www` redirect immediately after Vercel deploys this commit.
+- `https://www.myfrphome.com` resolves through Vercel and returns `200`.
+- `https://myfrphome.com` returns `308` to `https://www.myfrphome.com/`.
+- Live `robots.txt` references `Sitemap: https://www.myfrphome.com/sitemap.xml`.
+- Live `sitemap.xml` returns 26 URLs, all under `https://www.myfrphome.com`, including `/catalog`.
+- Live `/contact` contains `mailto:sales@tzcarbon.com`, `tel:+8613586461443`, and `https://wa.me/8613586461443`.
 
 ## Local Check Results
 
@@ -95,6 +97,10 @@ Live custom-domain note:
 | `git diff --check` | PASS |
 | DNS lookup | PASS: apex A records and `www` CNAME resolve |
 | Vercel domain verify | PASS: apex and `www` configured correctly |
+| Vercel production deployment | PASS: commit `c31a6e3` reached `Ready` |
+| Live robots/sitemap/contact links | PASS |
+| Live apex-to-`www` redirect | PASS |
+| Live `/api/inquiry` invalid payload | PASS: returns `400` validation errors |
 | Browser plugin mobile QA | NOT COMPLETED: in-app Browser automation timed out |
 | Playwright mobile QA | NOT COMPLETED: Chromium runtime download did not complete in time |
 
@@ -121,8 +127,6 @@ The inquiry form cannot send real email until `RESEND_API_KEY` is added in Verce
 
 ## Remaining Actions
 
-- Deploy the latest commit so production HTML uses `https://www.myfrphome.com`.
 - Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain.
 - Add `RESEND_API_KEY` in Vercel before the live inquiry-form test.
-- After deployment, open `https://www.myfrphome.com/robots.txt` and `https://www.myfrphome.com/sitemap.xml`.
 - Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.

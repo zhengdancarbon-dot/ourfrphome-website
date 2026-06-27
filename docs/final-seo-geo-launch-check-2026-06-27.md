@@ -2,7 +2,7 @@
 
 Production domain checked: `https://www.myfrphome.com`
 
-Deployment status: DNS and Vercel domain verification are ready for `myfrphome.com`; the latest domain-change commit still needs to be deployed before the production HTML is final.
+Deployment status: DNS, Vercel domain verification, and production deployment are live for `https://www.myfrphome.com`.
 
 ## Final Brand Standard
 

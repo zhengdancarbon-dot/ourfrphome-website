@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, and Vercel domain verification are prepared for `myfrphome.com`. The current working branch contains the production URL change to `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed, and deploying the latest commit.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, and production deployment are live for `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed, and submitting the new sitemap to Google Search Console.
 
 Stable Vercel project aliases:
 
@@ -168,7 +168,6 @@ Completed in Vercel:
 Still required:
 
 - Add `RESEND_API_KEY` in Vercel before live RFQ email testing.
-- Deploy the latest commit after final approval.
 - Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production URL if the dashboard still shows a different primary domain.
 - Keep `www.myfrphome.com` as the primary public URL.
 
@@ -244,7 +243,7 @@ Also confirm in Vercel Domains that `www.myfrphome.com` is treated as the primar
 
 ## 9. Production SEO Verification
 
-After the latest commit is deployed, verify:
+Live verification URLs:
 
 ```text
 https://www.myfrphome.com/sitemap.xml
@@ -269,7 +268,7 @@ Expected SEO results:
 
 ## 10. Post-Deployment Test Checklist
 
-Run these checks after the latest commit is deployed and `RESEND_API_KEY` is ready:
+Run these checks after `RESEND_API_KEY` is ready:
 
 - Open the home page on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.
