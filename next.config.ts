@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "ourfrphome.com" }],
+        destination: "https://www.ourfrphome.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/products/carbon-fiber-unidirectional-fabric",
         destination: "/products/carbon-fiber-ud-fabric",
         permanent: true,
