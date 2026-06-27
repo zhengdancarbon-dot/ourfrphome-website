@@ -1,0 +1,174 @@
+[
+  {
+    "id": "woven-fabric",
+    "group": "Carbon Fiber Woven Fabric",
+    "shortName": "Woven Fabric",
+    "positioning": "Balanced woven reinforcement for structural laminates and visible carbon surfaces.",
+    "products": [
+      "3K 200 g/m² twill carbon fiber fabric",
+      "3K 240 g/m² twill carbon fiber fabric",
+      "6K 300 g/m² carbon fiber fabric",
+      "12K 300 g/m² carbon fiber fabric",
+      "12K 400 g/m² twill carbon fiber fabric",
+      "12K 600 g/m² twill carbon fiber fabric"
+    ],
+    "specifications": [
+      ["Weave", "Plain / twill / satin"],
+      ["Width", "1000 / 1270 / 1500 mm / customized"],
+      ["Roll length", "50 / 100 m / customized"],
+      ["Tow size", "3K / 6K / 12K"]
+    ],
+    "applications": ["Automotive parts", "Marine composites", "Sports equipment", "Industrial panels", "Cosmetic carbon surfaces"],
+    "imagePlaceholder": "Insert carbon fiber woven fabric roll image here"
+  },
+  {
+    "id": "ud-fabric",
+    "group": "UD Carbon Fiber Fabric",
+    "shortName": "UD Fabric",
+    "positioning": "Directional reinforcement with most fibers aligned in the primary load direction.",
+    "products": ["UD 200 g/m²", "UD 300 g/m²", "UD 450 g/m²", "UD 600 g/m²"],
+    "specifications": [
+      ["Fiber", "12K / 24K"],
+      ["Width", "1000 mm / customized"],
+      ["Fiber direction", "0° principal direction"],
+      ["Supply form", "Full-width or slit rolls by review"]
+    ],
+    "applications": ["Structural reinforcement", "Carbon plates", "Sports equipment", "Industrial composite parts"],
+    "imagePlaceholder": "Insert UD carbon fiber fabric image here"
+  },
+  {
+    "id": "multiaxial-ncf",
+    "group": "Multiaxial Carbon Fiber Fabric / NCF",
+    "shortName": "Multiaxial NCF",
+    "positioning": "Stitched non-crimp reinforcement for efficient multi-directional laminate design.",
+    "products": ["Biaxial ±45°", "Biaxial 0/90°", "Triaxial", "Quadraxial"],
+    "specifications": [
+      ["Weight", "300 / 600 g/m² / customized"],
+      ["Width", "1270 mm / customized"],
+      ["Fiber angles", "0° / 90° / +45° / -45° combinations"],
+      ["Construction", "Stitched non-crimp layers"]
+    ],
+    "applications": ["Marine structures", "Automotive panels", "Large composite shells", "Industrial laminates"],
+    "imagePlaceholder": "Insert multiaxial carbon fiber NCF image here"
+  },
+  {
+    "id": "spread-tow",
+    "group": "Spread Tow Carbon Fiber Fabric",
+    "shortName": "Spread Tow",
+    "positioning": "Lightweight, thin carbon fabric with a wider spread-yarn structure and low visual crimp.",
+    "products": ["Lightweight spread-tow fabric", "Thin cosmetic spread-tow fabric", "Custom tow-pattern fabric"],
+    "specifications": [
+      ["Construction", "Wider spread-yarn structure"],
+      ["Weight", "Project-specific / customized"],
+      ["Width", "Customized"],
+      ["Surface", "Balanced spread-tow appearance"]
+    ],
+    "applications": ["Sports equipment", "Automotive parts", "Marine parts", "Cosmetic composite surfaces"],
+    "imagePlaceholder": "Insert spread tow carbon fiber fabric image here"
+  },
+  {
+    "id": "prepreg",
+    "group": "Carbon Fiber Prepreg",
+    "shortName": "Prepreg",
+    "positioning": "Pre-impregnated carbon reinforcement for controlled resin content and repeatable molding.",
+    "products": ["UD carbon fiber prepreg 200 g/m²", "UD carbon fiber prepreg 300 g/m²", "3K 200 g/m² twill carbon fiber prepreg", "12K carbon fiber prepreg"],
+    "specifications": [
+      ["Resin content", "35-40% typical"],
+      ["Storage", "-18°C typical; confirm by resin system"],
+      ["Backing", "Release paper or film by order"],
+      ["Cure profile", "Confirmed by selected resin system"]
+    ],
+    "applications": ["Hot press", "Vacuum bagging", "Autoclave", "Composite molding"],
+    "imagePlaceholder": "Insert carbon fiber prepreg roll image here"
+  },
+  {
+    "id": "plates",
+    "group": "Carbon Fiber Plates",
+    "shortName": "Carbon Plates",
+    "positioning": "Pultruded strengthening profiles and laminated sheets for structural or precision components.",
+    "products": ["Pultruded carbon fiber plate", "Laminated carbon fiber sheet", "CNC carbon fiber plate"],
+    "specifications": [
+      ["Thickness", "0.5-30 mm / customized"],
+      ["Surface", "Matte / glossy / twill / plain"],
+      ["Sheet size", "Standard and customized formats"],
+      ["Processing", "Cutting / drilling / CNC machining by review"]
+    ],
+    "applications": ["Structural strengthening", "Drone frames", "RC parts", "Industrial fixtures", "Custom machined components"],
+    "imagePlaceholder": "Insert carbon fiber plate image here"
+  },
+  {
+    "id": "tubes",
+    "group": "Carbon Fiber Tubes",
+    "shortName": "Carbon Tubes",
+    "positioning": "Roll-wrapped and pultruded tube systems for lightweight structures and visible components.",
+    "products": ["Roll-wrapped carbon fiber tube", "Pultruded carbon fiber tube", "Custom carbon fiber tube"],
+    "specifications": [
+      ["Surface", "Matte / glossy"],
+      ["Dimensions", "OD / ID / wall thickness customized"],
+      ["Length", "Customized"],
+      ["Shape", "Round / square / rectangular / profile by review"]
+    ],
+    "applications": ["Drones", "Sports equipment", "Industrial automation", "Marine hardware", "Consumer products"],
+    "imagePlaceholder": "Insert carbon fiber tube image here"
+  },
+  {
+    "id": "yarn-roving",
+    "group": "Carbon Fiber Yarn / Roving",
+    "shortName": "Yarn & Tow",
+    "positioning": "Continuous carbon-fiber input material for weaving, pultrusion, winding and prepreg conversion.",
+    "products": ["3K", "6K", "12K", "24K", "25K", "48K"],
+    "specifications": [
+      ["Grade", "T300 / T700 / high-strength grade"],
+      ["Sizing", "Selected for downstream matrix and process"],
+      ["Package", "Bobbin / spool by supplier standard"],
+      ["Availability", "Brand and grade subject to confirmation"]
+    ],
+    "applications": ["Weaving", "Pultrusion", "Filament winding", "Prepreg", "Chopped fiber"],
+    "imagePlaceholder": "Insert carbon fiber yarn and roving spool image here"
+  },
+  {
+    "id": "chopped-fiber",
+    "group": "Chopped Carbon Fiber",
+    "shortName": "Chopped Fiber",
+    "positioning": "Short carbon-fiber reinforcement for polymer compounds and specialty composite formulations.",
+    "products": ["3 mm", "5 mm", "6 mm", "10 mm", "Customized length"],
+    "specifications": [
+      ["Cut length", "3 / 5 / 6 / 10 mm / customized"],
+      ["Sizing", "Matrix-compatible sizing by review"],
+      ["Packing", "Bag / carton / drum by order"],
+      ["Storage", "Dry and sealed"]
+    ],
+    "applications": ["Reinforced plastics", "Conductive plastics", "Injection molding", "Composite reinforcement"],
+    "imagePlaceholder": "Insert chopped carbon fiber image here"
+  },
+  {
+    "id": "hybrid-fabrics",
+    "group": "Aramid / Carbon Kevlar / Hybrid Fabric",
+    "shortName": "Hybrid Fabrics",
+    "positioning": "Tough, lightweight and decorative reinforcements combining carbon, aramid or colored fibers.",
+    "products": ["Aramid fabric", "Carbon/aramid hybrid fabric", "Colored hybrid fabric"],
+    "specifications": [
+      ["Weave", "Plain / twill / jacquard by review"],
+      ["Color", "Natural aramid and colored hybrid options"],
+      ["Width", "Standard and customized"],
+      ["Product naming", "Use branded fiber names only when verified"]
+    ],
+    "applications": ["Protection", "Sports equipment", "Decorative composite parts", "Lightweight reinforcement"],
+    "imagePlaceholder": "Insert aramid and carbon hybrid fabric image here"
+  },
+  {
+    "id": "accessories",
+    "group": "Composite Accessories",
+    "shortName": "Accessories",
+    "positioning": "Supporting materials for bonding, vacuum processing, release and complementary reinforcement.",
+    "products": ["Epoxy adhesive", "Carbon fiber plate glue", "Release film", "Vacuum bagging film", "Peel ply", "Release paper", "Glass fiber fabric", "Basalt fiber fabric"],
+    "specifications": [
+      ["Compatibility", "Confirm resin, temperature and process"],
+      ["Dimensions", "Width / thickness / weight by item"],
+      ["Packing", "Roll / kit / pail / carton by product"],
+      ["Availability", "Subject to product and destination review"]
+    ],
+    "applications": ["Structural bonding", "Vacuum bagging", "Prepreg processing", "Composite layup", "Hybrid reinforcement"],
+    "imagePlaceholder": "Insert composite accessories group image here"
+  }
+]

@@ -1,0 +1,16 @@
+.next
+node_modules
+.npm-cache
+.pnpm-store
+.tools
+.vercel
+.DS_Store
+*.log
+.env*
+!.env.example
+output
+tmp
+.codex-output-work
+site-review-screenshots
+site-review-screenshots.zip
+tsconfig.tsbuildinfo
