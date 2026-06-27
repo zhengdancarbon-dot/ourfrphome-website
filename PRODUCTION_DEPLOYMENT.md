@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, and production deployment are live for `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed, and submitting the new sitemap to Google Search Console.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. Remaining launch items are adding `RESEND_API_KEY` and confirming `www.myfrphome.com` as the primary Vercel domain in the dashboard if needed.
 
 Stable Vercel project aliases:
 
@@ -208,6 +208,10 @@ Before saving DNS:
 - Remove old `A`, `AAAA`, or `CNAME` records for `@` if they point to another website host.
 - Remove old `A`, `AAAA`, or `CNAME` records for `www` if they point to another website host.
 - Keep unrelated MX/TXT records for business email, SPF, DKIM, DMARC, Google Search Console, and Resend verification.
+- Keep the Google Search Console TXT record:
+  - Host: `@`
+  - Type: `TXT`
+  - Value: `google-site-verification=_mCgTsfzhKlTLF8Lx9nweEo9n4rcJt-mpxSzi59HE-0`
 
 After saving DNS:
 
@@ -284,7 +288,7 @@ Run these checks after `RESEND_API_KEY` is ready:
 - Open `/sitemap.xml` and confirm all URLs use `https://www.myfrphome.com`.
 - Open `/robots.txt` and confirm the sitemap line is correct.
 - Test a nonexistent URL and confirm the 404 page appears.
-- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.
+- Confirm Google Search Console shows `https://www.myfrphome.com/sitemap.xml` as submitted.
 
 ## 11. Rollback Method
 

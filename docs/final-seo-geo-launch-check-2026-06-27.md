@@ -2,7 +2,7 @@
 
 Production domain checked: `https://www.myfrphome.com`
 
-Deployment status: DNS, Vercel domain verification, and production deployment are live for `https://www.myfrphome.com`.
+Deployment status: DNS, Vercel domain verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`.
 
 ## Final Brand Standard
 
@@ -116,6 +116,8 @@ These should not be uploaded to production unless regenerated with the final FRP
 | `robots.txt` | PASS | Status `200`; sitemap line is `Sitemap: https://www.myfrphome.com/sitemap.xml`. |
 | `sitemap.xml` domain | PASS | 26 URLs; every `<loc>` uses `https://www.myfrphome.com`. |
 | `/catalog` in sitemap | PASS | `https://www.myfrphome.com/catalog` is present. |
+| Google Search Console domain verification | PASS | `myfrphome.com` verified by Aliyun DNS TXT. |
+| Google Search Console sitemap submission | PASS | `https://www.myfrphome.com/sitemap.xml` submitted successfully. |
 | Page statuses | PASS | 26 sitemap pages checked; no non-200 statuses. |
 | Canonical tags | PASS | No missing canonicals; no canonical points outside `https://www.myfrphome.com`. |
 | OpenGraph URLs | PASS | No `og:url` points outside `https://www.myfrphome.com`. |
@@ -166,4 +168,3 @@ Remaining recommendations before public launch:
 - Add `RESEND_API_KEY` in Vercel before the live inquiry-form email test.
 - Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain if needed.
 - After deployment, run a production-domain smoke test against `https://www.myfrphome.com`.
-- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console after production HTTPS is confirmed.

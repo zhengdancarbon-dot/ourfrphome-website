@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, and production deployment are live for `https://www.myfrphome.com`. The remaining launch blockers are adding `RESEND_API_KEY`, confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed, and submitting the new sitemap to Google Search Console.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch blockers are adding `RESEND_API_KEY` and confirming `www.myfrphome.com` as the primary production domain in the Vercel dashboard if needed.
 
 ## Deployment Result
 
@@ -23,6 +23,8 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | Custom domains in Vercel | PASS | `myfrphome.com` and `www.myfrphome.com` are added as aliases. |
 | DNS cutover | PASS | Aliyun / HiChina records were added and Vercel verifies both `myfrphome.com` and `www.myfrphome.com`. |
 | Latest domain deployment | PASS | Vercel production deployment reached `Ready` after commit `c31a6e3`. |
+| Google Search Console domain verification | PASS | Domain property `myfrphome.com` verified through Aliyun DNS TXT. |
+| Google Search Console sitemap submission | PASS | `https://www.myfrphome.com/sitemap.xml` submitted successfully. |
 
 Example generated deployment verified during setup:
 
@@ -176,6 +178,12 @@ Configured records from Vercel verification:
 | `@` | `A` | `64.29.17.1` | `600` or default |
 | `www` | `CNAME` | `c91344a3f5377e63.vercel-dns-017.com` | `600` or default |
 
+Configured record from Google Search Console verification:
+
+| Host Record | Type | Value | TTL |
+| --- | --- | --- | --- |
+| `@` | `TXT` | `google-site-verification=_mCgTsfzhKlTLF8Lx9nweEo9n4rcJt-mpxSzi59HE-0` | `600` or default |
+
 Fallback records if the Aliyun UI or Vercel domain screen ever requires the simpler Vercel default:
 
 | Host Record | Type | Value | TTL |
@@ -192,6 +200,8 @@ Current result:
 - Vercel API and CLI inspection work and report the latest deployment as Ready.
 - Local browser/curl access to the `*.vercel.app` URL timed out from this network during testing.
 - Custom-domain browser checks are ready after the latest domain-change commit deploys.
+- Google Search Console verified the domain property `myfrphome.com`.
+- Google Search Console accepted `https://www.myfrphome.com/sitemap.xml`.
 
 Required after DNS:
 
@@ -222,7 +232,6 @@ Still required:
 - Add `RESEND_API_KEY` in Vercel.
 - Set or confirm `www.myfrphome.com` as the primary domain in Vercel.
 - Re-test robots, sitemap, canonical, mobile pages, and inquiry form on the live custom domain.
-- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.
 
 ## Remaining Risks
 

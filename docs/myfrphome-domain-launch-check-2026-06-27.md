@@ -42,6 +42,7 @@ Website records added:
 | `@` | `A` | `216.198.79.1` | Verified |
 | `@` | `A` | `64.29.17.1` | Verified |
 | `www` | `CNAME` | `c91344a3f5377e63.vercel-dns-017.com` | Verified |
+| `@` | `TXT` | `google-site-verification=_mCgTsfzhKlTLF8Lx9nweEo9n4rcJt-mpxSzi59HE-0` | Verified |
 
 Existing business email records were left untouched, including Aliyun Mail MX, SPF TXT, and mail service CNAME records.
 
@@ -86,6 +87,8 @@ Live custom-domain result:
 - Live `robots.txt` references `Sitemap: https://www.myfrphome.com/sitemap.xml`.
 - Live `sitemap.xml` returns 26 URLs, all under `https://www.myfrphome.com`, including `/catalog`.
 - Live `/contact` contains `mailto:sales@tzcarbon.com`, `tel:+8613586461443`, and `https://wa.me/8613586461443`.
+- Google Search Console domain property `myfrphome.com` is verified by DNS TXT.
+- Google Search Console accepted `https://www.myfrphome.com/sitemap.xml` with `Sitemap submitted successfully`.
 
 ## Local Check Results
 
@@ -101,6 +104,8 @@ Live custom-domain result:
 | Live robots/sitemap/contact links | PASS |
 | Live apex-to-`www` redirect | PASS |
 | Live `/api/inquiry` invalid payload | PASS: returns `400` validation errors |
+| Google Search Console DNS verification | PASS |
+| Google Search Console sitemap submission | PASS |
 | Browser plugin mobile QA | NOT COMPLETED: in-app Browser automation timed out |
 | Playwright mobile QA | NOT COMPLETED: Chromium runtime download did not complete in time |
 
@@ -129,4 +134,3 @@ The inquiry form cannot send real email until `RESEND_API_KEY` is added in Verce
 
 - Confirm in the Vercel dashboard that `www.myfrphome.com` is the primary production domain.
 - Add `RESEND_API_KEY` in Vercel before the live inquiry-form test.
-- Submit `https://www.myfrphome.com/sitemap.xml` in Google Search Console.
