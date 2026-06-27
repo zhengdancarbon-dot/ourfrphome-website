@@ -228,5 +228,5 @@ Still required:
 
 - Contact form cannot send email until `RESEND_API_KEY` is set.
 - `INQUIRY_FROM_EMAIL` must match a Resend-verified sender/domain.
-- The previous custom domain remains in Vercel and should only be removed or redirected after the business owner confirms.
+- The previous custom domain was removed from Vercel after business owner confirmation.
 - The installed Vercel CLI does not expose a direct primary-domain command, so primary-domain confirmation should be done in the Vercel dashboard.

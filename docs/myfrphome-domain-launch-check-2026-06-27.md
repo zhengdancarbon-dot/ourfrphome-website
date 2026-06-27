@@ -54,7 +54,7 @@ Vercel CLI verification result:
 | `myfrphome.com` | PASS | A records |
 | `www.myfrphome.com` | PASS | CNAME |
 
-The Vercel account still also contains the previous custom domain. It should not be removed until the business owner confirms what to do with that old domain.
+The previous custom domain was removed from Vercel after business owner confirmation. The Vercel team domain list now contains only `myfrphome.com`.
 
 ## SEO URL Verification
 
