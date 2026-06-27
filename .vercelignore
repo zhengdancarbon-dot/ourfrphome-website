@@ -1,0 +1,15 @@
+.DS_Store
+.codex-output-work
+.git
+.next
+.npm-cache
+.pnpm-store
+.tools
+.vercel
+*.log
+node_modules
+output
+site-review-screenshots
+site-review-screenshots.zip
+tmp
+tsconfig.tsbuildinfo
