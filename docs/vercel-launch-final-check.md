@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch blocker is adding `RESEND_API_KEY` before the live inquiry-form email test.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. The remaining launch blocker is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test.
 
 ## Deployment Result
 
@@ -71,7 +71,7 @@ Status:
 - PASS: invalid RFQ payload returns `400` validation errors.
 - PASS: valid RFQ payload without `RESEND_API_KEY` returns expected `503` email-service response.
 - READY FOR VERCEL: this route should run as a Vercel Node.js serverless function.
-- PENDING: live email delivery test after `RESEND_API_KEY` is added.
+- PENDING: live email delivery test after the `myfrphome.com` sender domain is verified in Resend.
 
 Environment variables:
 
@@ -82,12 +82,12 @@ Environment variables:
 | `NEXT_PUBLIC_CONTACT_PHONE` | Configured |
 | `NEXT_PUBLIC_CONTACT_WHATSAPP` | Configured |
 | `INQUIRY_TO_EMAIL` | Configured |
-| `INQUIRY_FROM_EMAIL` | Configured |
-| `RESEND_API_KEY` | Missing - add securely in Vercel |
+| `INQUIRY_FROM_EMAIL` | Configured in Production and Development; code fallback uses `website@myfrphome.com` |
+| `RESEND_API_KEY` | Configured in Vercel |
 
 Important API risk:
 
-- The contact form will not send email until `RESEND_API_KEY` is set and `INQUIRY_FROM_EMAIL` uses a Resend-verified sender/domain.
+- The contact form will not pass the final live email test until `INQUIRY_FROM_EMAIL` uses a Resend-verified sender/domain.
 
 ## Sitemap Status
 
@@ -189,6 +189,15 @@ Configured record from Google Search Console verification:
 | --- | --- | --- | --- |
 | `@` | `TXT` | `google-site-verification=_mCgTsfzhKlTLF8Lx9nweEo9n4rcJt-mpxSzi59HE-0` | `600` or default |
 
+Configured records from Resend sender-domain verification:
+
+| Host Record | Type | Value | TTL |
+| --- | --- | --- | --- |
+| `resend._domainkey` | `TXT` | DKIM public key returned by Resend | `600` or default |
+| `send` | `MX` | `feedback-smtp.ap-northeast-1.amazonses.com` with priority `10` | `600` or default |
+| `send` | `TXT` | `v=spf1 include:amazonses.com ~all` | `600` or default |
+| `_dmarc` | `TXT` | `v=DMARC1; p=none;` | `600` or default |
+
 Fallback records if the Aliyun UI or Vercel domain screen ever requires the simpler Vercel default:
 
 | Host Record | Type | Value | TTL |
@@ -235,12 +244,12 @@ Completed:
 
 Still required:
 
-- Add `RESEND_API_KEY` in Vercel.
-- Re-test the inquiry form email delivery after `RESEND_API_KEY` is added.
+- Verify the `myfrphome.com` sender domain in Resend.
+- Re-test the inquiry form email delivery after sender-domain verification.
 
 ## Remaining Risks
 
-- Contact form cannot send email until `RESEND_API_KEY` is set.
-- `INQUIRY_FROM_EMAIL` must match a Resend-verified sender/domain.
+- Contact form live delivery remains pending until Resend marks `myfrphome.com` verified.
+- `INQUIRY_FROM_EMAIL` must remain `FRP HOME Website <website@myfrphome.com>` or another Resend-verified sender.
 - The previous custom domain was removed from Vercel after business owner confirmation.
 - Vercel project listing may still display the latest production URL as `https://myfrphome.com`, but the edge redirect now sends visitors and crawlers to `https://www.myfrphome.com/`.

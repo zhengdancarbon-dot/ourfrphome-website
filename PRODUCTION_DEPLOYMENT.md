@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, and sitemap submission are live for `https://www.myfrphome.com`. The remaining launch item is adding `RESEND_API_KEY` before the live inquiry-form email test.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. The remaining launch item is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test.
 
 Stable Vercel project aliases:
 
@@ -68,7 +68,7 @@ Deployment upload note:
 
 ## 3. Required Environment Variables
 
-These variables should exist in Vercel Production, Preview, and Development environments:
+These variables should exist in Vercel Production, Preview, and Development environments. Production and Development currently have `INQUIRY_FROM_EMAIL` set explicitly; Preview can use the same value through code fallback if Vercel does not allow a global Preview variable without a non-production branch.
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://www.myfrphome.com
@@ -76,20 +76,20 @@ NEXT_PUBLIC_CONTACT_EMAIL=sales@tzcarbon.com
 NEXT_PUBLIC_CONTACT_PHONE=+86-13586461443
 NEXT_PUBLIC_CONTACT_WHATSAPP=+86-13586461443
 INQUIRY_TO_EMAIL=sales@tzcarbon.com
-INQUIRY_FROM_EMAIL=FRP HOME Website <website@tzcarbon.com>
+INQUIRY_FROM_EMAIL=FRP HOME Website <website@myfrphome.com>
 RESEND_API_KEY=re_your_production_key
 ```
 
 Current setup result:
 
-- Configured in Vercel: all variables above except `RESEND_API_KEY`.
-- Still required: add `RESEND_API_KEY` securely in Vercel. Do not paste the secret into chat or commit it to Git.
+- Configured in Vercel: `RESEND_API_KEY` and the public/contact variables are present.
+- Required before final email pass: verify the `myfrphome.com` sending domain in Resend, then redeploy if any environment variable was changed.
 
 Important notes:
 
 - `RESEND_API_KEY` is required for the contact/RFQ form to send email.
 - `INQUIRY_FROM_EMAIL` must use a domain or subdomain verified in Resend.
-- If `website@tzcarbon.com` is not verified in Resend, use the exact verified sender shown in Resend.
+- Current sender standard: `FRP HOME Website <website@myfrphome.com>`.
 - Redeploy after changing environment variables.
 
 ## 4. API Route Check
@@ -123,7 +123,7 @@ The route uses:
 Vercel compatibility:
 
 - PASS: Route Handler uses the Vercel-compatible Node.js runtime.
-- Remaining: live form email delivery test after `RESEND_API_KEY` is added.
+- Remaining: live form email delivery test after the `myfrphome.com` sender domain is verified in Resend.
 
 ## 5. Deploy To Vercel
 
@@ -168,7 +168,7 @@ Completed in Vercel:
 
 Still required:
 
-- Add `RESEND_API_KEY` in Vercel before live RFQ email testing.
+- Verify the `myfrphome.com` sender domain in Resend before live RFQ email testing.
 - Keep `www.myfrphome.com` as the primary public URL.
 
 Final canonical production URL:
@@ -284,7 +284,7 @@ Expected SEO results:
 
 ## 10. Post-Deployment Test Checklist
 
-Run these checks after `RESEND_API_KEY` is ready:
+Run these checks after the `myfrphome.com` sender domain is verified in Resend:
 
 - Open the home page on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.

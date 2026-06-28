@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     const toEmail = process.env.INQUIRY_TO_EMAIL || siteConfig.email;
     const fromEmail =
       process.env.INQUIRY_FROM_EMAIL ||
-      "FRP HOME Website <website@tzcarbon.com>";
+      "FRP HOME Website <website@myfrphome.com>";
 
     if (!resendApiKey) {
       console.error("Inquiry email delivery is not configured: RESEND_API_KEY is missing.");

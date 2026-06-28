@@ -43,7 +43,7 @@ Scope checked:
 | Term | Where it appears | Keep or replace | Recommended final wording |
 | --- | --- | --- | --- |
 | `myfrphome.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, prior QA docs | Keep | Use only `https://www.myfrphome.com` for production URLs |
-| `tzcarbon.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, `app/api/inquiry/route.ts`, prior QA docs | Keep for email only | `sales@tzcarbon.com`, `website@tzcarbon.com`, and Resend/mail verification notes |
+| `tzcarbon.com` | `.env.example`, `PRODUCTION_DEPLOYMENT.md`, `lib/site-config.ts`, prior QA docs | Keep for public sales email only | `sales@tzcarbon.com`; use `website@myfrphome.com` for Resend sending |
 | `FRP HOME` | Site metadata, header/footer, catalog, product copy, reports, README | Keep | `FRP HOME` |
 | `Zhejiang FRPHome New Material Co., Ltd.` | `lib/site-config.ts`, `app/layout.tsx`, footer, about page, catalog, README | Keep | `Zhejiang FRPHome New Material Co., Ltd.` |
 | `Fuhao` | No active English website/source wording after correction. Chinese `福昊` appears in logo alt and Chinese company text. | Keep Chinese `福昊`; do not use `Zhejiang Fuhao New Materials Co., Ltd.` as the English company name | `Zhejiang FRPHome New Material Co., Ltd. / 浙江福昊新材料有限公司` |

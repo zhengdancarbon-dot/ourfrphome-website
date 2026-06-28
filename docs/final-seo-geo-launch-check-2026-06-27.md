@@ -168,4 +168,4 @@ Public primary-domain behavior is now enforced by both code-level redirect and V
 Remaining recommendations before public launch:
 
 - Do not upload legacy files from `output/`, `tmp/`, or `.codex-output-work/` unless regenerated with the final FRP HOME standard.
-- Add `RESEND_API_KEY` in Vercel before the live inquiry-form email test.
+- Verify the `myfrphome.com` sender domain in Resend before the live inquiry-form email test.

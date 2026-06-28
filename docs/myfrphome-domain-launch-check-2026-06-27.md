@@ -46,6 +46,15 @@ Website records added:
 
 Existing business email records were left untouched, including Aliyun Mail MX, SPF TXT, and mail service CNAME records.
 
+Resend sender-domain records added and verified against Aliyun authoritative DNS:
+
+| Host Record | Type | Value | Status |
+| --- | --- | --- | --- |
+| `resend._domainkey` | `TXT` | DKIM public key returned by Resend | Verified |
+| `send` | `MX` | `feedback-smtp.ap-northeast-1.amazonses.com`, priority `10` | Verified |
+| `send` | `TXT` | `v=spf1 include:amazonses.com ~all` | Verified |
+| `_dmarc` | `TXT` | `v=DMARC1; p=none;` | Verified |
+
 ## Vercel Domain Verification
 
 Vercel CLI verification result:
@@ -128,14 +137,20 @@ Configured environment variables:
 - `NEXT_PUBLIC_CONTACT_PHONE=+86-13586461443`
 - `NEXT_PUBLIC_CONTACT_WHATSAPP=+86-13586461443`
 - `INQUIRY_TO_EMAIL=sales@tzcarbon.com`
-- `INQUIRY_FROM_EMAIL=FRP HOME Website <website@tzcarbon.com>`
+- `INQUIRY_FROM_EMAIL=FRP HOME Website <website@myfrphome.com>`
 
-Remaining required secret:
+Configured secret:
 
 - `RESEND_API_KEY`
 
-The inquiry form cannot send real email until `RESEND_API_KEY` is added in Vercel and the sender is verified in Resend.
+Vercel environment status:
+
+- Production: `INQUIRY_FROM_EMAIL` updated to `FRP HOME Website <website@myfrphome.com>`.
+- Development: `INQUIRY_FROM_EMAIL` updated to `FRP HOME Website <website@myfrphome.com>`.
+- Preview: Vercel required a non-production branch-specific variable; the current code fallback now uses `website@myfrphome.com`.
+
+The inquiry form cannot pass the final live email test until the `myfrphome.com` sender domain is verified in Resend.
 
 ## Remaining Actions
 
-- Add `RESEND_API_KEY` in Vercel before the live inquiry-form test.
+- Verify the `myfrphome.com` sender domain in Resend before the live inquiry-form test.
