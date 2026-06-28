@@ -1420,7 +1420,11 @@ export const productCatalog: ProductCatalogItem[] = [
       "Carbon fiber yarn and tow supply covering Zhongfu Shenying, Jilin Chemical Fiber, Jiangsu Hengshen, Hyosung TANSOME and other brand options by availability, with export compliance document support.",
     heroCopy:
       "Carbon fiber yarn and tow are available for weaving, pultrusion, filament winding, prepregging and downstream conversion, with brand, tow size, sizing and export compliance requirements reviewed by application.",
-    image: "/images/carbon-fiber-industrial-placeholder.svg",
+    image: "/images/products/carbon-fiber-yarn-and-tow.jpg",
+    gallery: [
+      "/images/products/carbon-fiber-yarn-and-tow.jpg",
+      "/images/products/carbon-fiber-yarn-and-tow-spools.jpg",
+    ],
     visualLabel: "12K / 24K / 50K carbon fiber tow spools",
     position: "71% 42%",
     seo: {

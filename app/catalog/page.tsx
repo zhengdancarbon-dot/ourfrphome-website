@@ -591,6 +591,8 @@ export default function CatalogPageRoute() {
             ["24K / 25K", "Industrial and high-strength options", "By matrix", "Supplier standard", "Pultrusion / winding"],
             ["48K", "Large-tow industrial option", "By process", "Supplier standard", "Industrial conversion"],
           ]}
+          imageSrc="/images/products/carbon-fiber-yarn-and-tow.jpg"
+          imageAlt="FRP HOME carbon fiber yarn and tow spools"
           note="Brand, grade, export terms and batch availability must be confirmed before quotation."
         />
 
