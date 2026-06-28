@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, Resend DNS records, and Resend sender-domain verification are complete for `https://www.myfrphome.com`. The production inquiry form now sends through `FRP HOME Website <website@myfrphome.com>`.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, Resend DNS records, Resend sender-domain verification, and production inquiry email delivery are complete for `https://www.myfrphome.com`. The production inquiry form now sends through `FRP HOME Website <website@myfrphome.com>`.
 
 ## Deployment Result
 
@@ -72,7 +72,7 @@ Status:
 - PASS: invalid RFQ payload returns `400` validation errors.
 - PASS: valid RFQ payload without `RESEND_API_KEY` returns expected `503` email-service response.
 - READY FOR VERCEL: this route should run as a Vercel Node.js serverless function.
-- PASS: live valid RFQ payload returns `200 {"ok":true}` after Resend verified `myfrphome.com`.
+- PASS: live valid RFQ payload returns `200 {"ok":true}` after Resend verified `myfrphome.com`, and the mailbox received the test inquiry.
 
 Environment variables:
 
@@ -226,7 +226,7 @@ Required after DNS:
 - Confirm all product images load.
 - Confirm the header mobile menu opens and links navigate.
 - Submit the contact form without attachment.
-- Confirm inquiry email arrives at `sales@tzcarbon.com`.
+- PASS: inquiry email arrives at `sales@tzcarbon.com`.
 - Submit a valid PDF or image attachment under 4 MB.
 - Open `/sitemap.xml` and confirm all URLs use `https://www.myfrphome.com`.
 - Open `/robots.txt` and confirm the sitemap line is correct.
@@ -246,7 +246,7 @@ Completed:
 
 Still required:
 
-- Confirm the test inquiry email is visible in the `sales@tzcarbon.com` mailbox.
+- PASS: the test inquiry email is visible in the `sales@tzcarbon.com` mailbox.
 
 ## Remaining Risks
 

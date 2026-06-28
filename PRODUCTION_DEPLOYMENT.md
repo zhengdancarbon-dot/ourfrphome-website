@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, Resend DNS records, and Resend sender-domain verification are complete for `https://www.myfrphome.com`. The production inquiry form now sends through `FRP HOME Website <website@myfrphome.com>`.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, Resend DNS records, Resend sender-domain verification, and production inquiry email delivery are complete for `https://www.myfrphome.com`. The production inquiry form now sends through `FRP HOME Website <website@myfrphome.com>`.
 
 Stable Vercel project aliases:
 
@@ -111,7 +111,7 @@ Expected behavior:
 - Invalid RFQ payload returns `400` with validation errors.
 - Valid RFQ payload without `RESEND_API_KEY` returns `503` with `Email service is temporarily unavailable.`
 - Valid RFQ payload with `RESEND_API_KEY`, verified sender, and working recipient should send email through Resend.
-- Current live production result after Resend verification: valid RFQ payload returns `200 {"ok":true}`.
+- Current live production result after Resend verification: valid RFQ payload returns `200 {"ok":true}` and the test inquiry was received at `sales@tzcarbon.com`.
 
 The route uses:
 
@@ -292,7 +292,7 @@ Run these checks after future production changes:
 - Confirm all product images load.
 - Confirm the header mobile menu opens and links navigate.
 - Submit the contact form without attachment.
-- Confirm inquiry email arrives at `sales@tzcarbon.com`.
+- PASS: inquiry email arrives at `sales@tzcarbon.com`.
 - Reply to the inquiry email and confirm the buyer email is used as `reply_to`.
 - Submit a valid PDF or image attachment under 4 MB.
 - Confirm the attachment arrives.
