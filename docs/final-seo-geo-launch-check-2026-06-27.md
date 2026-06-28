@@ -168,4 +168,4 @@ Public primary-domain behavior is now enforced by both code-level redirect and V
 Remaining recommendations before public launch:
 
 - Do not upload legacy files from `output/`, `tmp/`, or `.codex-output-work/` unless regenerated with the final FRP HOME standard.
-- Verify the `myfrphome.com` sender domain in Resend before the live inquiry-form email test.
+- Keep `FRP HOME Website <website@myfrphome.com>` or another Resend-verified sender for inquiry email delivery.

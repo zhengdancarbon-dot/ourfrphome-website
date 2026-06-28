@@ -119,7 +119,7 @@ Live custom-domain result:
 | Live robots/sitemap/contact links | PASS |
 | Live apex-to-`www` redirect | PASS |
 | Live `/api/inquiry` invalid payload | PASS: returns `400` validation errors |
-| Live `/api/inquiry` valid payload | PENDING: returns `502` because Resend reports `myfrphome.com` is not verified |
+| Live `/api/inquiry` valid payload | PASS: returns `200 {"ok":true}` after Resend verified `myfrphome.com` |
 | Resend DNS records | PASS: DKIM, MX, SPF, and DMARC records resolve from `dns15.hichina.com` |
 | Google Search Console DNS verification | PASS |
 | Google Search Console sitemap submission | PASS |
@@ -151,14 +151,14 @@ Vercel environment status:
 - Development: `INQUIRY_FROM_EMAIL` updated to `FRP HOME Website <website@myfrphome.com>`.
 - Preview: Vercel required a non-production branch-specific variable; the current code fallback now uses `website@myfrphome.com`.
 
-The inquiry form cannot pass the final live email test until the `myfrphome.com` sender domain is verified in Resend.
+The inquiry form passed the final live email API test after the `myfrphome.com` sender domain was verified in Resend.
 
 Latest production test:
 
-- Deployment: commit `e753150`, Vercel status `Ready`.
-- Valid RFQ payload result: `502`.
-- Vercel log result: Resend returned `403` with `The myfrphome.com domain is not verified`.
+- Deployment: latest production deployment is `Ready`.
+- Valid RFQ payload result: `200 {"ok":true}`.
+- Sender: `FRP HOME Website <website@myfrphome.com>`.
 
 ## Remaining Actions
 
-- Verify the `myfrphome.com` sender domain in Resend before the live inquiry-form test.
+- Confirm the test inquiry email is visible in the `sales@tzcarbon.com` mailbox.

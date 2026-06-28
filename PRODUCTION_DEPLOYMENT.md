@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. Production deployment `e753150` now uses `FRP HOME Website <website@myfrphome.com>`. The remaining launch item is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test can pass.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, Resend DNS records, and Resend sender-domain verification are complete for `https://www.myfrphome.com`. The production inquiry form now sends through `FRP HOME Website <website@myfrphome.com>`.
 
 Stable Vercel project aliases:
 
@@ -83,7 +83,7 @@ RESEND_API_KEY=re_your_production_key
 Current setup result:
 
 - Configured in Vercel: `RESEND_API_KEY` and the public/contact variables are present.
-- Required before final email pass: verify the `myfrphome.com` sending domain in Resend, then redeploy if any environment variable was changed.
+- Resend sender-domain verification: PASS for `myfrphome.com`.
 
 Important notes:
 
@@ -111,7 +111,7 @@ Expected behavior:
 - Invalid RFQ payload returns `400` with validation errors.
 - Valid RFQ payload without `RESEND_API_KEY` returns `503` with `Email service is temporarily unavailable.`
 - Valid RFQ payload with `RESEND_API_KEY`, verified sender, and working recipient should send email through Resend.
-- Current live production result after deployment `e753150`: valid RFQ payload returns `502`; Vercel logs show Resend `403` with `The myfrphome.com domain is not verified`.
+- Current live production result after Resend verification: valid RFQ payload returns `200 {"ok":true}`.
 
 The route uses:
 
@@ -124,7 +124,7 @@ The route uses:
 Vercel compatibility:
 
 - PASS: Route Handler uses the Vercel-compatible Node.js runtime.
-- Remaining: live form email delivery test after the `myfrphome.com` sender domain is verified in Resend.
+- PASS: live form email delivery test succeeds after `myfrphome.com` sender-domain verification.
 
 ## 5. Deploy To Vercel
 
@@ -169,7 +169,6 @@ Completed in Vercel:
 
 Still required:
 
-- Verify the `myfrphome.com` sender domain in Resend before live RFQ email testing.
 - Keep `www.myfrphome.com` as the primary public URL.
 
 Final canonical production URL:
@@ -285,7 +284,7 @@ Expected SEO results:
 
 ## 10. Post-Deployment Test Checklist
 
-Run these checks after the `myfrphome.com` sender domain is verified in Resend:
+Run these checks after future production changes:
 
 - Open the home page on desktop and mobile.
 - Open `/products`, `/catalog`, `/contact`, and one product detail page.
