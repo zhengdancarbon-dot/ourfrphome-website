@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
+import { applicationPages } from "@/lib/application-pages";
 import { createPageMetadata } from "@/lib/seo";
-import { materialApplications, slugifyAnchor } from "@/lib/site-taxonomy";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Carbon Fiber Composite Material Applications",
@@ -40,12 +42,15 @@ export default function ApplicationsPage() {
             copy="Our materials support visual laminates, primary and secondary structures, impact-resistant systems, repair work and high-throughput composite processes."
           />
           <div className="application-detail-grid">
-            {materialApplications.map((application, index) => (
-              <article className="application-detail" id={slugifyAnchor(application.name)} key={application.name}>
+            {applicationPages.map((application, index) => (
+              <article className="application-detail application-link-card" key={application.slug}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{application.name}</h3>
+                <h3>{application.title.replace("Carbon Fiber Materials for ", "")}</h3>
                 <p>{application.description}</p>
-                <small>{application.recommended}</small>
+                <small>{application.recommendedMaterials.map((material) => material.name).slice(0, 3).join(" · ")}</small>
+                <Link href={`/applications/${application.slug}`} className="text-link">
+                  View application guide <ArrowRight size={16} />
+                </Link>
               </article>
             ))}
           </div>

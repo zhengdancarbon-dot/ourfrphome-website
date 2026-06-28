@@ -53,13 +53,13 @@ const commonKeywords = [
 export const productCatalog: ProductCatalogItem[] = [
   {
     slug: "carbon-fiber-ud-fabric",
-    name: "Carbon Fiber UD Fabric",
+    name: "UD Carbon Fiber Fabric",
     shortName: "UD Carbon Fabric",
     category: "Directional Reinforcement",
     description:
-      "Unidirectional carbon fiber fabric for high strength and stiffness in the 0° load direction, supplied in 200 g/m², 300 g/m², 600 g/m² and custom weights.",
+      "Unidirectional carbon fiber reinforcement with most fibers aligned in one direction for directional strength, stiffness and controlled layup orientation.",
     heroCopy:
-      "Carbon fiber UD fabric for construction reinforcement, pultrusion, sporting goods, marine structures and composite manufacturing. Widths from 10 cm to 100 cm are available for project-based supply.",
+      "UD carbon fiber fabric is used when directional strength, stiffness and controlled layup orientation are required for composite laminates, structural reinforcement, repair, pultrusion and strengthening.",
     image: "/images/products/carbon-fiber-ud-fabric.webp",
     gallery: [
       "/images/products/carbon-fiber-ud-fabric.webp",
@@ -70,9 +70,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Carbon fiber unidirectional fabric roll / UD tape",
     position: "28% 46%",
     seo: {
-      title: "Carbon Fiber UD Fabric 200 g/m² 300 g/m² 600 g/m²",
+      title: "UD Carbon Fiber Fabric | Unidirectional Carbon Fiber Reinforcement",
       description:
-        "Supply of UD carbon fiber fabric in 200 g/m², 300 g/m², 600 g/m² and custom specifications, width 10-100 cm for composite manufacturing and structural reinforcement.",
+        "UD carbon fiber fabric supplier for 0 degree unidirectional reinforcement in 200, 300, 600 g/m2 and custom weights for composite laminates and structural strengthening.",
       keywords: [
         ...commonKeywords,
         "carbon fiber UD fabric 200 g/m²",
@@ -82,10 +82,10 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Areal weight", value: "200 / 300 / 600 g/m²; custom" },
-      { label: "Width", value: "100-1000 mm (10-100 cm)" },
-      { label: "Fiber direction", value: "0° main fiber" },
-      { label: "Fiber", value: "12K / 24K / 50K; standard and high-strength grade options" },
+      { label: "Fiber direction", value: "0 degree unidirectional" },
+      { label: "Areal weight", value: "200 / 300 / 600 g/m2; custom" },
+      { label: "Width", value: "10 / 20 / 30 / 50 / 100 cm; custom" },
+      { label: "Fiber grade", value: "T300 / T700 / 12K / 24K / 50K; custom" },
     ],
     intro: [
       "Carbon Fiber UD Fabric places most of the carbon fiber in one principal direction, allowing engineers to build tensile strength and stiffness exactly where the laminate or reinforcement system needs it.",
@@ -150,13 +150,13 @@ export const productCatalog: ProductCatalogItem[] = [
   },
   {
     slug: "carbon-fiber-woven-fabric",
-    name: "Carbon Fiber Woven Fabric",
+    name: "Woven Carbon Fiber Fabric",
     shortName: "Woven Carbon Fabric",
     category: "Woven Carbon Fabric",
     description:
-      "Plain and twill carbon fiber woven fabric from 200 g/m² to 600 g/m² for balanced laminate handling, visual carbon surfaces and structural composite parts.",
+      "Bidirectional woven carbon fiber reinforcement made by interlacing carbon fiber yarns in warp and weft directions for balanced handling and visible CFRP surfaces.",
     heroCopy:
-      "Plain, twill and satin carbon fiber fabrics for automotive, marine, sports equipment, industrial panels and prepreg conversion. Standard weights cover 200 g/m² to 600 g/m².",
+      "Woven carbon fiber fabric is available in 1K, 3K, 6K and 12K tow sizes with plain, twill, satin, jacquard and spread tow patterns, including 8x8mm and 10x10mm checker options.",
     image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
     gallery: [
       "/images/generated/3k-twill-carbon-fiber-gloss.png",
@@ -168,9 +168,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "3K twill carbon fiber woven fabric",
     position: "18% 50%",
     seo: {
-      title: "Carbon Fiber Woven Fabric 200 g/m² to 600 g/m²",
+      title: "Woven Carbon Fiber Fabric | 1K 3K 6K 12K Plain & Twill Carbon Cloth",
       description:
-        "Carbon fiber woven fabric in 200 g/m² to 600 g/m², including 3K and 12K plain or twill carbon fabric for composite manufacturing.",
+        "Woven carbon fiber fabric in 1K, 3K, 6K and 12K tow sizes with plain, twill, satin, jacquard and spread tow patterns for visible CFRP and composite laminates.",
       keywords: [
         ...commonKeywords,
         "carbon fiber woven fabric",
@@ -180,14 +180,16 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Areal weight", value: "200-600 g/m²" },
-      { label: "Weave", value: "Plain / 2x2 twill / satin" },
-      { label: "Tow size", value: "3K / 6K / 12K" },
+      { label: "Tow size", value: "1K / 3K / 6K / 12K" },
+      { label: "Weave", value: "Plain / twill / satin / jacquard / spread tow" },
+      { label: "Pattern", value: "Standard weave / 8x8mm / 10x10mm / custom" },
+      { label: "Areal weight", value: "90 / 160 / 200 / 240 / 300 / 600 g/m2; custom" },
       { label: "Width", value: "1000 / 1270 / 1500 mm; custom" },
     ],
     intro: [
       "Carbon Fiber Woven Fabric is woven with carbon fiber in both warp and weft directions, making it practical for balanced laminates and visible carbon surfaces.",
-      "The 200 g/m² to 600 g/m² range covers lightweight cosmetic skins, general composite shells and heavier laminate build-up. 3K twill is commonly selected for visual parts, while 12K fabrics can reduce ply count in larger components.",
+      "The 90 g/m2 to 600 g/m2 range covers lightweight cosmetic skins, general composite shells and heavier laminate build-up. 1K gives a fine premium texture, 3K is the classic carbon look, 6K sits between fine and industrial texture, and 12K supports larger panels.",
+      "Plain weave, twill weave, satin weave, jacquard patterns and spread tow checker patterns such as 8x8mm and 10x10mm can be reviewed according to target appearance and process.",
       "FRP HOME supplies standard woven carbon cloth and can review custom weight, width, weave, tow size and roll packing requirements for export orders.",
     ],
     highlights: [
@@ -214,11 +216,25 @@ export const productCatalog: ProductCatalogItem[] = [
           title: "Standard woven fabric range",
           columns: ["Grade", "Tow", "Typical areal weight", "Weave by order", "Typical width", "Typical roll length"],
           rows: [
+            ["FRPH-WC1K90", "1K by order", "90 / 100 g/m² typical", "Plain / twill", "1000 mm typical", "100 m typical"],
             ["FRPH-WC3K200T", "3K by order", "200 g/m² typical", "2x2 twill", "1000 / 1270 / 1500 mm typical", "100 m typical"],
-            ["FRPH-WC3K245T", "3K by order", "245 g/m² typical", "2x2 twill", "1000 / 1270 mm typical", "100 m typical"],
+            ["FRPH-WC3K245T", "3K by order", "240 / 245 g/m² typical", "Plain / 2x2 twill", "1000 / 1270 mm typical", "100 m typical"],
             ["FRPH-WC6K320", "6K by order", "320 g/m² typical", "Plain / twill", "1000 / 1270 mm typical", "100 m typical"],
             ["FRPH-WC12K400", "12K by order", "400 g/m² typical", "Plain / twill", "1000 / 1270 / 1500 mm typical", "50 / 100 m typical"],
             ["FRPH-WC12K600", "12K by order", "600 g/m² typical", "Plain / twill", "1000 / 1270 mm typical", "50 m typical"],
+            ["FRPH-WC-ST", "12K / 24K by order", "160-300 g/m² typical", "Spread tow 8x8mm / 10x10mm", "1000 / 1270 mm typical", "50 / 100 m typical"],
+          ],
+        },
+        {
+          title: "Tow and pattern selection guide",
+          columns: ["Option", "Typical texture", "Common use"],
+          rows: [
+            ["1K", "Fine texture", "Premium decorative small parts"],
+            ["3K", "Classic carbon look", "Automotive, sports, civil UAV and decorative parts"],
+            ["6K", "Medium texture", "Sports and industrial composites"],
+            ["12K", "Larger tow", "Larger panels and industrial laminates"],
+            ["Spread Tow", "Flat checker pattern", "Visible CFRP surfaces"],
+            ["Jacquard", "Custom woven appearance", "Decorative CFRP"],
           ],
         },
         {
@@ -255,7 +271,7 @@ export const productCatalog: ProductCatalogItem[] = [
     description:
       "Spread tow carbon fiber fabric with flat tow architecture and larger visual pattern options such as 8x8 mm and 10x10 mm for lightweight panels, decorative CFRP surfaces and thin laminates.",
     heroCopy:
-      "Spread tow carbon fiber fabric sits under the Woven Carbon Fiber Fabric series while also requiring its own RFQ because pattern size, tow spreading, areal weight and surface requirements affect quotation.",
+      "Spread tow carbon fiber fabric is a flat woven carbon fabric made from spread carbon fiber tow, giving a thin, smooth surface and large checker appearance such as 8x8mm and 10x10mm patterns for visible CFRP parts.",
     image: "/images/products/carbon-fiber-woven-fabric-spread-tow.webp",
     gallery: [
       "/images/products/carbon-fiber-woven-fabric-spread-tow.webp",
@@ -265,9 +281,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "8x8 mm and 10x10 mm spread tow carbon fiber fabric",
     position: "45% 50%",
     seo: {
-      title: "Spread Tow Carbon Fiber Fabric 8x8 mm 10x10 mm",
+      title: "Spread Tow Carbon Fiber Fabric | 8x8mm & 10x10mm Checker Pattern",
       description:
-        "Spread tow carbon fiber fabric page for 8x8 mm and 10x10 mm spread tow patterns, areal weight, width and application guidance for CFRP panels and decorative laminates.",
+        "Spread tow carbon fiber fabric supplier for 8x8mm and 10x10mm checker pattern, 12K and 24K tow, visible CFRP parts and decorative carbon fiber panels.",
       keywords: [
         ...commonKeywords,
         "spread tow carbon fiber fabric",
@@ -278,9 +294,10 @@ export const productCatalog: ProductCatalogItem[] = [
     },
     specs: [
       { label: "Pattern size", value: "8x8 mm / 10x10 mm; custom by review" },
-      { label: "Tow size", value: "12K / 24K typical by specification" },
-      { label: "Areal weight", value: "200-600 g/m² typical by construction" },
-      { label: "Width", value: "1000 / 1270 / 1500 mm; project width by review" },
+      { label: "Tow size", value: "12K / 24K; custom by specification" },
+      { label: "Fiber grade", value: "T700 / custom by review" },
+      { label: "Areal weight", value: "100 / 160 / 200 / 240 / 300 / 600 g/m2; custom" },
+      { label: "Width", value: "1000 / 1270 mm; project width by review" },
     ],
     intro: [
       "Spread Tow Carbon Fiber Fabric is a woven carbon reinforcement made from flattened tow, producing a wider, flatter visual pattern than conventional 3K twill or plain fabric.",
@@ -543,8 +560,14 @@ export const productCatalog: ProductCatalogItem[] = [
       "Para-aramid woven fabric for impact resistance, abrasion resistance and lightweight protective composite laminates.",
     heroCopy:
       "Aramid fabric is supplied in plain, twill and selected hybrid constructions for protective structures, marine products, sports equipment and industrial composite parts.",
-    image: "/images/carbon-fiber-industrial-placeholder.svg",
-    visualLabel: "para-aramid fabric roll",
+    image: "/images/products/aramid-fabric-yellow-woven.webp",
+    gallery: [
+      "/images/products/aramid-fabric-yellow-woven.webp",
+      "/images/products/aramid-fabric-yellow-plain-weave.webp",
+      "/images/products/aramid-fabric-yellow-honeycomb-weave.webp",
+      "/images/products/aramid-fabric-carbon-aramid-hybrid.webp",
+    ],
+    visualLabel: "yellow aramid woven fabric surface",
     position: "18% 48%",
     seo: {
       title: "Aramid Fabric for Composite Reinforcement",
@@ -626,14 +649,14 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
   },
   {
-    slug: "pultruded-carbon-fiber-plate-structural-reinforcement",
-    name: "Pultruded Carbon Fiber Plate for Structural Reinforcement",
-    shortName: "CFRP Strengthening Plate",
+    slug: "structural-strengthening-system",
+    name: "Carbon Fiber Structural Strengthening System",
+    shortName: "Structural Strengthening System",
     category: "Structural Reinforcement",
     description:
-      "Pultruded CFRP plates for externally bonded structural strengthening, available in 1.2, 1.4, 2.0, 3.0 and 5.0 mm thickness options.",
+      "System materials including UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement projects.",
     heroCopy:
-      "Structural reinforcement carbon fiber pultruded plates are supplied for concrete, masonry and timber strengthening systems, with standard thickness and width options for project-based orders.",
+      "A carbon fiber structural strengthening system includes UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement projects.",
     image: "/images/generated/structural-cfrp-plate-real-ps.webp",
     gallery: [
       "/images/generated/structural-cfrp-plate-real-ps.webp",
@@ -643,9 +666,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Pultruded carbon fiber plate strips for structural reinforcement",
     position: "50% 46%",
     seo: {
-      title: "Pultruded Carbon Fiber Plate for Structural Reinforcement",
+      title: "Carbon Fiber Structural Strengthening System | UD Fabric, CFRP Plate & Epoxy Resin",
       description:
-        "CFRP pultruded plate supplier offering 1.2 mm, 1.4 mm, 2.0 mm, 3.0 mm and 5.0 mm carbon fiber plates for structural strengthening.",
+        "Carbon fiber structural strengthening system supplier for UD fabric, pultruded CFRP plate and structural epoxy resin used in concrete, bridge and building reinforcement.",
       keywords: [
         ...commonKeywords,
         "pultruded carbon fiber plate",
@@ -655,14 +678,15 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Thickness", value: "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm" },
-      { label: "Width", value: "50 / 80 / 100 / 120 / 150 mm; custom" },
-      { label: "Fiber direction", value: "Pultruded UD carbon fiber" },
-      { label: "Surface", value: "Sanded or peel-ply bonding surface" },
+      { label: "UD fabric", value: "200 / 300 / 600 g/m2 or custom for strengthening" },
+      { label: "CFRP plate", value: "50 x 1.2 mm / 100 x 1.4 mm; custom" },
+      { label: "Epoxy resin", value: "Primer / saturant / plate adhesive by project" },
+      { label: "Structure type", value: "Concrete / steel / masonry / bridge / building" },
     ],
     intro: [
-      "Pultruded Carbon Fiber Plate for Structural Reinforcement is designed for externally bonded reinforcement of concrete, masonry, timber and steel structures when used with a compatible structural epoxy system.",
-      "The pultrusion process aligns carbon fibers in the length direction, producing high axial tensile stiffness and consistent thickness for strengthening plates.",
+      "Carbon Fiber Structural Strengthening System is designed for externally bonded reinforcement of concrete, masonry, timber and steel structures when used with compatible structural epoxy materials.",
+      "UD carbon fiber fabric provides surface bonding and directional reinforcement for beams, slabs, columns and walls. Pultruded CFRP plate or laminate provides high-strength linear reinforcement for bridges, beams and strengthening projects.",
+      "Structural epoxy resin is used as bonding and impregnation resin with carbon fabric or CFRP plate according to the selected strengthening method.",
       "FRP HOME supplies standard 1.2 mm, 1.4 mm, 2.0 mm, 3.0 mm and 5.0 mm thickness options. Engineering design, substrate evaluation and adhesive selection remain the responsibility of the project engineer.",
     ],
     highlights: [
@@ -684,6 +708,15 @@ export const productCatalog: ProductCatalogItem[] = [
       note:
         "Indicative CFRP plate data. Structural design values and adhesive systems must be approved by qualified engineers.",
       tables: [
+        {
+          title: "Structural strengthening system materials",
+          columns: ["Material", "Role", "Typical use"],
+          rows: [
+            ["UD Carbon Fiber Fabric for Strengthening", "Surface bonding and directional reinforcement", "Beams, slabs, columns and walls"],
+            ["Pultruded CFRP Plate / Laminate", "High-strength laminate reinforcement", "Bridge, beam and structural strengthening"],
+            ["Structural Epoxy Resin", "Bonding and impregnation resin", "Used with carbon fabric or CFRP plate"],
+          ],
+        },
         {
           title: "Structural reinforcement plate range",
           columns: ["Grade", "Typical thickness", "Typical width options", "Indicative length", "Surface by order", "Indicative use"],
@@ -722,14 +755,14 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
   },
   {
-    slug: "carbon-fiber-prepreg-fabric",
-    name: "Carbon Fiber Prepreg Fabric",
-    shortName: "Prepreg Fabric",
+    slug: "prepreg-carbon-fiber-materials",
+    name: "Prepreg Carbon Fiber Materials",
+    shortName: "Prepreg Materials",
     category: "Pre-Impregnated Materials",
     description:
-      "Carbon fiber woven prepreg and unidirectional carbon fiber prepreg with controlled epoxy resin content for high-quality composite molding.",
+      "Carbon fiber reinforcements pre-impregnated with resin for composite molding processes requiring controlled resin content and curing conditions.",
     heroCopy:
-      "Woven carbon prepreg and UD carbon prepreg are supplied for autoclave, press molding and selected out-of-autoclave processes, with resin content, cure profile and storage conditions defined by specification.",
+      "Prepreg carbon fiber materials include woven carbon fiber prepreg, 3K twill prepreg, UD carbon fiber prepreg, spread tow carbon fiber prepreg and custom prepreg for controlled composite molding.",
     image: "/images/generated/prepreg-carbon-fiber-roll-real-ps.webp",
     gallery: [
       "/images/generated/prepreg-carbon-fiber-roll-real-ps.webp",
@@ -740,9 +773,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Carbon fiber prepreg roll with release paper",
     position: "42% 48%",
     seo: {
-      title: "Carbon Fiber Prepreg Fabric China Woven and UD Prepreg",
+      title: "Prepreg Carbon Fiber Materials | Woven, UD & Spread Tow Carbon Prepreg",
       description:
-        "Carbon fiber prepreg fabric supplier in China offering woven carbon fabric prepreg and unidirectional carbon fiber prepreg in typical 80 °C, 120 °C, 130 °C and 180 °C epoxy systems.",
+        "Prepreg carbon fiber materials supplier for woven, 3K twill, UD, spread tow and custom carbon prepreg with controlled resin content and curing conditions.",
       keywords: [
         ...commonKeywords,
         "carbon fiber prepreg China",
@@ -752,10 +785,11 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Formats", value: "Woven carbon prepreg / UD carbon prepreg" },
-      { label: "Fiber areal weight", value: "100-600 g/m² typical" },
-      { label: "Resin content", value: "30-42% typical" },
-      { label: "Cure system", value: "80 °C / 120 °C / 130 °C / 180 °C by resin" },
+      { label: "Reinforcement", value: "Woven / UD / spread tow / custom" },
+      { label: "Fabric type", value: "3K twill / plain / UD / spread tow" },
+      { label: "Fiber grade", value: "T300 / T700 / T800 / custom" },
+      { label: "Resin system", value: "Epoxy resin system / custom" },
+      { label: "Processing", value: "Autoclave / hot press / compression molding / OOA" },
     ],
     intro: [
       "Carbon Fiber Prepreg Fabric combines carbon reinforcement with a controlled epoxy resin matrix before molding. It reduces resin mixing variation and supports cleaner laminate production compared with wet layup.",
@@ -789,6 +823,8 @@ export const productCatalog: ProductCatalogItem[] = [
             ["Woven prepreg 12K", "12K plain/twill by order", "400 / 600 g/m² typical", "32-40% typical", "120 °C / 130 °C / 180 °C by resin system", "Larger parts and thicker laminates"],
             ["UD prepreg light", "UD carbon by order", "100 / 150 / 200 g/m² typical", "30-38% typical", "120 °C / 130 °C / 180 °C by resin system", "Precision laminate schedules"],
             ["UD prepreg heavy", "UD carbon by order", "300 / 600 g/m² typical", "30-38% typical", "120 °C / 130 °C / 180 °C by resin system", "Directional strips, plates and panels"],
+            ["Spread tow prepreg", "Spread tow carbon fabric by order", "100-300 g/m² typical", "By resin system", "By selected resin system", "Thin visible CFRP skins"],
+            ["Custom prepreg", "Woven / UD / spread tow / hybrid by review", "By project", "Custom", "By selected resin system", "Project-specific molded parts"],
           ],
         },
         {
@@ -1130,7 +1166,12 @@ export const productCatalog: ProductCatalogItem[] = [
       "Milled carbon fiber powder for conductive fillers, friction materials, coatings, thermoplastic compounds and functional composite modification.",
     heroCopy:
       "Milled carbon fiber powder is supplied in controlled average fiber lengths for resin, rubber, coating, cement and thermoplastic compound reinforcement.",
-    image: "/images/carbon-fiber-industrial-placeholder.svg",
+    image: "/images/products/milled-carbon-fiber-powder.webp",
+    gallery: [
+      "/images/products/milled-carbon-fiber-powder.webp",
+      "/images/products/milled-carbon-fiber-powder-detail.webp",
+      "/images/products/chopped-carbon-fiber-short.webp",
+    ],
     visualLabel: "black milled carbon fiber powder",
     position: "76% 50%",
     seo: {
@@ -1413,13 +1454,13 @@ export const productCatalog: ProductCatalogItem[] = [
   },
   {
     slug: "carbon-fiber-yarn-and-tow",
-    name: "Carbon Fiber Yarn and Tow",
-    shortName: "Carbon Tow",
-    category: "Fiber and Yarn",
+    name: "Carbon Fiber Yarn & Tow",
+    shortName: "Carbon Fiber Yarn & Tow",
+    category: "Carbon Fiber Yarn, Tow & Precursor Materials",
     description:
-      "Carbon fiber yarn and tow supply covering Zhongfu Shenying, Jilin Chemical Fiber, Jiangsu Hengshen, Hyosung TANSOME and other brand options by availability, with export compliance document support.",
+      "Continuous carbon fiber yarn, carbon fiber tow and carbon fiber roving supplied on bobbins for weaving, braiding, filament winding, pultrusion, prepreg production and chopping.",
     heroCopy:
-      "Carbon fiber yarn and tow are available for weaving, pultrusion, filament winding, prepregging and downstream conversion, with brand, tow size, sizing and export compliance requirements reviewed by application.",
+      "Carbon fiber yarn, also called carbon fiber tow or carbon fiber roving in different industries, is a continuous bundle of carbon filaments supplied on bobbins for weaving, braiding, filament winding, pultrusion, prepreg production and chopping.",
     image: "/images/products/carbon-fiber-yarn-and-tow.jpg",
     gallery: [
       "/images/products/carbon-fiber-yarn-and-tow.jpg",
@@ -1428,9 +1469,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "12K / 24K / 50K carbon fiber tow spools",
     position: "71% 42%",
     seo: {
-      title: "Carbon Fiber Yarn and Tow Zhongfu Shenying Jilin Hengshen Hyosung",
+      title: "Carbon Fiber Yarn & Tow | 1K 3K 6K 12K 24K 50K Chinese Brand Carbon Fiber",
       description:
-        "Carbon fiber yarn supplier offering tow options from Zhongfu Shenying, Jilin Chemical Fiber, Jiangsu Hengshen, Hyosung TANSOME and other brands in 3K, 6K, 12K, 24K, 25K, 35K, 48K and 50K.",
+        "Carbon fiber yarn and tow supplier for 1K, 3K, 6K, 12K, 24K, 48K and 50K tow, including selected Chinese and international brand options by request and review.",
       keywords: [
         ...commonKeywords,
         "carbon fiber yarn supplier",
@@ -1442,22 +1483,23 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Tow size", value: "1K / 3K / 6K / 12K / 24K / 25K / 35K / 48K / 50K" },
-      { label: "Brand options", value: "Zhongfu Shenying, Jilin, Hengshen, Hyosung, others" },
-      { label: "Grade", value: "Standard, high-strength and intermediate modulus options" },
-      { label: "Sizing", value: "Epoxy, vinyl ester, PA, PP and custom compatibility" },
+      { label: "Product type", value: "Carbon fiber yarn / carbon fiber tow / carbon fiber roving" },
+      { label: "Tow size", value: "1K / 3K / 6K / 12K / 24K / 48K / 50K" },
+      { label: "Grade", value: "T300 / T700 / T800 / high modulus / custom" },
+      { label: "Brand options", value: "Selected Chinese and international brands by request" },
+      { label: "Package", value: "Bobbin / spool / carton / pallet" },
     ],
     intro: [
       "Carbon Fiber Yarn and Tow are base materials for weaving, pultrusion, filament winding, prepregging and many downstream composite processes.",
-      "Available brand programs may include Zhongfu Shenying, Jilin Chemical Fiber, Jiangsu Hengshen, Hyosung TANSOME and other approved carbon fiber sources, subject to allocation, export terms and batch availability.",
-      "For carbon fiber yarn and tow orders that may require dual-use item export review, our team has practical experience preparing application materials, end-use information and supporting documents for license-related procedures.",
+      "We can supply or source carbon fiber yarn and tow according to customer requirements, including selected Chinese and international brand options. Brand availability depends on stock, batch, order quantity, destination country and compliance review.",
+      "We do not imply official authorization unless separately stated. End-use, end-user and destination details may be required before quotation or shipment for selected high-performance carbon fiber materials.",
       "The correct yarn should be selected by tow size, strength grade, modulus, sizing compatibility, package format, spreading behavior, fuzz level and customer processing method.",
     ],
     highlights: [
       { label: "Tow size", value: "Small tow and large tow options" },
       { label: "Brands", value: "Chinese and international brand sourcing" },
       { label: "Use", value: "Weaving, pultrusion, winding, prepregging" },
-      { label: "Compliance support", value: "Dual-use item license application document experience" },
+      { label: "Review", value: "End use, destination and document needs checked before shipment" },
     ],
     applications: [
       "Carbon fabric weaving",
@@ -1480,7 +1522,7 @@ export const productCatalog: ProductCatalogItem[] = [
             ["Jilin Chemical Fiber", "12K / 25K / 35K / 50K typical options", "Standard and large-tow industrial grades", "Wind, pultrusion, industrial composites", "Large-tow supply by batch"],
             ["Jiangsu Hengshen", "3K / 6K / 12K / 24K typical options", "Standard, high-strength and intermediate modulus series", "Industrial, sports, automotive, prepreg", "Confirm grade and sizing"],
             ["Hyosung TANSOME", "12K / 24K typical; selected 6K/other options", "Standard and intermediate modulus options", "Energy, sports, automotive, industrial", "Availability by region"],
-            ["Other approved sources", "1K-50K by customer requirement", "By customer requirement", "General composite conversion", "Supplier approval required"],
+            ["Other sources by request", "1K-50K by customer requirement", "By customer requirement", "General composite conversion", "Customer confirmation required"],
           ],
         },
         {

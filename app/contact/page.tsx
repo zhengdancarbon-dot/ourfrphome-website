@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Clock3, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
+import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { PageHero } from "@/components/ui";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -73,7 +74,7 @@ export default function ContactPage() {
               </div>
             </div>
           </aside>
-          <Suspense fallback={<div>Loading inquiry form…</div>}>
+          <Suspense fallback={<RfqFallbackForm />}>
             <InquiryForm />
           </Suspense>
         </div>

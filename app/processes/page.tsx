@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { createPageMetadata } from "@/lib/seo";
-import { manufacturingProcesses } from "@/lib/site-taxonomy";
+import { factoryImageSections, manufacturingProcesses } from "@/lib/site-taxonomy";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Carbon Fiber Manufacturing Processes and Material Selection",
@@ -20,13 +20,13 @@ export const metadata: Metadata = createPageMetadata({
     "CFRP CNC machining",
   ],
   path: "/processes",
-  image: "/images/hero-carbon-production.png",
+  image: "/images/home/home-dornier-loom-hero.jpg",
 });
 
 const comparisonRows = manufacturingProcesses.map((process) => ({
   process: process.name,
   material: process.recommended,
-  rfq: "Process, application, dimensions, quantity and destination country",
+  rfq: process.rfqDetails?.join(" · ") ?? "Process, application, dimensions, quantity and destination country",
 }));
 
 export default function ProcessesPage() {
@@ -37,7 +37,7 @@ export default function ProcessesPage() {
         eyebrow="Processes"
         title="Choose carbon fiber materials by manufacturing route."
         copy="The same fiber can behave differently in lay-up, infusion, prepreg molding, pultrusion, winding, machining or compounding. Start with the process to narrow material format and RFQ details."
-        image="/images/hero-carbon-production.png"
+        image="/images/home/home-dornier-loom-hero.jpg"
       />
 
       <section className="section">
@@ -59,10 +59,43 @@ export default function ProcessesPage() {
                   <CheckCircle2 size={17} />
                   <span>{process.recommended}</span>
                 </div>
+                {process.rfqDetails && (
+                  <div className="process-rfq-mini">
+                    <strong>RFQ details</strong>
+                    <ul>
+                      {process.rfqDetails.slice(0, 6).map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <Link href="/contact" className="text-link">
                   Send process RFQ <ArrowRight size={16} />
                 </Link>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft">
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Production equipment"
+            title="Weaving, creel and warp preparation scenes."
+            copy="Equipment photos help sourcing and engineering teams understand the production route behind dry carbon fiber fabric before sampling or scale-up."
+          />
+          <div className="factory-image-grid">
+            {factoryImageSections.map((item) => (
+              <figure key={item.title}>
+                <Image
+                  src={item.image}
+                  alt={`${item.title} for carbon fiber manufacturing process selection`}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 25vw"
+                />
+                <figcaption>{item.title}</figcaption>
+              </figure>
             ))}
           </div>
         </div>

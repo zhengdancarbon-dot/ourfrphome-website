@@ -31,6 +31,7 @@ import {
   Wrench,
 } from "lucide-react";
 import productsJson from "@/src/data/products.json";
+import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import {
   CatalogPage,
@@ -47,11 +48,13 @@ import {
 import { CatalogToolbar } from "./catalog-toolbar";
 import styles from "./catalog.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Digital Carbon Fiber Product Catalog",
   description:
     "A4 digital catalog for FRP HOME covering carbon fiber fabrics, prepregs, plates, tubes, yarn, chopped fiber, hybrid fabrics and composite accessories.",
-};
+  path: "/catalog",
+  image: "/images/catalog/frphome/woven-twill.webp",
+});
 
 const products = productsJson as CatalogProduct[];
 

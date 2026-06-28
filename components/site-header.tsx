@@ -4,12 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
-import { navItems, products } from "@/lib/site-data";
+import { productFamilies } from "@/lib/product-families";
+import { navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
   const isProductsActive = pathname === "/products" || pathname.startsWith("/products/");
 
   return (
@@ -20,6 +19,12 @@ export function SiteHeader() {
           <span className="utility-meta">B2B composite material supply</span>
         </div>
       </div>
+      <input
+        id="mobile-nav-toggle"
+        className="mobile-nav-toggle"
+        type="checkbox"
+        aria-label="Toggle mobile navigation"
+      />
       <div className="site-shell nav-row">
         <Link href="/" className="brand" aria-label="FRP HOME home">
           <Image
@@ -47,19 +52,28 @@ export function SiteHeader() {
                   </Link>
                   <div className="product-dropdown" aria-label="Product menu">
                     <div className="product-dropdown-head">
-                      <strong>Product Center</strong>
-                      <span>Find carbon fiber materials by product family.</span>
+                      <strong>Products by Material Family</strong>
+                      <span>Choose by reinforcement, upstream tow, prepreg, additive, profile or strengthening system.</span>
                     </div>
                     <div className="product-dropdown-grid">
-                      {products.map((product) => (
-                        <Link
-                          href={product.detailHref ?? "/products"}
-                          key={product.slug}
-                          className={pathname === product.detailHref ? "active" : ""}
-                        >
-                          <span>{product.name}</span>
-                          <small>{product.category}</small>
-                        </Link>
+                      {productFamilies.map((family) => (
+                        <div className="product-mega-family" key={family.title}>
+                          <Link href={family.href} className="product-mega-family-title">
+                            <span>{family.title}</span>
+                            <small>{family.description}</small>
+                          </Link>
+                          <div className="product-mega-links">
+                            {family.items.slice(0, 9).map((product) => (
+                              <Link
+                                href={product.href}
+                                key={`${family.title}-${product.label}`}
+                                className={pathname === product.href ? "active" : ""}
+                              >
+                                {product.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -83,64 +97,66 @@ export function SiteHeader() {
           Request a Quote <ArrowUpRight size={16} strokeWidth={1.8} />
         </Link>
 
-        <button
-          type="button"
+        <label
+          htmlFor="mobile-nav-toggle"
           className="menu-button"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
+          aria-label="Toggle navigation"
+          role="button"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <Menu className="menu-icon-open" size={24} />
+          <X className="menu-icon-close" size={24} />
+        </label>
       </div>
 
-      {open && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
-          <div className="site-shell">
-            {navItems.map((item) => {
-              if (item.href === "/products") {
-                return (
-                  <div className="mobile-product-menu" key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={isProductsActive ? "active" : ""}
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                    <div className="mobile-product-links">
-                      {products.map((product) => (
-                        <Link
-                          href={product.detailHref ?? "/products"}
-                          key={product.slug}
-                          className={pathname === product.detailHref ? "active" : ""}
-                          onClick={() => setOpen(false)}
-                        >
-                          {product.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
+      <nav className="mobile-nav" aria-label="Mobile navigation">
+        <div className="site-shell">
+          {navItems.map((item) => {
+            if (item.href === "/products") {
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={pathname === item.href ? "active" : ""}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div className="mobile-product-menu" key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={isProductsActive ? "active" : ""}
+                  >
+                    {item.label}
+                  </Link>
+                  <div className="mobile-product-links">
+                    {productFamilies.map((family) => (
+                      <div className="mobile-product-family" key={family.title}>
+                        <Link href={family.href}>
+                          {family.title}
+                        </Link>
+                        {family.items.slice(0, 6).map((product) => (
+                          <Link
+                            href={product.href}
+                            key={`${family.title}-${product.label}`}
+                            className={pathname === product.href ? "active" : ""}
+                          >
+                            {product.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               );
-            })}
-            <Link href="/contact" className="button button-dark" onClick={() => setOpen(false)}>
-              Request a Quote <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </nav>
-      )}
+            }
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={pathname === item.href ? "active" : ""}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link href="/contact" className="button button-dark">
+            Request a Quote <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </nav>
     </header>
   );
 }

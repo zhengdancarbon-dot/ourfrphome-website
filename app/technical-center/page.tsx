@@ -5,8 +5,9 @@ import { ArrowRight, BookOpenText, FileCheck2, FileText, FlaskConical, Ruler } f
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
-import { qualityDocuments, technicalGuides } from "@/lib/site-taxonomy";
+import { qualityDocuments } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
+import { technicalArticles } from "@/lib/technical-articles";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Carbon Fiber Technical Center and Material Selection Guides",
@@ -32,13 +33,13 @@ const resources = [
   { icon: FileCheck2, title: "Packing Documents", copy: "Commercial invoice, packing list, labels and supporting export files." },
 ];
 
-const articleSchema = technicalGuides.map((guide) => ({
+const articleSchema = technicalArticles.map((guide) => ({
   "@context": "https://schema.org",
   "@type": "Article",
   headline: guide.title,
   description: guide.description,
   image: absoluteUrl(guide.image),
-  url: absoluteUrl(guide.href),
+  url: absoluteUrl(`/technical-center/${guide.slug}`),
   author: {
     "@type": "Organization",
     name: siteConfig.companyName,
@@ -72,15 +73,15 @@ export default function TechnicalCenterPage() {
             copy="Guides summarize common selection factors. Final material approval should be based on customer testing, process validation and official documents."
           />
           <div className="guide-grid guide-grid-large">
-            {technicalGuides.map((guide) => (
-              <article className="guide-card" id={guide.href.split("#")[1]} key={guide.title}>
+            {technicalArticles.map((guide) => (
+              <article className="guide-card" key={guide.slug}>
                 <div className="guide-image">
                   <Image src={guide.image} alt={`${guide.title} guide image`} fill sizes="(max-width: 760px) 100vw, 25vw" />
                 </div>
                 <h2>{guide.title}</h2>
                 <p>{guide.description}</p>
-                <Link href="/contact" className="text-link">
-                  Ask for guidance <ArrowRight size={16} />
+                <Link href={`/technical-center/${guide.slug}`} className="text-link">
+                  Read guide <ArrowRight size={16} />
                 </Link>
               </article>
             ))}

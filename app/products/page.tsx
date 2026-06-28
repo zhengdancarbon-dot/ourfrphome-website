@@ -29,59 +29,101 @@ export const metadata: Metadata = createPageMetadata({
 
 const productGroups = [
   {
+    id: "carbon-fiber-reinforcements",
     title: "Carbon Fiber Reinforcements",
     description:
-      "Dry UD, woven, spread tow and multiaxial carbon fiber reinforcements for lamination, infusion, construction strengthening and composite manufacturing.",
+      "Dry carbon fiber fabrics and textile reinforcements for composite manufacturing.",
+    keyProducts:
+      "Woven fabric, UD fabric, spread tow fabric, multiaxial NCF, hybrid and aramid fabrics",
+    commonApplications:
+      "Composite laminates, visible CFRP surfaces, automotive, sports, civil UAV and industrial panels",
     slugs: [
-      "carbon-fiber-ud-fabric",
       "carbon-fiber-woven-fabric",
+      "carbon-fiber-ud-fabric",
       "spread-tow-carbon-fiber-fabric",
       "carbon-fiber-multiaxial-ncf-fabric",
     ],
   },
   {
-    title: "Carbon Fiber Prepreg Fabrics",
+    id: "carbon-fiber-yarn-tow-precursor-materials",
+    title: "Carbon Fiber Yarn, Tow & Precursor Materials",
     description:
-      "Controlled resin-content carbon fiber prepreg materials for repeatable laminate quality and molded composite parts.",
-    slugs: ["carbon-fiber-prepreg-fabric"],
-  },
-  {
-    title: "Carbon Fiber Plates & Laminates",
-    description:
-      "Pultruded structural plates and 3K carbon fiber laminate sheets for reinforcement, CNC cutting, FPV drone frames, RC model parts, panels and finished components.",
-    slugs: [
-      "pultruded-carbon-fiber-plate-structural-reinforcement",
-      "3k-carbon-fiber-laminate-sheet",
-    ],
-  },
-  {
-    title: "Carbon Fiber Tubes",
-    description:
-      "3K surface tubes and pultruded carbon fiber tubes for visual parts, rods, commercial drone components, agricultural drone parts, supports and industrial profiles.",
-    slugs: ["3k-surface-carbon-fiber-tube", "pultruded-carbon-fiber-tube"],
-  },
-  {
-    title: "Carbon Fiber Yarn and Tow",
-    description:
-      "Continuous carbon fiber yarn and tow options for weaving, prepregging, pultrusion, filament winding and braiding, with experience supporting dual-use item export license application documents.",
+      "Upstream carbon fiber yarn, tow, roving and PAN-based precursor materials.",
+    keyProducts:
+      "1K, 3K, 6K, 12K, 24K, 48K and 50K carbon fiber yarn and tow",
+    commonApplications:
+      "Weaving, braiding, filament winding, pultrusion, prepreg production and chopping",
     slugs: ["carbon-fiber-yarn-and-tow"],
   },
   {
-    title: "Chopped and Milled Carbon Fiber",
+    id: "prepreg-carbon-fiber-materials",
+    title: "Prepreg Carbon Fiber Materials",
     description:
-      "Short carbon fiber and milled carbon fiber powder for compounding, conductivity, friction materials and resin modification.",
+      "Resin-impregnated carbon fiber materials for controlled composite molding.",
+    keyProducts:
+      "Woven prepreg, 3K twill prepreg, UD prepreg, spread tow prepreg and custom prepreg",
+    commonApplications:
+      "Autoclave molding, hot press, compression molding and repeatable CFRP parts",
+    slugs: ["prepreg-carbon-fiber-materials"],
+  },
+  {
+    id: "chopped-milled-carbon-fiber",
+    title: "Chopped & Milled Carbon Fiber",
+    description:
+      "Short fiber and powder materials for plastic, resin and conductive applications.",
+    keyProducts:
+      "Chopped carbon fiber, milled carbon fiber powder and carbon fiber powder",
+    commonApplications:
+      "Plastic compounding, resin reinforcement, conductive compounds and friction materials",
     slugs: ["chopped-carbon-fiber", "milled-carbon-fiber-powder"],
   },
   {
+    id: "cfrp-profiles-custom-parts",
+    title: "CFRP Profiles & Custom Parts",
+    description:
+      "Carbon fiber tubes, sheets, rods, laminates and custom CNC components based on drawings or samples.",
+    keyProducts:
+      "Carbon fiber tube, roll-wrapped tube, pultruded tube, sheet, plate, rod and CNC CFRP parts",
+    commonApplications:
+      "Civil UAV components, sports equipment, automation supports, fixtures and lightweight assemblies",
+    slugs: [
+      "3k-surface-carbon-fiber-tube",
+      "pultruded-carbon-fiber-tube",
+      "3k-carbon-fiber-laminate-sheet",
+      "custom-carbon-fiber-products",
+    ],
+  },
+  {
+    id: "structural-strengthening-system",
+    title: "Structural Strengthening System",
+    description:
+      "UD fabric, pultruded CFRP plate and epoxy resin for concrete and building reinforcement.",
+    keyProducts:
+      "UD carbon fabric for strengthening, pultruded CFRP plate, structural epoxy resin and system supply",
+    commonApplications:
+      "Concrete, steel, masonry, bridge and building reinforcement projects",
+    slugs: ["structural-strengthening-system", "carbon-fiber-ud-fabric"],
+  },
+  {
+    id: "aramid-hybrid-fabrics",
     title: "Aramid and Hybrid Fabrics",
     description:
       "Aramid, carbon aramid hybrid and jacquard fabrics for impact-resistant laminates, decorative surfaces and custom composite skins.",
+    keyProducts:
+      "Aramid fabric, carbon aramid hybrid fabric, carbon glass hybrid fabric and jacquard carbon fabric",
+    commonApplications:
+      "Impact-resistant laminates, marine skins, sports goods and decorative CFRP surfaces",
     slugs: ["aramid-fabric", "carbon-fiber-hybrid-jacquard-fabric"],
   },
   {
+    id: "custom-carbon-fiber-products",
     title: "Custom Carbon Fiber Products",
     description:
       "Custom carbon fiber parts, CNC plates, civil UAV frames, FPV drone frames, molded components, tube assemblies and composite products based on drawings or samples.",
+    keyProducts:
+      "CNC CFRP plates, custom tubes, molded components, carbon covers and assemblies",
+    commonApplications:
+      "Drawing-based OEM components for industrial, automotive, sports and commercial equipment",
     slugs: ["custom-carbon-fiber-products"],
   },
 ];
@@ -143,12 +185,32 @@ export default function ProductsPage() {
                 .filter((product) => product !== undefined);
 
               return (
-                <section className="product-category-section" key={group.title}>
+                <section className="product-category-section" id={group.id} key={group.title}>
                   <div className="product-category-heading">
                     <span>{String(groupIndex + 1).padStart(2, "0")}</span>
                     <div>
                       <h2>{group.title}</h2>
                       <p>{group.description}</p>
+                    </div>
+                    <div className="product-family-summary">
+                      <dl>
+                        <div>
+                          <dt>Key products</dt>
+                          <dd>{group.keyProducts}</dd>
+                        </div>
+                        <div>
+                          <dt>Common applications</dt>
+                          <dd>{group.commonApplications}</dd>
+                        </div>
+                      </dl>
+                      <div>
+                        <Link href="#product-catalog-list" className="button button-outline">
+                          View Products <ArrowRight size={17} />
+                        </Link>
+                        <Link href="/contact" className="button button-dark">
+                          Request a Quote <ArrowRight size={17} />
+                        </Link>
+                      </div>
                     </div>
                   </div>
 

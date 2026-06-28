@@ -36,14 +36,27 @@ function inferProductType(productName: string) {
   const product = products.find((item) => item.name === productName);
   const source = `${normalized} ${product?.category.toLowerCase() ?? ""}`;
 
+  if (product?.slug === "carbon-fiber-ud-fabric") return "ud-fabric";
+  if (product?.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
+  if (product?.slug === "aramid-fabric" || product?.slug === "carbon-fiber-hybrid-jacquard-fabric") {
+    return "aramid-hybrid-fabric";
+  }
+  if (product?.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
+  if (product?.slug === "prepreg-carbon-fiber-materials") return "prepreg";
+  if (product?.slug === "structural-strengthening-system") {
+    return "structural-strengthening";
+  }
   if (source.includes("prepreg")) return "prepreg";
   if (source.includes("chopped") || source.includes("milled") || source.includes("powder")) {
     return "chopped-powder";
   }
-  if (source.includes("structural") || source.includes("strengthening") || source.includes("plate")) {
+  if (source.includes("structural") || source.includes("strengthening")) {
     return "structural-strengthening";
   }
-  if (source.includes("spread tow") || source.includes("woven") || source.includes("fabric")) {
+  if (source.includes("aramid") || source.includes("hybrid")) return "aramid-hybrid-fabric";
+  if (source.includes("ud") || source.includes("unidirectional")) return "ud-fabric";
+  if (source.includes("spread tow")) return "spread-tow-fabric";
+  if (source.includes("woven") || source.includes("fabric")) {
     return "woven-fabric";
   }
   if (source.includes("yarn") || source.includes("tow")) return "yarn-tow";
@@ -57,6 +70,14 @@ function inferProductType(productName: string) {
     return "cfrp-part";
   }
   return "woven-fabric";
+}
+
+function trackRfqSubmit(productType: string, productName: string) {
+  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+  gtag?.("event", "rfq_submit", {
+    product_type: productType,
+    product_name: productName || productType,
+  });
 }
 
 export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}) {
@@ -105,6 +126,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
         setStatus("idle");
         return;
       }
+      trackRfqSubmit(activeProductType.label, selectedProductDetail);
       form.reset();
       setErrors({});
       setStatus("success");
@@ -196,7 +218,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
           <FieldError field="destinationCountry" error={errors.destinationCountry} />
         </label>
         <label>
-          <span>Application / End Use *</span>
+          <span>End Use / Final Application *</span>
           <input
             name="application"
             type="text"

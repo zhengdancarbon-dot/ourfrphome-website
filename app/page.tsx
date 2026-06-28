@@ -6,18 +6,17 @@ import {
   ArrowRight,
   CheckCircle2,
   ClipboardCheck,
-  Factory,
   FileText,
   PackageCheck,
   ShieldCheck,
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
+import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
 import { createPageMetadata } from "@/lib/seo";
 import {
   complianceNotice,
-  factoryImageSections,
   featuredProductSlugs,
   materialApplications,
   manufacturingProcesses,
@@ -41,7 +40,7 @@ export const metadata: Metadata = createPageMetadata({
     "structural strengthening system",
   ],
   path: "/",
-  image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
+  image: "/images/home/home-yarn-creel-hero-gray.jpg",
 });
 
 const featuredProducts = featuredProductSlugs
@@ -106,8 +105,8 @@ export default function HomePage() {
 
           <div className="b2b-hero-media">
             <Image
-              src="/images/generated/3k-twill-carbon-fiber-gloss.png"
-              alt="Glossy 3K twill carbon fiber fabric close-up for composite manufacturing"
+              src="/images/home/home-yarn-creel-hero-gray.jpg"
+              alt="Carbon fiber yarn creel prepared for fabric production at FRP HOME"
               fill
               priority
               loading="eager"
@@ -360,26 +359,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section factory-section">
-        <div className="site-shell">
-          <div className="section-title-row">
-            <div>
-              <Eyebrow>Factory / warehouse / packaging</Eyebrow>
-              <h2>Product handling matters before the quote becomes a shipment.</h2>
-            </div>
-            <Factory size={36} strokeWidth={1.3} />
-          </div>
-          <div className="factory-image-grid">
-            {factoryImageSections.map((item) => (
-              <figure key={item.title}>
-                <Image src={item.image} alt={`${item.title} for carbon fiber supply`} fill sizes="(max-width: 760px) 100vw, 25vw" />
-                <figcaption>{item.title}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section home-rfq-section" id="rfq">
         <div className="site-shell home-rfq-grid">
           <div className="home-rfq-copy">
@@ -396,7 +375,7 @@ export default function HomePage() {
               <li>Drawings and prior specifications can be uploaded.</li>
             </ul>
           </div>
-          <Suspense fallback={<div className="form-loading">Loading RFQ form...</div>}>
+          <Suspense fallback={<RfqFallbackForm />}>
             <InquiryForm />
           </Suspense>
         </div>

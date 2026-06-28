@@ -21,6 +21,7 @@ export type ManufacturingProcess = {
   recommended: string;
   href: string;
   image: string;
+  rfqDetails?: string[];
 };
 
 export type RfqField = {
@@ -69,7 +70,7 @@ export const productSeries: ProductSeries[] = [
       "Pre-oxidized PAN Fiber",
     ],
     href: "/products/carbon-fiber-yarn-and-tow",
-    image: "/images/products/chopped-carbon-fiber.webp",
+    image: "/images/products/carbon-fiber-yarn-and-tow-spools.jpg",
     specs: ["1K-50K tow range", "Brand availability by review", "Sizing and bobbin by order"],
   },
   {
@@ -84,7 +85,7 @@ export const productSeries: ProductSeries[] = [
       "Spread Tow Carbon Fiber Prepreg",
       "Custom Carbon Fiber Prepreg",
     ],
-    href: "/products/carbon-fiber-prepreg-fabric",
+    href: "/products/prepreg-carbon-fiber-materials",
     image: "/images/generated/prepreg-carbon-fiber-roll-real-ps.webp",
     specs: ["Woven / UD reinforcement", "Epoxy resin systems", "Cure and storage by confirmation"],
   },
@@ -129,7 +130,7 @@ export const productSeries: ProductSeries[] = [
       "Structural Epoxy Resin",
       "CFRP Strengthening System",
     ],
-    href: "/products/pultruded-carbon-fiber-plate-structural-reinforcement",
+    href: "/products/structural-strengthening-system",
     image: "/images/generated/structural-cfrp-plate-real-ps.webp",
     specs: ["UD fabric / CFRP plate", "Epoxy system by project", "End-use review before quotation"],
   },
@@ -140,21 +141,21 @@ export const materialApplications: MaterialApplication[] = [
     name: "Automotive Carbon Fiber Parts",
     description: "Visible 3K surfaces, prepreg skins, CNC plates and molded CFRP components.",
     recommended: "Woven fabric, prepreg, CFRP sheets, custom parts",
-    href: "/applications#automotive-carbon-fiber-parts",
+    href: "/applications/automotive-carbon-fiber-parts",
     image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
   },
   {
     name: "Sports Equipment",
     description: "Lightweight, stiff laminates for rods, tubes, boards, frames and protective shells.",
     recommended: "Prepreg, UD fabric, tubes, laminate sheets",
-    href: "/applications#sports-equipment",
+    href: "/applications/sports-equipment",
     image: "/images/products/3k-surface-carbon-fiber-tube.webp",
   },
   {
     name: "Civil UAV / Drone Components",
     description: "Carbon plates, tubes and machined parts for civil UAV, FPV and inspection drones.",
     recommended: "3K sheets, pultruded tubes, CNC CFRP parts",
-    href: "/applications#civil-uav-drone-components",
+    href: "/applications/civil-uav-drone-components",
     image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
   },
   {
@@ -168,14 +169,14 @@ export const materialApplications: MaterialApplication[] = [
     name: "Plastic & Resin Reinforcement",
     description: "Short fibers and powder for reinforced plastics, conductive compounds and resin systems.",
     recommended: "Chopped fiber, milled fiber, carbon powder",
-    href: "/applications#plastic-resin-reinforcement",
+    href: "/applications/plastic-resin-reinforcement",
     image: "/images/products/chopped-carbon-fiber.webp",
   },
   {
     name: "Structural Strengthening",
     description: "Externally bonded CFRP systems for concrete, masonry and civil reinforcement projects.",
     recommended: "UD strengthening fabric, CFRP laminate, structural epoxy",
-    href: "/applications#structural-strengthening",
+    href: "/applications/structural-strengthening",
     image: "/images/products/pultruded-carbon-fiber-plate-detail.webp",
   },
   {
@@ -196,7 +197,7 @@ export const materialApplications: MaterialApplication[] = [
     name: "Decorative CFRP Panels",
     description: "Cosmetic carbon surfaces and patterned laminates for appearance-driven products.",
     recommended: "3K twill fabric, jacquard, hybrid fabric, laminate sheets",
-    href: "/applications#decorative-cfrp-panels",
+    href: "/applications/decorative-cfrp-panels",
     image: "/images/products/carbon-aramid-hybrid-jacquard.webp",
   },
 ];
@@ -236,6 +237,17 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     recommended: "Carbon fiber tow, UD fabric, CFRP plate systems",
     href: "/processes#pultrusion",
     image: "/images/products/pultruded-carbon-fiber-tube-range.webp",
+    rfqDetails: [
+      "Profile shape",
+      "Width / thickness / OD / ID",
+      "Fiber grade",
+      "Resin system",
+      "Required tensile strength / modulus",
+      "Length",
+      "Quantity",
+      "Surface treatment",
+      "Destination country",
+    ],
   },
   {
     name: "Filament Winding",
@@ -243,6 +255,16 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     recommended: "Carbon fiber yarn and tow",
     href: "/processes#filament-winding",
     image: "/images/products/3k-surface-carbon-fiber-tube-detail.webp",
+    rfqDetails: [
+      "Tow size",
+      "Fiber grade",
+      "Sizing type",
+      "Resin system",
+      "Winding application",
+      "Required strength / modulus",
+      "Quantity",
+      "Destination country",
+    ],
   },
   {
     name: "Weaving & Braiding",
@@ -257,6 +279,15 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     recommended: "CFRP sheets, laminate plates, custom components",
     href: "/processes#cnc-machining",
     image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    rfqDetails: [
+      "Drawing upload",
+      "Material thickness",
+      "Tolerance",
+      "Hole size / slot / contour requirement",
+      "Surface finish",
+      "Quantity",
+      "Application",
+    ],
   },
   {
     name: "Plastic Compounding",
@@ -264,13 +295,22 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     recommended: "Chopped carbon fiber, milled carbon fiber powder",
     href: "/processes#plastic-compounding",
     image: "/images/products/chopped-carbon-fiber-short.webp",
+    rfqDetails: [
+      "Fiber length",
+      "Powder size / mesh",
+      "Sizing type",
+      "Polymer system: PA / PP / PEEK / PPS / ABS / PC",
+      "Target performance: strength / conductivity / dimensional stability",
+      "Processing method: extrusion / injection molding",
+      "Quantity",
+    ],
   },
 ];
 
 export const featuredProductSlugs = [
   "carbon-fiber-yarn-and-tow",
   "carbon-fiber-woven-fabric",
-  "carbon-fiber-prepreg-fabric",
+  "prepreg-carbon-fiber-materials",
   "custom-carbon-fiber-products",
 ];
 
@@ -321,20 +361,20 @@ export const qualityDocuments = [
 
 export const factoryImageSections = [
   {
-    title: "Production Lines",
-    image: "/images/factory-production-line.png",
+    title: "Carbon Yarn Creel",
+    image: "/images/home/home-yarn-creel-hero-gray.jpg",
   },
   {
-    title: "Material Warehouse",
-    image: "/images/hero-carbon-production.png",
+    title: "Dornier Weaving Loom",
+    image: "/images/home/home-dornier-loom-hero.jpg",
   },
   {
-    title: "Protective Packaging",
-    image: "/images/composite-materials-range.png",
+    title: "Warp Threading Preparation",
+    image: "/images/home/home-threading-depth.jpg",
   },
   {
-    title: "Product Dispatch",
-    image: "/images/composite-materials-range-products.webp",
+    title: "Operating Weaving Room",
+    image: "/images/home/home-clean-weaving-room.jpg",
   },
 ];
 
@@ -342,7 +382,7 @@ export const complianceNotice =
   "Some high-performance carbon fiber materials, prepregs, yarns, tow, CFRP components and related products may require end-use and end-user review before quotation or shipment.";
 
 export const brandAvailabilityNotice =
-  "Brand availability depends on stock, batch, order quantity, destination country and compliance review.";
+  "Brand availability depends on stock, batch, order quantity, destination country and compliance review. We do not imply official authorization unless separately stated.";
 
 export const rfqProductTypes: RfqProductType[] = [
   {
@@ -367,6 +407,45 @@ export const rfqProductTypes: RfqProductType[] = [
       { name: "arealWeight", label: "Areal weight", placeholder: "e.g. 200 g/m2, 245 g/m2, 600 g/m2" },
       { name: "width", label: "Width", placeholder: "e.g. 1000 mm / 1270 mm / 1500 mm" },
       { name: "rollLength", label: "Roll length", placeholder: "e.g. 50 m / 100 m" },
+    ],
+  },
+  {
+    value: "aramid-hybrid-fabric",
+    label: "Aramid / Carbon-Aramid Hybrid Fabric",
+    fields: [
+      { name: "fiberType", label: "Fiber type", placeholder: "Para-aramid / meta-aramid / carbon-aramid hybrid" },
+      { name: "fabricConstruction", label: "Fabric construction", placeholder: "Plain / twill / honeycomb / jacquard / custom" },
+      { name: "arealWeight", label: "Areal weight", placeholder: "e.g. 170 / 180 / 200 / 240 g/m2" },
+      { name: "width", label: "Width", placeholder: "1000 mm / 1270 mm / custom" },
+      { name: "colorPattern", label: "Color or pattern", placeholder: "Yellow / black-yellow / red-black / custom" },
+      { name: "targetApplication", label: "Target application", placeholder: "Protective panel / composite skin / decorative CFRP" },
+      { name: "resinCompatibility", label: "Resin compatibility", placeholder: "Epoxy / vinyl ester / phenolic / other" },
+    ],
+  },
+  {
+    value: "ud-fabric",
+    label: "UD Carbon Fiber Fabric",
+    fields: [
+      { name: "fiberDirectionRequirement", label: "Fiber direction requirement", placeholder: "0 degree / main load direction / custom" },
+      { name: "arealWeight", label: "Areal weight", placeholder: "200 / 300 / 600 g/m2 or custom" },
+      { name: "width", label: "Width", placeholder: "10 cm / 20 cm / 50 cm / 100 cm / custom" },
+      { name: "fiberGrade", label: "Fiber grade", placeholder: "T300 / T700 / 12K / 24K / 50K / custom" },
+      { name: "rollLength", label: "Roll length", placeholder: "e.g. 50 m / 100 m / custom" },
+      { name: "resinSystem", label: "Resin system or process", placeholder: "Epoxy / pultrusion / strengthening / laminate" },
+    ],
+  },
+  {
+    value: "spread-tow-fabric",
+    label: "Spread Tow Carbon Fiber Fabric",
+    fields: [
+      { name: "patternSize", label: "Pattern size", placeholder: "8x8mm / 10x10mm / custom" },
+      { name: "towSize", label: "Tow size", placeholder: "12K / 24K / custom" },
+      { name: "fiberGrade", label: "Fiber grade", placeholder: "T700 / custom" },
+      { name: "weavePattern", label: "Weave pattern", placeholder: "Plain / twill / diamond / custom" },
+      { name: "arealWeight", label: "Areal weight", placeholder: "100 / 160 / 200 / 240 / 300 / 600 g/m2" },
+      { name: "width", label: "Width", placeholder: "1000 mm / 1270 mm / custom" },
+      { name: "rollLength", label: "Roll length", placeholder: "50 m / 100 m / custom" },
+      { name: "surfaceAppearanceRequirement", label: "Surface appearance requirement", placeholder: "Decorative CFRP / thin laminate / panel skin" },
     ],
   },
   {

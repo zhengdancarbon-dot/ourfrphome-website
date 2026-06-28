@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site-config";
@@ -8,6 +9,16 @@ import "./globals.css";
 const defaultTitle = "FRP HOME | Carbon Fiber Fabric Manufacturer in China";
 const defaultDescription =
   "Zhejiang FRPHome New Material Co., Ltd. manufactures carbon fiber fabric, UD fabric, prepreg and composite reinforcement materials with stable supply, custom specifications, technical support and export packing.";
+const ga4MeasurementId =
+  process.env.GA4_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+const googleSiteVerification =
+  process.env.GSC_VERIFICATION_CODE || process.env.NEXT_PUBLIC_GSC_VERIFICATION_CODE;
+const bingSiteVerification =
+  process.env.BING_VERIFICATION_CODE || process.env.NEXT_PUBLIC_BING_VERIFICATION_CODE;
+const verification: Metadata["verification"] = {
+  ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
+  ...(bingSiteVerification ? { other: { "msvalidate.01": bingSiteVerification } } : {}),
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -49,6 +60,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: absoluteUrl("/"),
   },
+  ...(googleSiteVerification || bingSiteVerification ? { verification } : {}),
 };
 
 const organizationSchema = {
@@ -109,6 +121,51 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        {ga4MeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${ga4MeasurementId}');
+              `}
+            </Script>
+          </>
+        ) : null}
+        <Script id="conversion-click-tracking" strategy="afterInteractive">
+          {`
+            (function () {
+              function sendEvent(eventName, params) {
+                if (typeof window.gtag === "function") {
+                  window.gtag("event", eventName, params || {});
+                }
+              }
+
+              document.addEventListener("click", function (event) {
+                var target = event.target;
+                if (!target || !target.closest) return;
+                var link = target.closest("a");
+                if (!link) return;
+
+                var href = link.getAttribute("href") || "";
+                var absoluteHref = link.href || href;
+
+                if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
+                  sendEvent("whatsapp_click", { link_url: absoluteHref });
+                } else if (href.indexOf("mailto:") === 0) {
+                  sendEvent("email_click", { link_url: href });
+                } else if (href.indexOf("/catalog") >= 0 || link.hasAttribute("download")) {
+                  sendEvent("catalog_download", { link_url: absoluteHref });
+                }
+              });
+            })();
+          `}
+        </Script>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

@@ -13,6 +13,7 @@ import {
   Settings2,
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
+import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
@@ -54,13 +55,24 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 function inferRfqType(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-ud-fabric") return "ud-fabric";
+  if (product.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
+  if (product.slug === "aramid-fabric" || product.slug === "carbon-fiber-hybrid-jacquard-fabric") {
+    return "aramid-hybrid-fabric";
+  }
+  if (product.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
+  if (product.slug === "prepreg-carbon-fiber-materials") return "prepreg";
+  if (product.slug === "structural-strengthening-system") {
+    return "structural-strengthening";
+  }
   if (source.includes("prepreg")) return "prepreg";
   if (source.includes("chopped") || source.includes("milled") || source.includes("powder")) {
     return "chopped-powder";
   }
-  if (source.includes("structural") || source.includes("strengthening") || source.includes("plate")) {
+  if (source.includes("structural") || source.includes("strengthening")) {
     return "structural-strengthening";
   }
+  if (source.includes("aramid") || source.includes("hybrid")) return "aramid-hybrid-fabric";
   if (source.includes("spread tow") || source.includes("woven") || source.includes("fabric")) {
     return "woven-fabric";
   }
@@ -80,11 +92,34 @@ function inferRfqType(product: ProductCatalogItem) {
 function selectionGuidance(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-ud-fabric") {
+    return [
+      "Confirm the main load direction.",
+      "Select the required areal weight.",
+      "Choose width according to laminate design or strengthening area.",
+      "Confirm fiber grade and modulus requirement.",
+      "Confirm resin compatibility and processing method.",
+      "Confirm whether the application is composite manufacturing or structural strengthening.",
+    ];
+  }
+  if (product.slug === "spread-tow-carbon-fiber-fabric") {
+    return [
+      "Confirm visible pattern size: 8x8mm, 10x10mm or custom.",
+      "Confirm tow size and fiber grade.",
+      "Select areal weight according to laminate thickness and appearance requirement.",
+      "Confirm width and roll length.",
+      "Confirm surface requirement: decorative CFRP, thin laminate, panel skin or prepreg conversion.",
+      "Confirm process: wet lay-up, vacuum bagging, compression molding or prepreg conversion.",
+    ];
+  }
   if (source.includes("prepreg")) {
     return [
-      "Confirm reinforcement type, resin system, resin content and curing temperature.",
-      "Share storage, out-life and processing method requirements before sampling.",
-      "Use the customer qualification process to verify final laminate performance.",
+      "Confirm reinforcement type: woven, UD or spread tow.",
+      "Confirm fiber grade and fabric weight.",
+      "Confirm resin system and curing temperature.",
+      "Confirm processing method: autoclave, hot press, compression molding or OOA.",
+      "Confirm storage and shelf-life requirements.",
+      "Confirm final application and destination country.",
     ];
   }
   if (source.includes("chopped") || source.includes("milled") || source.includes("powder")) {
@@ -101,7 +136,11 @@ function selectionGuidance(product: ProductCatalogItem) {
       "End-use and end-user information may be required before quotation or shipment.",
     ];
   }
-  if (source.includes("structural") || source.includes("strengthening") || source.includes("plate")) {
+  if (
+    product.slug === "structural-strengthening-system" ||
+    source.includes("structural") ||
+    source.includes("strengthening")
+  ) {
     return [
       "Identify project type, reinforcement design, target area and required CFRP fabric or plate dimensions.",
       "Confirm whether structural epoxy resin, primer, saturant or plate adhesive is required.",
@@ -122,6 +161,127 @@ function selectionGuidance(product: ProductCatalogItem) {
   ];
 }
 
+function recommendedFit(product: ProductCatalogItem) {
+  if (product.slug === "carbon-fiber-woven-fabric") {
+    return {
+      recommended: [
+        "Visible CFRP surfaces",
+        "Automotive parts",
+        "Sports equipment",
+        "Civil UAV components",
+        "Decorative composite panels",
+        "General composite laminates",
+      ],
+      notRecommended: [
+        "Pure one-direction load reinforcement",
+        "Applications requiring pre-controlled resin content",
+        "Projects without confirmed resin compatibility",
+      ],
+    };
+  }
+  if (product.slug === "prepreg-carbon-fiber-materials") {
+    return {
+      recommended: [
+        "Molded CFRP parts",
+        "Controlled resin content",
+        "Repeatable laminate quality",
+        "Autoclave, hot press or compression molding",
+      ],
+      notRecommended: [
+        "Customers without storage control",
+        "Simple repair projects where dry fabric and epoxy are easier",
+        "Projects without confirmed curing cycle",
+      ],
+    };
+  }
+  if (product.slug === "chopped-carbon-fiber" || product.slug === "milled-carbon-fiber-powder") {
+    return {
+      recommended: [
+        "Plastic reinforcement",
+        "Nylon modification",
+        "Resin reinforcement",
+        "Conductive compounds",
+        "Friction materials",
+      ],
+      notRecommended: [
+        "Applications requiring continuous fiber strength",
+        "Visible woven carbon surface",
+        "Structural laminate reinforcement",
+      ],
+    };
+  }
+  if (product.slug === "carbon-fiber-ud-fabric") {
+    return {
+      recommended: [
+        "Directional reinforcement",
+        "Structural strengthening",
+        "Pultrusion feed",
+        "Repair laminates",
+        "Load-path controlled composite parts",
+      ],
+      notRecommended: [
+        "Balanced visible carbon surfaces",
+        "Decorative woven appearance requirements",
+        "Applications without confirmed main load direction",
+      ],
+    };
+  }
+  if (product.slug === "spread-tow-carbon-fiber-fabric") {
+    return {
+      recommended: [
+        "8x8mm or 10x10mm visible checker surfaces",
+        "Decorative CFRP panels",
+        "Thin laminate skins",
+        "Automotive and sports appearance parts",
+      ],
+      notRecommended: [
+        "Hidden reinforcement where appearance is irrelevant",
+        "Pure directional strengthening",
+        "Projects without confirmed surface appearance requirement",
+      ],
+    };
+  }
+  if (product.slug === "carbon-fiber-yarn-and-tow") {
+    return {
+      recommended: [
+        "Weaving and braiding",
+        "Filament winding",
+        "Pultrusion",
+        "Prepreg production",
+        "Chopping or downstream conversion",
+      ],
+      notRecommended: [
+        "Buyers looking for finished woven fabric",
+        "Projects without clear process or sizing requirement",
+        "Orders without end-use and destination information where review is required",
+      ],
+    };
+  }
+  if (product.slug === "structural-strengthening-system") {
+    return {
+      recommended: [
+        "Concrete and bridge strengthening",
+        "UD fabric, CFRP plate and epoxy system requests",
+        "Externally bonded reinforcement projects",
+        "Contractor and distributor material supply",
+      ],
+      notRecommended: [
+        "Decorative CFRP surfaces",
+        "Projects without qualified engineering design",
+        "Applications where substrate and epoxy compatibility are unknown",
+      ],
+    };
+  }
+  return {
+    recommended: product.applications.slice(0, 6),
+    notRecommended: [
+      "Projects without confirmed specification",
+      "Applications without process or resin compatibility review",
+      "Orders where final use cannot be explained when review is required",
+    ],
+  };
+}
+
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
@@ -135,6 +295,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     .slice(0, 5);
   const activeRfqType =
     rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
+  const fit = recommendedFit(product);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const firstSpecTable = product.tds.tables[0];
   const inquiryHref = `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
@@ -242,6 +403,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               ["Quick Answer", "#quick-answer"],
               ["Specifications", "#specifications"],
               ["Overview", "#overview"],
+              ["Recommended For", "#recommended-for"],
               ["How to Choose", "#how-to-choose"],
               ["RFQ Info", "#rfq-info"],
               ["Documents", "#documents"],
@@ -371,6 +533,32 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </div>
             </section>
 
+            <section className="product-detail-card" id="recommended-for">
+              <SectionHeading
+                eyebrow="Recommended For / Not Recommended For"
+                title="Match the material to the right buying situation."
+                copy="This is a practical shortlist for RFQ preparation. Final suitability depends on customer testing, resin compatibility and engineering validation."
+              />
+              <div className="recommended-fit-grid">
+                <article>
+                  <h3>Recommended For</h3>
+                  <ul>
+                    {fit.recommended.map((item) => (
+                      <li key={item}><CheckCircle2 size={16} />{item}</li>
+                    ))}
+                  </ul>
+                </article>
+                <article>
+                  <h3>Not Recommended For</h3>
+                  <ul>
+                    {fit.notRecommended.map((item) => (
+                      <li key={item}><ClipboardList size={16} />{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </section>
+
             <section className="product-detail-card" id="how-to-choose">
               <SectionHeading
                 eyebrow="How to choose this product"
@@ -491,7 +679,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <div><Settings2 size={21} /><span><strong>Review</strong><small>End use and destination where required</small></span></div>
             </div>
           </div>
-          <Suspense fallback={<div className="form-loading">Loading RFQ form...</div>}>
+          <Suspense
+            fallback={
+              <RfqFallbackForm
+                productName={product.name}
+                productType={activeRfqType.value}
+                message={`Please quote ${product.name}. My target specification and quantity are below.`}
+              />
+            }
+          >
             <InquiryForm initialProduct={product.name} />
           </Suspense>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ClipboardCheck, Container, FileCheck2, PackageCheck, Ship, Truck, Warehouse } from "lucide-react";
 import { CheckList, InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { createPageMetadata } from "@/lib/seo";
@@ -18,7 +19,7 @@ export const metadata: Metadata = createPageMetadata({
     "carbon fiber shipping China",
   ],
   path: "/packaging-shipping",
-  image: "/images/hero-carbon-production.png",
+  image: "/images/logistics/palletized-rolls-warehouse-clean.jpg",
 });
 
 const logistics = [
@@ -32,6 +33,21 @@ const logistics = [
   { icon: FileCheck2, title: "Export documents", copy: "Invoice, packing list, CO, TDS and COA can be prepared by request and product scope." },
 ];
 
+const shipmentPhotos = [
+  {
+    title: "Palletized rolls before shipment",
+    image: "/images/logistics/palletized-rolls-warehouse-clean.jpg",
+  },
+  {
+    title: "Container loading with protected pallets",
+    image: "/images/logistics/container-loading-pallets-clean.jpg",
+  },
+  {
+    title: "Container staging before dispatch",
+    image: "/images/logistics/container-staged-inside-clean.jpg",
+  },
+];
+
 export default function PackagingShippingPage() {
   return (
     <>
@@ -40,7 +56,7 @@ export default function PackagingShippingPage() {
         eyebrow="Packaging & shipping"
         title="Protected from our factory to yours."
         copy="Composite materials can be sensitive to crushing, moisture, contamination and temperature. Packing is selected around product format, shipment method and destination."
-        image="/images/hero-carbon-production.png"
+        image="/images/logistics/palletized-rolls-warehouse-clean.jpg"
       />
       <section className="section">
         <div className="site-shell">
@@ -61,6 +77,28 @@ export default function PackagingShippingPage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+      <section className="section section-soft">
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Shipment photo review"
+            title="Pallet and container loading photos before dispatch."
+            copy="Packing photos can be reviewed before shipment. Customer and order references are removed from website examples."
+          />
+          <div className="factory-image-grid logistics-photo-grid">
+            {shipmentPhotos.map((item) => (
+              <figure key={item.title}>
+                <Image
+                  src={item.image}
+                  alt={`${item.title} for carbon fiber material export packing`}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
+                <figcaption>{item.title}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
