@@ -6,7 +6,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. The remaining launch item is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test.
+Current status: Vercel project, GitHub connection, Aliyun / HiChina DNS, Vercel domain verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. Production deployment `e753150` now uses `FRP HOME Website <website@myfrphome.com>`. The remaining launch item is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test can pass.
 
 Stable Vercel project aliases:
 
@@ -111,6 +111,7 @@ Expected behavior:
 - Invalid RFQ payload returns `400` with validation errors.
 - Valid RFQ payload without `RESEND_API_KEY` returns `503` with `Email service is temporarily unavailable.`
 - Valid RFQ payload with `RESEND_API_KEY`, verified sender, and working recipient should send email through Resend.
+- Current live production result after deployment `e753150`: valid RFQ payload returns `502`; Vercel logs show Resend `403` with `The myfrphome.com domain is not verified`.
 
 The route uses:
 

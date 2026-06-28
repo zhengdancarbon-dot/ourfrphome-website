@@ -8,7 +8,7 @@ GitHub repository: `https://github.com/zhengdancarbon-dot/ourfrphome-website.git
 
 Vercel project: `zhendgan/ourfrphome-website`
 
-Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. The remaining launch blocker is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test.
+Current status: Vercel project, GitHub repository, GitHub integration, custom domain entries, Aliyun / HiChina DNS, Vercel verification, Vercel apex-to-`www` redirect, production deployment, Google Search Console domain verification, sitemap submission, Vercel `RESEND_API_KEY`, and Resend DNS records are configured for `https://www.myfrphome.com`. Production deployment `e753150` now uses `FRP HOME Website <website@myfrphome.com>`. The remaining launch blocker is confirming the `myfrphome.com` sender-domain verification inside Resend before the live inquiry-form email test can pass.
 
 ## Deployment Result
 
@@ -26,6 +26,7 @@ Current status: Vercel project, GitHub repository, GitHub integration, custom do
 | Latest domain deployment | PASS | Vercel production deployment reached `Ready` after commit `c31a6e3`. |
 | Google Search Console domain verification | PASS | Domain property `myfrphome.com` verified through Aliyun DNS TXT. |
 | Google Search Console sitemap submission | PASS | `https://www.myfrphome.com/sitemap.xml` submitted successfully. |
+| Latest sender-domain deployment | PASS | Commit `e753150` reached Ready and uses `website@myfrphome.com`. |
 
 Example generated deployment verified during setup:
 
@@ -71,7 +72,7 @@ Status:
 - PASS: invalid RFQ payload returns `400` validation errors.
 - PASS: valid RFQ payload without `RESEND_API_KEY` returns expected `503` email-service response.
 - READY FOR VERCEL: this route should run as a Vercel Node.js serverless function.
-- PENDING: live email delivery test after the `myfrphome.com` sender domain is verified in Resend.
+- PENDING: live valid RFQ payload returns `502`; Vercel logs show Resend `403` with `The myfrphome.com domain is not verified`.
 
 Environment variables:
 
@@ -213,6 +214,7 @@ Current result:
 
 - Vercel API and CLI inspection work and report the latest deployment as Ready.
 - Live custom-domain smoke checks pass for home, robots, sitemap, contact links, canonical URLs, Organization schema, and WebSite schema.
+- Live valid inquiry payload reaches Resend but fails until Resend marks `myfrphome.com` verified.
 - Google Search Console verified the domain property `myfrphome.com`.
 - Google Search Console accepted `https://www.myfrphome.com/sitemap.xml`.
 
