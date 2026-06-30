@@ -85,7 +85,7 @@ export const applicationPages: ApplicationPage[] = [
     title: "Carbon Fiber Materials for Civil UAV and Drone Components",
     description:
       "Carbon fiber sheets, tubes, rods, 3K woven fabric, spread tow fabric and custom CFRP parts for civil UAV, inspection drone and commercial drone components.",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
     quickAnswer:
       "Carbon fiber sheets, tubes, rods, 3K woven fabric, spread tow fabric and custom CFRP parts are used in civil UAV and drone components where lightweight structure, stiffness and stable dimensions are required.",
     why: [
@@ -207,7 +207,7 @@ export const applicationPages: ApplicationPage[] = [
     title: "Carbon Fiber Materials for Structural Strengthening",
     description:
       "CFRP strengthening material guide covering UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement.",
-    image: "/images/generated/structural-cfrp-plate-real-ps.webp",
+    image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     quickAnswer:
       "A carbon fiber structural strengthening system includes UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement projects.",
     why: [

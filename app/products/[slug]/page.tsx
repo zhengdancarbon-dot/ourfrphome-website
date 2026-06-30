@@ -13,6 +13,7 @@ import {
   Settings2,
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
+import { ProductImageZoom } from "@/components/product-image-zoom";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
@@ -297,6 +298,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const fit = recommendedFit(product);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
+  const productGalleryLimit = product.slug === "chopped-carbon-fiber" ? 6 : 4;
   const firstSpecTable = product.tds.tables[0];
   const inquiryHref = `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
     `Please quote ${product.name}. My target specification and quantity are below.`,
@@ -381,16 +383,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            <div className="product-template-media">
-              <Image
-                src={product.image}
-                alt={product.visualLabel}
-                fill
-                loading="eager"
-                fetchPriority="high"
-                sizes="(max-width: 900px) 100vw, 44vw"
-              />
-            </div>
+            <ProductImageZoom
+              src={product.image}
+              alt={product.visualLabel}
+              priority
+              sizes="(max-width: 900px) 100vw, 44vw"
+            />
           </div>
         </div>
       </section>
@@ -471,7 +469,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   ))}
                 </div>
                 <div className="product-gallery-strip" aria-label={`${product.name} product images`}>
-                  {productImageSlots.slice(0, 4).map((image, index) => (
+                  {productImageSlots.slice(0, productGalleryLimit).map((image, index) => (
                     <div key={image}>
                       <Image
                         src={image}

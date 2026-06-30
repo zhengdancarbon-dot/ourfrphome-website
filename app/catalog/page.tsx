@@ -528,7 +528,7 @@ export default function CatalogPageRoute() {
               />
               <ImagePlaceholder
                 label="CNC carbon fiber plate parts"
-                imageSrc="/images/products/custom-cnc-carbon-fiber-plates.webp"
+                imageSrc="/images/products/custom-carbon-fiber-cnc-plates-close.webp"
                 imageAlt="CNC machined carbon fiber plates"
               />
             </div>
@@ -699,7 +699,7 @@ export default function CatalogPageRoute() {
             <div className={styles.customHero}>
               <ImagePlaceholder
                 label="Custom carbon fiber products"
-                imageSrc="/images/products/custom-cnc-carbon-fiber-plates.webp"
+                imageSrc="/images/products/custom-carbon-fiber-cnc-panels-hero.webp"
                 imageAlt="Custom CNC machined carbon fiber products"
               />
               <div className={styles.customInputs}>

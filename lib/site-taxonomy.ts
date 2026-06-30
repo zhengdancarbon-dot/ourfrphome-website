@@ -117,7 +117,7 @@ export const productSeries: ProductSeries[] = [
       "Custom CFRP Components",
     ],
     href: "/products/custom-carbon-fiber-products",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
     specs: ["Dimensions by drawing", "Tolerance and surface finish by order", "Packing by component geometry"],
   },
   {
@@ -131,7 +131,7 @@ export const productSeries: ProductSeries[] = [
       "CFRP Strengthening System",
     ],
     href: "/products/structural-strengthening-system",
-    image: "/images/generated/structural-cfrp-plate-real-ps.webp",
+    image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     specs: ["UD fabric / CFRP plate", "Epoxy system by project", "End-use review before quotation"],
   },
 ];
@@ -156,7 +156,7 @@ export const materialApplications: MaterialApplication[] = [
     description: "Carbon plates, tubes and machined parts for civil UAV, FPV and inspection drones.",
     recommended: "3K sheets, pultruded tubes, CNC CFRP parts",
     href: "/applications/civil-uav-drone-components",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
   },
   {
     name: "Composite Manufacturing",
@@ -177,7 +177,7 @@ export const materialApplications: MaterialApplication[] = [
     description: "Externally bonded CFRP systems for concrete, masonry and civil reinforcement projects.",
     recommended: "UD strengthening fabric, CFRP laminate, structural epoxy",
     href: "/applications/structural-strengthening",
-    image: "/images/products/pultruded-carbon-fiber-plate-detail.webp",
+    image: "/images/products/pultruded-cfrp-plate-edge-detail.webp",
   },
   {
     name: "Robotics & Automation",
@@ -198,7 +198,7 @@ export const materialApplications: MaterialApplication[] = [
     description: "Cosmetic carbon surfaces and patterned laminates for appearance-driven products.",
     recommended: "3K twill fabric, jacquard, hybrid fabric, laminate sheets",
     href: "/applications/decorative-cfrp-panels",
-    image: "/images/products/carbon-aramid-hybrid-jacquard.webp",
+    image: "/images/products/carbon-aramid-hybrid-jacquard-orange.webp",
   },
 ];
 
@@ -229,7 +229,7 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     description: "Matched tooling for repeat CFRP parts and higher-throughput components.",
     recommended: "Prepreg, chopped fiber compounds, custom laminates",
     href: "/processes#compression-molding",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
   },
   {
     name: "Pultrusion",
@@ -278,7 +278,7 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     description: "Sheet, plate and laminate cutting for frames, brackets and precision CFRP parts.",
     recommended: "CFRP sheets, laminate plates, custom components",
     href: "/processes#cnc-machining",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
     rfqDetails: [
       "Drawing upload",
       "Material thickness",
@@ -337,7 +337,7 @@ export const technicalGuides = [
     title: "Machining CFRP",
     description: "Tooling, speeds, feeds and surface finish considerations for composite parts.",
     href: "/technical-center#machining-cfrp",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-parts-detail.webp",
   },
 ];
 

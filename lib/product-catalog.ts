@@ -463,16 +463,17 @@ export const productCatalog: ProductCatalogItem[] = [
       "Carbon/aramid hybrid cloth, carbon/glass hybrid fabric and jacquard carbon patterns for visual composite parts and selected functional laminates.",
     heroCopy:
       "Hybrid and jacquard fabrics combine carbon fiber with aramid, glass fiber or pattern weaving to create decorative surfaces, impact-resistant skins and differentiated composite products.",
-    image: "/images/products/carbon-aramid-hybrid-fabric.webp",
+    image: "/images/products/carbon-aramid-hybrid-jacquard-orange.webp",
     gallery: [
-      "/images/products/carbon-aramid-hybrid-fabric.webp",
-      "/images/products/carbon-aramid-hybrid-fabric-roll.webp",
-      "/images/products/carbon-aramid-hybrid-jacquard.webp",
-      "/images/products/carbon-aramid-hybrid-red.webp",
-      "/images/products/carbon-aramid-hybrid-blue.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-orange.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-orange-close.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-cube.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-diamond.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-herringbone.webp",
+      "/images/products/carbon-aramid-hybrid-jacquard-star.webp",
     ],
-    visualLabel: "carbon aramid hybrid fabric / jacquard pattern",
-    position: "68% 50%",
+    visualLabel: "orange carbon aramid hybrid jacquard fabric roll",
+    position: "center",
     seo: {
       title: "Carbon Aramid Hybrid Jacquard Fabric Supplier",
       description:
@@ -657,11 +658,12 @@ export const productCatalog: ProductCatalogItem[] = [
       "System materials including UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement projects.",
     heroCopy:
       "A carbon fiber structural strengthening system includes UD carbon fiber fabric, pultruded CFRP plates and structural epoxy resin for concrete, bridge and building reinforcement projects.",
-    image: "/images/generated/structural-cfrp-plate-real-ps.webp",
+    image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     gallery: [
-      "/images/generated/structural-cfrp-plate-real-ps.webp",
-      "/images/products/pultruded-carbon-fiber-plate.webp",
-      "/images/products/pultruded-carbon-fiber-plate-detail.webp",
+      "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
+      "/images/products/pultruded-cfrp-plate-stacked-close.webp",
+      "/images/products/pultruded-cfrp-plate-edge-detail.webp",
+      "/images/products/pultruded-cfrp-plate-surface-detail.webp",
     ],
     visualLabel: "Pultruded carbon fiber plate strips for structural reinforcement",
     position: "50% 46%",
@@ -866,7 +868,7 @@ export const productCatalog: ProductCatalogItem[] = [
     gallery: [
       "/images/products/3k-carbon-fiber-laminate-sheet.webp",
       "/images/products/3k-carbon-fiber-laminate-stack.webp",
-      "/images/products/custom-cnc-carbon-fiber-plates.webp",
+      "/images/products/custom-carbon-fiber-cnc-plates-close.webp",
     ],
     visualLabel: "3K carbon fiber laminate sheet and CNC cut plates",
     position: "48% 46%",
@@ -1160,20 +1162,19 @@ export const productCatalog: ProductCatalogItem[] = [
   {
     slug: "milled-carbon-fiber-powder",
     name: "Milled Carbon Fiber Powder",
-    shortName: "Milled Carbon Fiber",
+    shortName: "Carbon Fiber Powder",
     category: "Short Fiber Additive",
     description:
       "Milled carbon fiber powder for conductive fillers, friction materials, coatings, thermoplastic compounds and functional composite modification.",
     heroCopy:
       "Milled carbon fiber powder is supplied in controlled average fiber lengths for resin, rubber, coating, cement and thermoplastic compound reinforcement.",
-    image: "/images/products/milled-carbon-fiber-powder.webp",
+    image: "/images/products/milled-carbon-fiber-powder-fine.webp",
     gallery: [
-      "/images/products/milled-carbon-fiber-powder.webp",
-      "/images/products/milled-carbon-fiber-powder-detail.webp",
-      "/images/products/chopped-carbon-fiber-short.webp",
+      "/images/products/milled-carbon-fiber-powder-fine.webp",
+      "/images/products/milled-carbon-fiber-powder-fine-detail.webp",
     ],
-    visualLabel: "black milled carbon fiber powder",
-    position: "76% 50%",
+    visualLabel: "fine black carbon fiber powder",
+    position: "center",
     seo: {
       title: "Milled Carbon Fiber Powder Supplier",
       description:
@@ -1182,8 +1183,9 @@ export const productCatalog: ProductCatalogItem[] = [
         ...commonKeywords,
         "carbon fiber powder",
         "milled carbon fiber",
+        "milled carbon powder",
         "carbon fiber conductive filler",
-        "short carbon fiber powder",
+        "fine carbon fiber powder",
       ],
     },
     specs: [
@@ -1261,14 +1263,17 @@ export const productCatalog: ProductCatalogItem[] = [
       "Chopped carbon fiber in 3 mm, 6 mm, 12 mm and custom lengths for thermoplastics, concrete, resin compounds and specialty composites.",
     heroCopy:
       "Chopped carbon fiber is precision-cut from continuous tow and supplied with sizing options for polymers, thermoset resin systems and industrial composite formulations.",
-    image: "/images/products/chopped-carbon-fiber.webp",
+    image: "/images/products/chopped-carbon-fiber-flakes-main.webp",
     gallery: [
-      "/images/products/chopped-carbon-fiber.webp",
-      "/images/products/chopped-carbon-fiber-strands.webp",
-      "/images/products/chopped-carbon-fiber-short.webp",
+      "/images/products/chopped-carbon-fiber-flakes-main.webp",
+      "/images/products/chopped-carbon-fiber-flakes-close.webp",
+      "/images/products/chopped-carbon-fiber-flakes-detail.webp",
+      "/images/products/chopped-carbon-fiber-flakes-texture.webp",
+      "/images/products/chopped-carbon-fiber-flakes-pile.webp",
+      "/images/products/chopped-carbon-fiber-flakes-studio.webp",
     ],
-    visualLabel: "chopped carbon fiber strands",
-    position: "82% 48%",
+    visualLabel: "chopped carbon fiber flakes and strands",
+    position: "center",
     seo: {
       title: "Chopped Carbon Fiber 3 mm 6 mm 12 mm",
       description:
@@ -1357,11 +1362,11 @@ export const productCatalog: ProductCatalogItem[] = [
       "Custom carbon fiber parts, molded products, CNC plates, civil UAV frames, FPV drone frames, tubes, assemblies and composite components according to drawings or samples.",
     heroCopy:
       "Custom carbon fiber products can be developed from plates, tubes, prepreg, wet layup or molded laminates for industrial, automotive, sports and equipment applications.",
-    image: "/images/products/custom-cnc-carbon-fiber-plates.webp",
+    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
     gallery: [
-      "/images/products/custom-cnc-carbon-fiber-plates.webp",
-      "/images/products/3k-carbon-fiber-laminate-stack.webp",
-      "/images/products/3k-surface-carbon-fiber-square-tube.webp",
+      "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
+      "/images/products/custom-carbon-fiber-cnc-parts-detail.webp",
+      "/images/products/custom-carbon-fiber-cnc-plates-close.webp",
     ],
     visualLabel: "Custom CNC machined carbon fiber parts and composite assemblies",
     position: "60% 52%",

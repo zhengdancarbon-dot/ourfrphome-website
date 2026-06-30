@@ -1,11 +1,22 @@
 const productionUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.myfrphome.com"
 ).replace(/\/+$/, "");
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sales@tzcarbon.com";
-const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+86-13586461443";
-const contactWhatsapp = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || "+86-13586461443";
-const telNumber = contactPhone.replace(/[^\d+]/g, "");
-const whatsappNumber = contactWhatsapp.replace(/\D/g, "");
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@hntzxcl.com";
+const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "0086-18857397371";
+const contactWhatsapp = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || "0086-18857397371";
+
+function toTelNumber(value: string) {
+  const normalized = value.replace(/[^\d+]/g, "");
+  return normalized.startsWith("00") ? `+${normalized.slice(2)}` : normalized;
+}
+
+function toWhatsappNumber(value: string) {
+  const normalized = value.replace(/\D/g, "");
+  return normalized.startsWith("00") ? normalized.slice(2) : normalized;
+}
+
+const telNumber = toTelNumber(contactPhone);
+const whatsappNumber = toWhatsappNumber(contactWhatsapp);
 
 export const siteConfig = {
   companyName: "Zhejiang FRPHome New Material Co., Ltd.",

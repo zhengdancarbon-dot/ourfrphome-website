@@ -449,7 +449,7 @@ export const technicalArticles: TechnicalArticle[] = [
     title: "CFRP Plate vs Carbon Fiber Fabric for Structural Strengthening",
     description:
       "Compare pultruded CFRP plates and UD carbon fiber fabric for concrete, bridge and building strengthening systems.",
-    image: "/images/generated/structural-cfrp-plate-real-ps.webp",
+    image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     quickAnswer:
       "CFRP plate provides high axial stiffness in strip reinforcement, while UD carbon fiber fabric conforms to surfaces and covers wider strengthening areas with a compatible epoxy system.",
     definition:

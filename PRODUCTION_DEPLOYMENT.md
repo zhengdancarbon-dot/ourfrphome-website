@@ -72,10 +72,10 @@ These variables should exist in Vercel Production, Preview, and Development envi
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://www.myfrphome.com
-NEXT_PUBLIC_CONTACT_EMAIL=sales@tzcarbon.com
-NEXT_PUBLIC_CONTACT_PHONE=+86-13586461443
-NEXT_PUBLIC_CONTACT_WHATSAPP=+86-13586461443
-INQUIRY_TO_EMAIL=sales@tzcarbon.com
+NEXT_PUBLIC_CONTACT_EMAIL=info@hntzxcl.com
+NEXT_PUBLIC_CONTACT_PHONE=0086-18857397371
+NEXT_PUBLIC_CONTACT_WHATSAPP=0086-18857397371
+INQUIRY_TO_EMAIL=info@hntzxcl.com
 INQUIRY_FROM_EMAIL=FRP HOME Website <website@myfrphome.com>
 RESEND_API_KEY=re_your_production_key
 ```
@@ -111,7 +111,7 @@ Expected behavior:
 - Invalid RFQ payload returns `400` with validation errors.
 - Valid RFQ payload without `RESEND_API_KEY` returns `503` with `Email service is temporarily unavailable.`
 - Valid RFQ payload with `RESEND_API_KEY`, verified sender, and working recipient should send email through Resend.
-- Current live production result after Resend verification: valid RFQ payload returns `200 {"ok":true}` and the test inquiry was received at `sales@tzcarbon.com`.
+- Expected live production result after recipient update: valid RFQ payload returns `200 {"ok":true}` and the test inquiry is received at `info@hntzxcl.com`.
 
 The route uses:
 
@@ -292,7 +292,7 @@ Run these checks after future production changes:
 - Confirm all product images load.
 - Confirm the header mobile menu opens and links navigate.
 - Submit the contact form without attachment.
-- PASS: inquiry email arrives at `sales@tzcarbon.com`.
+- PASS: inquiry email arrives at `info@hntzxcl.com`.
 - Reply to the inquiry email and confirm the buyer email is used as `reply_to`.
 - Submit a valid PDF or image attachment under 4 MB.
 - Confirm the attachment arrives.
@@ -332,5 +332,5 @@ DNS rollback:
 
 Emergency fallback:
 
-- Temporarily disable the contact form only if email delivery is failing, while keeping the visible `mailto:sales@tzcarbon.com`, `tel:+8613586461443`, and WhatsApp links available.
+- Temporarily disable the contact form only if email delivery is failing, while keeping the visible `mailto:info@hntzxcl.com`, `tel:+8618857397371`, and WhatsApp links available.
 - Do not point the domain to an old website containing legacy `zdcarbonfiber.com`, `carbonzd.com`, or `Zhengdan` branding.

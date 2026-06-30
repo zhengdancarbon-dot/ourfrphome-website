@@ -72,7 +72,7 @@ export default function ApplicationsPage() {
           </div>
           <div className="content-image">
             <Image
-              src="/images/products/custom-cnc-carbon-fiber-plates.webp"
+              src="/images/products/custom-carbon-fiber-cnc-panels-hero.webp"
               alt="CNC cut carbon fiber composite plates for industrial applications"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
