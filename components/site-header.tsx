@@ -4,19 +4,36 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { getLocaleFromPathname, getUnlocalizedPath } from "@/lib/i18n/config";
+import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
+import { getUiCopy, translateProductFamily, translateProductLink } from "@/lib/i18n/ui-copy";
 import { productFamilies } from "@/lib/product-families";
 import { navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isProductsActive = pathname === "/products" || pathname.startsWith("/products/");
+  const locale = getLocaleFromPathname(pathname);
+  const currentPath = getUnlocalizedPath(pathname);
+  const copy = getUiCopy(locale);
+  const isProductsActive = currentPath === "/products" || currentPath.startsWith("/products/");
+  const navLabelByHref = new Map([
+    ["/", copy.nav.home],
+    ["/products", copy.nav.products],
+    ["/applications", copy.nav.applications],
+    ["/processes", copy.nav.processes],
+    ["/technical-center", copy.nav.technicalCenter],
+    ["/quality-control", copy.nav.quality],
+    ["/about", copy.nav.about],
+    ["/contact", copy.nav.contact],
+  ]);
 
   return (
     <header className="site-header">
       <div className="utility-bar">
         <div className="site-shell utility-inner">
-          <span>Carbon Fiber Materials & CFRP Solutions</span>
-          <span className="utility-meta">B2B composite material supply</span>
+          <span>{copy.utility.title}</span>
+          <span className="utility-meta">{copy.utility.meta}</span>
         </div>
       </div>
       <input
@@ -26,7 +43,7 @@ export function SiteHeader() {
         aria-label="Toggle mobile navigation"
       />
       <div className="site-shell nav-row">
-        <Link href="/" className="brand" aria-label="FRP HOME home">
+        <Link href={phaseOneLocalePath("/", locale)} className="brand" aria-label="FRP HOME home">
           <Image
             src="/images/brand/frphome-logo-original.jpg"
             alt="FRP HOME 福昊"
@@ -46,35 +63,38 @@ export function SiteHeader() {
             if (item.href === "/products") {
               return (
                 <div className="nav-dropdown" key={item.href}>
-                  <Link href={item.href} className={isProductsActive ? "active" : ""}>
-                    <span>{item.label}</span>
+                  <Link href={phaseOneLocalePath(item.href, locale)} className={isProductsActive ? "active" : ""}>
+                    <span>{navLabelByHref.get(item.href) ?? item.label}</span>
                     <ChevronDown size={14} strokeWidth={1.8} />
                   </Link>
                   <div className="product-dropdown" aria-label="Product menu">
                     <div className="product-dropdown-head">
-                      <strong>Products by Material Family</strong>
-                      <span>Choose by reinforcement, upstream tow, prepreg, additive, profile or strengthening system.</span>
+                      <strong>{copy.productMenu.title}</strong>
+                      <span>{copy.productMenu.description}</span>
                     </div>
                     <div className="product-dropdown-grid">
-                      {productFamilies.map((family) => (
+                      {productFamilies.map((family) => {
+                        const localizedFamily = translateProductFamily(locale, family.title, family.description);
+                        return (
                         <div className="product-mega-family" key={family.title}>
-                          <Link href={family.href} className="product-mega-family-title">
-                            <span>{family.title}</span>
-                            <small>{family.description}</small>
+                          <Link href={phaseOneLocalePath(family.href, locale)} className="product-mega-family-title">
+                            <span>{localizedFamily.title}</span>
+                            <small>{localizedFamily.description}</small>
                           </Link>
                           <div className="product-mega-links">
                             {family.items.slice(0, 9).map((product) => (
                               <Link
-                                href={product.href}
+                                href={phaseOneLocalePath(product.href, locale)}
                                 key={`${family.title}-${product.label}`}
-                                className={pathname === product.href ? "active" : ""}
+                                className={currentPath === product.href ? "active" : ""}
                               >
-                                {product.label}
+                                {translateProductLink(locale, product.label)}
                               </Link>
                             ))}
                           </div>
                         </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -84,17 +104,19 @@ export function SiteHeader() {
             return (
               <Link
                 key={item.href}
-                href={item.href}
-                className={pathname === item.href ? "active" : ""}
+                href={phaseOneLocalePath(item.href, locale)}
+                className={currentPath === item.href ? "active" : ""}
               >
-                {item.label}
+                {navLabelByHref.get(item.href) ?? item.label}
               </Link>
             );
           })}
         </nav>
 
-        <Link href="/contact" className="button button-dark nav-cta">
-          Request a Quote <ArrowUpRight size={16} strokeWidth={1.8} />
+        <LanguageSwitcher compact />
+
+        <Link href={phaseOneLocalePath("/contact", locale)} className="button button-dark nav-cta">
+          {copy.common.requestQuote} <ArrowUpRight size={16} strokeWidth={1.8} />
         </Link>
 
         <label
@@ -115,28 +137,31 @@ export function SiteHeader() {
               return (
                 <div className="mobile-product-menu" key={item.href}>
                   <Link
-                    href={item.href}
+                    href={phaseOneLocalePath(item.href, locale)}
                     className={isProductsActive ? "active" : ""}
                   >
-                    {item.label}
+                    {navLabelByHref.get(item.href) ?? item.label}
                   </Link>
                   <div className="mobile-product-links">
-                    {productFamilies.map((family) => (
+                    {productFamilies.map((family) => {
+                      const localizedFamily = translateProductFamily(locale, family.title, family.description);
+                      return (
                       <div className="mobile-product-family" key={family.title}>
-                        <Link href={family.href}>
-                          {family.title}
+                        <Link href={phaseOneLocalePath(family.href, locale)}>
+                          {localizedFamily.title}
                         </Link>
                         {family.items.slice(0, 6).map((product) => (
                           <Link
-                            href={product.href}
+                            href={phaseOneLocalePath(product.href, locale)}
                             key={`${family.title}-${product.label}`}
-                            className={pathname === product.href ? "active" : ""}
+                            className={currentPath === product.href ? "active" : ""}
                           >
-                            {product.label}
+                            {translateProductLink(locale, product.label)}
                           </Link>
                         ))}
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -145,15 +170,16 @@ export function SiteHeader() {
             return (
               <Link
                 key={item.href}
-                href={item.href}
-                className={pathname === item.href ? "active" : ""}
+                href={phaseOneLocalePath(item.href, locale)}
+                className={currentPath === item.href ? "active" : ""}
               >
-                {item.label}
+                {navLabelByHref.get(item.href) ?? item.label}
               </Link>
             );
           })}
-          <Link href="/contact" className="button button-dark">
-            Request a Quote <ArrowUpRight size={16} />
+          <LanguageSwitcher />
+          <Link href={phaseOneLocalePath("/contact", locale)} className="button button-dark">
+            {copy.common.requestQuote} <ArrowUpRight size={16} />
           </Link>
         </div>
       </nav>

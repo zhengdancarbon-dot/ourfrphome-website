@@ -24,6 +24,7 @@ function formatInquiry(values: ReturnType<typeof validateInquiryPayload>["values
     `Required Documents: ${values.requiredDocuments || "Not provided"}`,
     `Required Specification: ${values.requiredSpecification || "Not provided"}`,
     `Application / End Use: ${values.application || "Not provided"}`,
+    `Locale: ${values.locale}`,
     ...(values.additionalDetails.length
       ? [
           "",
@@ -36,7 +37,7 @@ function formatInquiry(values: ReturnType<typeof validateInquiryPayload>["values
     "Message:",
     values.message,
     "",
-    `Submitted from: ${siteConfig.url}/contact`,
+    `Submitted from: ${values.locale === "en" ? `${siteConfig.url}/contact` : `${siteConfig.url}/${values.locale}/contact`}`,
     `Received at: ${new Date().toISOString()}`,
   ].join("\n");
 }

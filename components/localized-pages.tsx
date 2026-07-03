@@ -1,0 +1,999 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import { ArrowRight, CheckCircle2, ClipboardList, FileText, Ruler, Settings2 } from "lucide-react";
+import { InquiryForm } from "@/components/inquiry-form";
+import { ProductImageZoom } from "@/components/product-image-zoom";
+import { RfqFallbackForm } from "@/components/rfq-fallback-form";
+import { Eyebrow, PageHero, SectionHeading } from "@/components/ui";
+import { applicationBreadcrumbSchema, getApplicationPage } from "@/lib/application-pages";
+import type { Locale } from "@/lib/i18n/config";
+import {
+  getLocalizedApplicationContent,
+  getLocalizedProductContent,
+  localizedCatalogContent,
+  localizedContactContent,
+  localizedHomeContent,
+  localizedProductsPageContent,
+  translateLabel,
+} from "@/lib/i18n/page-content";
+import { isPhaseOneApplicationSlug, isPhaseOneProductSlug } from "@/lib/i18n/phase-one";
+import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
+import {
+  getUiCopy,
+  translateProductFamily,
+  translateProductLink,
+  translateRfqFieldLabel,
+  translateRfqTypeLabel,
+} from "@/lib/i18n/ui-copy";
+import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
+import { productFamilies } from "@/lib/product-families";
+import { absoluteUrl, createPageMetadata, localizedJsonLdUrl } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { rfqProductTypes } from "@/lib/site-taxonomy";
+
+type LocalizedPageProps = {
+  locale: Exclude<Locale, "en">;
+};
+
+const featuredProductSlugs = [
+  "carbon-fiber-woven-fabric",
+  "carbon-fiber-ud-fabric",
+  "spread-tow-carbon-fiber-fabric",
+  "prepreg-carbon-fiber-materials",
+  "chopped-carbon-fiber",
+  "milled-carbon-fiber-powder",
+] as const;
+
+const featuredApplicationSlugs = [
+  "automotive-carbon-fiber-parts",
+  "civil-uav-drone-components",
+  "plastic-resin-reinforcement",
+  "structural-strengthening",
+] as const;
+
+function localizedLink(href: string, locale: Locale) {
+  return phaseOneLocalePath(href, locale);
+}
+
+function localizedProduct(product: ProductCatalogItem, locale: Exclude<Locale, "en">) {
+  const translation = getLocalizedProductContent(locale, product.slug);
+  return {
+    name: translation?.name ?? product.name,
+    shortName: translation?.shortName ?? product.shortName,
+    category: translation?.category ?? product.category,
+    description: translation?.description ?? product.description,
+    heroCopy: translation?.heroCopy ?? product.heroCopy,
+    intro: translation?.intro ?? product.intro,
+    applications: translation?.applications ?? product.applications,
+    faqs: translation?.faqs ?? product.faqs,
+    seo: translation?.seo ?? product.seo,
+  };
+}
+
+function inferRfqType(product: ProductCatalogItem) {
+  const source = `${product.name} ${product.category}`.toLowerCase();
+
+  if (product.slug === "carbon-fiber-ud-fabric") return "ud-fabric";
+  if (product.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
+  if (product.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
+  if (product.slug === "prepreg-carbon-fiber-materials") return "prepreg";
+  if (product.slug === "structural-strengthening-system") return "structural-strengthening";
+  if (source.includes("chopped") || source.includes("milled") || source.includes("powder")) return "chopped-powder";
+  if (source.includes("prepreg")) return "prepreg";
+  if (source.includes("yarn") || source.includes("tow")) return "yarn-tow";
+  if (source.includes("structural") || source.includes("strengthening")) return "structural-strengthening";
+  return "woven-fabric";
+}
+
+export function createLocalizedHomeMetadata(locale: Exclude<Locale, "en">): Metadata {
+  const content = localizedHomeContent[locale];
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    keywords: content.seo.keywords,
+    path: "/",
+    image: "/images/home/home-yarn-creel-hero-gray.jpg",
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedHomePage({ locale }: LocalizedPageProps) {
+  const content = localizedHomeContent[locale];
+  const copy = getUiCopy(locale);
+  const featuredProducts = featuredProductSlugs
+    .map((slug) => productCatalog.find((product) => product.slug === slug))
+    .filter((product) => product !== undefined);
+
+  return (
+    <>
+      <section className="b2b-hero">
+        <div className="site-shell b2b-hero-grid">
+          <div className="b2b-hero-copy">
+            <h1>{content.h1}</h1>
+            <p>{content.copy}</p>
+            <div className="hero-actions">
+              <Link href={localizedLink("/applications", locale)} className="button button-blue">
+                {content.primaryCta} <ArrowRight size={18} />
+              </Link>
+              <Link href={localizedLink("/contact", locale)} className="button button-light-outline">
+                {content.secondaryCta} <ArrowRight size={18} />
+              </Link>
+              <Link href={localizedLink("/catalog", locale)} className="button button-light-outline">
+                {content.catalogCta} <FileText size={18} />
+              </Link>
+            </div>
+            <div className="hero-material-rail" aria-label="Material scope">
+              {content.materialRail.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="b2b-hero-media">
+            <Image
+              src="/images/home/home-yarn-creel-hero-gray.jpg"
+              alt="Carbon fiber yarn creel prepared for fabric production at FRP HOME"
+              fill
+              priority
+              loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 900px) 100vw, 52vw"
+            />
+            <div className="hero-media-table">
+              <span>{content.heroMeta.title}</span>
+              <dl>
+                <div><dt>{content.heroMeta.format}</dt><dd>{content.heroMeta.formatValue}</dd></div>
+                <div><dt>{content.heroMeta.process}</dt><dd>{content.heroMeta.processValue}</dd></div>
+                <div><dt>{content.heroMeta.review}</dt><dd>{content.heroMeta.reviewValue}</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-product-series">
+        <div className="site-shell">
+          <div className="home-section-heading">
+            <div>
+              <Eyebrow>{content.sections.productEyebrow}</Eyebrow>
+              <h2>{content.sections.productTitle}</h2>
+            </div>
+            <p>{content.sections.productCopy}</p>
+          </div>
+          <div className="series-grid">
+            {featuredProducts.map((product, index) => {
+              const localized = localizedProduct(product, locale);
+              return (
+                <article className="series-card" key={product.slug}>
+                  <Link href={localizedLink(`/products/${product.slug}`, locale)} className="series-image" aria-label={localized.name}>
+                    <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  </Link>
+                  <div className="series-body">
+                    <h3>{localized.name}</h3>
+                    <p>{localized.description}</p>
+                    <dl>
+                      {product.specs.slice(0, 3).map((spec) => (
+                        <div key={spec.label}>
+                          <dt>{translateLabel(locale, spec.label)}</dt>
+                          <dd>{spec.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <Link href={localizedLink(`/products/${product.slug}`, locale)} className="text-link">
+                      {copy.common.viewProductPage} <ArrowRight size={17} />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft finder-section">
+        <div className="site-shell finder-grid">
+          <div>
+            <Eyebrow>{content.sections.applicationEyebrow}</Eyebrow>
+            <h2>{content.sections.applicationTitle}</h2>
+            <p>{content.sections.applicationCopy}</p>
+            <div className="application-finder-list">
+              {featuredApplicationSlugs.map((slug) => {
+                const page = getApplicationPage(slug);
+                const localized = page ? getLocalizedApplicationContent(locale, slug) : undefined;
+                if (!page || !localized) return null;
+                return (
+                  <Link href={localizedLink(`/applications/${slug}`, locale)} key={slug}>
+                    <Image src={page.image} alt="" width={72} height={54} />
+                    <span>
+                      <strong>{localized.title}</strong>
+                      <small>{localized.quickAnswer}</small>
+                    </span>
+                    <ArrowRight size={17} />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+          <div className="finder-feature-panel">
+            <Image
+              src="/images/products/3k-carbon-fiber-laminate-stack.webp"
+              alt="Carbon fiber laminate stack for composite parts"
+              fill
+              sizes="(max-width: 900px) 100vw, 44vw"
+            />
+            <div>
+              <span>{copy.common.quickAnswer}</span>
+              <h3>{content.sections.processTitle}</h3>
+              <p>{content.sections.processCopy}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function createLocalizedProductsMetadata(locale: Exclude<Locale, "en">): Metadata {
+  const content = localizedProductsPageContent[locale];
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    path: "/products",
+    image: "/images/composite-materials-range-products.webp",
+    locale,
+    localized: true,
+  });
+}
+
+export function createLocalizedApplicationsMetadata(locale: Exclude<Locale, "en">): Metadata {
+  const isSpanish = locale === "es";
+  return createPageMetadata({
+    title: isSpanish
+      ? "Aplicaciones de materiales de fibra de carbono"
+      : "Aplicações de materiais de fibra de carbono",
+    description: isSpanish
+      ? "Guías de selección de materiales CFRP para piezas automotrices, UAV civiles, refuerzo de plástico y refuerzo estructural."
+      : "Guias de seleção de materiais CFRP para peças automotivas, UAV civis, reforço de plástico e reforço estrutural.",
+    path: "/applications",
+    image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedApplicationsPage({ locale }: LocalizedPageProps) {
+  const copy = getUiCopy(locale);
+  const isSpanish = locale === "es";
+
+  return (
+    <>
+      <PageHero
+        index="Applications"
+        eyebrow={copy.nav.applications}
+        title={isSpanish ? "Aplicaciones de materiales de fibra de carbono." : "Aplicações de materiais de fibra de carbono."}
+        copy={
+          isSpanish
+            ? "Seleccione una aplicación para revisar materiales recomendados, especificaciones comunes y datos necesarios para RFQ."
+            : "Selecione uma aplicação para revisar materiais recomendados, especificações comuns e dados necessários para RFQ."
+        }
+        image="/images/products/3k-carbon-fiber-laminate-sheet.webp"
+      />
+      <section className="section">
+        <div className="site-shell application-material-grid">
+          {featuredApplicationSlugs.map((slug) => {
+            const content = getLocalizedApplicationContent(locale, slug);
+            if (!content) return null;
+            return (
+              <Link href={localizedLink(`/applications/${slug}`, locale)} key={slug}>
+                <strong>{content.title}</strong>
+                <span>{content.quickAnswer}</span>
+                <ArrowRight size={16} />
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
+  const content = localizedProductsPageContent[locale];
+  const copy = getUiCopy(locale);
+
+  return (
+    <>
+      <PageHero
+        className="products-page-hero"
+        index="02 / 07"
+        eyebrow={content.eyebrow}
+        title={content.title}
+        copy={content.copy}
+        image="/images/composite-materials-range-products.webp"
+      />
+      <section className="section">
+        <div className="site-shell">
+          <div className="products-directory-intro" id="product-catalog">
+            <SectionHeading
+              eyebrow={content.completePortfolio}
+              title={content.completeTitle}
+              copy={content.completeCopy}
+            />
+            <div className="products-directory-actions">
+              <Link href="#product-catalog-list" className="button button-dark">
+                {copy.common.viewProducts} <ArrowRight size={17} />
+              </Link>
+              <Link href={localizedLink("/contact", locale)} className="button button-outline">
+                {copy.common.requestQuote} <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="product-category-stack" id="product-catalog-list">
+            {productFamilies.map((family, groupIndex) => {
+              const localizedFamily = translateProductFamily(locale, family.title, family.description);
+              const groupProducts = family.items
+                .map((item) => item.href.split("/").pop())
+                .filter((slug): slug is string => Boolean(slug && isPhaseOneProductSlug(slug)))
+                .filter((slug, index, array) => array.indexOf(slug) === index)
+                .map((slug) => productCatalog.find((product) => product.slug === slug))
+                .filter((product) => product !== undefined);
+
+              if (!groupProducts.length) return null;
+
+              return (
+                <section className="product-category-section" id={family.href.split("#")[1]} key={family.title}>
+                  <div className="product-category-heading">
+                    <span>{String(groupIndex + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h2>{localizedFamily.title}</h2>
+                      <p>{localizedFamily.description}</p>
+                    </div>
+                    <div className="product-family-summary">
+                      <dl>
+                        <div>
+                          <dt>{content.keyProducts}</dt>
+                          <dd>{family.keyProducts.map((item) => translateProductLink(locale, item)).join(", ")}</dd>
+                        </div>
+                        <div>
+                          <dt>{content.commonApplications}</dt>
+                          <dd>{family.commonApplications}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <div className="product-directory-grid">
+                    {groupProducts.map((product) => {
+                      const localized = localizedProduct(product, locale);
+                      return (
+                        <article className="directory-product-card" key={product.slug}>
+                          <div className="directory-product-image-placeholder">
+                            <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 100vw, 24vw" />
+                          </div>
+                          <div className="directory-product-body">
+                            <div className="product-category">{localized.category}</div>
+                            <h3>{localized.name}</h3>
+                            <p>{localized.description}</p>
+                            <div className="directory-spec-summary">
+                              <span>{copy.common.specifications}</span>
+                              <dl>
+                                {product.specs.slice(0, 3).map((spec) => (
+                                  <div key={spec.label}>
+                                    <dt>{translateLabel(locale, spec.label)}</dt>
+                                    <dd>{spec.value}</dd>
+                                  </div>
+                                ))}
+                              </dl>
+                            </div>
+                            <Link href={localizedLink(`/products/${product.slug}`, locale)} className="text-link">
+                              {copy.common.viewProductPage} <ArrowRight size={17} />
+                            </Link>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function createLocalizedContactMetadata(locale: Exclude<Locale, "en">): Metadata {
+  const content = localizedContactContent[locale];
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    path: "/contact",
+    image: "/images/composite-materials-range.png",
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedContactPage({ locale }: LocalizedPageProps) {
+  const content = localizedContactContent[locale];
+  const copy = getUiCopy(locale);
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: content.title,
+    url: localizedJsonLdUrl("/contact", locale),
+    mainEntity: {
+      "@type": "Organization",
+      name: siteConfig.companyName,
+      url: siteConfig.url,
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+    },
+  };
+
+  return (
+    <>
+      <PageHero
+        index="07 / 07"
+        eyebrow={content.eyebrow}
+        title={content.title}
+        copy={content.copy}
+      />
+      <section className="section">
+        <div className="site-shell contact-layout">
+          <aside className="contact-aside">
+            <h2>{content.asideTitle}</h2>
+            <p>{content.asideCopy}</p>
+            <div className="contact-methods">
+              <a className="contact-method" href={siteConfig.emailHref}>
+                <span><small>Email</small><strong>{siteConfig.email}</strong></span>
+              </a>
+              <a className="contact-method" href={siteConfig.phoneHref}>
+                <span><small>Phone</small><strong>{siteConfig.phone}</strong></span>
+              </a>
+              <a className="contact-method" href={siteConfig.whatsappHref} target="_blank" rel="noreferrer">
+                <span><small>WhatsApp</small><strong>{siteConfig.whatsapp}</strong></span>
+              </a>
+              <div className="contact-method">
+                <span><small>{content.location}</small><strong>{siteConfig.location}</strong></span>
+              </div>
+              <div className="contact-method">
+                <span><small>{content.response}</small><strong>{copy.common.usuallyOneBusinessDay}</strong></span>
+              </div>
+            </div>
+          </aside>
+          <Suspense fallback={<RfqFallbackForm locale={locale} />}>
+            <InquiryForm locale={locale} />
+          </Suspense>
+        </div>
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+    </>
+  );
+}
+
+export function createLocalizedCatalogMetadata(locale: Exclude<Locale, "en">): Metadata {
+  const content = localizedCatalogContent[locale];
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    path: "/catalog",
+    image: "/images/catalog/frphome/woven-twill.webp",
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedCatalogPage({ locale }: LocalizedPageProps) {
+  const content = localizedCatalogContent[locale];
+  const copy = getUiCopy(locale);
+
+  return (
+    <>
+      <PageHero
+        index="Catalog"
+        eyebrow={content.eyebrow}
+        title={content.title}
+        copy={content.copy}
+        image="/images/catalog/frphome/woven-twill.webp"
+      >
+        <div className="hero-actions">
+          <Link href={localizedLink("/products", locale)} className="button button-blue">
+            {copy.common.viewProducts} <ArrowRight size={18} />
+          </Link>
+          <Link href={localizedLink("/contact", locale)} className="button button-outline">
+            {copy.common.requestQuote} <ArrowRight size={18} />
+          </Link>
+        </div>
+      </PageHero>
+      <section className="section">
+        <div className="site-shell product-highlight-grid">
+          {content.cards.map(([title, text]) => (
+            <article key={title}>
+              <span>{title}</span>
+              <strong>{text}</strong>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function createLocalizedProductMetadata(locale: Exclude<Locale, "en">, slug: string): Metadata {
+  const product = getProductBySlug(slug);
+  const content = product ? getLocalizedProductContent(locale, slug) : undefined;
+
+  if (!product || !content) {
+    return { title: "Product Not Found" };
+  }
+
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    keywords: content.seo.keywords,
+    path: `/products/${slug}`,
+    image: product.image,
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps & { slug: string }) {
+  if (!isPhaseOneProductSlug(slug)) notFound();
+  const product = getProductBySlug(slug);
+  const content = product ? getLocalizedProductContent(locale, slug) : undefined;
+
+  if (!product || !content) notFound();
+
+  const copy = getUiCopy(locale);
+  const activeRfqType = rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
+  const relatedProducts = productCatalog
+    .filter((item) => item.slug !== product.slug)
+    .filter((item) => isPhaseOneProductSlug(item.slug))
+    .slice(0, 4);
+  const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
+  const firstSpecTable = product.tds.tables[0];
+  const inquiryHref = localizedLink(
+    `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
+      `Please quote ${product.name}. My target specification and quantity are below.`,
+    )}`,
+    locale,
+  );
+  const productUrl = localizedJsonLdUrl(`/products/${slug}`, locale);
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${productUrl}#product`,
+    name: content.name,
+    description: content.description,
+    image: absoluteUrl(product.image),
+    url: productUrl,
+    category: content.category,
+    brand: { "@type": "Brand", name: siteConfig.brandName },
+    manufacturer: {
+      "@type": "Organization",
+      name: siteConfig.companyName,
+      url: siteConfig.url,
+    },
+    sku: product.tds.codePrefix,
+    additionalProperty: product.highlights.map((item) => ({
+      "@type": "PropertyValue",
+      name: translateLabel(locale, item.label),
+      value: item.value,
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: translateLabel(locale, "Home"), item: localizedJsonLdUrl("/", locale) },
+      { "@type": "ListItem", position: 2, name: translateLabel(locale, "Products"), item: localizedJsonLdUrl("/products", locale) },
+      { "@type": "ListItem", position: 3, name: content.name, item: productUrl },
+    ],
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  return (
+    <>
+      <Link href={inquiryHref} className="sticky-rfq-button">
+        {copy.common.requestQuote} <ArrowRight size={17} />
+      </Link>
+
+      <section className="product-template-hero">
+        <div className="site-shell">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link href={localizedLink("/", locale)}>{translateLabel(locale, "Home")}</Link>
+            <span>/</span>
+            <Link href={localizedLink("/products", locale)}>{translateLabel(locale, "Products")}</Link>
+            <span>/</span>
+            <span>{content.name}</span>
+          </nav>
+
+          <div className="product-template-grid">
+            <div className="product-template-copy">
+              <span className="section-index">Product</span>
+              <h1>{content.name}</h1>
+              <p className="product-definition">{content.description}</p>
+              <div className="product-template-actions">
+                <Link href={inquiryHref} className="button button-blue">
+                  {copy.common.requestQuote} <ArrowRight size={17} />
+                </Link>
+                <Link href={localizedLink("/technical-center", locale)} className="button button-outline">
+                  {copy.common.technicalCenter} <FileText size={17} />
+                </Link>
+              </div>
+            </div>
+
+            <ProductImageZoom src={product.image} alt={product.visualLabel} priority sizes="(max-width: 900px) 100vw, 44vw" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section product-page-body">
+        <div className="site-shell product-page-grid">
+          <aside className="product-anchor-rail">
+            <strong>{copy.common.overview}</strong>
+            {[
+              [copy.common.quickAnswer, "#quick-answer"],
+              [copy.common.specifications, "#specifications"],
+              [copy.common.overview, "#overview"],
+              [copy.common.applications, "#applications"],
+              ["RFQ", "#rfq-info"],
+              [copy.common.faq, "#faq"],
+            ].map(([label, href]) => (
+              <a href={href} key={href}>{label}</a>
+            ))}
+          </aside>
+
+          <div className="product-content-stack">
+            <section className="product-detail-card quick-answer-card" id="quick-answer">
+              <div>
+                <Eyebrow>{copy.common.quickAnswer}</Eyebrow>
+                <h2>{content.shortName}</h2>
+                <p>{content.heroCopy}</p>
+              </div>
+              <dl className="quick-answer-grid">
+                <div><dt>{translateLabel(locale, "Product type")}</dt><dd>{content.category}</dd></div>
+                {product.specs.map((spec) => (
+                  <div key={spec.label}><dt>{translateLabel(locale, spec.label)}</dt><dd>{spec.value}</dd></div>
+                ))}
+                <div><dt>{copy.common.documents}</dt><dd>{copy.common.documentsByScope}</dd></div>
+                <div><dt>{copy.common.endUseReview}</dt><dd>{copy.common.complianceNotice}</dd></div>
+              </dl>
+            </section>
+
+            <section className="product-detail-card" id="specifications">
+              <SectionHeading
+                eyebrow={copy.common.specifications}
+                title={firstSpecTable.title}
+                copy={product.tds.note}
+              />
+              <div className="table-wrap">
+                <table className="technical-table">
+                  <thead>
+                    <tr>
+                      {firstSpecTable.columns.map((column) => <th key={column}>{translateLabel(locale, column)}</th>)}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {firstSpecTable.rows.map((row) => (
+                      <tr key={row.join("|")}>
+                        {row.map((cell, index) => <td key={`${cell}-${index}`}>{cell}</td>)}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="overview">
+              <SectionHeading eyebrow={copy.common.overview} title={content.shortName} />
+              <div className="product-overview-grid">
+                <div>
+                  {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+                <div className="product-gallery-strip" aria-label={`${content.name} product images`}>
+                  {productImageSlots.slice(0, product.slug === "chopped-carbon-fiber" ? 6 : 4).map((image, index) => (
+                    <div key={image}>
+                      <Image src={image} alt={`${content.name} ${index + 1}`} fill sizes="(max-width: 760px) 50vw, 12vw" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="applications">
+              <SectionHeading eyebrow={copy.common.applications} title={content.category} />
+              <div className="product-application-grid">
+                {content.applications.map((application) => (
+                  <div key={application}>
+                    <CheckCircle2 size={18} />
+                    <span>{application}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="rfq-info">
+              <SectionHeading
+                eyebrow="RFQ"
+                title={translateRfqTypeLabel(locale, activeRfqType.label)}
+                copy={copy.common.brandAvailabilityNotice}
+              />
+              <div className="rfq-required-grid">
+                {activeRfqType.fields.map((field) => (
+                  <div key={field.name}>
+                    <ClipboardList size={18} />
+                    <span>{translateRfqFieldLabel(locale, field.label)}</span>
+                  </div>
+                ))}
+                <div><ClipboardList size={18} /><span>{copy.rfq.endUse}</span></div>
+                <div><ClipboardList size={18} /><span>{copy.rfq.quantity}</span></div>
+                <div><ClipboardList size={18} /><span>{copy.rfq.destinationCountry}</span></div>
+              </div>
+            </section>
+
+            <section className="product-detail-card product-faq-section" id="faq">
+              <SectionHeading eyebrow={copy.common.faq} title={content.shortName} />
+              <div className="product-faq-grid">
+                {content.faqs.map((faq) => (
+                  <article key={faq.question}>
+                    <h2>{faq.question}</h2>
+                    <p>{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card">
+              <div className="section-title-row">
+                <div>
+                  <Eyebrow>{copy.common.relatedProducts}</Eyebrow>
+                  <h2>{copy.common.viewProducts}</h2>
+                </div>
+                <Link href={localizedLink("/products", locale)} className="text-link">
+                  {copy.common.viewAll} <ArrowRight size={17} />
+                </Link>
+              </div>
+              <div className="related-product-grid">
+                {relatedProducts.map((related) => {
+                  const relatedContent = localizedProduct(related, locale);
+                  return (
+                    <Link href={localizedLink(`/products/${related.slug}`, locale)} key={related.slug}>
+                      <Image src={related.image} alt={related.visualLabel} fill sizes="(max-width: 760px) 50vw, 14vw" />
+                      <span>{relatedContent.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section className="section product-rfq-section">
+        <div className="site-shell product-rfq-grid">
+          <div>
+            <Eyebrow>RFQ</Eyebrow>
+            <h2>{copy.common.requestQuote}: {content.shortName}</h2>
+            <p>{copy.common.complianceNotice}</p>
+            <div className="tds-meta-grid">
+              <div><FileText size={21} /><span><strong>TDS</strong><small>{copy.common.documents}</small></span></div>
+              <div><Ruler size={21} /><span><strong>Spec</strong><small>{copy.common.specifications}</small></span></div>
+              <div><Settings2 size={21} /><span><strong>Review</strong><small>{copy.common.endUseReview}</small></span></div>
+            </div>
+          </div>
+          <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} />}>
+            <InquiryForm initialProduct={product.name} locale={locale} />
+          </Suspense>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, breadcrumbSchema, faqSchema]) }}
+      />
+    </>
+  );
+}
+
+export function createLocalizedApplicationMetadata(locale: Exclude<Locale, "en">, slug: string): Metadata {
+  const page = getApplicationPage(slug);
+  const content = page ? getLocalizedApplicationContent(locale, slug) : undefined;
+
+  if (!page || !content) return { title: "Application Not Found" };
+
+  return createPageMetadata({
+    title: content.seo.title,
+    description: content.seo.description,
+    path: `/applications/${slug}`,
+    image: page.image,
+    keywords: content.seo.keywords,
+    locale,
+    localized: true,
+  });
+}
+
+export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPageProps & { slug: string }) {
+  if (!isPhaseOneApplicationSlug(slug)) notFound();
+  const page = getApplicationPage(slug);
+  const content = page ? getLocalizedApplicationContent(locale, slug) : undefined;
+
+  if (!page || !content) notFound();
+
+  const copy = getUiCopy(locale);
+  const relatedProducts = page.relatedProducts
+    .map((productSlug) => productCatalog.find((product) => product.slug === productSlug))
+    .filter((product) => product !== undefined)
+    .filter((product) => isPhaseOneProductSlug(product.slug));
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${localizedJsonLdUrl(`/applications/${slug}`, locale)}#webpage`,
+    name: content.title,
+    description: content.description,
+    url: localizedJsonLdUrl(`/applications/${slug}`, locale),
+  };
+  const breadcrumb = applicationBreadcrumbSchema(page);
+  breadcrumb.itemListElement = [
+    { "@type": "ListItem", position: 1, name: translateLabel(locale, "Home"), item: localizedJsonLdUrl("/", locale) },
+    { "@type": "ListItem", position: 2, name: copy.nav.applications, item: localizedJsonLdUrl("/applications", locale) },
+    { "@type": "ListItem", position: 3, name: content.title, item: localizedJsonLdUrl(`/applications/${slug}`, locale) },
+  ];
+
+  return (
+    <>
+      <PageHero
+        index="Application"
+        eyebrow={copy.nav.applications}
+        title={content.title}
+        copy={content.quickAnswer}
+        image={page.image}
+        visualLabel={`${content.title} material selection image`}
+      />
+
+      <section className="section">
+        <div className="site-shell article-layout">
+          <aside className="product-anchor-rail">
+            <strong>{copy.common.overview}</strong>
+            <a href="#why">{copy.common.quickAnswer}</a>
+            <a href="#materials">{copy.common.relatedProducts}</a>
+            <a href="#specifications">{copy.common.specifications}</a>
+            <a href="#selection">{copy.common.overview}</a>
+            <a href="#rfq">RFQ</a>
+            <a href="#faq">{copy.common.faq}</a>
+          </aside>
+
+          <div className="article-content-stack">
+            <section className="product-detail-card quick-answer-card">
+              <div>
+                <div className="eyebrow">{copy.common.quickAnswer}</div>
+                <h2>{content.title}</h2>
+                <p>{content.quickAnswer}</p>
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="why">
+              <SectionHeading eyebrow={copy.common.quickAnswer} title={content.description} />
+              <div className="product-application-grid">
+                {content.why.map((item) => (
+                  <div key={item}><CheckCircle2 size={18} /><span>{item}</span></div>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="materials">
+              <SectionHeading eyebrow={copy.common.relatedProducts} title={copy.common.viewProducts} />
+              <div className="application-material-grid">
+                {content.recommendedMaterials.map((material) => (
+                  <Link href={localizedLink(material.href, locale)} key={material.name}>
+                    <strong>{material.name}</strong>
+                    <span>{material.note}</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="specifications">
+              <SectionHeading eyebrow={copy.common.specifications} title={content.title} />
+              <div className="table-wrap">
+                <table className="technical-table">
+                  <thead><tr><th>{translateLabel(locale, "Item")}</th><th>{translateLabel(locale, "Typical value")}</th></tr></thead>
+                  <tbody>
+                    {content.commonSpecifications.map((row) => (
+                      <tr key={row.join("|")}><td>{row[0]}</td><td>{row[1]}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="selection">
+              <SectionHeading eyebrow={copy.common.overview} title={content.title} />
+              <div className="choice-grid">
+                {content.selectionGuide.map((item, index) => (
+                  <article key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card" id="rfq">
+              <SectionHeading eyebrow="RFQ" title={copy.common.requestQuote} copy={copy.common.complianceNotice} />
+              <div className="rfq-required-grid">
+                {content.rfqDetails.map((item) => (
+                  <div key={item}><ClipboardList size={18} /><span>{item}</span></div>
+                ))}
+              </div>
+            </section>
+
+            <section className="product-detail-card">
+              <div className="section-title-row">
+                <div>
+                  <div className="eyebrow">{copy.common.relatedProducts}</div>
+                  <h2>{copy.common.viewProducts}</h2>
+                </div>
+                <Link href={localizedLink("/products", locale)} className="text-link">
+                  {copy.common.viewAll} <ArrowRight size={17} />
+                </Link>
+              </div>
+              <div className="related-product-grid">
+                {relatedProducts.map((product) => {
+                  const localized = localizedProduct(product, locale);
+                  return (
+                    <Link href={localizedLink(`/products/${product.slug}`, locale)} key={product.slug}>
+                      <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 50vw, 14vw" />
+                      <span>{localized.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+
+            <section className="product-detail-card product-faq-section" id="faq">
+              <SectionHeading eyebrow={copy.common.faq} title={content.title} />
+              <div className="product-faq-grid">
+                {content.faqs.map((faq) => (
+                  <article key={faq.question}><h2>{faq.question}</h2><p>{faq.answer}</p></article>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([webPageSchema, breadcrumb, faqSchema]) }}
+      />
+    </>
+  );
+}
