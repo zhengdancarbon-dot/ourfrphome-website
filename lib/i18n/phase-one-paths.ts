@@ -3,7 +3,6 @@ import { defaultLocale, localePath, normalizePath, type Locale } from "@/lib/i18
 export const phaseOneStaticPaths = [
   "/",
   "/products",
-  "/applications",
   "/contact",
   "/catalog",
 ] as const;

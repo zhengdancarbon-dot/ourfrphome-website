@@ -64,7 +64,7 @@ The sitemap keeps all existing English URLs and adds localized entries only for 
 
 Expected local result:
 
-- Total sitemap `<loc>` entries: `77`
+- Total sitemap `<loc>` entries after Phase 1 i18n: `75`
 - Includes: `https://www.myfrphome.com/es/products/carbon-fiber-woven-fabric`
 - Includes: `https://www.myfrphome.com/pt-br/contact`
 - Excludes: `https://www.myfrphome.com/ru/`
@@ -76,7 +76,6 @@ Static pages:
 
 - Home
 - Products
-- Applications
 - Contact / RFQ
 - Catalog
 
@@ -130,7 +129,7 @@ Application pages:
 
 - `pnpm lint`: passed.
 - `pnpm build`: passed.
-- Server smoke test: passed for `/es`, `/pt-br/products/carbon-fiber-woven-fabric`, `/es/contact`, `/sitemap.xml` and `/ru`.
+- Server smoke test: passed for `/es`, `/pt-br/products/carbon-fiber-woven-fabric`, `/es/contact`, `/sitemap.xml`, `/ru` and `/tr`.
 - Browser DOM smoke test: passed for `documentElement.lang`, canonical, hreflang, structured data and non-Phase fallback links.
 - Mobile smoke test: passed at 390px viewport with no horizontal overflow and no console errors.
 

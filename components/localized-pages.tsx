@@ -250,58 +250,6 @@ export function createLocalizedProductsMetadata(locale: Exclude<Locale, "en">): 
   });
 }
 
-export function createLocalizedApplicationsMetadata(locale: Exclude<Locale, "en">): Metadata {
-  const isSpanish = locale === "es";
-  return createPageMetadata({
-    title: isSpanish
-      ? "Aplicaciones de materiales de fibra de carbono"
-      : "Aplicações de materiais de fibra de carbono",
-    description: isSpanish
-      ? "Guías de selección de materiales CFRP para piezas automotrices, UAV civiles, refuerzo de plástico y refuerzo estructural."
-      : "Guias de seleção de materiais CFRP para peças automotivas, UAV civis, reforço de plástico e reforço estrutural.",
-    path: "/applications",
-    image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
-    locale,
-    localized: true,
-  });
-}
-
-export function LocalizedApplicationsPage({ locale }: LocalizedPageProps) {
-  const copy = getUiCopy(locale);
-  const isSpanish = locale === "es";
-
-  return (
-    <>
-      <PageHero
-        index="Applications"
-        eyebrow={copy.nav.applications}
-        title={isSpanish ? "Aplicaciones de materiales de fibra de carbono." : "Aplicações de materiais de fibra de carbono."}
-        copy={
-          isSpanish
-            ? "Seleccione una aplicación para revisar materiales recomendados, especificaciones comunes y datos necesarios para RFQ."
-            : "Selecione uma aplicação para revisar materiais recomendados, especificações comuns e dados necessários para RFQ."
-        }
-        image="/images/products/3k-carbon-fiber-laminate-sheet.webp"
-      />
-      <section className="section">
-        <div className="site-shell application-material-grid">
-          {featuredApplicationSlugs.map((slug) => {
-            const content = getLocalizedApplicationContent(locale, slug);
-            if (!content) return null;
-            return (
-              <Link href={localizedLink(`/applications/${slug}`, locale)} key={slug}>
-                <strong>{content.title}</strong>
-                <span>{content.quickAnswer}</span>
-                <ArrowRight size={16} />
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-    </>
-  );
-}
-
 export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
   const content = localizedProductsPageContent[locale];
   const copy = getUiCopy(locale);
@@ -865,7 +813,7 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
   const breadcrumb = applicationBreadcrumbSchema(page);
   breadcrumb.itemListElement = [
     { "@type": "ListItem", position: 1, name: translateLabel(locale, "Home"), item: localizedJsonLdUrl("/", locale) },
-    { "@type": "ListItem", position: 2, name: copy.nav.applications, item: localizedJsonLdUrl("/applications", locale) },
+    { "@type": "ListItem", position: 2, name: copy.nav.applications, item: absoluteUrl("/applications") },
     { "@type": "ListItem", position: 3, name: content.title, item: localizedJsonLdUrl(`/applications/${slug}`, locale) },
   ];
 
