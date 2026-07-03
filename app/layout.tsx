@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { DocumentLanguage } from "@/components/document-language";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site-config";
@@ -138,6 +139,7 @@ export default function RootLayout({
         <Script id="document-language" strategy="beforeInteractive">
           {documentLanguageScript}
         </Script>
+        <DocumentLanguage />
         {ga4MeasurementId ? (
           <>
             <Script
