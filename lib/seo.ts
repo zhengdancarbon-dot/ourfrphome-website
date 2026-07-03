@@ -1,4 +1,13 @@
 import type { Metadata } from "next";
+import {
+  defaultLocale,
+  hreflangLocales,
+  localePath,
+  localizedAlternates,
+  ogLocales,
+  type Locale,
+} from "@/lib/i18n/config";
+import { isPhaseOneLocalizedPath } from "@/lib/i18n/phase-one-paths";
 import { siteConfig } from "@/lib/site-config";
 
 const defaultKeywords = [
@@ -26,29 +35,47 @@ export function createPageMetadata({
   path,
   keywords = [],
   image = defaultOgImage,
+  locale = defaultLocale,
+  localized = false,
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
   image?: string;
+  locale?: Locale;
+  localized?: boolean;
 }): Metadata {
   const fullTitle = titleWithBrand(title);
+  const canonicalPath = localePath(path, locale);
+  const shouldIncludeLanguages = localized || isPhaseOneLocalizedPath(path);
+  const languages = shouldIncludeLanguages
+    ? {
+        ...Object.fromEntries(
+          Object.entries(localizedAlternates(path)).map(([language, localizedPath]) => [
+            language,
+            absoluteUrl(localizedPath),
+          ]),
+        ),
+        "x-default": absoluteUrl(localePath(path, defaultLocale)),
+      }
+    : undefined;
 
   return {
     title,
     description,
     keywords: Array.from(new Set([...defaultKeywords, ...keywords])),
     alternates: {
-      canonical: absoluteUrl(path),
+      canonical: absoluteUrl(canonicalPath),
+      ...(languages ? { languages } : {}),
     },
     openGraph: {
       type: "website",
-      locale: "en_US",
+      locale: ogLocales[locale],
       siteName: "FRP HOME",
       title: fullTitle,
       description,
-      url: absoluteUrl(path),
+      url: absoluteUrl(canonicalPath),
       images: [
         {
           url: absoluteUrl(image),
@@ -65,4 +92,16 @@ export function createPageMetadata({
       images: [absoluteUrl(image)],
     },
   };
+}
+
+export function localizedJsonLdId(path: string, fragment: string, locale: Locale) {
+  return absoluteUrl(`${localePath(path, locale)}#${fragment.replace(/^#/, "")}`);
+}
+
+export function localizedJsonLdUrl(path: string, locale: Locale) {
+  return absoluteUrl(localePath(path, locale));
+}
+
+export function hrefLang(locale: Locale) {
+  return hreflangLocales[locale];
 }

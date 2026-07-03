@@ -9,12 +9,14 @@ import {
   type InquiryField,
   type InquiryErrors,
 } from "@/lib/inquiry-validation";
-import { products } from "@/lib/site-data";
+import { defaultLocale, type Locale } from "@/lib/i18n/config";
 import {
-  brandAvailabilityNotice,
-  complianceNotice,
-  rfqProductTypes,
-} from "@/lib/site-taxonomy";
+  getUiCopy,
+  translateRfqFieldLabel,
+  translateRfqTypeLabel,
+} from "@/lib/i18n/ui-copy";
+import { products } from "@/lib/site-data";
+import { rfqProductTypes } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -72,16 +74,24 @@ function inferProductType(productName: string) {
   return "woven-fabric";
 }
 
-function trackRfqSubmit(productType: string, productName: string) {
+function trackRfqSubmit(productType: string, productName: string, locale: Locale) {
   const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
   gtag?.("event", "rfq_submit", {
     product_type: productType,
     product_name: productName || productType,
+    locale,
   });
 }
 
-export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}) {
+export function InquiryForm({
+  initialProduct,
+  locale = defaultLocale,
+}: {
+  initialProduct?: string;
+  locale?: Locale;
+} = {}) {
   const searchParams = useSearchParams();
+  const copy = getUiCopy(locale);
   const selectedProduct = searchParams.get("product") ?? initialProduct ?? "";
   const initialMessage = searchParams.get("message") ?? "";
   const [productType, setProductType] = useState(inferProductType(selectedProduct));
@@ -126,7 +136,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
         setStatus("idle");
         return;
       }
-      trackRfqSubmit(activeProductType.label, selectedProductDetail);
+      trackRfqSubmit(activeProductType.label, selectedProductDetail, locale);
       form.reset();
       setErrors({});
       setStatus("success");
@@ -139,10 +149,10 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
     return (
       <div className="form-success" role="status">
         <CheckCircle2 size={34} />
-        <h3>Inquiry received.</h3>
-        <p>Thank you. Our export team will review your requirements and reply shortly.</p>
+        <h3>{copy.rfq.successTitle}</h3>
+        <p>{copy.rfq.successCopy}</p>
         <button type="button" className="text-link" onClick={() => setStatus("idle")}>
-          Send another inquiry <ArrowRight size={16} />
+          {copy.rfq.sendAnother} <ArrowRight size={16} />
         </button>
       </div>
     );
@@ -151,8 +161,9 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
   return (
     <form className="inquiry-form rfq-form" onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
+      <input name="locale" type="hidden" value={locale} readOnly />
       <div className="rfq-type-select" aria-label="Select product type">
-        <span>Product Type *</span>
+        <span>{copy.rfq.productType}</span>
         <div className="rfq-type-grid" role="list">
           {rfqProductTypes.map((type) => (
             <button
@@ -161,7 +172,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
               key={type.value}
               onClick={() => setProductType(type.value)}
             >
-              {type.label}
+              {translateRfqTypeLabel(locale, type.label)}
             </button>
           ))}
         </div>
@@ -170,12 +181,12 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
 
       <div className="form-grid">
         <label>
-          <span>Name *</span>
+          <span>{copy.rfq.name}</span>
           <input name="name" type="text" autoComplete="name" required {...fieldAttributes("name")} />
           <FieldError field="name" error={errors.name} />
         </label>
         <label>
-          <span>Company *</span>
+          <span>{copy.rfq.company}</span>
           <input
             name="company"
             type="text"
@@ -186,59 +197,59 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
           <FieldError field="company" error={errors.company} />
         </label>
         <label>
-          <span>Email *</span>
+          <span>{copy.rfq.email}</span>
           <input name="email" type="email" autoComplete="email" required {...fieldAttributes("email")} />
           <FieldError field="email" error={errors.email} />
         </label>
         <label>
-          <span>WhatsApp / Phone</span>
+          <span>{copy.rfq.whatsapp}</span>
           <input name="whatsapp" type="tel" autoComplete="tel" {...fieldAttributes("whatsapp")} />
           <FieldError field="whatsapp" error={errors.whatsapp} />
         </label>
         <label>
-          <span>Country</span>
+          <span>{copy.rfq.country}</span>
           <input
             name="country"
             type="text"
             autoComplete="country-name"
-            placeholder="Your company country"
+            placeholder={copy.rfq.country}
             {...fieldAttributes("country")}
           />
           <FieldError field="country" error={errors.country} />
         </label>
         <label>
-          <span>Destination Country</span>
+          <span>{copy.rfq.destinationCountry}</span>
           <input
             name="destinationCountry"
             type="text"
             autoComplete="country-name"
-            placeholder="Shipment destination"
+            placeholder={copy.rfq.destinationCountry}
             {...fieldAttributes("destinationCountry")}
           />
           <FieldError field="destinationCountry" error={errors.destinationCountry} />
         </label>
         <label>
-          <span>End Use / Final Application *</span>
+          <span>{copy.rfq.endUse}</span>
           <input
             name="application"
             type="text"
-            placeholder="e.g. civil UAV arm, automotive panel, bridge strengthening"
+            placeholder={copy.rfq.endUse}
             {...fieldAttributes("application")}
           />
           <FieldError field="application" error={errors.application} />
         </label>
         <label>
-          <span>Quantity</span>
+          <span>{copy.rfq.quantity}</span>
           <input
             name="quantity"
             type="text"
-            placeholder="e.g. 500 m2 / 200 kg / trial order"
+            placeholder={copy.rfq.quantity}
             {...fieldAttributes("quantity")}
           />
           <FieldError field="quantity" error={errors.quantity} />
         </label>
         <label>
-          <span>Required Documents</span>
+          <span>{copy.rfq.requiredDocuments}</span>
           <input
             name="requiredDocuments"
             type="text"
@@ -248,12 +259,12 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
           <FieldError field="requiredDocuments" error={errors.requiredDocuments} />
         </label>
         <label>
-          <span>Target Product / Specification</span>
+          <span>{copy.rfq.requiredSpecification}</span>
           <input
             name="requiredSpecification"
             type="text"
             defaultValue={selectedProductDetail}
-            placeholder="Product name, weight, width, thickness or drawing reference"
+            placeholder={copy.rfq.requiredSpecification}
             {...fieldAttributes("requiredSpecification")}
           />
           <FieldError field="requiredSpecification" error={errors.requiredSpecification} />
@@ -261,11 +272,11 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
       </div>
 
       <div className="rfq-dynamic-panel">
-        <h3>{activeProductType.label} details</h3>
+        <h3>{translateRfqTypeLabel(locale, activeProductType.label)} {copy.rfq.details}</h3>
         <div className="form-grid">
           {activeProductType.fields.map((field) => (
             <label key={field.name}>
-              <span>{field.label}</span>
+              <span>{translateRfqFieldLabel(locale, field.label)}</span>
               <input name={field.name} type="text" placeholder={field.placeholder} />
             </label>
           ))}
@@ -274,7 +285,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
 
       <div className="form-grid form-grid-tail">
         <label>
-          <span>File Upload</span>
+          <span>{copy.rfq.fileUpload}</span>
           <input
             name="attachment"
             type="file"
@@ -282,18 +293,18 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
             {...fieldAttributes("attachment")}
           />
           <small className="field-help">
-            Drawing, specification or previous TDS. Max {MAX_ATTACHMENT_SIZE_MB} MB.
+            {copy.rfq.fileHelp.replace("{size}", String(MAX_ATTACHMENT_SIZE_MB))}
           </small>
           <FieldError field="attachment" error={errors.attachment} />
         </label>
         <label>
-          <span>Message *</span>
+          <span>{copy.rfq.message}</span>
           <textarea
             name="message"
             rows={6}
             required
             defaultValue={initialMessage}
-            placeholder="Please include material format, process, target application, compliance context and any deadline."
+            placeholder={copy.rfq.messagePlaceholder}
             {...fieldAttributes("message")}
           />
           <FieldError field="message" error={errors.message} />
@@ -306,21 +317,21 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
       </label>
 
       <div className="rfq-compliance-note">
-        <strong>End-use review</strong>
-        <span>{complianceNotice}</span>
-        <small>{brandAvailabilityNotice}</small>
+        <strong>{copy.rfq.endUseReview}</strong>
+        <span>{copy.common.complianceNotice}</span>
+        <small>{copy.common.brandAvailabilityNotice}</small>
       </div>
 
       <div className="form-footer">
-        <p>By submitting, you agree that we may contact you about this requirement.</p>
+        <p>{copy.rfq.submitNote}</p>
         <button className="button button-dark" type="submit" disabled={status === "submitting"}>
           {status === "submitting" ? (
             <>
-              Sending <LoaderCircle className="spin" size={18} />
+              {copy.rfq.sending} <LoaderCircle className="spin" size={18} />
             </>
           ) : (
             <>
-              Submit RFQ <ArrowRight size={18} />
+              {copy.rfq.submit} <ArrowRight size={18} />
             </>
           )}
         </button>
@@ -332,7 +343,7 @@ export function InquiryForm({ initialProduct }: { initialProduct?: string } = {}
       )}
       {status === "error" && (
         <p className="form-error" role="alert">
-          The form could not be submitted. Please try again or email {siteConfig.email}.
+          {copy.rfq.errorCopy} {siteConfig.email}.
         </p>
       )}
     </form>

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { applicationPages } from "@/lib/application-pages";
+import { activeLocales, defaultLocale, hreflangLocales, localePath, localizedLocales, type Locale } from "@/lib/i18n/config";
+import { getPhaseOneLocalizedPaths, isPhaseOneLocalizedPath } from "@/lib/i18n/phase-one";
 import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
@@ -36,10 +38,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.78,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...applicationRoutes, ...technicalArticleRoutes].map((route) => ({
-    url: absoluteUrl(route.path),
-    lastModified,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  const routes = [...staticRoutes, ...productRoutes, ...applicationRoutes, ...technicalArticleRoutes];
+  const routeMap = new Map(routes.map((route) => [route.path, route]));
+
+  function alternates(path: string) {
+    if (!isPhaseOneLocalizedPath(path)) return undefined;
+
+    return {
+      languages: {
+        ...Object.fromEntries(
+          activeLocales.map((locale) => [
+            hreflangLocales[locale],
+            absoluteUrl(localePath(path, locale)),
+          ]),
+        ),
+        "x-default": absoluteUrl(localePath(path, defaultLocale)),
+      },
+    };
+  }
+
+  function entry(route: (typeof routes)[number], locale: Locale = defaultLocale) {
+    return {
+      url: absoluteUrl(localePath(route.path, locale)),
+      lastModified,
+      changeFrequency: route.changeFrequency,
+      priority: locale === defaultLocale ? route.priority : Math.max(route.priority - 0.05, 0.5),
+      ...(alternates(route.path) ? { alternates: alternates(route.path) } : {}),
+    };
+  }
+
+  const englishEntries = routes.map((route) => entry(route));
+  const localizedEntries = getPhaseOneLocalizedPaths().flatMap((path) => {
+    const route = routeMap.get(path);
+    if (!route) return [];
+    return localizedLocales.map((locale) => entry(route, locale));
+  });
+
+  return [...englishEntries, ...localizedEntries];
 }

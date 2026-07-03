@@ -1,0 +1,26 @@
+import { notFound } from "next/navigation";
+import {
+  createLocalizedHomeMetadata,
+  LocalizedHomePage,
+} from "@/components/localized-pages";
+import { isLocalizedLocale, localizedLocales, type LocalizedLocale } from "@/lib/i18n/config";
+
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return localizedLocales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { locale } = await params;
+  if (!isLocalizedLocale(locale)) return {};
+  return createLocalizedHomeMetadata(locale);
+}
+
+export default async function LocaleHomePage({ params }: PageProps) {
+  const { locale } = await params;
+  if (!isLocalizedLocale(locale)) notFound();
+  return <LocalizedHomePage locale={locale as LocalizedLocale} />;
+}

@@ -1,15 +1,36 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { getLocaleFromPathname } from "@/lib/i18n/config";
+import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
+import { getUiCopy } from "@/lib/i18n/ui-copy";
 import { navItems } from "@/lib/site-data";
 import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const copy = getUiCopy(locale);
+  const navLabelByHref = new Map([
+    ["/", copy.nav.home],
+    ["/products", copy.nav.products],
+    ["/applications", copy.nav.applications],
+    ["/processes", copy.nav.processes],
+    ["/technical-center", copy.nav.technicalCenter],
+    ["/quality-control", copy.nav.quality],
+    ["/about", copy.nav.about],
+    ["/contact", copy.nav.contact],
+  ]);
+
   return (
     <footer className="site-footer">
       <div className="site-shell footer-grid">
         <div className="footer-brand">
-          <Link href="/" className="brand brand-light">
+          <Link href={phaseOneLocalePath("/", locale)} className="brand brand-light">
             <Image
               src="/images/brand/frphome-logo-original.jpg"
               alt="FRP HOME 福昊"
@@ -22,36 +43,34 @@ export function SiteFooter() {
               <small>NEW MATERIALS</small>
             </span>
           </Link>
-          <p>
-            Reinforcement materials and composite solutions built for stable
-            production, repeatable performance and global delivery.
-          </p>
+          <p>{copy.footer.description}</p>
+          <LanguageSwitcher />
         </div>
         <div>
-          <h3>Company</h3>
+          <h3>{copy.footer.company}</h3>
           <div className="footer-links">
             {navItems.slice(1, 5).map((item) => (
-              <Link href={item.href} key={item.href}>
-                {item.label}
+              <Link href={phaseOneLocalePath(item.href, locale)} key={item.href}>
+                {navLabelByHref.get(item.href) ?? item.label}
               </Link>
             ))}
           </div>
         </div>
         <div>
-          <h3>Support</h3>
+          <h3>{copy.footer.support}</h3>
           <div className="footer-links">
             {navItems.slice(5).map((item) => (
-              <Link href={item.href} key={item.href}>
-                {item.label}
+              <Link href={phaseOneLocalePath(item.href, locale)} key={item.href}>
+                {navLabelByHref.get(item.href) ?? item.label}
               </Link>
             ))}
-            <Link href="/contact">
-              Request a sample <ArrowUpRight size={14} />
+            <Link href={phaseOneLocalePath("/contact", locale)}>
+              {copy.footer.requestSample} <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
         <div className="footer-contact">
-          <h3>Contact</h3>
+          <h3>{copy.footer.contact}</h3>
           <p>
             <Building2 size={16} /> {siteConfig.companyName}
           </p>

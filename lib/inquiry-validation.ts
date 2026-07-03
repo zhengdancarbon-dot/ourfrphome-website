@@ -1,4 +1,5 @@
 import { productCatalog } from "@/lib/product-catalog";
+import { defaultLocale, isActiveLocale, type Locale } from "@/lib/i18n/config";
 import { rfqFieldLookup, rfqProductTypes } from "@/lib/site-taxonomy";
 
 export type InquiryValues = {
@@ -14,6 +15,7 @@ export type InquiryValues = {
   requiredSpecification: string;
   application: string;
   message: string;
+  locale: Locale;
   additionalDetails: { label: string; value: string }[];
   attachmentName: string;
   attachmentSize: number;
@@ -60,6 +62,7 @@ const initialValues: InquiryValues = {
   requiredSpecification: "",
   application: "",
   message: "",
+  locale: defaultLocale,
   additionalDetails: [],
   attachmentName: "",
   attachmentSize: 0,
@@ -90,6 +93,7 @@ function fileMeta(value: unknown) {
 
 export function normalizeInquiryPayload(input: Record<string, unknown>): InquiryValues {
   const attachment = fileMeta(input.attachment);
+  const locale = cleanValue(input.locale);
   const additionalDetails = Array.from(rfqFieldLookup.entries())
     .map(([, field]) => ({
       label: field.label,
@@ -111,6 +115,7 @@ export function normalizeInquiryPayload(input: Record<string, unknown>): Inquiry
     requiredSpecification: cleanValue(input.requiredSpecification),
     application: cleanValue(input.application),
     message: cleanValue(input.message),
+    locale: isActiveLocale(locale) ? locale : defaultLocale,
     additionalDetails,
     attachmentName: attachment.name,
     attachmentSize: attachment.size,

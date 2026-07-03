@@ -63,6 +63,16 @@ export const metadata: Metadata = {
   ...(googleSiteVerification || bingSiteVerification ? { verification } : {}),
 };
 
+const documentLanguageScript = `
+  (function () {
+    var path = window.location.pathname;
+    var lang = "en";
+    if (path === "/es" || path.indexOf("/es/") === 0) lang = "es";
+    if (path === "/pt-br" || path.indexOf("/pt-br/") === 0) lang = "pt-BR";
+    document.documentElement.lang = lang;
+  })();
+`;
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -84,7 +94,7 @@ const organizationSchema = {
     contactType: "sales",
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    availableLanguage: ["en", "zh"],
+    availableLanguage: ["en", "es", "pt-BR", "zh"],
   },
   makesOffer: [
     "Carbon Fiber UD Fabric",
@@ -114,13 +124,20 @@ const websiteSchema = {
   publisher: {
     "@id": absoluteUrl("/#organization"),
   },
-  inLanguage: "en",
+  inLanguage: ["en", "es", "pt-BR"],
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <Script id="document-language" strategy="beforeInteractive">
+          {documentLanguageScript}
+        </Script>
         {ga4MeasurementId ? (
           <>
             <Script
