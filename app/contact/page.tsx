@@ -74,7 +74,7 @@ export default function ContactPage() {
               </div>
             </div>
           </aside>
-          <Suspense fallback={<RfqFallbackForm />}>
+          <Suspense fallback={<RfqFallbackForm sourcePage="/contact" />}>
             <InquiryForm />
           </Suspense>
         </div>

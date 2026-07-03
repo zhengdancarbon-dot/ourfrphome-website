@@ -683,6 +683,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 productName={product.name}
                 productType={activeRfqType.value}
                 message={`Please quote ${product.name}. My target specification and quantity are below.`}
+                sourcePage={`/products/${product.slug}`}
               />
             }
           >

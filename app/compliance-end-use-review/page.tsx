@@ -114,7 +114,7 @@ export default function ComplianceEndUseReviewPage() {
               <div><CheckCircle2 size={21} /><span><strong>Documents</strong><small>TDS / SDS / COA by scope</small></span></div>
             </div>
           </div>
-          <Suspense fallback={<RfqFallbackForm productType="yarn-tow" />}>
+          <Suspense fallback={<RfqFallbackForm productType="yarn-tow" sourcePage="/compliance-end-use-review" />}>
             <InquiryForm />
           </Suspense>
         </div>

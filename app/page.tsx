@@ -375,7 +375,7 @@ export default function HomePage() {
               <li>Drawings and prior specifications can be uploaded.</li>
             </ul>
           </div>
-          <Suspense fallback={<RfqFallbackForm />}>
+          <Suspense fallback={<RfqFallbackForm sourcePage="/" />}>
             <InquiryForm />
           </Suspense>
         </div>

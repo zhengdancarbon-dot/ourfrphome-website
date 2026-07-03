@@ -10,16 +10,19 @@ export function RfqFallbackForm({
   productType = "woven-fabric",
   message,
   locale = defaultLocale,
+  sourcePage,
 }: {
   productName?: string;
   productType?: string;
   message?: string;
   locale?: Locale;
+  sourcePage?: string;
 }) {
   const activeType =
     rfqProductTypes.find((type) => type.value === productType) ?? rfqProductTypes[1];
   const copy = getUiCopy(locale);
   const specificationValue = productName && productName !== activeType.label ? productName : "";
+  const fallbackSourcePage = sourcePage ?? (locale === defaultLocale ? "/contact" : `/${locale}/contact`);
 
   return (
     <form
@@ -30,6 +33,7 @@ export function RfqFallbackForm({
     >
       <input name="product" type="hidden" value={activeType.label} />
       <input name="locale" type="hidden" value={locale} />
+      <input name="sourcePage" type="hidden" value={fallbackSourcePage} />
       <div className="rfq-fallback-head">
         <strong>{copy.rfq.requestQuote}</strong>
         <span>{copy.rfq.fallbackIntro}</span>

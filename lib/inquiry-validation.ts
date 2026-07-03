@@ -16,6 +16,7 @@ export type InquiryValues = {
   application: string;
   message: string;
   locale: Locale;
+  sourcePage: string;
   additionalDetails: { label: string; value: string }[];
   attachmentName: string;
   attachmentSize: number;
@@ -63,6 +64,7 @@ const initialValues: InquiryValues = {
   application: "",
   message: "",
   locale: defaultLocale,
+  sourcePage: "",
   additionalDetails: [],
   attachmentName: "",
   attachmentSize: 0,
@@ -94,6 +96,7 @@ function fileMeta(value: unknown) {
 export function normalizeInquiryPayload(input: Record<string, unknown>): InquiryValues {
   const attachment = fileMeta(input.attachment);
   const locale = cleanValue(input.locale);
+  const sourcePage = cleanValue(input.sourcePage).slice(0, 240);
   const additionalDetails = Array.from(rfqFieldLookup.entries())
     .map(([, field]) => ({
       label: field.label,
@@ -116,6 +119,7 @@ export function normalizeInquiryPayload(input: Record<string, unknown>): Inquiry
     application: cleanValue(input.application),
     message: cleanValue(input.message),
     locale: isActiveLocale(locale) ? locale : defaultLocale,
+    sourcePage,
     additionalDetails,
     attachmentName: attachment.name,
     attachmentSize: attachment.size,

@@ -417,7 +417,7 @@ export function LocalizedContactPage({ locale }: LocalizedPageProps) {
               </div>
             </div>
           </aside>
-          <Suspense fallback={<RfqFallbackForm locale={locale} />}>
+          <Suspense fallback={<RfqFallbackForm locale={locale} sourcePage={`/${locale}/contact`} />}>
             <InquiryForm locale={locale} />
           </Suspense>
         </div>
@@ -750,7 +750,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               <div><Settings2 size={21} /><span><strong>Review</strong><small>{copy.common.endUseReview}</small></span></div>
             </div>
           </div>
-          <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} />}>
+          <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} sourcePage={`/${locale}/products/${product.slug}`} />}>
             <InquiryForm initialProduct={product.name} locale={locale} />
           </Suspense>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
 import { FormEvent, useState } from "react";
 import {
@@ -91,6 +91,7 @@ export function InquiryForm({
   locale?: Locale;
 } = {}) {
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const copy = getUiCopy(locale);
   const selectedProduct = searchParams.get("product") ?? initialProduct ?? "";
   const initialMessage = searchParams.get("message") ?? "";
@@ -162,6 +163,7 @@ export function InquiryForm({
     <form className="inquiry-form rfq-form" onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
       <input name="locale" type="hidden" value={locale} readOnly />
+      <input name="sourcePage" type="hidden" value={pathname || "/contact"} readOnly />
       <div className="rfq-type-select" aria-label="Select product type">
         <span>{copy.rfq.productType}</span>
         <div className="rfq-type-grid" role="list">
