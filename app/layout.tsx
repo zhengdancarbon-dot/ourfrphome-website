@@ -165,6 +165,13 @@ export default function RootLayout({
                 }
               }
 
+              function currentLocale() {
+                var path = window.location.pathname || "/";
+                if (path === "/es" || path.indexOf("/es/") === 0) return "es";
+                if (path === "/pt-br" || path.indexOf("/pt-br/") === 0) return "pt-br";
+                return "en";
+              }
+
               document.addEventListener("click", function (event) {
                 var target = event.target;
                 if (!target || !target.closest) return;
@@ -174,12 +181,14 @@ export default function RootLayout({
                 var href = link.getAttribute("href") || "";
                 var absoluteHref = link.href || href;
 
+                var locale = currentLocale();
+
                 if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
-                  sendEvent("whatsapp_click", { link_url: absoluteHref });
+                  sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale });
                 } else if (href.indexOf("mailto:") === 0) {
-                  sendEvent("email_click", { link_url: href });
+                  sendEvent("email_click", { link_url: href, locale: locale });
                 } else if (href.indexOf("/catalog") >= 0 || link.hasAttribute("download")) {
-                  sendEvent("catalog_download", { link_url: absoluteHref });
+                  sendEvent("catalog_download", { link_url: absoluteHref, locale: locale });
                 }
               });
             })();

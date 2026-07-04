@@ -11,7 +11,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
-import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
 import { createPageMetadata } from "@/lib/seo";
@@ -69,6 +68,29 @@ const whyWorkWithUs = [
     copy: "Roll, carton, pallet and component packing details can be reviewed before shipment.",
   },
 ];
+
+function HomeRfqFallbackCta() {
+  return (
+    <div className="home-rfq-fallback-cta">
+      <div>
+        <Eyebrow>Request a quote</Eyebrow>
+        <h3>Send your carbon fiber material requirements.</h3>
+        <p>
+          If the interactive RFQ form is still loading, open the contact page to
+          send product specifications, quantity, destination and end-use context.
+        </p>
+      </div>
+      <ul>
+        <li>Product specification and target quantity</li>
+        <li>End Use / Final Application for compliance review</li>
+        <li>TDS, SDS, COA or packing document needs</li>
+      </ul>
+      <Link href="/contact" className="button button-dark">
+        Request a Quote <ArrowRight size={18} />
+      </Link>
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -375,7 +397,7 @@ export default function HomePage() {
               <li>Drawings and prior specifications can be uploaded.</li>
             </ul>
           </div>
-          <Suspense fallback={<RfqFallbackForm sourcePage="/" />}>
+          <Suspense fallback={<HomeRfqFallbackCta />}>
             <InquiryForm />
           </Suspense>
         </div>

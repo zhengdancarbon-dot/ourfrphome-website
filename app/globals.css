@@ -4414,6 +4414,55 @@ a.contact-method:hover {
   background: var(--white);
 }
 
+.home-rfq-fallback-cta {
+  display: grid;
+  gap: 20px;
+  padding: 26px;
+  color: #23303b;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.home-rfq-fallback-cta h3 {
+  margin: 8px 0 10px;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: 0;
+}
+
+.home-rfq-fallback-cta p {
+  max-width: 620px;
+  color: var(--muted);
+}
+
+.home-rfq-fallback-cta ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-rfq-fallback-cta li {
+  display: flex;
+  gap: 10px;
+  color: #384753;
+  font-size: 14px;
+}
+
+.home-rfq-fallback-cta li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  background: #0d54a3;
+}
+
+.home-rfq-fallback-cta .button {
+  width: fit-content;
+}
+
 .rfq-fallback-form {
   background: var(--white);
 }
