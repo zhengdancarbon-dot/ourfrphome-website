@@ -9,6 +9,85 @@ type ResendAttachment = {
   content: string;
 };
 
+type EmailPayload = {
+  from: string;
+  to: string[];
+  reply_to: string;
+  subject: string;
+  text: string;
+  attachments: ResendAttachment[];
+};
+
+const resendRetryDelays = [0, 1000, 2500];
+
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRateLimitResponse(status: number, providerError: string) {
+  const normalizedError = providerError.toLowerCase();
+  return (
+    status === 429 ||
+    normalizedError.includes("rate_limit") ||
+    normalizedError.includes("rate limit") ||
+    normalizedError.includes("too many requests")
+  );
+}
+
+async function sendResendEmail(apiKey: string, payload: EmailPayload) {
+  let lastResponse = {
+    ok: false,
+    status: 0,
+    providerError: "",
+  };
+
+  for (let attemptIndex = 0; attemptIndex < resendRetryDelays.length; attemptIndex += 1) {
+    const delay = resendRetryDelays[attemptIndex];
+    const attempt = attemptIndex + 1;
+
+    if (delay > 0) {
+      await wait(delay);
+    }
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (emailResponse.ok) {
+      return { ok: true as const };
+    }
+
+    const providerError = await emailResponse.text();
+    lastResponse = {
+      ok: false,
+      status: emailResponse.status,
+      providerError,
+    };
+
+    const canRetry =
+      attemptIndex < resendRetryDelays.length - 1 &&
+      isRateLimitResponse(emailResponse.status, providerError);
+
+    if (!canRetry) {
+      break;
+    }
+
+    console.warn("Resend inquiry delivery rate-limited; retrying", {
+      attempt,
+      nextAttempt: attempt + 1,
+      retryDelayMs: resendRetryDelays[attemptIndex + 1],
+      status: emailResponse.status,
+    });
+  }
+
+  return lastResponse;
+}
+
 function formatInquiry(values: ReturnType<typeof validateInquiryPayload>["values"]) {
   return [
     "New website inquiry",
@@ -100,27 +179,19 @@ export async function POST(request: Request) {
       });
     }
 
-    const emailResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [toEmail],
-        reply_to: validation.values.email,
-        subject: `[Website Inquiry] ${validation.values.product} - ${validation.values.company}`,
-        text: formatInquiry(validation.values),
-        attachments,
-      }),
+    const emailResponse = await sendResendEmail(resendApiKey, {
+      from: fromEmail,
+      to: [toEmail],
+      reply_to: validation.values.email,
+      subject: `[Website Inquiry] ${validation.values.product} - ${validation.values.company}`,
+      text: formatInquiry(validation.values),
+      attachments,
     });
 
     if (!emailResponse.ok) {
-      const providerError = await emailResponse.text();
       console.error("Resend inquiry delivery failed", {
         status: emailResponse.status,
-        providerError,
+        providerError: emailResponse.providerError,
       });
       return NextResponse.json(
         { ok: false, error: "The inquiry could not be delivered. Please email us directly." },
