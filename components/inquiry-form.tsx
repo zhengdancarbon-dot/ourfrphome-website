@@ -13,6 +13,7 @@ import { defaultLocale, type Locale } from "@/lib/i18n/config";
 import {
   getUiCopy,
   translateRfqFieldLabel,
+  translateRfqPlaceholder,
   translateRfqTypeLabel,
 } from "@/lib/i18n/ui-copy";
 import { products } from "@/lib/site-data";
@@ -255,7 +256,7 @@ export function InquiryForm({
           <input
             name="requiredDocuments"
             type="text"
-            placeholder="TDS / SDS / COA / packing photos"
+            placeholder={translateRfqPlaceholder(locale, "TDS / SDS / COA / packing photos")}
             {...fieldAttributes("requiredDocuments")}
           />
           <FieldError field="requiredDocuments" error={errors.requiredDocuments} />
@@ -279,7 +280,7 @@ export function InquiryForm({
           {activeProductType.fields.map((field) => (
             <label key={field.name}>
               <span>{translateRfqFieldLabel(locale, field.label)}</span>
-              <input name={field.name} type="text" placeholder={field.placeholder} />
+              <input name={field.name} type="text" placeholder={translateRfqPlaceholder(locale, field.placeholder)} />
             </label>
           ))}
         </div>

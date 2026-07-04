@@ -18,6 +18,7 @@ import {
   localizedHomeContent,
   localizedProductsPageContent,
   translateLabel,
+  translateSpecText,
 } from "@/lib/i18n/page-content";
 import { isPhaseOneApplicationSlug, isPhaseOneProductSlug } from "@/lib/i18n/phase-one";
 import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
@@ -180,7 +181,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
                       {product.specs.slice(0, 3).map((spec) => (
                         <div key={spec.label}>
                           <dt>{translateLabel(locale, spec.label)}</dt>
-                          <dd>{spec.value}</dd>
+                          <dd>{translateSpecText(locale, spec.value)}</dd>
                         </div>
                       ))}
                     </dl>
@@ -334,7 +335,7 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
                                 {product.specs.slice(0, 3).map((spec) => (
                                   <div key={spec.label}>
                                     <dt>{translateLabel(locale, spec.label)}</dt>
-                                    <dd>{spec.value}</dd>
+                                    <dd>{translateSpecText(locale, spec.value)}</dd>
                                   </div>
                                 ))}
                               </dl>
@@ -578,7 +579,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
 
           <div className="product-template-grid">
             <div className="product-template-copy">
-              <span className="section-index">Product</span>
+              <span className="section-index">{translateLabel(locale, "Product")}</span>
               <h1>{content.name}</h1>
               <p className="product-definition">{content.description}</p>
               <div className="product-template-actions">
@@ -622,7 +623,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               <dl className="quick-answer-grid">
                 <div><dt>{translateLabel(locale, "Product type")}</dt><dd>{content.category}</dd></div>
                 {product.specs.map((spec) => (
-                  <div key={spec.label}><dt>{translateLabel(locale, spec.label)}</dt><dd>{spec.value}</dd></div>
+                  <div key={spec.label}><dt>{translateLabel(locale, spec.label)}</dt><dd>{translateSpecText(locale, spec.value)}</dd></div>
                 ))}
                 <div><dt>{copy.common.documents}</dt><dd>{copy.common.documentsByScope}</dd></div>
                 <div><dt>{copy.common.endUseReview}</dt><dd>{copy.common.complianceNotice}</dd></div>
@@ -632,20 +633,20 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
             <section className="product-detail-card" id="specifications">
               <SectionHeading
                 eyebrow={copy.common.specifications}
-                title={firstSpecTable.title}
-                copy={product.tds.note}
+                title={translateSpecText(locale, firstSpecTable.title)}
+                copy={translateSpecText(locale, product.tds.note)}
               />
               <div className="table-wrap">
                 <table className="technical-table">
                   <thead>
                     <tr>
-                      {firstSpecTable.columns.map((column) => <th key={column}>{translateLabel(locale, column)}</th>)}
+                      {firstSpecTable.columns.map((column) => <th key={column}>{translateSpecText(locale, column)}</th>)}
                     </tr>
                   </thead>
                   <tbody>
                     {firstSpecTable.rows.map((row) => (
                       <tr key={row.join("|")}>
-                        {row.map((cell, index) => <td key={`${cell}-${index}`}>{cell}</td>)}
+                        {row.map((cell, index) => <td key={`${cell}-${index}`}>{translateSpecText(locale, cell)}</td>)}
                       </tr>
                     ))}
                   </tbody>
@@ -746,8 +747,8 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
             <p>{copy.common.complianceNotice}</p>
             <div className="tds-meta-grid">
               <div><FileText size={21} /><span><strong>TDS</strong><small>{copy.common.documents}</small></span></div>
-              <div><Ruler size={21} /><span><strong>Spec</strong><small>{copy.common.specifications}</small></span></div>
-              <div><Settings2 size={21} /><span><strong>Review</strong><small>{copy.common.endUseReview}</small></span></div>
+              <div><Ruler size={21} /><span><strong>{translateLabel(locale, "Spec")}</strong><small>{copy.common.specifications}</small></span></div>
+              <div><Settings2 size={21} /><span><strong>{translateLabel(locale, "Review")}</strong><small>{copy.common.endUseReview}</small></span></div>
             </div>
           </div>
           <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} sourcePage={`/${locale}/products/${product.slug}`} />}>

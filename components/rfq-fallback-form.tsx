@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { MAX_ATTACHMENT_SIZE_MB } from "@/lib/inquiry-validation";
 import { defaultLocale, type Locale } from "@/lib/i18n/config";
-import { getUiCopy, translateRfqFieldLabel, translateRfqTypeLabel } from "@/lib/i18n/ui-copy";
+import { getUiCopy, translateRfqFieldLabel, translateRfqPlaceholder, translateRfqTypeLabel } from "@/lib/i18n/ui-copy";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
 
@@ -74,7 +74,11 @@ export function RfqFallbackForm({
         </label>
         <label>
           <span>{copy.rfq.requiredDocuments}</span>
-          <input name="requiredDocuments" type="text" placeholder="TDS / SDS / COA / packing photos" />
+          <input
+            name="requiredDocuments"
+            type="text"
+            placeholder={translateRfqPlaceholder(locale, "TDS / SDS / COA / packing photos")}
+          />
         </label>
         <label>
           <span>{copy.rfq.requiredSpecification}</span>
@@ -88,7 +92,7 @@ export function RfqFallbackForm({
           {activeType.fields.map((field) => (
             <label key={field.name}>
               <span>{translateRfqFieldLabel(locale, field.label)}</span>
-              <input name={field.name} type="text" placeholder={field.placeholder} />
+              <input name={field.name} type="text" placeholder={translateRfqPlaceholder(locale, field.placeholder)} />
             </label>
           ))}
         </div>
