@@ -1,5 +1,7 @@
 # I18n Phase 1 Implementation Report
 
+> Historical Phase 1 record. The RU, AR, FR, KO, PL and TR expansion supersedes the future-locale restrictions in this report as of 2026-07-14. English remains on root URLs and `/en` remains unpublished.
+
 Date: 2026-07-03
 
 Production domain: https://www.myfrphome.com

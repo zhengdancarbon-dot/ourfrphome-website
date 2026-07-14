@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { getLocaleFromPathname } from "@/lib/i18n/config";
-import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
+import { defaultLocale, getLocaleFromPathname, localeLocationLabels } from "@/lib/i18n/config";
+import { isPhaseOneLocalizedPath, phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
 import { getUiCopy } from "@/lib/i18n/ui-copy";
 import { navItems } from "@/lib/site-data";
 import { siteConfig } from "@/lib/site-config";
@@ -25,6 +25,10 @@ export function SiteFooter() {
     ["/about", copy.nav.about],
     ["/contact", copy.nav.contact],
   ]);
+  const navigationLabel = (href: string, fallback: string) => {
+    const label = navLabelByHref.get(href) ?? fallback;
+    return locale !== defaultLocale && !isPhaseOneLocalizedPath(href) ? `${label} (EN)` : label;
+  };
 
   return (
     <footer className="site-footer">
@@ -50,8 +54,8 @@ export function SiteFooter() {
           <h3>{copy.footer.company}</h3>
           <div className="footer-links">
             {navItems.slice(1, 5).map((item) => (
-              <Link href={phaseOneLocalePath(item.href, locale)} key={item.href}>
-                {navLabelByHref.get(item.href) ?? item.label}
+              <Link href={phaseOneLocalePath(item.href, locale)} hrefLang={locale !== defaultLocale && !isPhaseOneLocalizedPath(item.href) ? "en" : undefined} key={item.href}>
+                {navigationLabel(item.href, item.label)}
               </Link>
             ))}
           </div>
@@ -60,8 +64,8 @@ export function SiteFooter() {
           <h3>{copy.footer.support}</h3>
           <div className="footer-links">
             {navItems.slice(5).map((item) => (
-              <Link href={phaseOneLocalePath(item.href, locale)} key={item.href}>
-                {navLabelByHref.get(item.href) ?? item.label}
+              <Link href={phaseOneLocalePath(item.href, locale)} hrefLang={locale !== defaultLocale && !isPhaseOneLocalizedPath(item.href) ? "en" : undefined} key={item.href}>
+                {navigationLabel(item.href, item.label)}
               </Link>
             ))}
             <Link href={phaseOneLocalePath("/contact", locale)}>
@@ -75,7 +79,7 @@ export function SiteFooter() {
             <Building2 size={16} /> {siteConfig.companyName}
           </p>
           <p>
-            <MapPin size={16} /> {siteConfig.location}
+            <MapPin size={16} /> {localeLocationLabels[locale]}
           </p>
           <p>
             <Mail size={16} />

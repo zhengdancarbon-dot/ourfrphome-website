@@ -22,6 +22,24 @@ import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const fieldValidationMessages: Record<Locale, string> = {
+  en: "Please check this field.",
+  es: "Revise este campo.",
+  "pt-br": "Verifique este campo.",
+  ru: "Проверьте это поле.",
+  ar: "يرجى التحقق من هذا الحقل.",
+  fr: "Vérifiez ce champ.",
+  ko: "이 항목을 확인해 주세요.",
+  pl: "Sprawdź to pole.",
+  tr: "Lütfen bu alanı kontrol edin.",
+};
+
+function localizeInquiryErrors(errors: InquiryErrors, locale: Locale) {
+  return Object.fromEntries(
+    Object.keys(errors).map((field) => [field, fieldValidationMessages[locale]]),
+  ) as InquiryErrors;
+}
+
 function fieldErrorId(field: InquiryField) {
   return `inquiry-${field}-error`;
 }
@@ -122,7 +140,7 @@ export function InquiryForm({
     const validation = validateInquiryPayload(payload);
 
     if (!validation.ok) {
-      setErrors(validation.errors);
+      setErrors(localizeInquiryErrors(validation.errors, locale));
       setStatus("idle");
       return;
     }
@@ -134,7 +152,9 @@ export function InquiryForm({
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) {
-        setErrors(result.errors ?? { form: result.error ?? "Please check the form and try again." });
+        setErrors(result.errors
+          ? localizeInquiryErrors(result.errors as InquiryErrors, locale)
+          : { form: copy.rfq.errorCopy });
         setStatus("idle");
         return;
       }
@@ -165,7 +185,7 @@ export function InquiryForm({
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
       <input name="locale" type="hidden" value={locale} readOnly />
       <input name="sourcePage" type="hidden" value={pathname || "/contact"} readOnly />
-      <div className="rfq-type-select" aria-label="Select product type">
+      <div className="rfq-type-select" aria-label={copy.rfq.productType}>
         <span>{copy.rfq.productType}</span>
         <div className="rfq-type-grid" role="list">
           {rfqProductTypes.map((type) => (

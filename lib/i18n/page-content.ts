@@ -1,5 +1,15 @@
-import type { Locale } from "@/lib/i18n/config";
+import type { ExtendedLocale, Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
+import {
+  extendedApplicationContent,
+  extendedCatalogContent,
+  extendedContactContent,
+  extendedHomeContent,
+  extendedProductContent,
+  extendedProductsPageContent,
+  translateExtendedLabel,
+  translateExtendedSpecText,
+} from "@/lib/i18n/extended-page-content";
 import { phaseOneApplicationSlugs, phaseOneProductSlugs } from "@/lib/i18n/phase-one-paths";
 
 export type LocalizedSeo = {
@@ -110,6 +120,7 @@ export const localizedHomeContent = {
         "O processo muda o formato de fibra, sizing, resina, embalagem e documentação necessários.",
     },
   },
+  ...extendedHomeContent,
 } satisfies Record<Exclude<Locale, "en">, unknown>;
 
 export const localizedProductsPageContent = {
@@ -147,6 +158,7 @@ export const localizedProductsPageContent = {
     keyProducts: "Produtos principais",
     commonApplications: "Aplicações comuns",
   },
+  ...extendedProductsPageContent,
 } satisfies Record<Exclude<Locale, "en">, unknown>;
 
 export const localizedContactContent = {
@@ -165,6 +177,7 @@ export const localizedContactContent = {
       "Para una respuesta rápida, incluya producto, especificación, proceso objetivo, aplicación, cantidad y destino.",
     response: "Respuesta",
     location: "Ubicación",
+    locationValue: "Zhejiang, China",
   },
   "pt-br": {
     seo: {
@@ -181,7 +194,9 @@ export const localizedContactContent = {
       "Para resposta rápida, inclua produto, especificação, processo alvo, aplicação, quantidade e destino.",
     response: "Resposta",
     location: "Localização",
+    locationValue: "Zhejiang, China",
   },
+  ...extendedContactContent,
 } satisfies Record<Exclude<Locale, "en">, unknown>;
 
 export const localizedCatalogContent = {
@@ -219,6 +234,7 @@ export const localizedCatalogContent = {
       ["Aditivos", "Fibra picada e pó de carbono para plástico e resina."],
     ],
   },
+  ...extendedCatalogContent,
 } satisfies Record<Exclude<Locale, "en">, unknown>;
 
 export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(typeof phaseOneProductSlugs)[number], LocalizedProductContent>> = {
@@ -690,6 +706,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       ],
     },
   },
+  ...extendedProductContent,
 };
 
 export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(typeof phaseOneApplicationSlugs)[number], LocalizedApplicationContent>> = {
@@ -1043,9 +1060,10 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
       ],
     },
   },
+  ...extendedApplicationContent,
 };
 
-const labelTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+const labelTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     Home: "Inicio",
     Products: "Productos",
@@ -1106,6 +1124,9 @@ const labelTranslations: Record<Exclude<Locale, "en">, Record<string, string>> =
     Item: "Ítem",
     "Typical value": "Valor típico",
     Remark: "Nota",
+    Email: "Email",
+    Phone: "Teléfono",
+    WhatsApp: "WhatsApp",
   },
   "pt-br": {
     Home: "Início",
@@ -1167,6 +1188,9 @@ const labelTranslations: Record<Exclude<Locale, "en">, Record<string, string>> =
     Item: "Item",
     "Typical value": "Valor típico",
     Remark: "Observação",
+    Email: "Email",
+    Phone: "Telefone",
+    WhatsApp: "WhatsApp",
   },
 };
 
@@ -1182,10 +1206,13 @@ export function getLocalizedApplicationContent(locale: Locale, slug: string) {
 
 export function translateLabel(locale: Locale, label: string) {
   if (locale === defaultLocale) return label;
+  if (locale !== "es" && locale !== "pt-br") {
+    return translateExtendedLabel(locale as ExtendedLocale, label);
+  }
   return labelTranslations[locale][label] ?? label;
 }
 
-const specTextTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+const specTextTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     "Standard woven fabric range": "Rango estándar de tejido woven",
     "Representative woven fabric range. Actual construction, pick count and yarn brand are confirmed before production.":
@@ -1260,7 +1287,7 @@ const specTextTranslations: Record<Exclude<Locale, "en">, Record<string, string>
   },
 };
 
-const specPhraseTranslations: Record<Exclude<Locale, "en">, Array<[RegExp, string]>> = {
+const specPhraseTranslations: Record<"es" | "pt-br", Array<[RegExp, string]>> = {
   es: [
     [/\b[Bb]y order\b/g, "según pedido"],
     [/\b[Tt]ypical\b/g, "típico"],
@@ -1289,6 +1316,9 @@ const specPhraseTranslations: Record<Exclude<Locale, "en">, Array<[RegExp, strin
 
 export function translateSpecText(locale: Locale, text: string) {
   if (locale === defaultLocale) return text;
+  if (locale !== "es" && locale !== "pt-br") {
+    return translateExtendedSpecText(locale as ExtendedLocale, text);
+  }
   const exact = specTextTranslations[locale][text] ?? labelTranslations[locale][text];
   if (exact) return exact;
   return specPhraseTranslations[locale].reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), text);

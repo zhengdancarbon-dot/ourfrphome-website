@@ -1,5 +1,7 @@
 # Post-i18n 14-day Stability Plan - 2026-07-05
 
+> Historical EN/ES/PT-BR stability plan. Locale publication rules in this document are superseded by the nine-language QA work dated 2026-07-14.
+
 Production site: https://www.myfrphome.com
 
 ## Operating Mode

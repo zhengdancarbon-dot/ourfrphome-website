@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { getLocaleFromPathname, getUnlocalizedPath } from "@/lib/i18n/config";
-import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
+import { defaultLocale, getLocaleFromPathname, getUnlocalizedPath } from "@/lib/i18n/config";
+import { isPhaseOneLocalizedPath, phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
 import { getUiCopy, translateProductFamily, translateProductLink } from "@/lib/i18n/ui-copy";
 import { productFamilies } from "@/lib/product-families";
 import { navItems } from "@/lib/site-data";
@@ -27,6 +27,23 @@ export function SiteHeader() {
     ["/about", copy.nav.about],
     ["/contact", copy.nav.contact],
   ]);
+  const navigationLabel = (href: string, fallback: string) => {
+    const label = navLabelByHref.get(href) ?? fallback;
+    return locale !== defaultLocale && !isPhaseOneLocalizedPath(href) ? `${label} (EN)` : label;
+  };
+  const visibleFamilyItems = (
+    items: (typeof productFamilies)[number]["items"],
+    limit: number,
+  ) => {
+    if (locale === defaultLocale) return items.slice(0, limit);
+
+    const localizedItems = items.filter((product) => isPhaseOneLocalizedPath(product.href));
+    const firstItemByHref = new Map<string, (typeof items)[number]>();
+    localizedItems.forEach((product) => {
+      if (!firstItemByHref.has(product.href)) firstItemByHref.set(product.href, product);
+    });
+    return Array.from(firstItemByHref.values()).slice(0, limit);
+  };
 
   return (
     <header className="site-header">
@@ -40,10 +57,10 @@ export function SiteHeader() {
         id="mobile-nav-toggle"
         className="mobile-nav-toggle"
         type="checkbox"
-        aria-label="Toggle mobile navigation"
+        aria-label={copy.productMenu.title}
       />
       <div className="site-shell nav-row">
-        <Link href={phaseOneLocalePath("/", locale)} className="brand" aria-label="FRP HOME home">
+        <Link href={phaseOneLocalePath("/", locale)} className="brand" aria-label={`FRP HOME ${copy.nav.home}`}>
           <Image
             src="/images/brand/frphome-logo-original.jpg"
             alt="FRP HOME 福昊"
@@ -58,7 +75,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav className="desktop-nav" aria-label={copy.utility.title}>
           {navItems.map((item) => {
             if (item.href === "/products") {
               return (
@@ -75,14 +92,19 @@ export function SiteHeader() {
                     <div className="product-dropdown-grid">
                       {productFamilies.map((family) => {
                         const localizedFamily = translateProductFamily(locale, family.title, family.description);
+                        const visibleItems = visibleFamilyItems(family.items, 9);
+                        if (!visibleItems.length) return null;
+                        const familyHref = locale === defaultLocale || isPhaseOneLocalizedPath(family.href)
+                          ? family.href
+                          : "/products";
                         return (
                         <div className="product-mega-family" key={family.title}>
-                          <Link href={phaseOneLocalePath(family.href, locale)} className="product-mega-family-title">
+                          <Link href={phaseOneLocalePath(familyHref, locale)} className="product-mega-family-title">
                             <span>{localizedFamily.title}</span>
                             <small>{localizedFamily.description}</small>
                           </Link>
                           <div className="product-mega-links">
-                            {family.items.slice(0, 9).map((product) => (
+                            {visibleItems.map((product) => (
                               <Link
                                 href={phaseOneLocalePath(product.href, locale)}
                                 key={`${family.title}-${product.label}`}
@@ -105,9 +127,10 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={phaseOneLocalePath(item.href, locale)}
+                hrefLang={locale !== defaultLocale && !isPhaseOneLocalizedPath(item.href) ? "en" : undefined}
                 className={currentPath === item.href ? "active" : ""}
               >
-                {navLabelByHref.get(item.href) ?? item.label}
+                {navigationLabel(item.href, item.label)}
               </Link>
             );
           })}
@@ -122,7 +145,7 @@ export function SiteHeader() {
         <label
           htmlFor="mobile-nav-toggle"
           className="menu-button"
-          aria-label="Toggle navigation"
+          aria-label={copy.productMenu.title}
           role="button"
         >
           <Menu className="menu-icon-open" size={24} />
@@ -130,27 +153,36 @@ export function SiteHeader() {
         </label>
       </div>
 
-      <nav className="mobile-nav" aria-label="Mobile navigation">
+      <nav className="mobile-nav" aria-label={copy.utility.title}>
         <div className="site-shell">
           {navItems.map((item) => {
             if (item.href === "/products") {
               return (
-                <div className="mobile-product-menu" key={item.href}>
-                  <Link
-                    href={phaseOneLocalePath(item.href, locale)}
-                    className={isProductsActive ? "active" : ""}
-                  >
-                    {navLabelByHref.get(item.href) ?? item.label}
-                  </Link>
+                <details className="mobile-product-menu" key={item.href} open={isProductsActive || undefined}>
+                  <summary className={isProductsActive ? "active" : ""}>
+                    <span>{navLabelByHref.get(item.href) ?? item.label}</span>
+                    <ChevronDown size={16} strokeWidth={1.8} aria-hidden="true" />
+                  </summary>
                   <div className="mobile-product-links">
+                    <Link
+                      href={phaseOneLocalePath(item.href, locale)}
+                      className="mobile-view-all-products"
+                    >
+                      {copy.common.viewProducts}
+                    </Link>
                     {productFamilies.map((family) => {
                       const localizedFamily = translateProductFamily(locale, family.title, family.description);
+                      const visibleItems = visibleFamilyItems(family.items, 6);
+                      if (!visibleItems.length) return null;
+                      const familyHref = locale === defaultLocale || isPhaseOneLocalizedPath(family.href)
+                        ? family.href
+                        : "/products";
                       return (
                       <div className="mobile-product-family" key={family.title}>
-                        <Link href={phaseOneLocalePath(family.href, locale)}>
+                        <Link href={phaseOneLocalePath(familyHref, locale)}>
                           {localizedFamily.title}
                         </Link>
-                        {family.items.slice(0, 6).map((product) => (
+                        {visibleItems.map((product) => (
                           <Link
                             href={phaseOneLocalePath(product.href, locale)}
                             key={`${family.title}-${product.label}`}
@@ -163,7 +195,7 @@ export function SiteHeader() {
                       );
                     })}
                   </div>
-                </div>
+                </details>
               );
             }
 
@@ -171,9 +203,10 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={phaseOneLocalePath(item.href, locale)}
+                hrefLang={locale !== defaultLocale && !isPhaseOneLocalizedPath(item.href) ? "en" : undefined}
                 className={currentPath === item.href ? "active" : ""}
               >
-                {navLabelByHref.get(item.href) ?? item.label}
+                {navigationLabel(item.href, item.label)}
               </Link>
             );
           })}

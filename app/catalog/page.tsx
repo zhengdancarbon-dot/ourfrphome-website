@@ -258,8 +258,8 @@ export default function CatalogPageRoute() {
             <div className={styles.editorialBand}>
               <strong>Publication note</strong>
               <p>
-                Equipment count and annual capacity stated in the 2023 catalog remain subject to
-                company confirmation before final release.
+                Operational details are published only after current company confirmation and
+                supporting records are available.
               </p>
             </div>
           </div>

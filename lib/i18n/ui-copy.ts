@@ -1,5 +1,13 @@
-import type { Locale } from "@/lib/i18n/config";
+import type { ExtendedLocale, Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
+import {
+  extendedFamilyTranslations,
+  extendedProductTranslations,
+  extendedUiCopy,
+  translateExtendedField,
+  translateExtendedPlaceholder,
+  translateExtendedRfqType,
+} from "@/lib/i18n/extended-ui-copy";
 
 export type RfqCopy = {
   productType: string;
@@ -334,13 +342,14 @@ export const uiCopy: Record<Locale, UiCopy> = {
   en: english,
   es: spanish,
   "pt-br": portuguese,
+  ...extendedUiCopy,
 };
 
 export function getUiCopy(locale: Locale = defaultLocale) {
   return uiCopy[locale] ?? uiCopy[defaultLocale];
 }
 
-const productFamilyTitleTranslations: Record<Exclude<Locale, "en">, Record<string, { title: string; description: string }>> = {
+const productFamilyTitleTranslations: Record<"es" | "pt-br", Record<string, { title: string; description: string }>> = {
   es: {
     "Carbon Fiber Reinforcements": {
       title: "Refuerzos de fibra de carbono",
@@ -395,7 +404,7 @@ const productFamilyTitleTranslations: Record<Exclude<Locale, "en">, Record<strin
   },
 };
 
-const productLinkTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+const productLinkTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     "Woven Carbon Fiber Fabric": "Tejido de fibra de carbono",
     "1K Woven Carbon Fiber Fabric": "Tejido de carbono 1K",
@@ -502,15 +511,37 @@ const productLinkTranslations: Record<Exclude<Locale, "en">, Record<string, stri
 
 export function translateProductFamily(locale: Locale, title: string, description: string) {
   if (locale === defaultLocale) return { title, description };
+  if (locale !== "es" && locale !== "pt-br") {
+    return extendedFamilyTranslations[locale as ExtendedLocale][title] ?? { title, description };
+  }
   return productFamilyTitleTranslations[locale][title] ?? { title, description };
 }
 
 export function translateProductLink(locale: Locale, label: string) {
   if (locale === defaultLocale) return label;
+  if (locale !== "es" && locale !== "pt-br") {
+    return extendedProductTranslations[locale as ExtendedLocale][label] ?? label;
+  }
   return productLinkTranslations[locale][label] ?? label;
 }
 
-const rfqTypeLabelTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+export function getRfqPrefillMessage(locale: Locale, productName: string) {
+  const messages: Record<Locale, string> = {
+    en: `Please quote ${productName}. My target specification and quantity are below.`,
+    es: `Solicito una cotización de ${productName}. A continuación indico la especificación y la cantidad requeridas.`,
+    "pt-br": `Solicito uma cotação de ${productName}. A especificação e a quantidade necessárias estão abaixo.`,
+    ru: `Прошу предоставить предложение на ${productName}. Требуемая спецификация и количество указаны ниже.`,
+    ar: `يرجى تقديم عرض سعر لـ ${productName}. المواصفة والكمية المطلوبة موضحتان أدناه.`,
+    fr: `Merci d'établir un devis pour ${productName}. La spécification et la quantité recherchées sont indiquées ci-dessous.`,
+    ko: `${productName} 견적을 요청합니다. 필요한 사양과 수량은 아래와 같습니다.`,
+    pl: `Proszę o ofertę na ${productName}. Wymagana specyfikacja i ilość znajdują się poniżej.`,
+    tr: `${productName} için teklif rica ederim. Hedef teknik özellik ve miktar aşağıdadır.`,
+  };
+
+  return messages[locale];
+}
+
+const rfqTypeLabelTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     "Carbon Fiber Yarn / Tow": "Hilo / tow de fibra de carbono",
     "Woven Carbon Fiber Fabric": "Tejido woven de carbono",
@@ -535,7 +566,7 @@ const rfqTypeLabelTranslations: Record<Exclude<Locale, "en">, Record<string, str
   },
 };
 
-const rfqFieldLabelTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+const rfqFieldLabelTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     "Tow size": "Tamaño de tow",
     "Brand requirement": "Requisito de marca",
@@ -632,7 +663,7 @@ const rfqFieldLabelTranslations: Record<Exclude<Locale, "en">, Record<string, st
   },
 };
 
-const rfqPlaceholderTranslations: Record<Exclude<Locale, "en">, Record<string, string>> = {
+const rfqPlaceholderTranslations: Record<"es" | "pt-br", Record<string, string>> = {
   es: {
     "TDS / SDS / COA / packing photos": "TDS / SDS / COA / fotos de embalaje",
     "No preference / specific brand by review": "Sin preferencia / marca específica según revisión",
@@ -753,15 +784,18 @@ const rfqPlaceholderTranslations: Record<Exclude<Locale, "en">, Record<string, s
 
 export function translateRfqTypeLabel(locale: Locale, label: string) {
   if (locale === defaultLocale) return label;
+  if (locale !== "es" && locale !== "pt-br") return translateExtendedRfqType(locale as ExtendedLocale, label);
   return rfqTypeLabelTranslations[locale][label] ?? label;
 }
 
 export function translateRfqFieldLabel(locale: Locale, label: string) {
   if (locale === defaultLocale) return label;
+  if (locale !== "es" && locale !== "pt-br") return translateExtendedField(locale as ExtendedLocale, label);
   return rfqFieldLabelTranslations[locale][label] ?? label;
 }
 
 export function translateRfqPlaceholder(locale: Locale, placeholder?: string) {
   if (!placeholder || locale === defaultLocale) return placeholder;
+  if (locale !== "es" && locale !== "pt-br") return translateExtendedPlaceholder(locale as ExtendedLocale, placeholder);
   return rfqPlaceholderTranslations[locale][placeholder] ?? placeholder;
 }

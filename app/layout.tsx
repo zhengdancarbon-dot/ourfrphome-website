@@ -3,6 +3,7 @@ import Script from "next/script";
 import { DocumentLanguage } from "@/components/document-language";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { activeLocales, hreflangLocales } from "@/lib/i18n/config";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteUrl, titleWithBrand } from "@/lib/seo";
 import "./globals.css";
@@ -67,10 +68,12 @@ export const metadata: Metadata = {
 const documentLanguageScript = `
   (function () {
     var path = window.location.pathname;
-    var lang = "en";
-    if (path === "/es" || path.indexOf("/es/") === 0) lang = "es";
-    if (path === "/pt-br" || path.indexOf("/pt-br/") === 0) lang = "pt-BR";
+    var locales = ${JSON.stringify(Object.fromEntries(activeLocales.map((locale) => [locale, hreflangLocales[locale]])))};
+    var segment = path.split("/").filter(Boolean)[0] || "en";
+    var locale = Object.prototype.hasOwnProperty.call(locales, segment) ? segment : "en";
+    var lang = locales[locale];
     document.documentElement.lang = lang;
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
   })();
 `;
 
@@ -95,7 +98,7 @@ const organizationSchema = {
     contactType: "sales",
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    availableLanguage: ["en", "es", "pt-BR", "zh"],
+    availableLanguage: [...activeLocales.map((locale) => hreflangLocales[locale]), "zh"],
   },
   makesOffer: [
     "Carbon Fiber UD Fabric",
@@ -125,7 +128,7 @@ const websiteSchema = {
   publisher: {
     "@id": absoluteUrl("/#organization"),
   },
-  inLanguage: ["en", "es", "pt-BR"],
+  inLanguage: activeLocales.map((locale) => hreflangLocales[locale]),
 };
 
 export default function RootLayout({
@@ -134,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body>
         <Script id="document-language" strategy="beforeInteractive">
           {documentLanguageScript}
@@ -167,9 +170,9 @@ export default function RootLayout({
 
               function currentLocale() {
                 var path = window.location.pathname || "/";
-                if (path === "/es" || path.indexOf("/es/") === 0) return "es";
-                if (path === "/pt-br" || path.indexOf("/pt-br/") === 0) return "pt-br";
-                return "en";
+                var locales = ${JSON.stringify(activeLocales)};
+                var segment = path.split("/").filter(Boolean)[0] || "en";
+                return locales.indexOf(segment) >= 0 ? segment : "en";
               }
 
               document.addEventListener("click", function (event) {

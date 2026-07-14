@@ -8,7 +8,9 @@ export function DocumentLanguage() {
   const pathname = usePathname();
 
   useEffect(() => {
-    document.documentElement.lang = hreflangLocales[getLocaleFromPathname(pathname)];
+    const locale = getLocaleFromPathname(pathname);
+    document.documentElement.lang = hreflangLocales[locale];
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
   }, [pathname]);
 
   return null;

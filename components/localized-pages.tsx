@@ -23,9 +23,9 @@ import {
 import { isPhaseOneApplicationSlug, isPhaseOneProductSlug } from "@/lib/i18n/phase-one";
 import { phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
 import {
+  getRfqPrefillMessage,
   getUiCopy,
   translateProductFamily,
-  translateProductLink,
   translateRfqFieldLabel,
   translateRfqTypeLabel,
 } from "@/lib/i18n/ui-copy";
@@ -105,6 +105,7 @@ export function createLocalizedHomeMetadata(locale: Exclude<Locale, "en">): Meta
 export function LocalizedHomePage({ locale }: LocalizedPageProps) {
   const content = localizedHomeContent[locale];
   const copy = getUiCopy(locale);
+  const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
   const featuredProducts = featuredProductSlugs
     .map((slug) => productCatalog.find((product) => product.slug === slug))
     .filter((product) => product !== undefined);
@@ -117,9 +118,9 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
             <h1>{content.h1}</h1>
             <p>{content.copy}</p>
             <div className="hero-actions">
-              <Link href={localizedLink("/applications", locale)} className="button button-blue">
+              <a href="#applications" className="button button-blue">
                 {content.primaryCta} <ArrowRight size={18} />
-              </Link>
+              </a>
               <Link href={localizedLink("/contact", locale)} className="button button-light-outline">
                 {content.secondaryCta} <ArrowRight size={18} />
               </Link>
@@ -127,7 +128,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
                 {content.catalogCta} <FileText size={18} />
               </Link>
             </div>
-            <div className="hero-material-rail" aria-label="Material scope">
+            <div className="hero-material-rail" aria-label={content.heroMeta.title}>
               {content.materialRail.map((item) => (
                 <span key={item}>{item}</span>
               ))}
@@ -137,7 +138,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
           <div className="b2b-hero-media">
             <Image
               src="/images/home/home-yarn-creel-hero-gray.jpg"
-              alt="Carbon fiber yarn creel prepared for fabric production at FRP HOME"
+              alt={`${content.h1} - FRP HOME`}
               fill
               priority
               loading="eager"
@@ -171,19 +172,21 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
               return (
                 <article className="series-card" key={product.slug}>
                   <Link href={localizedLink(`/products/${product.slug}`, locale)} className="series-image" aria-label={localized.name}>
-                    <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                    <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) 100vw, 33vw" />
                     <span>{String(index + 1).padStart(2, "0")}</span>
                   </Link>
                   <div className="series-body">
                     <h3>{localized.name}</h3>
                     <p>{localized.description}</p>
                     <dl>
-                      {product.specs.slice(0, 3).map((spec) => (
-                        <div key={spec.label}>
-                          <dt>{translateLabel(locale, spec.label)}</dt>
-                          <dd>{translateSpecText(locale, spec.value)}</dd>
-                        </div>
-                      ))}
+                      {hasDetailedTranslatedSpecs
+                        ? product.specs.slice(0, 3).map((spec) => (
+                            <div key={spec.label}>
+                              <dt>{translateLabel(locale, spec.label)}</dt>
+                              <dd>{translateSpecText(locale, spec.value)}</dd>
+                            </div>
+                          ))
+                        : <div><dt>{copy.common.specifications}</dt><dd>{localized.heroCopy}</dd></div>}
                     </dl>
                     <Link href={localizedLink(`/products/${product.slug}`, locale)} className="text-link">
                       {copy.common.viewProductPage} <ArrowRight size={17} />
@@ -196,7 +199,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
         </div>
       </section>
 
-      <section className="section section-soft finder-section">
+      <section className="section section-soft finder-section" id="applications">
         <div className="site-shell finder-grid">
           <div>
             <Eyebrow>{content.sections.applicationEyebrow}</Eyebrow>
@@ -223,7 +226,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
           <div className="finder-feature-panel">
             <Image
               src="/images/products/3k-carbon-fiber-laminate-stack.webp"
-              alt="Carbon fiber laminate stack for composite parts"
+              alt={content.sections.processTitle}
               fill
               sizes="(max-width: 900px) 100vw, 44vw"
             />
@@ -254,6 +257,7 @@ export function createLocalizedProductsMetadata(locale: Exclude<Locale, "en">): 
 export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
   const content = localizedProductsPageContent[locale];
   const copy = getUiCopy(locale);
+  const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
 
   return (
     <>
@@ -307,11 +311,11 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
                       <dl>
                         <div>
                           <dt>{content.keyProducts}</dt>
-                          <dd>{family.keyProducts.map((item) => translateProductLink(locale, item)).join(", ")}</dd>
+                          <dd>{groupProducts.slice(0, 4).map((product) => localizedProduct(product, locale).name).join(", ")}</dd>
                         </div>
                         <div>
                           <dt>{content.commonApplications}</dt>
-                          <dd>{family.commonApplications}</dd>
+                          <dd>{Array.from(new Set(groupProducts.flatMap((product) => localizedProduct(product, locale).applications))).slice(0, 5).join(", ")}</dd>
                         </div>
                       </dl>
                     </div>
@@ -323,7 +327,7 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
                       return (
                         <article className="directory-product-card" key={product.slug}>
                           <div className="directory-product-image-placeholder">
-                            <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 100vw, 24vw" />
+                            <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) 100vw, 24vw" />
                           </div>
                           <div className="directory-product-body">
                             <div className="product-category">{localized.category}</div>
@@ -332,12 +336,14 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
                             <div className="directory-spec-summary">
                               <span>{copy.common.specifications}</span>
                               <dl>
-                                {product.specs.slice(0, 3).map((spec) => (
-                                  <div key={spec.label}>
-                                    <dt>{translateLabel(locale, spec.label)}</dt>
-                                    <dd>{translateSpecText(locale, spec.value)}</dd>
-                                  </div>
-                                ))}
+                                {hasDetailedTranslatedSpecs
+                                  ? product.specs.slice(0, 3).map((spec) => (
+                                      <div key={spec.label}>
+                                        <dt>{translateLabel(locale, spec.label)}</dt>
+                                        <dd>{translateSpecText(locale, spec.value)}</dd>
+                                      </div>
+                                    ))
+                                  : <div><dt>{localized.category}</dt><dd>{localized.heroCopy}</dd></div>}
                               </dl>
                             </div>
                             <Link href={localizedLink(`/products/${product.slug}`, locale)} className="text-link">
@@ -402,16 +408,16 @@ export function LocalizedContactPage({ locale }: LocalizedPageProps) {
             <p>{content.asideCopy}</p>
             <div className="contact-methods">
               <a className="contact-method" href={siteConfig.emailHref}>
-                <span><small>Email</small><strong>{siteConfig.email}</strong></span>
+                <span><small>{translateLabel(locale, "Email")}</small><strong dir="ltr">{siteConfig.email}</strong></span>
               </a>
               <a className="contact-method" href={siteConfig.phoneHref}>
-                <span><small>Phone</small><strong>{siteConfig.phone}</strong></span>
+                <span><small>{translateLabel(locale, "Phone")}</small><strong dir="ltr">{siteConfig.phone}</strong></span>
               </a>
               <a className="contact-method" href={siteConfig.whatsappHref} target="_blank" rel="noreferrer">
-                <span><small>WhatsApp</small><strong>{siteConfig.whatsapp}</strong></span>
+                <span><small>{translateLabel(locale, "WhatsApp")}</small><strong dir="ltr">{siteConfig.whatsapp}</strong></span>
               </a>
               <div className="contact-method">
-                <span><small>{content.location}</small><strong>{siteConfig.location}</strong></span>
+                <span><small>{content.location}</small><strong>{content.locationValue}</strong></span>
               </div>
               <div className="contact-method">
                 <span><small>{content.response}</small><strong>{copy.common.usuallyOneBusinessDay}</strong></span>
@@ -506,6 +512,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
   if (!product || !content) notFound();
 
   const copy = getUiCopy(locale);
+  const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
   const activeRfqType = rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const relatedProducts = productCatalog
     .filter((item) => item.slug !== product.slug)
@@ -515,7 +522,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
   const firstSpecTable = product.tds.tables[0];
   const inquiryHref = localizedLink(
     `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
-      `Please quote ${product.name}. My target specification and quantity are below.`,
+      getRfqPrefillMessage(locale, content.name),
     )}`,
     locale,
   );
@@ -536,11 +543,13 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
       url: siteConfig.url,
     },
     sku: product.tds.codePrefix,
-    additionalProperty: product.highlights.map((item) => ({
-      "@type": "PropertyValue",
-      name: translateLabel(locale, item.label),
-      value: item.value,
-    })),
+    additionalProperty: hasDetailedTranslatedSpecs
+      ? product.highlights.map((item) => ({
+          "@type": "PropertyValue",
+          name: translateLabel(locale, item.label),
+          value: translateSpecText(locale, item.value),
+        }))
+      : [{ "@type": "PropertyValue", name: copy.common.specifications, value: content.heroCopy }],
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -586,13 +595,13 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                 <Link href={inquiryHref} className="button button-blue">
                   {copy.common.requestQuote} <ArrowRight size={17} />
                 </Link>
-                <Link href={localizedLink("/technical-center", locale)} className="button button-outline">
-                  {copy.common.technicalCenter} <FileText size={17} />
+                <Link href="/technical-center" hrefLang="en" className="button button-outline">
+                  {copy.common.technicalCenter} (EN) <FileText size={17} />
                 </Link>
               </div>
             </div>
 
-            <ProductImageZoom src={product.image} alt={product.visualLabel} priority sizes="(max-width: 900px) 100vw, 44vw" />
+            <ProductImageZoom src={product.image} alt={content.name} priority sizes="(max-width: 900px) 100vw, 44vw" />
           </div>
         </div>
       </section>
@@ -622,36 +631,44 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               </div>
               <dl className="quick-answer-grid">
                 <div><dt>{translateLabel(locale, "Product type")}</dt><dd>{content.category}</dd></div>
-                {product.specs.map((spec) => (
-                  <div key={spec.label}><dt>{translateLabel(locale, spec.label)}</dt><dd>{translateSpecText(locale, spec.value)}</dd></div>
-                ))}
+                {hasDetailedTranslatedSpecs
+                  ? product.specs.map((spec) => (
+                      <div key={spec.label}><dt>{translateLabel(locale, spec.label)}</dt><dd>{translateSpecText(locale, spec.value)}</dd></div>
+                    ))
+                  : <div><dt>{copy.common.specifications}</dt><dd>{content.heroCopy}</dd></div>}
                 <div><dt>{copy.common.documents}</dt><dd>{copy.common.documentsByScope}</dd></div>
                 <div><dt>{copy.common.endUseReview}</dt><dd>{copy.common.complianceNotice}</dd></div>
               </dl>
             </section>
 
             <section className="product-detail-card" id="specifications">
-              <SectionHeading
-                eyebrow={copy.common.specifications}
-                title={translateSpecText(locale, firstSpecTable.title)}
-                copy={translateSpecText(locale, product.tds.note)}
-              />
-              <div className="table-wrap">
-                <table className="technical-table">
-                  <thead>
-                    <tr>
-                      {firstSpecTable.columns.map((column) => <th key={column}>{translateSpecText(locale, column)}</th>)}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {firstSpecTable.rows.map((row) => (
-                      <tr key={row.join("|")}>
-                        {row.map((cell, index) => <td key={`${cell}-${index}`}>{translateSpecText(locale, cell)}</td>)}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {hasDetailedTranslatedSpecs ? (
+                <>
+                  <SectionHeading
+                    eyebrow={copy.common.specifications}
+                    title={translateSpecText(locale, firstSpecTable.title)}
+                    copy={translateSpecText(locale, product.tds.note)}
+                  />
+                  <div className="table-wrap">
+                    <table className="technical-table">
+                      <thead>
+                        <tr>
+                          {firstSpecTable.columns.map((column) => <th key={column}>{translateSpecText(locale, column)}</th>)}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {firstSpecTable.rows.map((row) => (
+                          <tr key={row.join("|")}>
+                            {row.map((cell, index) => <td key={`${cell}-${index}`}>{translateSpecText(locale, cell)}</td>)}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              ) : (
+                <SectionHeading eyebrow={copy.common.specifications} title={content.name} copy={content.heroCopy} />
+              )}
             </section>
 
             <section className="product-detail-card" id="overview">
@@ -660,7 +677,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                 <div>
                   {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 </div>
-                <div className="product-gallery-strip" aria-label={`${content.name} product images`}>
+                <div className="product-gallery-strip" aria-label={content.name}>
                   {productImageSlots.slice(0, product.slug === "chopped-carbon-fiber" ? 6 : 4).map((image, index) => (
                     <div key={image}>
                       <Image src={image} alt={`${content.name} ${index + 1}`} fill sizes="(max-width: 760px) 50vw, 12vw" />
@@ -728,7 +745,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                   const relatedContent = localizedProduct(related, locale);
                   return (
                     <Link href={localizedLink(`/products/${related.slug}`, locale)} key={related.slug}>
-                      <Image src={related.image} alt={related.visualLabel} fill sizes="(max-width: 760px) 50vw, 14vw" />
+                      <Image src={related.image} alt={relatedContent.name} fill sizes="(max-width: 760px) 50vw, 14vw" />
                       <span>{relatedContent.name}</span>
                     </Link>
                   );
@@ -919,7 +936,7 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
                   const localized = localizedProduct(product, locale);
                   return (
                     <Link href={localizedLink(`/products/${product.slug}`, locale)} key={product.slug}>
-                      <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 50vw, 14vw" />
+                      <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) 50vw, 14vw" />
                       <span>{localized.name}</span>
                     </Link>
                   );

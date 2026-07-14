@@ -1,5 +1,7 @@
 # Post-i18n Search Submission Checklist - 2026-07-05
 
+> Historical EN/ES/PT-BR submission checklist. Submit the expanded sitemap only after the nine-language preview is approved and deployed.
+
 Production site: https://www.myfrphome.com
 
 ## Live Verification

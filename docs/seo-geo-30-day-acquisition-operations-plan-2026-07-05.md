@@ -104,6 +104,6 @@ Tasks:
 
 - Keep English root URLs stable.
 - Keep `/es/` and `/pt-br/` live.
-- Keep `/en`, `/ru` and `/tr` unpublished.
+- Keep `/en` unpublished. RU, AR, FR, KO, PL and TR enter indexing only after multilingual Preview QA and production approval.
 - Do not modify sitemap, canonical or hreflang logic during the 14-day stability period unless there is a bug.
 - Keep compliance and end-use review language active.

@@ -1,5 +1,7 @@
 # Post-i18n Acquisition Day One Checklist - 2026-07-05
 
+> Historical EN/ES/PT-BR launch checklist. Locale publication rules in this document are superseded by the nine-language QA work dated 2026-07-14.
+
 Production site: https://www.myfrphome.com
 
 ## Current Status

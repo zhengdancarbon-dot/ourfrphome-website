@@ -1,5 +1,7 @@
 # SEO / GEO Promotion Run - 2026-07-13
 
+> Historical snapshot taken before the RU, AR, FR, KO, PL and TR expansion. Its `/ru` and `/tr` 404 results are not current launch requirements.
+
 Production site: https://www.myfrphome.com
 
 ## Operating Decision
