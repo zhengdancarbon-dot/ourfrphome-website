@@ -1,9 +1,9 @@
 # FRP HOME 全语言网站 QA 报告
 
-日期：2026-07-14
+日期：2026-07-14（2026-07-15 补充真实 RFQ 投递验收）
 分支：`codex/i18n-full-site-qa`
 生产域名：`https://www.myfrphome.com`
-Preview：`https://ourfrphome-website-gmjp8s5xd-zhendgan.vercel.app`
+Preview：`https://ourfrphome-website-ni7v0s3zz-zhendgan.vercel.app`
 发布状态：Preview `READY`；未合并主分支；未部署生产
 
 ## 1. 结论
@@ -17,7 +17,7 @@ Preview：`https://ourfrphome-website-gmjp8s5xd-zhendgan.vercel.app`
 - 32 个本地化应用页的 WebPage/Application、FAQPage、BreadcrumbList Schema 通过。
 - `/en` 与未翻译的本地化路由保持 404，没有英文自动回退页。
 - 桌面 Products mega menu、手机菜单、语言切换、RTL、图片放大和 RFQ 校验已完成浏览器验收。
-- Preview 构建已完成，但当前自动化环境无法通过 Vercel Preview Protection，因此 Preview 外网 smoke test 和真实邮件投递保留为人工验收项。
+- Preview 构建已完成；当前自动化环境访问 Vercel Preview 持续超时，因此 Preview 外网 DOM smoke test 仍保留为人工验收项。九种语言的真实 RFQ 邮件投递已通过本地生产构建和 Preview RFQ 环境完成。
 
 ## 2. 已发现并修复的问题
 
@@ -149,7 +149,21 @@ Preview 环境变量（不显示值）：
 | `GA4_MEASUREMENT_ID` | MISSING | Preview 分析事件不可在 GA4 后台验证 |
 | `BING_VERIFICATION_CODE` | MISSING | Preview Bing 验证不可确认 |
 
-未执行九封真实 RFQ 测试邮件。原因：该操作会向外部邮箱发送真实消息，且 Preview 受 Vercel Protection 限制。Preview 审核时应按语言逐封发送并间隔执行，避免触发 Resend rate limit。
+真实 RFQ 投递测试于 2026-07-15 执行，收件地址为 `info@hntzxcl.com`。每封邮件使用对应 locale 和 Contact source URL；提交间隔约 3.5 秒，未触发 Resend rate limit，也未出现重试或投递错误。
+
+| 语言 | Locale | Source Page | API 结果 |
+| --- | --- | --- | --- |
+| English | `en` | `/contact` | 200, `{ "ok": true }` |
+| Español | `es` | `/es/contact` | 200, `{ "ok": true }` |
+| Português BR | `pt-br` | `/pt-br/contact` | 200, `{ "ok": true }` |
+| Русский | `ru` | `/ru/contact` | 200, `{ "ok": true }` |
+| العربية | `ar` | `/ar/contact` | 200, `{ "ok": true }` |
+| Français | `fr` | `/fr/contact` | 200, `{ "ok": true }` |
+| 한국어 | `ko` | `/ko/contact` | 200, `{ "ok": true }` |
+| Polski | `pl` | `/pl/contact` | 200, `{ "ok": true }` |
+| Türkçe | `tr` | `/tr/contact` | 200, `{ "ok": true }` |
+
+API 接受结果已确认。收件箱中的邮件正文仍需人工抽查 `Locale`、`Source Page` 和完整 `Submitted from` URL 的显示，因为自动化环境无权读取该外部邮箱。
 
 ## 9. 构建结果
 
@@ -163,16 +177,16 @@ Preview 环境变量（不显示值）：
 ## 10. Preview 状态
 
 - Git 分支：`codex/i18n-full-site-qa`
-- 最新 Preview commit：`f9dfe8e`
+- 最新 Preview commit：`2b295f8`
 - Vercel deployment state：`READY`
-- Preview URL：`https://ourfrphome-website-gmjp8s5xd-zhendgan.vercel.app`
+- Preview URL：`https://ourfrphome-website-ni7v0s3zz-zhendgan.vercel.app`
 - 当前自动化环境访问结果：Vercel Preview Protection / 网络超时，无法完成外网 DOM smoke test。
 - 本地生产构建 smoke test：通过。
 
 ## 11. 剩余风险与上线前动作
 
 1. 使用已登录 Vercel 的普通浏览器打开 Preview URL，复核 Home、Products、Contact、Catalog、产品页和应用页。
-2. 在 Preview 依次提交 EN、ES、PT-BR、RU、AR、FR、KO、PL、TR RFQ，确认邮件 locale 和 source URL。
+2. 在收件箱抽查九封测试邮件，确认正文显示对应 locale、source URL 和完整生产 URL。
 3. Preview 的 `GA4_MEASUREMENT_ID`、`BING_VERIFICATION_CODE` 当前缺失；它们不阻断 RFQ，但阻断 Preview 分析/搜索验证码验证。
 4. Preview 批准前不要合并主分支，不要部署生产。
 5. 生产批准后再向 Google Search Console 和 Bing Webmaster Tools 重新提交 171 URL sitemap。
