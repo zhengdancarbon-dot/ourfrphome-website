@@ -3,7 +3,7 @@
 日期：2026-07-14（2026-07-15 补充真实 RFQ 投递验收）
 分支：`codex/i18n-full-site-qa`
 生产域名：`https://www.myfrphome.com`
-Preview：`https://ourfrphome-website-ni7v0s3zz-zhendgan.vercel.app`
+Preview：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.vercel.app`
 发布状态：Preview `READY`；未合并主分支；未部署生产
 
 ## 1. 结论
@@ -177,9 +177,9 @@ API 接受结果已确认。收件箱中的邮件正文仍需人工抽查 `Local
 ## 10. Preview 状态
 
 - Git 分支：`codex/i18n-full-site-qa`
-- 最新 Preview commit：`2b295f8`
+- Preview 跟踪分支：`codex/i18n-full-site-qa`
 - Vercel deployment state：`READY`
-- Preview URL：`https://ourfrphome-website-ni7v0s3zz-zhendgan.vercel.app`
+- 稳定分支 Preview URL：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.vercel.app`
 - 当前自动化环境访问结果：Vercel Preview Protection / 网络超时，无法完成外网 DOM smoke test。
 - 本地生产构建 smoke test：通过。
 
