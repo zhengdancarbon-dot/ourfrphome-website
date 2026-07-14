@@ -1,6 +1,6 @@
 # FRP HOME 全语言网站 QA 报告
 
-日期：2026-07-14（2026-07-15 补充真实 RFQ 投递验收）
+日期：2026-07-14（2026-07-15 补充真实 RFQ 投递与 Preview 等价浏览器验收）
 分支：`codex/i18n-full-site-qa`
 生产域名：`https://www.myfrphome.com`
 Preview：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.vercel.app`
@@ -17,7 +17,7 @@ Preview：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.verce
 - 32 个本地化应用页的 WebPage/Application、FAQPage、BreadcrumbList Schema 通过。
 - `/en` 与未翻译的本地化路由保持 404，没有英文自动回退页。
 - 桌面 Products mega menu、手机菜单、语言切换、RTL、图片放大和 RFQ 校验已完成浏览器验收。
-- Preview 构建已完成；当前自动化环境访问 Vercel Preview 持续超时，因此 Preview 外网 DOM smoke test 仍保留为人工验收项。九种语言的真实 RFQ 邮件投递已通过本地生产构建和 Preview RFQ 环境完成。
+- Preview 构建已完成；当前自动化环境无法读取受保护的 Vercel Preview DOM，因此使用同一分支、同一生产构建完成 Playwright 等价验收。九种语言的真实 RFQ 邮件投递已通过本地生产构建和 Preview RFQ 环境完成。
 
 ## 2. 已发现并修复的问题
 
@@ -31,6 +31,7 @@ Preview：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.verce
 | High | 本地化页可能链接到未翻译内容且没有提示 | 只本地化已发布路由；必须返回英文的链接增加 `(EN)` 与 `hrefLang=en` | `components/site-header.tsx`, `components/site-footer.tsx`, `components/localized-pages.tsx` |
 | Medium | 新语言 RFQ 产品类型和规格字段存在英文占位 | 补齐产品类型、动态规格字段、校验、CTA、合规与文件上传文案 | `lib/i18n/extended-ui-copy.ts`, `components/inquiry-form.tsx` |
 | Medium | 本地化 Products 菜单重复列出同一路由的英文规格变体 | 按 href 去重并使用本地化主产品名 | `components/site-header.tsx`, `lib/i18n/extended-ui-copy.ts` |
+| Medium | RU/AR/FR/KO/PL/TR 首页 title/H1 由两个短句直接拼接，出现句号重复和语序不自然 | 为六种语言设置完整、自然的首页主标题，并完成桌面和手机复测 | `lib/i18n/extended-page-content.ts` |
 | Medium | 图片放大读屏标签只有英文，弹窗背景可滚动 | 九语种 aria-label；弹窗打开时锁定 body 滚动 | `components/product-image-zoom.tsx` |
 | Medium | GA4 locale、Organization/WebSite Schema 只覆盖 EN/ES/PT-BR | 扩展至 9 种语言，事件继续携带 locale | `app/layout.tsx`, `components/inquiry-form.tsx` |
 | Low | 旧文档仍称 RU/TR 未发布 | 加历史状态提示并更新九语种监控模板 | `docs/*.md` |
@@ -109,6 +110,9 @@ Preview：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.verce
 
 重点结果：
 
+- 9 个语言首页在桌面端逐页通过：HTTP 200、title/H1、`lang`/`dir`、图片、首屏宽度和控制台均正常。
+- 40 个本地化模板页通过：8 种本地化语言分别覆盖 Products、Contact、Catalog、产品详情和应用详情；canonical 自引用且每组有 9 种语言加 `x-default`。
+- 9 个语言首页在手机端逐页通过：宽度 390/390，无横向滚动、破图、错误覆盖层或控制台错误。
 - Arabic Home 和 Contact 正确 RTL，无横向滚动。
 - Polish 长标题在桌面和手机端均未溢出。
 - 桌面 Products mega menu 左右边界为 130px / 1310px，完整位于 1440px 视口内，左列不再被遮挡。
@@ -181,11 +185,11 @@ API 接受结果已确认。收件箱中的邮件正文仍需人工抽查 `Local
 - Vercel deployment state：`READY`
 - 稳定分支 Preview URL：`https://ourfrphome-website-git-codex-i18n-full-site-qa-zhendgan.vercel.app`
 - 当前自动化环境访问结果：Vercel Preview Protection / 网络超时，无法完成外网 DOM smoke test。
-- 本地生产构建 smoke test：通过。
+- 同分支生产构建 Playwright 等价 smoke test：通过；覆盖 9 个桌面首页、40 个本地化模板页、9 个手机首页及核心交互。
 
 ## 11. 剩余风险与上线前动作
 
-1. 使用已登录 Vercel 的普通浏览器打开 Preview URL，复核 Home、Products、Contact、Catalog、产品页和应用页。
+1. 受保护 Preview 的外网 DOM 尚无法由当前自动化环境直接读取；合并前建议在已登录 Vercel 的普通浏览器中快速确认稳定 Preview URL 可打开。
 2. 在收件箱抽查九封测试邮件，确认正文显示对应 locale、source URL 和完整生产 URL。
 3. Preview 的 `GA4_MEASUREMENT_ID`、`BING_VERIFICATION_CODE` 当前缺失；它们不阻断 RFQ，但阻断 Preview 分析/搜索验证码验证。
 4. Preview 批准前不要合并主分支，不要部署生产。

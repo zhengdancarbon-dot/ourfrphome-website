@@ -191,9 +191,18 @@ export const extendedApplicationContent = Object.fromEntries(
   (Object.keys(packs) as ExtendedLocale[]).map((locale) => [locale, makeApplications(locale)]),
 ) as Record<ExtendedLocale, Record<ApplicationSlug, LocalizedApplicationContent>>;
 
+const homeTitles: Record<ExtendedLocale, string> = {
+  ru: "Экспортные материалы и изделия из углеродного волокна для международной композитной промышленности",
+  ar: "مواد ومنتجات ألياف الكربون للتصدير للصناعات المركبة العالمية",
+  fr: "Matériaux et produits en fibre de carbone pour l’industrie mondiale des composites",
+  ko: "글로벌 복합재 산업용 수출 탄소섬유 소재 및 제품",
+  pl: "Materiały i produkty z włókna węglowego dla światowego przemysłu kompozytowego",
+  tr: "Küresel kompozit endüstrileri için ihracata yönelik karbon fiber malzemeler ve ürünler",
+};
+
 function home(locale: ExtendedLocale) {
   const p = packs[locale];
-  const title = `${p.productOverview} ${p.globalIndustries}`;
+  const title = homeTitles[locale];
   const products = extendedProductTranslations[locale];
   return {
     seo: { title, description: `${p.supplier}: ${products["Woven Carbon Fiber Fabric"]}, ${products["UD Carbon Fiber Fabric"]}, ${products["Prepreg Carbon Fiber Materials"]}, ${products["Chopped Carbon Fiber"]}, ${products["Milled Carbon Fiber Powder"]}, CFRP.`, keywords: [p.supplier, "CFRP", "3K", "UD", "prepreg"] },
