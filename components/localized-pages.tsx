@@ -31,7 +31,12 @@ import {
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
 import { productFamilies } from "@/lib/product-families";
-import { absoluteUrl, createPageMetadata, localizedJsonLdUrl } from "@/lib/seo";
+import {
+  absoluteUrl,
+  createB2bProductPageSchema,
+  createPageMetadata,
+  localizedJsonLdUrl,
+} from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
 
@@ -527,30 +532,14 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
     locale,
   );
   const productUrl = localizedJsonLdUrl(`/products/${slug}`, locale);
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${productUrl}#product`,
+  const productPageSchema = createB2bProductPageSchema({
     name: content.name,
     description: content.description,
-    image: absoluteUrl(product.image),
+    image: product.image,
     url: productUrl,
-    category: content.category,
-    brand: { "@type": "Brand", name: siteConfig.brandName },
-    manufacturer: {
-      "@type": "Organization",
-      name: siteConfig.companyName,
-      url: siteConfig.url,
-    },
     sku: product.tds.codePrefix,
-    additionalProperty: hasDetailedTranslatedSpecs
-      ? product.highlights.map((item) => ({
-          "@type": "PropertyValue",
-          name: translateLabel(locale, item.label),
-          value: translateSpecText(locale, item.value),
-        }))
-      : [{ "@type": "PropertyValue", name: copy.common.specifications, value: content.heroCopy }],
-  };
+    locale,
+  });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -776,7 +765,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, breadcrumbSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([productPageSchema, breadcrumbSchema, faqSchema]) }}
       />
     </>
   );

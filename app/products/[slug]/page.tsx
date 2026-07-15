@@ -17,8 +17,7 @@ import { ProductImageZoom } from "@/components/product-image-zoom";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
-import { absoluteUrl, createPageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
+import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
 import {
   brandAvailabilityNotice,
   complianceNotice,
@@ -303,28 +302,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const inquiryHref = `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
     `Please quote ${product.name}. My target specification and quantity are below.`,
   )}`;
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": absoluteUrl(`/products/${product.slug}#product`),
+  const productUrl = absoluteUrl(`/products/${product.slug}`);
+  const productPageSchema = createB2bProductPageSchema({
     name: product.name,
     description: product.description,
-    image: absoluteUrl(product.image),
-    url: absoluteUrl(`/products/${product.slug}`),
-    category: product.category,
-    brand: { "@type": "Brand", name: siteConfig.brandName },
-    manufacturer: {
-      "@type": "Organization",
-      name: siteConfig.companyName,
-      url: siteConfig.url,
-    },
+    image: product.image,
+    url: productUrl,
     sku: product.tds.codePrefix,
-    additionalProperty: product.highlights.map((item) => ({
-      "@type": "PropertyValue",
-      name: item.label,
-      value: item.value,
-    })),
-  };
+  });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -694,7 +679,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, breadcrumbSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([productPageSchema, breadcrumbSchema, faqSchema]) }}
       />
     </>
   );
