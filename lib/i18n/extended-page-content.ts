@@ -222,7 +222,7 @@ export const extendedHomeContent = Object.fromEntries((Object.keys(packs) as Ext
 function productsPage(locale: ExtendedLocale) {
   const p = packs[locale];
   const products = extendedProductTranslations[locale];
-  return { seo: { title: p.productOverview, description: `${p.supplier}: ${products["Woven Carbon Fiber Fabric"]}, ${products["UD Carbon Fiber Fabric"]}, ${products["Prepreg Carbon Fiber Materials"]}, ${products["Chopped Carbon Fiber"]}, ${products["Milled Carbon Fiber Powder"]}, CFRP.` }, eyebrow: p.productOverview, title: p.productOverview, copy: p.appQuickAnswer(p.productOverview), completePortfolio: p.productOverview, completeTitle: p.productOverview, completeCopy: p.productDescription(p.productOverview, "3K / 12K / T300 / T700 / UD / CFRP"), keyProducts: p.labels.Products, commonApplications: p.byApplication };
+  return { seo: { title: p.productOverview, description: `${p.productOverview} ${products["Woven Carbon Fiber Fabric"]}, ${products["UD Carbon Fiber Fabric"]}, ${products["Prepreg Carbon Fiber Materials"]}, ${products["Milled Carbon Fiber Powder"]}, CFRP.` }, eyebrow: p.productOverview, title: p.productOverview, copy: p.appQuickAnswer(p.productOverview), completePortfolio: p.productOverview, completeTitle: p.productOverview, completeCopy: p.productDescription(p.productOverview, "3K / 12K / T300 / T700 / UD / CFRP"), keyProducts: p.labels.Products, commonApplications: p.byApplication };
 }
 
 export const extendedProductsPageContent = Object.fromEntries((Object.keys(packs) as ExtendedLocale[]).map((locale) => [locale, productsPage(locale)])) as Record<ExtendedLocale, ReturnType<typeof productsPage>>;
