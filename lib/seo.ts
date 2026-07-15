@@ -102,6 +102,54 @@ export function localizedJsonLdUrl(path: string, locale: Locale) {
   return absoluteUrl(localePath(path, locale));
 }
 
+export function createB2bProductPageSchema({
+  name,
+  description,
+  url,
+  image,
+  sku,
+  locale = defaultLocale,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  sku: string;
+  locale?: Locale;
+}) {
+  const imageUrl = absoluteUrl(image);
+
+  // RFQ-only pages do not publish a price or customer ratings, so Product
+  // rich-result markup would be incomplete. ItemPage describes the product
+  // information honestly without inventing an offer, review, or rating.
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: hreflangLocales[locale],
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      "@id": `${url}#primaryimage`,
+      url: imageUrl,
+      contentUrl: imageUrl,
+      caption: name,
+    },
+    about: {
+      "@type": "Thing",
+      "@id": `${url}#product-information`,
+      name,
+      description,
+      image: imageUrl,
+      url,
+      identifier: sku,
+    },
+  };
+}
+
 export function hrefLang(locale: Locale) {
   return hreflangLocales[locale];
 }
