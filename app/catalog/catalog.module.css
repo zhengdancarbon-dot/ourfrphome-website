@@ -825,11 +825,13 @@
   grid-template-columns: 1.55fr 0.65fr;
   gap: 6mm;
   align-items: stretch;
-  margin-top: 9mm;
+  height: 56mm;
+  margin-top: 5mm;
 }
 
 .overviewStrip .imagePlaceholder {
-  min-height: 49mm;
+  height: 100%;
+  min-height: 0;
 }
 
 .overviewStrip > div:last-child {
@@ -850,7 +852,7 @@
 }
 
 .overviewStrip p {
-  margin: 5mm 0 0;
+  margin: 3mm 0 0;
   color: #b5bbc0;
   font-size: 7.6px;
   line-height: 1.55;
@@ -1451,6 +1453,11 @@
   min-height: 95mm;
 }
 
+.packingGrid .imageFilled > img {
+  position: absolute;
+  inset: 0;
+}
+
 .packingGrid h3 {
   margin: 4mm 0 2mm;
   font-family: "Arial Narrow", Arial, sans-serif;
@@ -1700,11 +1707,13 @@
   text-align: center;
 }
 
-.qrPlaceholder svg {
-  width: 18mm;
-  height: 18mm;
+.qrPlaceholder img {
+  width: 40mm;
+  height: 40mm;
   margin-bottom: 5mm;
-  color: var(--catalog-orange);
+  padding: 2mm;
+  background: #fff;
+  object-fit: contain;
 }
 
 .qrPlaceholder strong {

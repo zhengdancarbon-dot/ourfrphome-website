@@ -20,7 +20,7 @@ export function CatalogToolbar() {
     <div className={styles.catalogToolbar}>
       <div>
         <strong>FRP HOME Digital Catalog</strong>
-        <span>32-page A4 working draft</span>
+        <span>2026 · 32-page A4 catalog</span>
       </div>
       <div className={styles.toolbarActions}>
         <button type="button" onClick={jumpToContents}>

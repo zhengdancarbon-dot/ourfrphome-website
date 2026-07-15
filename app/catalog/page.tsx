@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import {
-  Boxes,
   Building2,
   CarFront,
   Check,
@@ -318,7 +317,11 @@ export default function CatalogPageRoute() {
               ))}
             </div>
             <div className={styles.overviewStrip}>
-              <ImagePlaceholder label="Insert complete product family image here" code="IMG-05" />
+              <ImagePlaceholder
+                label="Carbon fiber product family"
+                imageSrc="/images/composite-materials-range-products.webp"
+                imageAlt="Carbon fiber fabrics, laminate sheets and composite tubes"
+              />
               <div>
                 <strong>Standard supply + custom review</strong>
                 <p>
@@ -339,7 +342,11 @@ export default function CatalogPageRoute() {
               copy="Material selection starts with load direction, molding method, surface requirement, production volume and commercial target."
             />
             <div className={styles.applicationHero}>
-              <ImagePlaceholder label="Insert carbon composite application montage here" code="IMG-06" />
+              <ImagePlaceholder
+                label="Carbon composite applications"
+                imageSrc="/images/composite-applications.png"
+                imageAlt="Carbon composite automotive, industrial and civil mobility components"
+              />
             </div>
             <div className={styles.applicationGrid}>
               <Feature icon={CarFront} title="Automotive" text="Panels, trim, structural parts and lightweight assemblies." />
@@ -358,7 +365,7 @@ export default function CatalogPageRoute() {
           number="01"
           title="Carbon Fiber Woven Fabric"
           copy="Balanced reinforcement, stable handling and recognizable carbon surface patterns."
-          placeholder="Insert woven carbon fabric macro image here"
+          placeholder="Woven carbon fabric detail"
           items={["3K / 6K / 12K", "Plain / twill / satin", "1000 / 1270 / 1500 mm", "50 / 100 m rolls"]}
           imageSrc="/images/catalog/frphome/woven-twill.webp"
           imageAlt="Twill carbon fiber woven fabric"
@@ -387,7 +394,7 @@ export default function CatalogPageRoute() {
           number="02"
           title="UD Carbon Fiber Fabric"
           copy="Fiber placed in the principal load direction for efficient tensile reinforcement."
-          placeholder="Insert UD carbon fiber roll image here"
+          placeholder="UD carbon fiber rolls"
           items={["200 / 300 / 450 / 600 g/m²", "12K / 24K", "1000 mm or custom width", "Structural and industrial use"]}
           imageSrc="/images/catalog/frphome/ud-rolls.webp"
           imageAlt="Unidirectional carbon fiber fabric rolls"
@@ -461,7 +468,7 @@ export default function CatalogPageRoute() {
           number="03"
           title="Carbon Fiber Plates"
           copy="Pultruded strengthening profiles and laminated sheets for structural and precision applications."
-          placeholder="Insert stacked carbon fiber plate image here"
+          placeholder="Stacked carbon fiber plates"
           items={["0.5-30 mm", "Pultruded / laminated / CNC", "Matte / glossy / woven surface", "Custom size and machining"]}
           imageSrc="/images/catalog/frphome/plate-sheets.webp"
           imageAlt="Carbon fiber laminate plates"
@@ -561,7 +568,7 @@ export default function CatalogPageRoute() {
           number="04"
           title="Carbon Fiber Tubes"
           copy="Roll-wrapped, pultruded and custom tube formats for visual and structural assemblies."
-          placeholder="Insert carbon fiber tube range image here"
+          placeholder="Carbon fiber tube range"
           items={["Round / square / profiles", "OD / ID / wall customized", "Matte / glossy", "Cutting and drilling by review"]}
           imageSrc="/images/catalog/frphome/tube-range.webp"
           imageAlt="Carbon fiber tube range"
@@ -687,6 +694,8 @@ export default function CatalogPageRoute() {
             ["Glass / basalt fabric", "Complementary reinforcement", "Weight / weave / width", "Roll"],
           ]}
           note="Accessory compatibility must be confirmed against resin, cure temperature and manufacturing process."
+          imageSrc="/images/catalog/frphome/braided-sleeve.webp"
+          imageAlt="Braided carbon fiber sleeve for composite processing"
         />
 
         <CatalogPage page={24} label="Custom Composite Products">
@@ -738,8 +747,16 @@ export default function CatalogPageRoute() {
               <Feature icon={ClipboardCheck} title="Final release" text="Specification, quantity, label, documents and packing review." />
             </div>
             <div className={styles.splitHero}>
-              <ImagePlaceholder label="Insert fabric inspection image here" code="IMG-25A" />
-              <ImagePlaceholder label="Insert dimensional measurement image here" code="IMG-25B" />
+              <ImagePlaceholder
+                label="In-process fabric monitoring"
+                imageSrc="/images/quality/quality-width-check.jpg"
+                imageAlt="In-process carbon fabric production monitoring"
+              />
+              <ImagePlaceholder
+                label="CFRP plate inspection"
+                imageSrc="/images/quality/quality-cfrp-dimension-check.jpg"
+                imageAlt="CFRP plate surface and edge inspection samples"
+              />
             </div>
             <div className={styles.qualityList}>
               {[
@@ -777,7 +794,11 @@ export default function CatalogPageRoute() {
               <Feature icon={PackageCheck} title="Packing list" text="Quantity, package count, dimensions and shipment references." />
               <Feature icon={Globe2} title="Export documents" text="Invoice, origin and other documents by destination and order." />
             </div>
-            <ImagePlaceholder label="Insert roll labels, batch records and document image here" code="IMG-26" />
+            <ImagePlaceholder
+              label="Shipment traceability"
+              imageSrc="/images/logistics/export-pallet-container-clean.jpg"
+              imageAlt="Batch-labelled export pallets with customer information redacted"
+            />
             <div className={styles.editorialBand}>
               <strong>No document inflation</strong>
               <p>
@@ -798,12 +819,20 @@ export default function CatalogPageRoute() {
             />
             <div className={styles.packingGrid}>
               <div>
-                <ImagePlaceholder label="Insert roll packing image here" code="IMG-27A" />
+                <ImagePlaceholder
+                  label="Protected roll packing"
+                  imageSrc="/images/logistics/palletized-rolls-warehouse-clean.jpg"
+                  imageAlt="Protected carbon material rolls prepared on export pallets"
+                />
                 <h3>Fabric & prepreg rolls</h3>
                 <p>Core support, PE protection, cartons, pallets and cold-chain review where required.</p>
               </div>
               <div>
-                <ImagePlaceholder label="Insert plate and tube packing image here" code="IMG-27B" />
+                <ImagePlaceholder
+                  label="Container loading"
+                  imageSrc="/images/logistics/container-loading-in-progress-clean.jpg"
+                  imageAlt="Protected composite product pallets during container loading"
+                />
                 <h3>Plates, tubes & parts</h3>
                 <p>Surface protection, reinforced cartons, pallets or wooden cases by size and route.</p>
               </div>
@@ -992,15 +1021,19 @@ export default function CatalogPageRoute() {
                 </div>
               </div>
               <div className={styles.qrPlaceholder}>
-                <Boxes />
-                <strong>INSERT CONFIRMED QR CODE</strong>
-                <span>Website or WhatsApp destination</span>
+                <img src="/images/catalog/frphome/myfrphome-qr.png" alt="QR code for myfrphome.com" />
+                <strong>Visit the FRP HOME website</strong>
+                <span>www.myfrphome.com</span>
               </div>
             </div>
-            <ImagePlaceholder label="Insert export team, factory or location image here" code="IMG-29" />
+            <ImagePlaceholder
+              label="FRP HOME production environment"
+              imageSrc="/images/home/frphome-clean-workshop.jpg"
+              imageAlt="Carbon fiber weaving workshop in Haining, Zhejiang"
+            />
             <div className={styles.contactReminder}>
-              Confirm the legal address, active sales contacts and QR destination before final
-              publication.
+              Share the product format, specification, quantity, application and destination for a
+              practical quotation review.
             </div>
           </div>
           <PageFooter page={31} />
