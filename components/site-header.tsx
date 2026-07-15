@@ -6,11 +6,23 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { defaultLocale, getLocaleFromPathname, getUnlocalizedPath } from "@/lib/i18n/config";
+import { defaultLocale, getLocaleFromPathname, getUnlocalizedPath, type Locale } from "@/lib/i18n/config";
 import { isPhaseOneLocalizedPath, phaseOneLocalePath } from "@/lib/i18n/phase-one-paths";
 import { getUiCopy, translateProductFamily, translateProductLink } from "@/lib/i18n/ui-copy";
 import { productFamilies } from "@/lib/product-families";
 import { navItems } from "@/lib/site-data";
+
+const mobileMenuLabels = {
+  en: { open: "Open main menu", close: "Close main menu" },
+  es: { open: "Abrir menú principal", close: "Cerrar menú principal" },
+  "pt-br": { open: "Abrir menu principal", close: "Fechar menu principal" },
+  ru: { open: "Открыть главное меню", close: "Закрыть главное меню" },
+  ar: { open: "فتح القائمة الرئيسية", close: "إغلاق القائمة الرئيسية" },
+  fr: { open: "Ouvrir le menu principal", close: "Fermer le menu principal" },
+  ko: { open: "기본 메뉴 열기", close: "기본 메뉴 닫기" },
+  pl: { open: "Otwórz menu główne", close: "Zamknij menu główne" },
+  tr: { open: "Ana menüyü aç", close: "Ana menüyü kapat" },
+} satisfies Record<Locale, { open: string; close: string }>;
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -142,7 +154,7 @@ export function SiteHeader() {
         <button
           type="button"
           className="menu-button"
-          aria-label={copy.productMenu.title}
+          aria-label={mobileOpen ? mobileMenuLabels[locale].close : mobileMenuLabels[locale].open}
           aria-controls="mobile-navigation"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpenPath((openPath) => openPath === pathname ? null : pathname)}
