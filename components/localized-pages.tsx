@@ -121,10 +121,10 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
               <a href="#applications" className="button button-blue">
                 {content.primaryCta} <ArrowRight size={18} />
               </a>
-              <Link href={localizedLink("/contact", locale)} className="button button-light-outline">
+              <Link href={localizedLink("/contact", locale)} className="button button-light-outline" prefetch={false}>
                 {content.secondaryCta} <ArrowRight size={18} />
               </Link>
-              <Link href={localizedLink("/catalog", locale)} className="button button-light-outline">
+              <Link href={localizedLink("/catalog", locale)} className="button button-light-outline" prefetch={false}>
                 {content.catalogCta} <FileText size={18} />
               </Link>
             </div>
@@ -143,7 +143,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
               priority
               loading="eager"
               fetchPriority="high"
-              sizes="(max-width: 900px) 100vw, 52vw"
+              sizes="(max-width: 900px) calc(100vw - 26px), 52vw"
             />
             <div className="hero-media-table">
               <span>{content.heroMeta.title}</span>
@@ -171,9 +171,9 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
               const localized = localizedProduct(product, locale);
               return (
                 <article className="series-card" key={product.slug}>
-                  <Link href={localizedLink(`/products/${product.slug}`, locale)} className="series-image" aria-label={localized.name}>
-                    <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  <Link href={localizedLink(`/products/${product.slug}`, locale)} className="series-image">
+                    <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) calc(100vw - 26px), 33vw" />
+                    <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                   </Link>
                   <div className="series-body">
                     <h3>{localized.name}</h3>

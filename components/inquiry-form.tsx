@@ -187,7 +187,7 @@ export function InquiryForm({
       <input name="sourcePage" type="hidden" value={pathname || "/contact"} readOnly />
       <div className="rfq-type-select" aria-label={copy.rfq.productType}>
         <span>{copy.rfq.productType}</span>
-        <div className="rfq-type-grid" role="list">
+        <div className="rfq-type-grid" role="group" aria-label={copy.rfq.productType}>
           {rfqProductTypes.map((type) => (
             <button
               type="button"

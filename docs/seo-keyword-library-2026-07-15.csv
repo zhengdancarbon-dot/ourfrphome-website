@@ -1,0 +1,128 @@
+id,cluster,keyword,intent,priority,target_url,page_status
+1,Woven fabric,carbon fiber fabric,Commercial,P1,/products/carbon-fiber-woven-fabric,Existing
+2,Woven fabric,carbon fiber cloth,Commercial,P1,/products/carbon-fiber-woven-fabric,Existing
+3,Woven fabric,carbon fiber fabric supplier,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+4,Woven fabric,carbon fiber fabric manufacturer,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+5,Woven fabric,carbon fiber cloth supplier China,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+6,Woven fabric,3K carbon fiber fabric,Commercial,P1,/products/carbon-fiber-woven-fabric,Existing
+7,Woven fabric,3K twill carbon fiber fabric,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+8,Woven fabric,3K 200gsm twill carbon fiber fabric,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+9,Woven fabric,3K plain weave carbon fiber fabric,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+10,Woven fabric,12K carbon fiber fabric,Commercial,P2,/products/carbon-fiber-woven-fabric,Existing
+11,Woven fabric,carbon fiber fabric roll,Transactional,P2,/products/carbon-fiber-woven-fabric,Existing
+12,Woven fabric,carbon fiber fabric custom width,Transactional,P2,/products/carbon-fiber-woven-fabric,Existing
+13,Woven fabric,plain vs twill carbon fiber fabric,Informational,P2,/technical-center/plain-vs-twill-carbon-fiber-fabric,Existing
+14,Woven fabric,3K vs 12K carbon fiber fabric,Informational,P2,/technical-center/3k-vs-12k-carbon-fiber-fabric,Existing
+15,Woven fabric,how to choose carbon fiber fabric GSM,Informational,P2,/technical-center/how-to-choose-carbon-fiber-fabric-by-gsm,Existing
+16,UD fabric,UD carbon fiber fabric,Commercial,P1,/products/carbon-fiber-ud-fabric,Existing
+17,UD fabric,unidirectional carbon fiber fabric,Commercial,P1,/products/carbon-fiber-ud-fabric,Existing
+18,UD fabric,UD carbon fiber fabric supplier,Transactional,P1,/products/carbon-fiber-ud-fabric,Existing
+19,UD fabric,unidirectional carbon fiber cloth China,Transactional,P2,/products/carbon-fiber-ud-fabric,Existing
+20,UD fabric,300gsm UD carbon fiber fabric,Transactional,P1,/products/carbon-fiber-ud-fabric,Existing
+21,UD fabric,600gsm UD carbon fiber fabric,Transactional,P2,/products/carbon-fiber-ud-fabric,Existing
+22,UD fabric,UD carbon fiber tape,Commercial,P2,/products/carbon-fiber-ud-fabric,Existing
+23,UD fabric,UD carbon fiber fabric for pultrusion,Commercial,P2,/products/carbon-fiber-ud-fabric,Existing
+24,UD fabric,UD vs woven carbon fiber fabric,Informational,P1,/technical-center/ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric,Existing
+25,UD fabric,carbon fiber layup direction guide,Informational,P2,/technical-center/ud-carbon-fiber-layup-direction-guide,Planned
+26,Spread tow,spread tow carbon fiber fabric,Commercial,P1,/products/spread-tow-carbon-fiber-fabric,Existing
+27,Spread tow,spread tow carbon fabric supplier,Transactional,P1,/products/spread-tow-carbon-fiber-fabric,Existing
+28,Spread tow,spread tow fabric manufacturer China,Transactional,P2,/products/spread-tow-carbon-fiber-fabric,Existing
+29,Spread tow,8x8mm spread tow carbon fabric,Transactional,P1,/products/spread-tow-carbon-fiber-fabric,Existing
+30,Spread tow,10x10mm spread tow carbon fabric,Transactional,P1,/products/spread-tow-carbon-fiber-fabric,Existing
+31,Spread tow,12K spread tow carbon fiber fabric,Commercial,P2,/products/spread-tow-carbon-fiber-fabric,Existing
+32,Spread tow,spread tow prepreg for thin laminates,Commercial,P2,/products/prepreg-carbon-fiber-materials,Existing
+33,Spread tow,spread tow vs woven carbon fiber fabric,Informational,P2,/technical-center/spread-tow-vs-traditional-carbon-fiber-fabric,Existing
+34,Spread tow,8x8 vs 10x10 spread tow fabric,Informational,P2,/technical-center/8x8-vs-10x10-spread-tow-carbon-fabric,Planned
+35,Spread tow,spread tow carbon fiber for cosmetic panels,Commercial,P3,/products/spread-tow-carbon-fiber-fabric,Existing
+36,Prepreg,carbon fiber prepreg,Commercial,P1,/products/prepreg-carbon-fiber-materials,Existing
+37,Prepreg,carbon fiber prepreg supplier,Transactional,P1,/products/prepreg-carbon-fiber-materials,Existing
+38,Prepreg,carbon fiber prepreg manufacturer China,Transactional,P1,/products/prepreg-carbon-fiber-materials,Existing
+39,Prepreg,woven carbon fiber prepreg,Commercial,P1,/products/prepreg-carbon-fiber-materials,Existing
+40,Prepreg,UD carbon fiber prepreg,Commercial,P1,/products/prepreg-carbon-fiber-materials,Existing
+41,Prepreg,spread tow carbon fiber prepreg,Commercial,P2,/products/prepreg-carbon-fiber-materials,Existing
+42,Prepreg,carbon fiber prepreg roll,Transactional,P2,/products/prepreg-carbon-fiber-materials,Existing
+43,Prepreg,prepreg vs dry carbon fiber fabric,Informational,P1,/technical-center/prepreg-vs-dry-carbon-fiber-fabric,Existing
+44,Prepreg,carbon fiber prepreg storage guide,Informational,P2,/technical-center/carbon-fiber-prepreg-storage-handling,Planned
+45,Prepreg,carbon fiber prepreg RFQ,Transactional,P2,/products/prepreg-carbon-fiber-materials,Existing
+46,Yarn and tow,carbon fiber tow,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+47,Yarn and tow,carbon fiber yarn,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+48,Yarn and tow,carbon fiber tow supplier,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+49,Yarn and tow,carbon fiber yarn supplier China,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+50,Yarn and tow,3K carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+51,Yarn and tow,12K carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+52,Yarn and tow,24K carbon fiber tow,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+53,Yarn and tow,48K carbon fiber tow,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+54,Yarn and tow,T300 carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+55,Yarn and tow,T700 carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+56,Yarn and tow,carbon fiber yarn vs tow vs roving,Informational,P2,/technical-center/carbon-fiber-yarn-vs-tow-vs-roving,Existing
+57,Yarn and tow,carbon fiber tow size guide 1K to 50K,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
+58,Short fiber,chopped carbon fiber,Commercial,P1,/products/chopped-carbon-fiber,Existing
+59,Short fiber,chopped carbon fiber supplier,Transactional,P1,/products/chopped-carbon-fiber,Existing
+60,Short fiber,chopped carbon fiber for plastic reinforcement,Commercial,P1,/products/chopped-carbon-fiber,Existing
+61,Short fiber,3mm chopped carbon fiber,Transactional,P2,/products/chopped-carbon-fiber,Existing
+62,Short fiber,6mm chopped carbon fiber,Transactional,P2,/products/chopped-carbon-fiber,Existing
+63,Short fiber,12mm chopped carbon fiber,Transactional,P2,/products/chopped-carbon-fiber,Existing
+64,Short fiber,milled carbon fiber powder,Commercial,P1,/products/milled-carbon-fiber-powder,Existing
+65,Short fiber,carbon fiber powder supplier,Transactional,P1,/products/milled-carbon-fiber-powder,Existing
+66,Short fiber,milled carbon fiber powder manufacturer China,Transactional,P1,/products/milled-carbon-fiber-powder,Existing
+67,Short fiber,chopped carbon fiber vs milled carbon fiber powder,Informational,P1,/technical-center/chopped-carbon-fiber-vs-milled-carbon-fiber-powder,Existing
+68,Short fiber,milled carbon fiber powder selection guide,Informational,P1,/technical-center/milled-carbon-fiber-powder-selection-guide,Planned
+69,Short fiber,carbon fiber for plastic compounding,Informational,P2,/technical-center/carbon-fiber-for-plastic-compounding,Planned
+70,Plate and sheet,carbon fiber plate,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Existing
+71,Plate and sheet,carbon fiber sheet,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Existing
+72,Plate and sheet,carbon fiber laminate sheet supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Existing
+73,Plate and sheet,3K carbon fiber sheet,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Existing
+74,Plate and sheet,carbon fiber sheet custom thickness,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Existing
+75,Plate and sheet,carbon fiber plate CNC cutting,Transactional,P2,/products/custom-carbon-fiber-products,Existing
+76,Plate and sheet,pultruded CFRP plate,Commercial,P1,/products/structural-strengthening-system,Existing
+77,Plate and sheet,CFRP laminate strip supplier,Transactional,P2,/products/structural-strengthening-system,Existing
+78,Plate and sheet,carbon fiber plate thickness guide,Informational,P2,/technical-center/carbon-fiber-plate-thickness-guide,Planned
+79,Plate and sheet,carbon fiber plate vs fabric strengthening,Informational,P2,/technical-center/cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening,Existing
+80,Tubes and profiles,carbon fiber tube,Commercial,P1,/products/3k-surface-carbon-fiber-tube,Existing
+81,Tubes and profiles,carbon fiber tube supplier,Transactional,P1,/products/3k-surface-carbon-fiber-tube,Existing
+82,Tubes and profiles,3K carbon fiber tube,Transactional,P1,/products/3k-surface-carbon-fiber-tube,Existing
+83,Tubes and profiles,pultruded carbon fiber tube,Commercial,P1,/products/pultruded-carbon-fiber-tube,Existing
+84,Tubes and profiles,pultruded carbon fiber tube supplier,Transactional,P1,/products/pultruded-carbon-fiber-tube,Existing
+85,Tubes and profiles,carbon fiber square tube,Transactional,P2,/products/3k-surface-carbon-fiber-tube,Existing
+86,Tubes and profiles,carbon fiber rectangular tube,Transactional,P2,/products/3k-surface-carbon-fiber-tube,Existing
+87,Tubes and profiles,carbon fiber rod supplier,Transactional,P2,/products/pultruded-carbon-fiber-tube,Existing
+88,Tubes and profiles,roll wrapped vs pultruded carbon fiber tube,Informational,P2,/technical-center/roll-wrapped-vs-pultruded-carbon-fiber-tube,Existing
+89,Tubes and profiles,carbon fiber tube selection guide,Informational,P2,/technical-center/carbon-fiber-tube-selection-guide,Planned
+90,Custom CFRP,custom carbon fiber products,Commercial,P1,/products/custom-carbon-fiber-products,Existing
+91,Custom CFRP,custom carbon fiber parts manufacturer,Transactional,P1,/products/custom-carbon-fiber-products,Existing
+92,Custom CFRP,CNC carbon fiber parts,Transactional,P1,/products/custom-carbon-fiber-products,Existing
+93,Custom CFRP,carbon fiber CNC machining supplier,Transactional,P1,/products/custom-carbon-fiber-products,Existing
+94,Custom CFRP,carbon fiber parts from drawing,Transactional,P2,/products/custom-carbon-fiber-products,Existing
+95,Custom CFRP,custom CFRP components China,Transactional,P2,/products/custom-carbon-fiber-products,Existing
+96,Custom CFRP,CNC carbon fiber parts RFQ checklist,Informational,P2,/technical-center/cnc-carbon-fiber-parts-rfq-guide,Planned
+97,Custom CFRP,carbon fiber machining guide,Informational,P2,/technical-center/machining-carbon-fiber-plate-and-parts,Planned
+98,Strengthening,CFRP structural strengthening system,Commercial,P1,/products/structural-strengthening-system,Existing
+99,Strengthening,carbon fiber fabric for structural strengthening,Commercial,P1,/products/structural-strengthening-system,Existing
+100,Strengthening,carbon fiber plate for concrete strengthening,Commercial,P1,/products/structural-strengthening-system,Existing
+101,Strengthening,CFRP strengthening materials supplier,Transactional,P1,/products/structural-strengthening-system,Existing
+102,Strengthening,UD carbon fiber fabric for concrete reinforcement,Transactional,P2,/products/structural-strengthening-system,Existing
+103,Strengthening,CFRP plate for bridge strengthening,Commercial,P2,/applications/structural-strengthening,Existing
+104,Strengthening,carbon fiber fabric for building strengthening,Commercial,P2,/applications/structural-strengthening,Existing
+105,Strengthening,CFRP plate vs carbon fiber fabric,Informational,P2,/technical-center/cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening,Existing
+106,Strengthening,CFRP strengthening material selection,Informational,P2,/technical-center/cfrp-strengthening-material-selection,Planned
+107,Strengthening,structural strengthening RFQ checklist,Transactional,P2,/technical-center/structural-strengthening-rfq-guide,Planned
+108,Process,carbon fiber fabric for vacuum infusion,Commercial,P1,/technical-center/carbon-fiber-fabric-for-vacuum-infusion,Planned
+109,Process,best carbon fiber fabric for vacuum infusion,Informational,P1,/technical-center/carbon-fiber-fabric-for-vacuum-infusion,Planned
+110,Process,carbon fiber fabric for wet lay-up,Commercial,P2,/technical-center/carbon-fiber-fabric-for-wet-lay-up,Planned
+111,Process,carbon fiber for compression molding,Commercial,P2,/technical-center/carbon-fiber-for-compression-molding,Planned
+112,Process,carbon fiber tow for filament winding,Commercial,P2,/products/carbon-fiber-yarn-and-tow,Existing
+113,Process,carbon fiber reinforcement for pultrusion,Commercial,P2,/products/carbon-fiber-ud-fabric,Existing
+114,Process,carbon fiber fabric resin compatibility,Informational,P2,/technical-center/carbon-fiber-sizing-and-resin-compatibility,Planned
+115,Process,carbon fiber fabric roll width guide,Informational,P3,/technical-center/carbon-fiber-fabric-roll-width-guide,Planned
+116,Process,carbon fiber vs fiberglass,Informational,P1,/technical-center/carbon-fiber-vs-fiberglass,Planned
+117,Process,T300 vs T700 carbon fiber,Informational,P1,/technical-center/t300-vs-t700-carbon-fiber,Planned
+118,Supplier and RFQ,carbon fiber supplier China,Commercial,P1,/,Existing
+119,Supplier and RFQ,carbon fiber materials supplier,Commercial,P1,/products,Existing
+120,Supplier and RFQ,carbon fiber manufacturer China,Commercial,P1,/products,Existing
+121,Supplier and RFQ,carbon fiber composite materials supplier,Commercial,P1,/products,Existing
+122,Supplier and RFQ,buy carbon fiber fabric from China,Transactional,P2,/products/carbon-fiber-woven-fabric,Existing
+123,Supplier and RFQ,carbon fiber fabric wholesale,Transactional,P2,/products/carbon-fiber-woven-fabric,Existing
+124,Supplier and RFQ,carbon fiber product catalog,Transactional,P2,/catalog,Existing
+125,Supplier and RFQ,carbon fiber fabric RFQ checklist,Transactional,P1,/technical-center/carbon-fiber-fabric-rfq-checklist,Planned
+126,Supplier and RFQ,how to evaluate a carbon fiber supplier,Informational,P2,/technical-center/carbon-fiber-supplier-evaluation-checklist,Planned
+127,Supplier and RFQ,custom carbon fiber material quotation,Transactional,P1,/contact,Existing

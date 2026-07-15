@@ -23,7 +23,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
 
   return (
     <details className={compact ? "language-switcher language-switcher-compact" : "language-switcher"}>
-      <summary aria-label={`${copy.language.label}: ${localeLabels[locale]}`}>
+      <summary>
         <Globe2 size={15} aria-hidden="true" />
         <span>{copy.language.label}</span>
         <strong>{localeShortLabels[locale]}</strong>
@@ -34,6 +34,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
           <Link
             href={phaseOneLocalePath(targetPath, targetLocale)}
             hrefLang={hreflangLocales[targetLocale]}
+            prefetch={false}
             aria-current={targetLocale === locale ? "page" : undefined}
             key={targetLocale}
           >

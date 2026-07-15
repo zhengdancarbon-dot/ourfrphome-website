@@ -37,7 +37,7 @@ export function SiteFooter() {
           <Link href={phaseOneLocalePath("/", locale)} className="brand brand-light">
             <Image
               src="/images/brand/frphome-logo-original.jpg"
-              alt="FRP HOME 福昊"
+              alt=""
               width={54}
               height={54}
               className="brand-logo-square"

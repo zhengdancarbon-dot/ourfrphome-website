@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { defaultLocale, getLocaleFromPathname, getUnlocalizedPath } from "@/lib/i18n/config";
@@ -13,6 +14,8 @@ import { navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const [mobileOpenPath, setMobileOpenPath] = useState<string | null>(null);
+  const mobileOpen = mobileOpenPath === pathname;
   const locale = getLocaleFromPathname(pathname);
   const currentPath = getUnlocalizedPath(pathname);
   const copy = getUiCopy(locale);
@@ -53,17 +56,11 @@ export function SiteHeader() {
           <span className="utility-meta">{copy.utility.meta}</span>
         </div>
       </div>
-      <input
-        id="mobile-nav-toggle"
-        className="mobile-nav-toggle"
-        type="checkbox"
-        aria-label={copy.productMenu.title}
-      />
       <div className="site-shell nav-row">
-        <Link href={phaseOneLocalePath("/", locale)} className="brand" aria-label={`FRP HOME ${copy.nav.home}`}>
+        <Link href={phaseOneLocalePath("/", locale)} className="brand">
           <Image
             src="/images/brand/frphome-logo-original.jpg"
-            alt="FRP HOME 福昊"
+            alt=""
             width={54}
             height={54}
             className="brand-logo-square"
@@ -142,18 +139,24 @@ export function SiteHeader() {
           {copy.common.requestQuote} <ArrowUpRight size={16} strokeWidth={1.8} />
         </Link>
 
-        <label
-          htmlFor="mobile-nav-toggle"
+        <button
+          type="button"
           className="menu-button"
           aria-label={copy.productMenu.title}
-          role="button"
+          aria-controls="mobile-navigation"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpenPath((openPath) => openPath === pathname ? null : pathname)}
         >
           <Menu className="menu-icon-open" size={24} />
           <X className="menu-icon-close" size={24} />
-        </label>
+        </button>
       </div>
 
-      <nav className="mobile-nav" aria-label={copy.utility.title}>
+      <nav
+        id="mobile-navigation"
+        className={`mobile-nav${mobileOpen ? " mobile-nav-open" : ""}`}
+        aria-label={copy.utility.title}
+      >
         <div className="site-shell">
           {navItems.map((item) => {
             if (item.href === "/products") {

@@ -106,13 +106,13 @@ export default function HomePage() {
               strengthening systems.
             </p>
             <div className="hero-actions">
-              <Link href="/applications" className="button button-blue">
+              <Link href="/applications" className="button button-blue" prefetch={false}>
                 Find Materials by Application <ArrowRight size={18} />
               </Link>
-              <Link href="/contact" className="button button-light-outline">
+              <Link href="/contact" className="button button-light-outline" prefetch={false}>
                 Request a Quote <ArrowRight size={18} />
               </Link>
-              <Link href="/catalog" className="button button-light-outline">
+              <Link href="/catalog" className="button button-light-outline" prefetch={false}>
                 Download Product Catalog <FileText size={18} />
               </Link>
             </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
               priority
               loading="eager"
               fetchPriority="high"
-              sizes="(max-width: 900px) 100vw, 52vw"
+              sizes="(max-width: 900px) calc(100vw - 26px), 52vw"
             />
             <div className="hero-media-table">
               <span>Material selection starts with</span>
@@ -163,9 +163,9 @@ export default function HomePage() {
           <div className="series-grid">
             {productSeries.map((series, index) => (
               <article className="series-card" key={series.title}>
-                <Link href={series.href} className="series-image" aria-label={series.title}>
-                  <Image src={series.image} alt={`${series.title} product image`} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                <Link href={series.href} className="series-image">
+                  <Image src={series.image} alt={series.title} fill sizes="(max-width: 760px) calc(100vw - 26px), 33vw" />
+                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 </Link>
                 <div className="series-body">
                   <h3>{series.title}</h3>
