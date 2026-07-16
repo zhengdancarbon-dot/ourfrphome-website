@@ -87,6 +87,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
             <a href="#specifications">Specifications</a>
             <a href="#rfq">RFQ information</a>
             <a href="#faq">FAQ</a>
+            {article.sources ? <a href="#sources">Sources</a> : null}
           </aside>
 
           <div className="article-content-stack">
@@ -95,6 +96,9 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                 <div className="eyebrow">Quick Answer</div>
                 <h2>{article.title} in one minute.</h2>
                 <p>{article.quickAnswer}</p>
+                {article.reviewedAt ? (
+                  <p className="article-review-date">Technical review: {article.reviewedAt}</p>
+                ) : null}
               </div>
             </section>
 
@@ -225,6 +229,27 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                 ))}
               </div>
             </section>
+
+            {article.sources ? (
+              <section className="product-detail-card" id="sources">
+                <SectionHeading
+                  eyebrow="Primary references"
+                  title="Sources reviewed for this guide."
+                  copy="These references support the general process guidance. Final material approval must use the selected product, resin and process documentation."
+                />
+                <ul className="article-source-list">
+                  {article.sources.map((source) => (
+                    <li key={source.url}>
+                      <a href={source.url} rel="noreferrer">
+                        <strong>{source.title}</strong>
+                        <span>{source.publisher}</span>
+                        <ArrowRight size={16} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
           </div>
         </div>
       </section>

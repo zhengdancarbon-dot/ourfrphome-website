@@ -17,6 +17,7 @@ import { ProductImageZoom } from "@/components/product-image-zoom";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
+import { getProductDocuments } from "@/lib/product-documents";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
 import {
   brandAvailabilityNotice,
@@ -28,6 +29,14 @@ import {
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+const vacuumInfusionGuideProducts = new Set([
+  "carbon-fiber-woven-fabric",
+  "carbon-fiber-ud-fabric",
+  "carbon-fiber-multiaxial-ncf-fabric",
+  "spread-tow-carbon-fiber-fabric",
+  "prepreg-carbon-fiber-materials",
+]);
 
 export function generateStaticParams() {
   return productCatalog.map((product) => ({ slug: product.slug }));
@@ -288,6 +297,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
+  const downloadableDocuments = getProductDocuments(product.slug);
+
   const productIndex = productCatalog.findIndex((item) => item.slug === product.slug) + 1;
   const relatedProducts = productCatalog
     .filter((item) => item.slug !== product.slug)
@@ -296,6 +307,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const activeRfqType =
     rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const fit = recommendedFit(product);
+  const hasVacuumInfusionGuide = vacuumInfusionGuideProducts.has(product.slug);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const productGalleryLimit = product.slug === "chopped-carbon-fiber" ? 6 : 4;
   const firstSpecTable = product.tds.tables[0];
@@ -394,6 +406,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             ].map(([label, href]) => (
               <a href={href} key={href}>{label}</a>
             ))}
+            {hasVacuumInfusionGuide ? <a href="#vacuum-infusion-guide">Vacuum infusion guide</a> : null}
           </aside>
 
           <div className="product-content-stack">
@@ -586,6 +599,27 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   order agreement and batch. Final values are confirmed by
                   official documents, not by website examples.
                 </p>
+                {downloadableDocuments.length > 0 ? (
+                  <div className="tds-download-list">
+                    {downloadableDocuments.map((document) => (
+                      <a
+                        className="tds-download-card"
+                        data-analytics-event="tds_download"
+                        download
+                        href={document.href}
+                        key={document.href}
+                      >
+                        <FileText size={23} />
+                        <span>
+                          <strong>Download {document.type}</strong>
+                          <small>{document.title}</small>
+                          <small>{document.revision} · {document.language} · {document.fileSize}</small>
+                        </span>
+                        <ArrowRight size={18} />
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
               </div>
               <div className="document-mini-grid">
                 {qualityDocuments.map((document) => (
@@ -623,6 +657,19 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 ))}
               </div>
             </section>
+
+            {hasVacuumInfusionGuide ? (
+              <section className="product-detail-card" id="vacuum-infusion-guide">
+                <SectionHeading
+                  eyebrow="Technical guide"
+                  title="Selecting carbon reinforcement for vacuum infusion."
+                  copy="Compare woven, UD, multiaxial and spread tow fabric, then prepare the laminate and process information needed for an RFQ."
+                />
+                <Link href="/technical-center/carbon-fiber-fabric-for-vacuum-infusion" className="text-link">
+                  Read the vacuum infusion guide <ArrowRight size={17} />
+                </Link>
+              </section>
+            ) : null}
 
             <section className="product-detail-card">
               <div className="section-title-row">

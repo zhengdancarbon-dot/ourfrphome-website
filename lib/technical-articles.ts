@@ -17,6 +17,9 @@ export type TechnicalArticle = {
   recommendedProducts: string[];
   rfqInformation: string[];
   faqs: { question: string; answer: string }[];
+  publishedAt?: string;
+  reviewedAt?: string;
+  sources?: { title: string; publisher: string; url: string }[];
 };
 
 export const technicalArticles: TechnicalArticle[] = [
@@ -491,6 +494,128 @@ export const technicalArticles: TechnicalArticle[] = [
       },
     ],
   },
+  {
+    slug: "carbon-fiber-fabric-for-vacuum-infusion",
+    title: "Carbon Fiber Fabric for Vacuum Infusion",
+    description:
+      "Choose woven, UD, multiaxial or spread tow carbon fiber fabric for vacuum infusion and prepare a practical reinforcement RFQ.",
+    image: "/images/products/carbon-fiber-woven-fabric.webp",
+    quickAnswer:
+      "There is no single best carbon fiber fabric for vacuum infusion. Woven fabric supports balanced handling and visible surfaces, multiaxial fabric places fibers efficiently in selected directions, UD fabric serves directional load paths, and spread tow can provide a flatter cosmetic first ply. The complete dry stack, resin system and flow strategy must be validated together before production.",
+    definition:
+      "Vacuum infusion places dry reinforcement and consumables in a sealed vacuum bag before liquid resin is drawn through the stack. Fabric architecture, areal weight, ply orientation, compacted thickness and any flow medium affect how the resin travels. Material selection therefore starts with the laminate design and process trial, not with weave appearance alone.",
+    comparison: {
+      columns: ["Reinforcement", "Why buyers consider it", "Infusion review focus"],
+      rows: [
+        [
+          "Woven carbon fabric",
+          "Balanced handling, drape options and plain or twill surface appearance",
+          "Weave openness, nesting between plies, areal weight and surface target",
+        ],
+        [
+          "Multiaxial / NCF",
+          "Directional layers without woven crimp and efficient multi-ply build-up",
+          "Stitch construction, fiber directions, stack thickness and resin transport",
+        ],
+        [
+          "UD carbon fabric",
+          "High fiber concentration in the principal load direction",
+          "Orientation, stabilization method, dense stack behavior and cross-flow plan",
+        ],
+        [
+          "Spread tow fabric",
+          "Flat checker appearance and thin cosmetic surface options",
+          "First-ply finish, pattern, permeability of the selected construction and print-through",
+        ],
+        [
+          "Hybrid reinforcement stack",
+          "Combines surface, load-direction and thickness requirements",
+          "Compatibility of every layer, core, consumable and resin flow path",
+        ],
+      ],
+    },
+    selectionAdvice: [
+      "Define the principal load directions before choosing woven, UD or multiaxial reinforcement.",
+      "Separate the cosmetic first-ply requirement from the structural backing plies; they may need different fabric constructions.",
+      "Specify areal weight, width, roll length and edge condition so the cutting plan and ply count can be reviewed.",
+      "Confirm the exact resin system, working temperature and intended infusion setup with the resin and process owner.",
+      "Run a representative panel trial using the intended stack, core and consumables before approving production material.",
+    ],
+    applications: [
+      "Automotive composite panels",
+      "Marine and industrial panels",
+      "Civil UAV covers and fairings",
+      "Composite tooling and enclosures",
+      "Sandwich panels with compatible core materials",
+    ],
+    specifications: [
+      ["Fabric construction", "Woven / UD / biaxial / multiaxial NCF / spread tow"],
+      ["Woven options", "Plain / twill / satin according to product scope"],
+      ["Fiber direction", "0 / 90 / +/-45 degrees or project-defined layup"],
+      ["Areal weight", "Confirm by laminate design, ply count and process trial"],
+      ["Width and roll length", "Standard or custom according to product and order review"],
+      ["Resin compatibility", "Confirm against the selected resin TDS and representative infusion test"],
+    ],
+    recommendedProducts: [
+      "carbon-fiber-woven-fabric",
+      "carbon-fiber-multiaxial-ncf-fabric",
+      "carbon-fiber-ud-fabric",
+      "spread-tow-carbon-fiber-fabric",
+      "prepreg-carbon-fiber-materials",
+    ],
+    rfqInformation: [
+      "Part type and dimensions",
+      "Laminate schedule or target fiber directions",
+      "Fabric construction and areal weight",
+      "Width and roll length",
+      "Resin system and infusion process",
+      "Core and consumable stack",
+      "Surface requirement",
+      "Trial quantity and production quantity",
+      "Destination country and final application",
+    ],
+    faqs: [
+      {
+        question: "Which carbon fiber fabric is best for vacuum infusion?",
+        answer:
+          "The best option depends on load direction, part geometry, surface finish, laminate thickness and the validated resin-flow plan. Woven, UD, multiaxial and spread tow fabrics can all be considered, but the complete stack should be tested.",
+      },
+      {
+        question: "Can 3K twill carbon fiber fabric be vacuum infused?",
+        answer:
+          "Yes, a suitable 3K twill construction may be used as a visible or structural ply. Its behavior must be checked with the selected resin, backing plies, flow medium and part geometry.",
+      },
+      {
+        question: "Does heavier carbon fabric always infuse faster?",
+        answer:
+          "No. Areal weight alone does not determine infusion speed. Fabric architecture, compaction, nesting, stack thickness, resin viscosity and the flow strategy all matter.",
+      },
+      {
+        question: "Is prepreg the same as vacuum-infused dry carbon fabric?",
+        answer:
+          "No. Prepreg already contains a controlled resin system and follows its specified storage and cure process. Vacuum infusion starts with dry reinforcement and introduces liquid resin into the sealed stack.",
+      },
+      {
+        question: "What should be tested before ordering production rolls?",
+        answer:
+          "Use a representative panel to confirm wet-out, flow time, dry spots, surface finish, laminate thickness and handling with the intended resin, reinforcement stack, core and consumables.",
+      },
+    ],
+    publishedAt: "2026-07-16",
+    reviewedAt: "2026-07-16",
+    sources: [
+      {
+        title: "Guide to Composites",
+        publisher: "Gurit",
+        url: "https://www.gurit.com/wp-content/uploads/2022/12/guide-to-composites-1.pdf",
+      },
+      {
+        title: "Fabrics for Infusion",
+        publisher: "Hexcel",
+        url: "https://www.hexcel.com/products/fabrics-reinforcements/fabrics-for-infusion/",
+      },
+    ],
+  },
 ];
 
 export function getTechnicalArticle(slug: string) {
@@ -505,6 +630,9 @@ export function articleStructuredData(article: TechnicalArticle) {
     description: article.description,
     image: absoluteUrl(article.image),
     url: absoluteUrl(`/technical-center/${article.slug}`),
+    ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+    ...(article.reviewedAt ? { dateModified: article.reviewedAt } : {}),
+    ...(article.sources ? { citation: article.sources.map((source) => source.url) } : {}),
     author: {
       "@type": "Organization",
       name: "Zhejiang FRPHome New Material Co., Ltd.",

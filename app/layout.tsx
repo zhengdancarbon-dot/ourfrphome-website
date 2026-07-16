@@ -185,8 +185,11 @@ export default function RootLayout({
                 var absoluteHref = link.href || href;
 
                 var locale = currentLocale();
+                var explicitEvent = link.getAttribute("data-analytics-event");
 
-                if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
+                if (explicitEvent) {
+                  sendEvent(explicitEvent, { link_url: absoluteHref, locale: locale });
+                } else if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
                   sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale });
                 } else if (href.indexOf("mailto:") === 0) {
                   sendEvent("email_click", { link_url: href, locale: locale });
