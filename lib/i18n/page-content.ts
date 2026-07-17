@@ -442,6 +442,43 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         },
       ],
     },
+    "filament-wound-carbon-fiber-tube": {
+      name: "Tubo de fibra de carbono por bobinado filamentario",
+      shortName: "Tubo CFRP bobinado",
+      category: "Tubo compuesto bobinado",
+      description:
+        "Tubo de fibra de carbono fabricado por bobinado continuo con refuerzo circunferencial, helicoidal y axial adaptado a la carga del proyecto.",
+      heroCopy:
+        "El bobinado filamentario permite ajustar la arquitectura de fibra continua para cargas circunferenciales, torsionales y combinadas, según plano y revisión técnica.",
+      seo: {
+        title: "Tubo de fibra de carbono por bobinado filamentario | Tubo CFRP a medida",
+        description:
+          "Proveedor de tubos CFRP por bobinado filamentario con diámetro, pared, longitud, arquitectura de fibra y acabado definidos según plano y aplicación.",
+      },
+      intro: [
+        "El tubo se fabrica enrollando tow continuo de fibra de carbono sobre un mandril mediante trayectorias controladas.",
+        "Antes de cotizar se revisan diámetro, espesor de pared, longitud, dirección de carga, sistema de resina, tolerancias, acabado y uso final.",
+      ],
+      applications: [
+        "Rodillos y ejes industriales",
+        "Vigas ligeras para automatización",
+        "Estructuras de robótica e inspección",
+        "Ejes para equipos marinos y deportivos",
+        "Cilindros y conjuntos CFRP personalizados",
+      ],
+      faqs: [
+        {
+          question: "¿En qué se diferencia de un tubo pultruido?",
+          answer:
+            "El tubo pultruido concentra la mayor parte de las fibras en sentido longitudinal. El bobinado filamentario permite incorporar refuerzo circunferencial y helicoidal para torsión o cargas combinadas.",
+        },
+        {
+          question: "¿Se puede personalizar el ángulo de bobinado?",
+          answer:
+            "Sí. La trayectoria final se revisa según geometría, dirección de carga, mandril, proceso y requisitos de validación del proyecto.",
+        },
+      ],
+    },
     "structural-strengthening-system": {
       name: "Sistema de refuerzo estructural con fibra de carbono",
       shortName: "Sistema CFRP estructural",
@@ -673,6 +710,43 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         {
           question: "Quais dados são necessários para cotação?",
           answer: "Tamanho ou malha, matriz compatível, desempenho alvo, embalagem, quantidade e destino.",
+        },
+      ],
+    },
+    "filament-wound-carbon-fiber-tube": {
+      name: "Tubo de fibra de carbono por enrolamento filamentar",
+      shortName: "Tubo CFRP enrolado",
+      category: "Tubo compósito enrolado",
+      description:
+        "Tubo de fibra de carbono produzido por enrolamento contínuo com reforços circunferenciais, helicoidais e axiais definidos conforme a carga do projeto.",
+      heroCopy:
+        "O enrolamento filamentar permite ajustar a arquitetura de fibra contínua para cargas circunferenciais, torcionais e combinadas, conforme desenho e análise técnica.",
+      seo: {
+        title: "Tubo de fibra de carbono por enrolamento filamentar | Tubo CFRP sob medida",
+        description:
+          "Fornecedor de tubos CFRP por enrolamento filamentar com diâmetro, parede, comprimento, arquitetura de fibras e acabamento definidos conforme desenho e aplicação.",
+      },
+      intro: [
+        "O tubo é fabricado enrolando tow contínuo de fibra de carbono sobre um mandril em trajetórias controladas.",
+        "Antes da cotação, revisamos diâmetro, espessura de parede, comprimento, direção de carga, sistema de resina, tolerâncias, acabamento e uso final.",
+      ],
+      applications: [
+        "Rolos e eixos industriais",
+        "Vigas leves para automação",
+        "Estruturas de robótica e inspeção",
+        "Eixos para equipamentos marítimos e esportivos",
+        "Cilindros e conjuntos CFRP personalizados",
+      ],
+      faqs: [
+        {
+          question: "Qual é a diferença em relação ao tubo pultrudado?",
+          answer:
+            "O tubo pultrudado concentra a maior parte das fibras no sentido longitudinal. O enrolamento filamentar permite adicionar reforço circunferencial e helicoidal para torção ou cargas combinadas.",
+        },
+        {
+          question: "O ângulo de enrolamento pode ser personalizado?",
+          answer:
+            "Sim. A trajetória final é analisada conforme geometria, direção de carga, mandril, processo e requisitos de validação do projeto.",
         },
       ],
     },

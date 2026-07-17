@@ -30,6 +30,7 @@ import {
   translateRfqTypeLabel,
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
+import { getProductDocuments } from "@/lib/product-documents";
 import { productFamilies } from "@/lib/product-families";
 import {
   absoluteUrl,
@@ -42,6 +43,17 @@ import { rfqProductTypes } from "@/lib/site-taxonomy";
 
 type LocalizedPageProps = {
   locale: Exclude<Locale, "en">;
+};
+
+const tdsDownloadCopy: Record<Exclude<Locale, "en">, { title: string; note: string; action: string }> = {
+  es: { title: "TDS verificadas para descargar", note: "Documento técnico en inglés. Confirme la especificación y los documentos del lote en la cotización.", action: "Descargar TDS" },
+  "pt-br": { title: "TDS verificadas para baixar", note: "Documento técnico em inglês. Confirme a especificação e os documentos do lote na cotação.", action: "Baixar TDS" },
+  ru: { title: "Проверенные TDS для скачивания", note: "Технический документ на английском языке. Подтвердите спецификацию и документы партии при запросе цены.", action: "Скачать TDS" },
+  ar: { title: "نشرات TDS موثقة للتنزيل", note: "المستند الفني باللغة الإنجليزية. يرجى تأكيد المواصفة ووثائق الدفعة عند طلب السعر.", action: "تنزيل TDS" },
+  fr: { title: "TDS vérifiées à télécharger", note: "Document technique en anglais. Confirmez la spécification et les documents de lot lors de la demande de prix.", action: "Télécharger la TDS" },
+  ko: { title: "검증된 TDS 다운로드", note: "영문 기술 문서입니다. 견적 시 사양과 배치 문서를 확인해 주세요.", action: "TDS 다운로드" },
+  pl: { title: "Zweryfikowane TDS do pobrania", note: "Dokument techniczny w języku angielskim. Potwierdź specyfikację i dokumenty partii w zapytaniu.", action: "Pobierz TDS" },
+  tr: { title: "Doğrulanmış TDS dosyaları", note: "Teknik belge İngilizcedir. Teklif sırasında spesifikasyonu ve parti belgelerini doğrulayın.", action: "TDS indir" },
 };
 
 const featuredProductSlugs = [
@@ -524,6 +536,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
     .filter((item) => isPhaseOneProductSlug(item.slug))
     .slice(0, 4);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
+  const downloadableDocuments = getProductDocuments(product.slug);
   const firstSpecTable = product.tds.tables[0];
   const inquiryHref = localizedLink(
     `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
@@ -605,6 +618,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               [copy.common.overview, "#overview"],
               [copy.common.applications, "#applications"],
               ["RFQ", "#rfq-info"],
+              ...(downloadableDocuments.length > 0 ? [[copy.common.documents, "#documents"]] : []),
               [copy.common.faq, "#faq"],
             ].map(([label, href]) => (
               <a href={href} key={href}>{label}</a>
@@ -706,6 +720,35 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                 <div><ClipboardList size={18} /><span>{copy.rfq.destinationCountry}</span></div>
               </div>
             </section>
+
+            {downloadableDocuments.length > 0 ? (
+              <section className="product-detail-card" id="documents">
+                <SectionHeading
+                  eyebrow={copy.common.documents}
+                  title={tdsDownloadCopy[locale].title}
+                  copy={tdsDownloadCopy[locale].note}
+                />
+                <div className="tds-download-list">
+                  {downloadableDocuments.map((document) => (
+                    <a
+                      className="tds-download-card"
+                      data-analytics-event="tds_download"
+                      download
+                      href={document.href}
+                      key={document.href}
+                    >
+                      <FileText size={23} />
+                      <span>
+                        <strong>{tdsDownloadCopy[locale].action}</strong>
+                        <small>{document.title}</small>
+                        <small>{document.revision} · English · {document.fileSize}</small>
+                      </span>
+                      <ArrowRight size={18} />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             <section className="product-detail-card product-faq-section" id="faq">
               <SectionHeading eyebrow={copy.common.faq} title={content.shortName} />

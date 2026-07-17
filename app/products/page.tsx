@@ -83,11 +83,12 @@ const productGroups = [
     description:
       "Carbon fiber tubes, sheets, rods, laminates and custom CNC components based on drawings or samples.",
     keyProducts:
-      "Carbon fiber tube, roll-wrapped tube, pultruded tube, sheet, plate, rod and CNC CFRP parts",
+      "Carbon fiber tube, roll-wrapped tube, filament-wound tube, pultruded tube, sheet, plate, rod and CNC CFRP parts",
     commonApplications:
       "Civil UAV components, sports equipment, automation supports, fixtures and lightweight assemblies",
     slugs: [
       "3k-surface-carbon-fiber-tube",
+      "filament-wound-carbon-fiber-tube",
       "pultruded-carbon-fiber-tube",
       "3k-carbon-fiber-laminate-sheet",
       "custom-carbon-fiber-products",

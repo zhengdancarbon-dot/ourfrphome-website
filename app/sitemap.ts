@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/technical-center/${article.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.78,
+    lastModified: article.reviewedAt ? new Date(article.reviewedAt) : lastModified,
   }));
 
   const routes = [...staticRoutes, ...productRoutes, ...applicationRoutes, ...technicalArticleRoutes];
@@ -58,9 +59,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   function entry(route: (typeof routes)[number], locale: Locale = defaultLocale) {
+    const routeLastModified =
+      "lastModified" in route && route.lastModified instanceof Date
+        ? route.lastModified
+        : lastModified;
+
     return {
       url: absoluteUrl(localePath(route.path, locale)),
-      lastModified,
+      lastModified: routeLastModified,
       changeFrequency: route.changeFrequency,
       priority: locale === defaultLocale ? route.priority : Math.max(route.priority - 0.05, 0.5),
       ...(alternates(route.path) ? { alternates: alternates(route.path) } : {}),

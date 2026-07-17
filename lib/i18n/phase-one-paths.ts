@@ -16,6 +16,7 @@ export const phaseOneProductSlugs = [
   "chopped-carbon-fiber",
   "milled-carbon-fiber-powder",
   "structural-strengthening-system",
+  "filament-wound-carbon-fiber-tube",
 ] as const;
 
 export const phaseOneApplicationSlugs = [

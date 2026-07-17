@@ -1063,6 +1063,108 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
   },
   {
+    slug: "filament-wound-carbon-fiber-tube",
+    name: "Filament-Wound Carbon Fiber Tube",
+    shortName: "Filament-Wound CFRP Tube",
+    category: "Filament-Wound Composite Tube",
+    description:
+      "Filament-wound carbon fiber tubes made from continuous carbon tow with project-specific hoop, helical and axial reinforcement for torsion, hoop loading and lightweight structural applications.",
+    heroCopy:
+      "Filament-wound carbon fiber tubes use controlled continuous-fiber winding paths to tailor hoop, helical and axial reinforcement around a mandrel for the required load case.",
+    image: "/images/products/filament-wound-carbon-fiber-tube.webp",
+    gallery: [
+      "/images/products/filament-wound-carbon-fiber-tube.webp",
+      "/images/products/filament-wound-carbon-fiber-tube-detail.webp",
+    ],
+    visualLabel: "Continuous-fiber wound CFRP tube surface and tube range",
+    position: "50% 46%",
+    seo: {
+      title: "Filament-Wound Carbon Fiber Tube | Custom CFRP Tube Supplier",
+      description:
+        "Filament-wound carbon fiber tube supplier for custom hoop, helical and axial reinforcement, diameter, wall, length and finish based on drawings and load requirements.",
+      keywords: [
+        ...commonKeywords,
+        "filament wound carbon fiber tube",
+        "filament winding CFRP tube",
+        "custom winding angle carbon tube",
+        "continuous carbon fiber tube",
+        "carbon fiber composite tube supplier",
+      ],
+    },
+    specs: [
+      { label: "Process", value: "Continuous-fiber filament winding" },
+      { label: "Fiber architecture", value: "Hoop, helical and axial layers by design review" },
+      { label: "Diameter / wall / length", value: "Custom by drawing and tooling review" },
+      { label: "Matrix and finish", value: "Resin system and surface finish by application review" },
+    ],
+    intro: [
+      "Filament-Wound Carbon Fiber Tube is produced by winding resin-compatible continuous carbon tow around a mandrel in controlled paths. The winding program can combine circumferential and helical reinforcement, with axial layers added where the load case requires them.",
+      "Compared with pultruded tube, which places most reinforcement along the profile length, filament winding gives engineers more control over hoop and torsional reinforcement. Compared with a decorative 3K roll-wrapped tube, the primary design focus is the continuous-fiber architecture beneath the finished surface.",
+      "FRP HOME reviews tube diameter, wall thickness, length, winding architecture, resin system, finish, dimensional tolerance and end machining against the customer's drawing and final application before quotation.",
+    ],
+    highlights: [
+      { label: "Reinforcement", value: "Continuous carbon tow" },
+      { label: "Winding paths", value: "Hoop, helical and combined architectures" },
+      { label: "Customization", value: "Dimensions and layup by drawing and load review" },
+      { label: "Secondary processing", value: "Cutting, drilling, bonding and end features by review" },
+    ],
+    applications: [
+      "Industrial rollers and rotating shafts",
+      "Automation beams and lightweight machine members",
+      "Robotic and inspection equipment structures",
+      "Marine and sporting equipment shafts",
+      "Instrument housings and composite cylinders",
+      "Custom torsion- or hoop-loaded CFRP tube assemblies",
+    ],
+    tds: {
+      codePrefix: "FRPH-FWCT",
+      revision: "Rev. 2026-07",
+      note:
+        "Filament-wound tube performance is design-dependent. Diameter, wall thickness, fiber grade, resin, winding architecture, cure, tolerance and qualification requirements are confirmed for each project.",
+      tables: [
+        {
+          title: "Project configuration range",
+          columns: ["Design item", "Available configuration", "Quotation requirement"],
+          rows: [
+            ["Tube geometry", "Round tube or project-specific cylindrical geometry", "Drawing with diameter, wall and length"],
+            ["Fiber architecture", "Hoop, helical, axial or combined reinforcement", "Load direction and service condition"],
+            ["Material system", "Carbon fiber and compatible resin system by review", "Temperature, environment and process requirements"],
+            ["Surface", "As-wound, machined, sanded, coated or cosmetic outer layer by review", "Finish and tolerance requirement"],
+            ["Secondary operations", "Cut length, drilling, slots, bonded inserts or end features by review", "Machining drawing and assembly information"],
+          ],
+        },
+        {
+          title: "RFQ and engineering review",
+          columns: ["Required information", "Why it matters", "Confirmation"],
+          rows: [
+            ["Outside / inside diameter and length", "Defines mandrel, tooling and material usage", "Drawing review"],
+            ["Load direction and duty cycle", "Guides hoop, helical and axial reinforcement", "Application review"],
+            ["Operating environment", "Guides resin and finish selection", "Project review"],
+            ["Tolerance and surface requirement", "Guides finishing and inspection plan", "Drawing review"],
+            ["Quantity and delivery schedule", "Guides tooling and production planning", "Commercial review"],
+          ],
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "How is a filament-wound carbon fiber tube different from a pultruded tube?",
+        answer:
+          "Pultruded tubes place most continuous reinforcement along the tube length. Filament winding can add controlled hoop and helical reinforcement, making it more suitable when torsion, circumferential loading or combined loading must be considered.",
+      },
+      {
+        question: "Can the winding angle be customized?",
+        answer:
+          "Yes. Winding paths can be reviewed against the tube geometry, load direction, tooling and manufacturing limits. The final architecture is confirmed during engineering review rather than selected from a generic fixed angle.",
+      },
+      {
+        question: "What information is needed for a filament-wound tube quotation?",
+        answer:
+          "Please provide a drawing, diameter, wall thickness, length, load direction, operating environment, tolerance, surface requirement, quantity and final application. Qualification or testing requirements should also be identified before production.",
+      },
+    ],
+  },
+  {
     slug: "pultruded-carbon-fiber-tube",
     name: "Pultruded Carbon Fiber Tube",
     shortName: "Pultruded Tube",

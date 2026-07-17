@@ -110,6 +110,7 @@ export const productSeries: ProductSeries[] = [
     items: [
       "Carbon Fiber Tube",
       "Roll-Wrapped Carbon Fiber Tube",
+      "Filament-Wound Carbon Fiber Tube",
       "Pultruded Carbon Fiber Tube",
       "Carbon Fiber Sheet / Plate",
       "Carbon Fiber Rod",

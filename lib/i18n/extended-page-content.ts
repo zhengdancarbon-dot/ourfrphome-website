@@ -43,7 +43,7 @@ const packs: Record<ExtendedLocale, Pack> = {
     productHero: (name, focus) => `${name}: варианты поставки по спецификации с проверкой ${focus}, упаковки, конечного применения и экспортных требований.`,
     productIntro: (name, focus) => [`${name} выбирается с учетом процесса изготовления и требуемых характеристик детали.`, `До предложения подтверждаются ${focus}, объем партии, документы и конечное применение.`],
     productFaq: (name, focus) => [{ question: `Какие данные нужны для запроса ${name}?`, answer: `Укажите ${focus}, количество, процесс, применение и страну назначения.` }, { question: "Можно ли заказать индивидуальную спецификацию?", answer: "Индивидуальные параметры рассматриваются по технической осуществимости, партии и требованиям соответствия." }],
-    categories: { woven: "Двунаправленная ткань", spread: "Плоская поверхность CFRP", ud: "Направленное армирование", yarn: "Исходный материал", prepreg: "Армирование со смолой", chopped: "Короткое волокно", powder: "Молотое волокно", strengthening: "Система гражданского усиления" },
+    categories: { woven: "Двунаправленная ткань", spread: "Плоская поверхность CFRP", ud: "Направленное армирование", yarn: "Исходный материал", prepreg: "Армирование со смолой", chopped: "Короткое волокно", powder: "Молотое волокно", strengthening: "Система гражданского усиления", tube: "Намотанная композитная труба" },
     applications: { panels: "Панели CFRP", automotive: "Автомобильные композиты", sports: "Спортивные изделия", civilDrone: "Компоненты гражданских БПЛА", infusion: "Вакуумная инфузия", pultrusion: "Пултрузия", molding: "Формование композитов", plastics: "Армирование пластика и смол", concrete: "Усиление бетона и мостов" },
     appTitles: { "automotive-carbon-fiber-parts": "Углеродные материалы для автомобильных деталей", "civil-uav-drone-components": "Углеродные материалы для гражданских БПЛА", "plastic-resin-reinforcement": "Углеродное волокно для пластика и смол", "structural-strengthening": "Материалы CFRP для конструкционного усиления" },
     appDescription: (title) => `${title}: выбор материала, спецификации и данных для RFQ.`, appQuickAnswer: (title) => `${title} следует выбирать по геометрии детали, нагрузке, процессу, поверхности и требованиям соответствия.`,
@@ -60,7 +60,7 @@ const packs: Record<ExtendedLocale, Pack> = {
     productHero: (name, focus) => `${name} بخيارات توريد حسب المواصفة مع مراجعة ${focus} والتعبئة والاستخدام النهائي ومتطلبات التصدير.`,
     productIntro: (name, focus) => [`يتم اختيار ${name} وفق عملية التصنيع والأداء المطلوب للقطعة.`, `يتم تأكيد ${focus} وحجم الدفعة والمستندات والاستخدام النهائي قبل العرض.`],
     productFaq: (name, focus) => [{ question: `ما البيانات المطلوبة لطلب ${name}؟`, answer: `يرجى تحديد ${focus} والكمية والعملية والتطبيق ودولة الوجهة.` }, { question: "هل تتوفر مواصفات مخصصة؟", answer: "تتم مراجعة الخيارات المخصصة وفق الجدوى الفنية والدفعة ومتطلبات الامتثال." }],
-    categories: { woven: "نسيج ثنائي الاتجاه", spread: "سطح CFRP مسطح", ud: "تقوية اتجاهية", yarn: "مادة أولية", prepreg: "تقوية مشربة بالراتنج", chopped: "ألياف قصيرة", powder: "ألياف مطحونة", strengthening: "نظام تقوية مدني" },
+    categories: { woven: "نسيج ثنائي الاتجاه", spread: "سطح CFRP مسطح", ud: "تقوية اتجاهية", yarn: "مادة أولية", prepreg: "تقوية مشربة بالراتنج", chopped: "ألياف قصيرة", powder: "ألياف مطحونة", strengthening: "نظام تقوية مدني", tube: "أنبوب مركب ملفوف" },
     applications: { panels: "ألواح CFRP", automotive: "مركبات السيارات", sports: "معدات رياضية", civilDrone: "مكونات طائرات مدنية بدون طيار", infusion: "التسريب بالتفريغ", pultrusion: "السحب المستمر", molding: "قولبة المواد المركبة", plastics: "تقوية البلاستيك والراتنج", concrete: "تقوية الخرسانة والجسور" },
     appTitles: { "automotive-carbon-fiber-parts": "مواد ألياف الكربون لقطع السيارات", "civil-uav-drone-components": "مواد ألياف الكربون للطائرات المدنية بدون طيار", "plastic-resin-reinforcement": "ألياف الكربون لتقوية البلاستيك والراتنج", "structural-strengthening": "مواد CFRP للتقوية الإنشائية" },
     appDescription: (title) => `${title}: إرشادات لاختيار المادة والمواصفة وبيانات RFQ.`, appQuickAnswer: (title) => `يجب اختيار ${title} وفق هندسة القطعة والحمل والعملية والسطح ومتطلبات الامتثال.`,
@@ -75,7 +75,7 @@ const packs: Record<ExtendedLocale, Pack> = {
     productHero: (name, focus) => `${name} disponible selon spécification avec examen de ${focus}, de l'emballage, de l'usage final et des exigences d'exportation.`,
     productIntro: (name, focus) => [`Le choix de ${name} dépend du procédé de fabrication et des performances visées.`, `${focus}, la taille du lot, les documents et l'usage final sont confirmés avant devis.`],
     productFaq: (name, focus) => [{ question: `Quelles données fournir pour ${name} ?`, answer: `Précisez ${focus}, la quantité, le procédé, l'application et le pays de destination.` }, { question: "Une spécification sur mesure est-elle possible ?", answer: "Les options sur mesure sont étudiées selon la faisabilité technique, le lot et la conformité." }],
-    categories: { woven: "Tissu bidirectionnel", spread: "Surface CFRP plate", ud: "Renfort directionnel", yarn: "Matière amont", prepreg: "Renfort imprégné", chopped: "Fibre courte", powder: "Fibre broyée", strengthening: "Système de renforcement civil" },
+    categories: { woven: "Tissu bidirectionnel", spread: "Surface CFRP plate", ud: "Renfort directionnel", yarn: "Matière amont", prepreg: "Renfort imprégné", chopped: "Fibre courte", powder: "Fibre broyée", strengthening: "Système de renforcement civil", tube: "Tube composite enroulé" },
     applications: { panels: "Panneaux CFRP", automotive: "Composites automobiles", sports: "Équipements sportifs", civilDrone: "Composants de drones civils", infusion: "Infusion sous vide", pultrusion: "Pultrusion", molding: "Moulage composite", plastics: "Renfort de plastiques et résines", concrete: "Renforcement du béton et des ponts" },
     appTitles: { "automotive-carbon-fiber-parts": "Matériaux carbone pour pièces automobiles", "civil-uav-drone-components": "Matériaux carbone pour drones civils", "plastic-resin-reinforcement": "Fibre de carbone pour plastiques et résines", "structural-strengthening": "Matériaux CFRP pour renforcement structurel" },
     appDescription: (title) => `${title} : guide de choix des matériaux, spécifications et données RFQ.`, appQuickAnswer: (title) => `${title} se choisit selon la géométrie, la charge, le procédé, la surface et la conformité.`,
@@ -110,6 +110,7 @@ const productDefinitions: Record<ProductSlug, { category: keyof Pack["categories
   "chopped-carbon-fiber": { category: "chopped", focus: "3 mm / 6 mm / 12 mm, sizing, matrix", apps: ["plastics", "automotive"] },
   "milled-carbon-fiber-powder": { category: "powder", focus: "mean length, fiber diameter, mesh, matrix", apps: ["plastics", "molding"] },
   "structural-strengthening-system": { category: "strengthening", focus: "UD fabric, pultruded CFRP plate, epoxy resin, project dimensions", apps: ["concrete", "pultrusion"] },
+  "filament-wound-carbon-fiber-tube": { category: "tube", focus: "diameter, wall thickness, winding angle, resin system, tolerance", apps: ["molding", "automotive", "sports"] },
 };
 
 const focusTerms: Record<ExtendedLocale, Record<string, string>> = {
@@ -121,8 +122,20 @@ const focusTerms: Record<ExtendedLocale, Record<string, string>> = {
   tr: { "project dimensions": "proje ölçüleri", "pultruded CFRP plate": "pultrüzyon CFRP plaka", "fiber direction": "elyaf yönü", "resin content": "reçine oranı", "cure profile": "kür profili", "mean length": "ortalama uzunluk", "fiber diameter": "elyaf çapı", "epoxy resin": "epoksi reçine", "UD fabric": "UD kumaş", width: "genişlik", sizing: "sizing", matrix: "matris", mesh: "parçacık boyutu", plain: "düz dokuma", twill: "dimi dokuma", woven: "dokuma" },
 };
 
+const filamentWoundTubeTranslations: Record<ExtendedLocale, {
+  category: string;
+  focus: Record<string, string>;
+}> = {
+  ru: { category: "Намотанная композитная труба", focus: { diameter: "диаметр", "wall thickness": "толщина стенки", "winding angle": "угол намотки", "resin system": "система смолы", tolerance: "допуск" } },
+  ar: { category: "أنبوب مركب ملفوف", focus: { diameter: "القطر", "wall thickness": "سماكة الجدار", "winding angle": "زاوية اللف", "resin system": "نظام الراتنج", tolerance: "التفاوت" } },
+  fr: { category: "Tube composite enroulé", focus: { diameter: "diamètre", "wall thickness": "épaisseur de paroi", "winding angle": "angle d'enroulement", "resin system": "système de résine", tolerance: "tolérance" } },
+  ko: { category: "와인딩 복합재 튜브", focus: { diameter: "직경", "wall thickness": "벽 두께", "winding angle": "와인딩 각도", "resin system": "수지 시스템", tolerance: "공차" } },
+  pl: { category: "Nawijana rura kompozytowa", focus: { diameter: "średnica", "wall thickness": "grubość ścianki", "winding angle": "kąt nawijania", "resin system": "system żywiczny", tolerance: "tolerancja" } },
+  tr: { category: "Filament sarım kompozit tüp", focus: { diameter: "çap", "wall thickness": "et kalınlığı", "winding angle": "sarım açısı", "resin system": "reçine sistemi", tolerance: "tolerans" } },
+};
+
 function localizeFocus(locale: ExtendedLocale, focus: string) {
-  return Object.entries(focusTerms[locale])
+  return Object.entries({ ...focusTerms[locale], ...filamentWoundTubeTranslations[locale].focus })
     .sort(([left], [right]) => right.length - left.length)
     .reduce((value, [source, target]) => value.replaceAll(source, target), focus);
 }
@@ -142,12 +155,15 @@ function makeProducts(locale: ExtendedLocale) {
         "chopped-carbon-fiber": "Chopped Carbon Fiber",
         "milled-carbon-fiber-powder": "Milled Carbon Fiber Powder",
         "structural-strengthening-system": "Structural Strengthening System",
+        "filament-wound-carbon-fiber-tube": "Filament-Wound Carbon Fiber Tube",
       } as const)[slug]
     ];
     return [slug, {
       name,
       shortName: name,
-      category: pack.categories[definition.category],
+      category: slug === "filament-wound-carbon-fiber-tube"
+        ? filamentWoundTubeTranslations[locale].category
+        : pack.categories[definition.category],
       description: pack.productDescription(name, focus),
       heroCopy: pack.productHero(name, focus),
       seo: { title: name, description: pack.productDescription(name, focus), keywords: [name, `${name} ${pack.supplier}`] },

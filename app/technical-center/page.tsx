@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpenText, FileCheck2, FileText, FlaskConical, Ruler } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
+import { productDocuments } from "@/lib/product-documents";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { qualityDocuments } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
@@ -40,6 +41,9 @@ const articleSchema = technicalArticles.map((guide) => ({
   description: guide.description,
   image: absoluteUrl(guide.image),
   url: absoluteUrl(`/technical-center/${guide.slug}`),
+  ...(guide.publishedAt ? { datePublished: guide.publishedAt } : {}),
+  ...(guide.reviewedAt ? { dateModified: guide.reviewedAt } : {}),
+  ...(guide.sources ? { citation: guide.sources.map((source) => source.url) } : {}),
   author: {
     "@type": "Organization",
     name: siteConfig.companyName,
@@ -121,6 +125,48 @@ export default function TechnicalCenterPage() {
                 <p>{document.description}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="tds-library">
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Downloadable TDS library"
+            title="Verified product data sheets."
+            copy="These files are prepared from available product records. Confirm the exact grade, construction, tolerance and batch document requirements in your RFQ."
+          />
+          <div className="tds-library-grid">
+            {productDocuments.map((document) => {
+              const product = productCatalog.find((item) => item.slug === document.productSlug);
+              return (
+                <article className="tds-library-card" key={document.href}>
+                  <div><FileText size={28} /><span>{document.type}</span></div>
+                  <h2>{document.title}</h2>
+                  <p>{document.specification}</p>
+                  <dl>
+                    <div><dt>Revision</dt><dd>{document.revision}</dd></div>
+                    <div><dt>Language</dt><dd>{document.language}</dd></div>
+                    <div><dt>File</dt><dd>PDF · {document.fileSize}</dd></div>
+                  </dl>
+                  <div className="tds-library-actions">
+                    <a
+                      className="button button-blue"
+                      data-analytics-event="tds_download"
+                      download
+                      href={document.href}
+                    >
+                      Download TDS <ArrowRight size={16} />
+                    </a>
+                    {product ? (
+                      <Link className="text-link" href={`/products/${product.slug}`}>
+                        Product page <ArrowRight size={16} />
+                      </Link>
+                    ) : null}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
