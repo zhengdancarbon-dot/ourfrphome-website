@@ -6,6 +6,8 @@ Branch: `codex/dual-core-seo-geo-90d`
 
 Production deployment: not performed
 
+Preview deployment: `https://ourfrphome-website-git-codex-dual-core-seo-geo-90d-zhendgan.vercel.app`
+
 ## Completed Scope
 
 - Made the 90-day dual-core plan the only active SEO / GEO execution baseline; the older 30-day plans are marked historical.
@@ -54,6 +56,8 @@ The automated audit checked all 203 pages, 338 internal resources and three nega
 - NCF and 3K product-specific RFQ fields: PASS
 - RFQ hidden locale and source page: PASS in EN, ES, AR and TR samples
 - Download analytics metadata: PASS for two NCF TDS files and the 3K specification guide
+
+Vercel reports the Git-integrated branch Preview as `READY` and identifies the target as Preview. Direct Preview HTTP smoke testing from the Codex execution network timed out, including an authenticated Vercel CLI request. The same commit passed the full local production-build and browser matrix above; the Preview should still receive one normal-browser review before production approval.
 
 ## Source Boundary
 
