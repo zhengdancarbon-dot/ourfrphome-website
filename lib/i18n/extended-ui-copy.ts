@@ -76,18 +76,19 @@ const productKeys = [
   "Chopped Carbon Fiber",
   "Milled Carbon Fiber Powder",
   "Structural Strengthening System",
+  "Filament-Wound Carbon Fiber Tube",
   "Prepreg Carbon Fiber Fabric",
   "UD Carbon Fiber Fabric for Structural Strengthening",
   "Carbon Fiber for Plastic & Resin Reinforcement",
 ] as const;
 
 const productValues: Record<ExtendedLocale, readonly string[]> = {
-  ru: ["Тканая углеродная ткань", "Углеродная ткань spread tow", "Однонаправленная углеродная ткань UD", "Углеродная нить и tow", "Углеродные препреги", "Рубленое углеродное волокно", "Молотый порошок углеродного волокна", "Система конструкционного усиления CFRP", "Углеродный препрег", "Ткань UD для конструкционного усиления", "Углеродное волокно для армирования пластика и смолы"],
-  ar: ["نسيج ألياف الكربون المنسوج", "نسيج ألياف الكربون spread tow", "نسيج ألياف الكربون أحادي الاتجاه UD", "خيوط وحزم ألياف الكربون", "مواد ألياف الكربون المسبقة التشريب", "ألياف كربون مقطعة", "مسحوق ألياف كربون مطحون", "نظام تقوية إنشائية CFRP", "نسيج كربوني مسبق التشريب", "نسيج UD للتقوية الإنشائية", "ألياف كربون لتقوية البلاستيك والراتنج"],
-  fr: ["Tissu de fibre de carbone", "Tissu carbone spread tow", "Tissu carbone unidirectionnel UD", "Fil et tow de fibre de carbone", "Préimprégnés en fibre de carbone", "Fibre de carbone coupée", "Poudre de fibre de carbone broyée", "Système de renforcement structurel CFRP", "Tissu carbone préimprégné", "Tissu UD pour renforcement structurel", "Fibre de carbone pour renfort de plastiques et résines"],
-  ko: ["직조 탄소섬유 원단", "Spread tow 탄소섬유 원단", "UD 단방향 탄소섬유 원단", "탄소섬유 원사 및 tow", "탄소섬유 프리프레그", "단섬유 탄소섬유", "밀드 탄소섬유 분말", "CFRP 구조 보강 시스템", "탄소섬유 프리프레그 원단", "구조 보강용 UD 탄소섬유 원단", "플라스틱 및 수지 보강용 탄소섬유"],
-  pl: ["Tkanina z włókna węglowego", "Tkanina węglowa spread tow", "Jednokierunkowa tkanina węglowa UD", "Przędza i tow z włókna węglowego", "Prepregi z włókna węglowego", "Cięte włókno węglowe", "Mielony proszek z włókna węglowego", "System wzmocnienia konstrukcyjnego CFRP", "Prepreg z tkaniny węglowej", "Tkanina UD do wzmocnień konstrukcyjnych", "Włókno węglowe do wzmacniania tworzyw i żywic"],
-  tr: ["Dokuma karbon fiber kumaş", "Spread tow karbon fiber kumaş", "UD tek yönlü karbon fiber kumaş", "Karbon fiber iplik ve tow", "Karbon fiber prepreg malzemeler", "Kırpılmış karbon fiber", "Öğütülmüş karbon fiber tozu", "CFRP yapısal güçlendirme sistemi", "Karbon fiber prepreg kumaş", "Yapısal güçlendirme için UD karbon fiber kumaş", "Plastik ve reçine takviyesi için karbon fiber"],
+  ru: ["Тканая углеродная ткань", "Углеродная ткань spread tow", "Однонаправленная углеродная ткань UD", "Углеродная нить и tow", "Углеродные препреги", "Рубленое углеродное волокно", "Молотый порошок углеродного волокна", "Система конструкционного усиления CFRP", "Углепластиковая труба филаментной намотки", "Углеродный препрег", "Ткань UD для конструкционного усиления", "Углеродное волокно для армирования пластика и смолы"],
+  ar: ["نسيج ألياف الكربون المنسوج", "نسيج ألياف الكربون spread tow", "نسيج ألياف الكربون أحادي الاتجاه UD", "خيوط وحزم ألياف الكربون", "مواد ألياف الكربون المسبقة التشريب", "ألياف كربون مقطعة", "مسحوق ألياف كربون مطحون", "نظام تقوية إنشائية CFRP", "أنبوب ألياف كربون باللف الخيطي", "نسيج كربوني مسبق التشريب", "نسيج UD للتقوية الإنشائية", "ألياف كربون لتقوية البلاستيك والراتنج"],
+  fr: ["Tissu de fibre de carbone", "Tissu carbone spread tow", "Tissu carbone unidirectionnel UD", "Fil et tow de fibre de carbone", "Préimprégnés en fibre de carbone", "Fibre de carbone coupée", "Poudre de fibre de carbone broyée", "Système de renforcement structurel CFRP", "Tube carbone enroulé filamentaire", "Tissu carbone préimprégné", "Tissu UD pour renforcement structurel", "Fibre de carbone pour renfort de plastiques et résines"],
+  ko: ["직조 탄소섬유 원단", "Spread tow 탄소섬유 원단", "UD 단방향 탄소섬유 원단", "탄소섬유 원사 및 tow", "탄소섬유 프리프레그", "단섬유 탄소섬유", "밀드 탄소섬유 분말", "CFRP 구조 보강 시스템", "필라멘트 와인딩 탄소섬유 튜브", "탄소섬유 프리프레그 원단", "구조 보강용 UD 탄소섬유 원단", "플라스틱 및 수지 보강용 탄소섬유"],
+  pl: ["Tkanina z włókna węglowego", "Tkanina węglowa spread tow", "Jednokierunkowa tkanina węglowa UD", "Przędza i tow z włókna węglowego", "Prepregi z włókna węglowego", "Cięte włókno węglowe", "Mielony proszek z włókna węglowego", "System wzmocnienia konstrukcyjnego CFRP", "Rura z włókna węglowego nawijana filamentowo", "Prepreg z tkaniny węglowej", "Tkanina UD do wzmocnień konstrukcyjnych", "Włókno węglowe do wzmacniania tworzyw i żywic"],
+  tr: ["Dokuma karbon fiber kumaş", "Spread tow karbon fiber kumaş", "UD tek yönlü karbon fiber kumaş", "Karbon fiber iplik ve tow", "Karbon fiber prepreg malzemeler", "Kırpılmış karbon fiber", "Öğütülmüş karbon fiber tozu", "CFRP yapısal güçlendirme sistemi", "Filament sarım karbon fiber tüp", "Karbon fiber prepreg kumaş", "Yapısal güçlendirme için UD karbon fiber kumaş", "Plastik ve reçine takviyesi için karbon fiber"],
 };
 
 export const extendedProductTranslations = Object.fromEntries(
