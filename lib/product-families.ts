@@ -116,6 +116,7 @@ export const productFamilies: ProductFamily[] = [
     href: "/products#cfrp-profiles-custom-parts",
     keyProducts: [
       "Carbon Fiber Tube",
+      "Filament-Wound Carbon Fiber Tube",
       "Carbon Fiber Sheet / Plate",
       "Carbon Fiber Rod",
       "CNC Machined CFRP Parts",
@@ -125,6 +126,7 @@ export const productFamilies: ProductFamily[] = [
     items: [
       { label: "Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },
       { label: "Roll-Wrapped Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },
+      { label: "Filament-Wound Carbon Fiber Tube", href: "/products/filament-wound-carbon-fiber-tube" },
       { label: "Pultruded Carbon Fiber Tube", href: "/products/pultruded-carbon-fiber-tube" },
       { label: "Carbon Fiber Sheet / Plate", href: "/products/3k-carbon-fiber-laminate-sheet" },
       { label: "Carbon Fiber Rod", href: "/products/pultruded-carbon-fiber-tube" },
