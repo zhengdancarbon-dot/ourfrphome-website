@@ -7,7 +7,6 @@ import { absoluteUrl } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-06-18");
   const staticRoutes = [
     { path: "/", changeFrequency: "weekly", priority: 1 },
     { path: "/products", changeFrequency: "weekly", priority: 0.95 },
@@ -26,6 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/products/${product.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.9,
+    ...(["carbon-fiber-multiaxial-ncf-fabric", "3k-carbon-fiber-laminate-sheet"].includes(product.slug)
+      ? { lastModified: new Date("2026-07-17") }
+      : {}),
   }));
   const applicationRoutes = applicationPages.map((page) => ({
     path: `/applications/${page.slug}`,
@@ -36,7 +38,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/technical-center/${article.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.78,
-    lastModified: article.reviewedAt ? new Date(article.reviewedAt) : lastModified,
+    ...(article.reviewedAt || article.publishedAt
+      ? { lastModified: new Date(article.reviewedAt || article.publishedAt || "") }
+      : {}),
   }));
 
   const routes = [...staticRoutes, ...productRoutes, ...applicationRoutes, ...technicalArticleRoutes];
@@ -62,11 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routeLastModified =
       "lastModified" in route && route.lastModified instanceof Date
         ? route.lastModified
-        : lastModified;
+        : undefined;
 
     return {
       url: absoluteUrl(localePath(route.path, locale)),
-      lastModified: routeLastModified,
+      ...(routeLastModified ? { lastModified: routeLastModified } : {}),
       changeFrequency: route.changeFrequency,
       priority: locale === defaultLocale ? route.priority : Math.max(route.priority - 0.05, 0.5),
       ...(alternates(route.path) ? { alternates: alternates(route.path) } : {}),

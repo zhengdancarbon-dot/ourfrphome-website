@@ -104,9 +104,11 @@ function trackRfqSubmit(productType: string, productName: string, locale: Locale
 
 export function InquiryForm({
   initialProduct,
+  initialProductType,
   locale = defaultLocale,
 }: {
   initialProduct?: string;
+  initialProductType?: string;
   locale?: Locale;
 } = {}) {
   const searchParams = useSearchParams();
@@ -114,7 +116,9 @@ export function InquiryForm({
   const copy = getUiCopy(locale);
   const selectedProduct = searchParams.get("product") ?? initialProduct ?? "";
   const initialMessage = searchParams.get("message") ?? "";
-  const [productType, setProductType] = useState(inferProductType(selectedProduct));
+  const [productType, setProductType] = useState(
+    initialProductType ?? inferProductType(selectedProduct),
+  );
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<InquiryErrors>({});
 

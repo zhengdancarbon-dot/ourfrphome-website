@@ -15,6 +15,8 @@ export const phaseOneProductSlugs = [
   "prepreg-carbon-fiber-materials",
   "chopped-carbon-fiber",
   "milled-carbon-fiber-powder",
+  "carbon-fiber-multiaxial-ncf-fabric",
+  "3k-carbon-fiber-laminate-sheet",
   "structural-strengthening-system",
   "filament-wound-carbon-fiber-tube",
 ] as const;

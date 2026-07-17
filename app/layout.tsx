@@ -188,7 +188,12 @@ export default function RootLayout({
                 var explicitEvent = link.getAttribute("data-analytics-event");
 
                 if (explicitEvent) {
-                  sendEvent(explicitEvent, { link_url: absoluteHref, locale: locale });
+                  sendEvent(explicitEvent, {
+                    link_url: absoluteHref,
+                    locale: locale,
+                    product_slug: link.getAttribute("data-product-slug") || undefined,
+                    document_title: link.getAttribute("data-document-title") || undefined
+                  });
                 } else if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
                   sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale });
                 } else if (href.indexOf("mailto:") === 0) {

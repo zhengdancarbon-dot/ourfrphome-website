@@ -49,6 +49,7 @@ class Sheet:
     handling: list[str]
     source_note: str
     issue_date: str = "16 JULY 2026"
+    document_label: str = "TECHNICAL / DATA SHEET"
 
 
 def p(text, style="BodyFRPH"):
@@ -85,8 +86,9 @@ def cover(canvas, doc, sheet):
     draw_brand(canvas, 20 * mm, PAGE_H - 27 * mm, dark=True)
     canvas.setFillColor(WHITE)
     canvas.setFont("Arial-Bold", 28)
-    canvas.drawString(20 * mm, PAGE_H - 76 * mm, "TECHNICAL")
-    canvas.drawString(20 * mm, PAGE_H - 88 * mm, "DATA SHEET")
+    cover_lines = sheet.document_label.split(" / ")
+    canvas.drawString(20 * mm, PAGE_H - 76 * mm, cover_lines[0])
+    canvas.drawString(20 * mm, PAGE_H - 88 * mm, cover_lines[1] if len(cover_lines) > 1 else "")
     canvas.setFillColor(ORANGE)
     canvas.rect(20 * mm, PAGE_H - 97 * mm, 38 * mm, 2.2 * mm, fill=1, stroke=0)
     title = Paragraph(sheet.title, ParagraphStyle(name="CoverProduct", fontName="Arial-Bold", fontSize=17, leading=20, textColor=WHITE))
@@ -127,7 +129,7 @@ def header_footer(canvas, doc, sheet):
     draw_brand(canvas, 14 * mm, PAGE_H - 9 * mm, dark=True)
     canvas.setFillColor(WHITE)
     canvas.setFont("Arial-Bold", 7.4)
-    canvas.drawRightString(PAGE_W - 14 * mm, PAGE_H - 7.2 * mm, "TECHNICAL DATA SHEET")
+    canvas.drawRightString(PAGE_W - 14 * mm, PAGE_H - 7.2 * mm, sheet.document_label.replace(" / ", " "))
     canvas.setFont("Arial", 6.7)
     canvas.setFillColor(HexColor("#CBD3D9"))
     canvas.drawRightString(PAGE_W - 14 * mm, PAGE_H - 11.1 * mm, sheet.document_id)
@@ -352,6 +354,39 @@ sheets = [
         applications=["Compression molding", "Autoclave molding", "Sporting goods", "Bicycle components", "Marine components", "Industrial composite parts"],
         handling=["Keep sealed during thawing and open only after reaching room temperature to reduce condensation risk.", "Control cumulative room-temperature exposure and use FIFO management.", "Actual cure cycle, pressure, vacuum, demolding and post-cure must be validated for the part and tooling.", "Request the applicable resin SDS before production use."],
         source_note="Prepared from the local WP-L5100 carbon fiber prepreg technical record dated 2026-06-09. Cure, storage and property values remain reference data and require batch and process confirmation.",
+    ),
+    Sheet(
+        filename="FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide.pdf",
+        document_id="FRPH-SPEC-3K-LAM-EN-R01",
+        title="3K Carbon Fiber Laminate Sheet",
+        subtitle="Product specification and RFQ guide",
+        product_code="FRPH-3K-LAM / ORDER CONFIRMATION REQUIRED",
+        summary="A sourcing and quotation guide for cured CFRP laminate sheets with a visible 3K twill surface. This document defines the information required for product review; it is not a batch TDS, test report or structural design certificate.",
+        quick=[("SURFACE", "3K twill by order"), ("FINISH", "Matte / glossy"), ("LAYUP", "Project-defined"), ("PROCESS", "Sheet / CNC part")],
+        tables=[
+            ("Product definition", ["Item", "Available review scope", "Order control"], [
+                ["Product format", "Cured CFRP laminate sheet", "Confirm panel or machined part"],
+                ["Visible surface", "3K twill carbon fabric", "One or two faces by approved sample"],
+                ["Surface finish", "Matte / glossy / sanded / peel-ply", "Confirm face and appearance target"],
+                ["Thickness", "Customer-specified", "Final value and tolerance by quotation"],
+                ["Panel dimensions", "Customer-specified", "Confirm usable size and edge allowance"],
+                ["Inner reinforcement", "Woven / UD / mixed layup by review", "Engineering and process confirmation required"],
+                ["CNC processing", "Cutting / drilling / slots / edge finish", "DXF, STEP or dimensioned drawing required"],
+                ["Surface protection", "Film or interleaf by order", "Confirm packing and appearance faces"],
+            ]),
+            ("RFQ checklist", ["Required input", "Buyer information", "Why it is needed"], [
+                ["Geometry", "Panel dimensions or CAD drawing", "Material and nesting review"],
+                ["Thickness and tolerance", "Nominal value and critical tolerances", "Manufacturing and inspection plan"],
+                ["Surface requirement", "3K twill face, matte or glossy", "Appearance and protection plan"],
+                ["Machining details", "Holes, slots, countersinks and edges", "CNC process review"],
+                ["Commercial context", "Quantity, destination and final application", "Quotation, packing and compliance review"],
+            ]),
+        ],
+        applications=["Industrial panels", "CNC brackets and fixtures", "Equipment covers", "Automotive appearance parts", "Sports and lightweight components"],
+        handling=["Use an approved physical sample when gloss, texture or weave alignment is appearance-critical.", "Do not substitute this laminate sheet for pultruded CFRP strengthening plate without qualified engineering review.", "Confirm thickness, tolerance, layup, surface, CNC drawing, quantity, packing, destination and final application before order release."],
+        source_note="Prepared from the current FRP HOME 3K laminate product scope and RFQ workflow. The available local 1.2 mm source file describes a pultruded structural-strengthening plate and was deliberately not relabeled as a 3K laminate-sheet TDS.",
+        issue_date="17 JULY 2026",
+        document_label="PRODUCT SPECIFICATION / & RFQ GUIDE",
     ),
 ]
 

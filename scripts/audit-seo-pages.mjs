@@ -1,0 +1,96 @@
+const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 203);
+const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
+
+function matches(html, pattern) {
+  return pattern.test(html);
+}
+
+function values(html, pattern) {
+  return [...html.matchAll(pattern)].map((match) => match[1]);
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, { redirect: "manual" });
+  return { response, text: await response.text() };
+}
+
+const sitemapResult = await fetchText(new URL("/sitemap.xml", baseUrl));
+if (!sitemapResult.response.ok) throw new Error(`Sitemap HTTP ${sitemapResult.response.status}`);
+
+const productionUrls = values(sitemapResult.text, /<loc>([^<]+)<\/loc>/g);
+if (productionUrls.length !== expectedTotal) {
+  throw new Error(`Expected ${expectedTotal} sitemap URLs, found ${productionUrls.length}`);
+}
+
+const pathnames = productionUrls.map((url) => new URL(url).pathname);
+const localeCounts = Object.fromEntries(
+  locales.map((locale) => [locale, pathnames.filter((path) => path === `/${locale}` || path.startsWith(`/${locale}/`)).length]),
+);
+const englishCount = pathnames.length - Object.values(localeCounts).reduce((sum, count) => sum + count, 0);
+
+if (englishCount !== 51 || Object.values(localeCounts).some((count) => count !== 19)) {
+  throw new Error(`Unexpected locale distribution: en=${englishCount}, ${JSON.stringify(localeCounts)}`);
+}
+
+const failures = [];
+const internalResources = new Set();
+let cursor = 0;
+
+async function worker() {
+  while (cursor < pathnames.length) {
+    const index = cursor++;
+    const path = pathnames[index];
+    const url = new URL(path, baseUrl);
+    const { response, text } = await fetchText(url);
+    const isLocalized = locales.some((locale) => path === `/${locale}` || path.startsWith(`/${locale}/`));
+
+    if (response.status !== 200) failures.push(`${path}: HTTP ${response.status}`);
+    if (!matches(text, /<title>[^<]+<\/title>/i)) failures.push(`${path}: missing title`);
+    if (!matches(text, /<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/i)) failures.push(`${path}: missing H1`);
+
+    const canonical = values(text, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/gi)[0];
+    const expectedCanonical = `https://www.myfrphome.com${path === "/" ? "" : path}`;
+    if (canonical !== expectedCanonical) failures.push(`${path}: canonical ${canonical || "missing"}`);
+
+    if (isLocalized || ["/", "/products", "/contact", "/catalog", "/products/carbon-fiber-multiaxial-ncf-fabric", "/products/3k-carbon-fiber-laminate-sheet"].includes(path)) {
+      const hreflangs = values(text, /<link[^>]+rel="alternate"[^>]+hrefLang="([^"]+)"/gi);
+      const expected = ["en", "es", "pt-BR", "ru", "ar", "fr", "ko", "pl", "tr", "x-default"];
+      for (const code of expected) {
+        if (!hreflangs.includes(code)) failures.push(`${path}: missing hreflang ${code}`);
+      }
+    }
+
+    for (const href of values(text, /<(?:a|img)[^>]+(?:href|src)="([^"]+)"/gi)) {
+      if (href.startsWith("/") && !href.startsWith("//") && !href.startsWith("/_next/")) {
+        internalResources.add(href.split("#")[0]);
+      }
+    }
+  }
+}
+
+await Promise.all(Array.from({ length: 12 }, worker));
+
+for (const resource of internalResources) {
+  const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
+  if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
+}
+
+for (const path of ["/en", "/es/products/not-a-real-product", "/pt-br/technical-center/not-translated"]) {
+  const response = await fetch(new URL(path, baseUrl), { redirect: "manual" });
+  if (response.status !== 404) failures.push(`${path}: expected 404, found ${response.status}`);
+}
+
+if (failures.length) {
+  console.error(failures.join("\n"));
+  process.exit(1);
+}
+
+console.log(JSON.stringify({
+  sitemapUrls: productionUrls.length,
+  locales: { en: englishCount, ...localeCounts },
+  checkedPages: pathnames.length,
+  checkedInternalResources: internalResources.size,
+  negative404Checks: 3,
+  status: "PASS",
+}, null, 2));

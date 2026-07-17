@@ -19,6 +19,7 @@ import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
+import { technicalArticles } from "@/lib/technical-articles";
 import {
   brandAvailabilityNotice,
   complianceNotice,
@@ -64,6 +65,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 function inferRfqType(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-multiaxial-ncf-fabric") return "multiaxial-ncf";
   if (product.slug === "carbon-fiber-ud-fabric") return "ud-fabric";
   if (product.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
   if (product.slug === "aramid-fabric" || product.slug === "carbon-fiber-hybrid-jacquard-fabric") {
@@ -308,6 +310,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const fit = recommendedFit(product);
   const hasVacuumInfusionGuide = vacuumInfusionGuideProducts.has(product.slug);
+  const relatedGuides = technicalArticles
+    .filter((article) => article.recommendedProducts.includes(product.slug))
+    .slice(-4);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const productGalleryLimit = product.slug === "chopped-carbon-fiber" ? 6 : 4;
   const firstSpecTable = product.tds.tables[0];
@@ -593,7 +598,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <section className="product-detail-card documents-card" id="documents">
               <div>
                 <Eyebrow>Documents available</Eyebrow>
-                <h2>TDS / SDS / COA</h2>
+                <h2>Technical product documents</h2>
                 <p>
                   Document availability depends on material family, specification,
                   order agreement and batch. Final values are confirmed by
@@ -605,6 +610,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       <a
                         className="tds-download-card"
                         data-analytics-event="tds_download"
+                        data-product-slug={product.slug}
+                        data-document-title={document.title}
                         download
                         href={document.href}
                         key={document.href}
@@ -671,6 +678,27 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </section>
             ) : null}
 
+            {relatedGuides.length > 0 ? (
+              <section className="product-detail-card" id="technical-guides">
+                <SectionHeading
+                  eyebrow="Buyer guides"
+                  title={`Technical guidance for ${product.shortName}.`}
+                  copy="Use these guides to compare material options and prepare a specification-first RFQ. Final order values remain subject to quotation and document review."
+                />
+                <div className="application-detail-list">
+                  {relatedGuides.map((guide) => (
+                    <Link href={`/technical-center/${guide.slug}`} key={guide.slug}>
+                      <span>
+                        <strong>{guide.title}</strong>
+                        <small>{guide.description}</small>
+                      </span>
+                      <ArrowRight size={17} />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
             <section className="product-detail-card">
               <div className="section-title-row">
                 <div>
@@ -719,7 +747,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               />
             }
           >
-            <InquiryForm initialProduct={product.name} />
+            <InquiryForm
+              initialProduct={product.name}
+              initialProductType={activeRfqType.value}
+            />
           </Suspense>
         </div>
       </section>

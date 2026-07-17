@@ -109,6 +109,8 @@ const productDefinitions: Record<ProductSlug, { category: keyof Pack["categories
   "prepreg-carbon-fiber-materials": { category: "prepreg", focus: "woven / UD / spread tow, resin content, cure profile", apps: ["automotive", "sports", "molding"] },
   "chopped-carbon-fiber": { category: "chopped", focus: "3 mm / 6 mm / 12 mm, sizing, matrix", apps: ["plastics", "automotive"] },
   "milled-carbon-fiber-powder": { category: "powder", focus: "mean length, fiber diameter, mesh, matrix", apps: ["plastics", "molding"] },
+  "carbon-fiber-multiaxial-ncf-fabric": { category: "woven", focus: "UD / biaxial / triaxial / quadriaxial, 0 / 90 / +45 / -45 degrees, g/m2, width", apps: ["infusion", "automotive", "panels"] },
+  "3k-carbon-fiber-laminate-sheet": { category: "strengthening", focus: "3K twill surface, thickness, panel dimensions, matte / glossy finish, CNC drawing", apps: ["panels", "automotive", "sports"] },
   "structural-strengthening-system": { category: "strengthening", focus: "UD fabric, pultruded CFRP plate, epoxy resin, project dimensions", apps: ["concrete", "pultrusion"] },
   "filament-wound-carbon-fiber-tube": { category: "tube", focus: "diameter, wall thickness, winding angle, resin system, tolerance", apps: ["molding", "automotive", "sports"] },
 };
@@ -134,6 +136,119 @@ const filamentWoundTubeTranslations: Record<ExtendedLocale, {
   tr: { category: "Filament sarım kompozit tüp", focus: { diameter: "çap", "wall thickness": "et kalınlığı", "winding angle": "sarım açısı", "resin system": "reçine sistemi", tolerance: "tolerans" } },
 };
 
+const dualCoreCategoryTranslations: Record<ExtendedLocale, Record<"carbon-fiber-multiaxial-ncf-fabric" | "3k-carbon-fiber-laminate-sheet", string>> = {
+  ru: { "carbon-fiber-multiaxial-ncf-fabric": "Мультиаксиальная ткань NCF", "3k-carbon-fiber-laminate-sheet": "Ламинированная плита CFRP" },
+  ar: { "carbon-fiber-multiaxial-ncf-fabric": "نسيج متعدد المحاور NCF", "3k-carbon-fiber-laminate-sheet": "صفيحة CFRP مصفحة" },
+  fr: { "carbon-fiber-multiaxial-ncf-fabric": "Tissu multiaxial NCF", "3k-carbon-fiber-laminate-sheet": "Plaque stratifiée CFRP" },
+  ko: { "carbon-fiber-multiaxial-ncf-fabric": "다축 NCF 원단", "3k-carbon-fiber-laminate-sheet": "CFRP 적층판" },
+  pl: { "carbon-fiber-multiaxial-ncf-fabric": "Multiaxialna tkanina NCF", "3k-carbon-fiber-laminate-sheet": "Płyta laminowana CFRP" },
+  tr: { "carbon-fiber-multiaxial-ncf-fabric": "Çok eksenli NCF kumaş", "3k-carbon-fiber-laminate-sheet": "CFRP laminat plaka" },
+};
+
+type DualCoreSlug = "carbon-fiber-multiaxial-ncf-fabric" | "3k-carbon-fiber-laminate-sheet";
+type DualCoreCopy = Pick<LocalizedProductContent, "description" | "heroCopy" | "intro" | "faqs"> & {
+  seoDescription: string;
+};
+
+const dualCoreProductCopy: Record<ExtendedLocale, Record<DualCoreSlug, DualCoreCopy>> = {
+  ru: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "Мультиаксиальная углеродная ткань NCF в исполнениях UD, biaxial, triaxial и quadriaxial для многовекторного армирования композитов.",
+      heroCopy: "Конструкции 300gsm и 600gsm с направлениями 0°, 90°, +45° и -45°; перед предложением подтверждаются архитектура, ширина, длина рулона, прошивка, процесс со смолой и конечное применение.",
+      seoDescription: "Поставщик мультиаксиальной углеродной ткани NCF 300gsm и 600gsm для вакуумной инфузии, RTM и промышленных композитов.",
+      intro: ["NCF фиксирует прямые слои углеродного волокна в заданных направлениях с помощью прошивки.", "Для запроса укажите архитектуру, направления, g/m², ширину, рулон, прошивку, процесс, количество и конечное применение."],
+      faqs: [{ question: "Чем biaxial отличается от quadriaxial?", answer: "Biaxial объединяет два направления, например +45°/-45°. Quadriaxial обычно объединяет 0°, +45°, 90° и -45°. Выбор определяется схемой укладки." }, { question: "Какие данные нужны для предложения?", answer: "Укажите конструкцию, направления, g/m², ширину, длину рулона, прошивку, процесс со смолой, количество и конечное применение." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "Ламинированная углепластиковая плита с видимой поверхностью 3K twill и матовым, глянцевым, шлифованным или peel-ply покрытием для панелей и деталей CNC.",
+      heroCopy: "Толщина, размер, внутренняя укладка, плоскостность, поверхность, допуски и чертеж CNC проверяются для каждого заказа; продукт не следует путать с пултрузионной пластиной CFRP для усиления.",
+      seoDescription: "Поставщик 3K углепластиковых листов с матовой или глянцевой поверхностью и обработкой CNC по чертежу.",
+      intro: ["Плита 3K сочетает видимую тканую поверхность с внутренней укладкой, определяемой по толщине и назначению детали.", "Для предложения требуются размеры, толщина, поверхность, допуски, чертеж, количество и конечное применение."],
+      faqs: [{ question: "Это то же самое, что пултрузионная пластина для усиления?", answer: "Нет. Здесь рассматривается ламинированная плита 3K для панелей и деталей. Пултрузионная пластина относится к отдельной системе конструкционного усиления." }, { question: "Возможна обработка по чертежу?", answer: "Да. Отправьте DXF, STEP или размерный чертеж с допусками, отверстиями, поверхностью и количеством для проверки." }],
+    },
+  },
+  ar: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "نسيج كربون متعدد المحاور NCF بتراكيب UD وثنائية وثلاثية ورباعية المحاور لتقوية المواد المركبة في اتجاهات متعددة.",
+      heroCopy: "تتوفر تراكيب 300gsm و600gsm باتجاهات 0° و90° و+45° و-45°؛ وتُراجع البنية والعرض وطول اللفة وخيط التثبيت وعملية الراتنج والاستخدام النهائي قبل عرض السعر.",
+      seoDescription: "مورد نسيج كربون متعدد المحاور NCF بوزن 300gsm و600gsm للتسريب بالتفريغ وRTM والهياكل المركبة الصناعية.",
+      intro: ["يثبت NCF طبقات ألياف الكربون المستقيمة في اتجاهات محددة بواسطة خيط تثبيت.", "لطلب السعر، حدد البنية والاتجاهات وg/m² والعرض وطول اللفة وخيط التثبيت وعملية الراتنج والكمية والاستخدام النهائي."],
+      faqs: [{ question: "ما الفرق بين النسيج ثنائي ورباعي المحاور؟", answer: "يجمع النسيج ثنائي المحاور اتجاهين مثل +45°/-45°، بينما يجمع رباعي المحاور عادة 0° و+45° و90° و-45°. يعتمد الاختيار على تصميم الرقائق." }, { question: "ما البيانات المطلوبة لعرض السعر؟", answer: "حدد البنية والاتجاهات وg/m² والعرض وطول اللفة وخيط التثبيت وعملية الراتنج والكمية والاستخدام النهائي." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "صفيحة CFRP مصفحة بسطح منسوج 3K وتشطيب مطفي أو لامع أو مصنفر أو peel-ply للألواح والقطع المشغلة CNC.",
+      heroCopy: "تُراجع السماكة والأبعاد وترتيب الطبقات الداخلية والاستواء والتشطيب والتفاوتات ورسم CNC لكل طلب؛ ولا تُخلط هذه الصفيحة مع صفيحة CFRP المسحوبة للتقوية الإنشائية.",
+      seoDescription: "مورد صفائح ألياف كربون 3K بتشطيب مطفي أو لامع وتشغيل CNC حسب الرسم.",
+      intro: ["تجمع صفيحة 3K بين سطح منسوج ظاهر وطبقات داخلية تُحدد حسب السماكة واستخدام القطعة.", "لطلب السعر، أرسل الأبعاد والسماكة والتشطيب والتفاوتات والرسم والكمية والاستخدام النهائي."],
+      faqs: [{ question: "هل هي نفس صفيحة CFRP المسحوبة للتقوية؟", answer: "لا. هذه صفيحة مصفحة 3K للألواح والقطع، أما الصفيحة المسحوبة فتتبع نظام تقوية إنشائية منفصل." }, { question: "هل يمكن التشغيل حسب الرسم؟", answer: "نعم. أرسل ملف DXF أو STEP أو رسماً بأبعاد وتفاوتات وفتحات وتشطيب وكمية للمراجعة." }],
+    },
+  },
+  fr: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "Tissu carbone multiaxial NCF en architectures UD, biaxiale, triaxiale et quadriaxiale pour le renfort multidirectionnel des composites.",
+      heroCopy: "Constructions 300gsm et 600gsm avec orientations 0°, 90°, +45° et -45° ; l'architecture, la largeur, la longueur de rouleau, la couture, le procédé résine et l'usage final sont confirmés avant devis.",
+      seoDescription: "Fournisseur de tissu carbone multiaxial NCF 300gsm et 600gsm pour infusion sous vide, RTM et structures composites industrielles.",
+      intro: ["Le NCF maintient des couches droites de fibre de carbone dans des orientations définies au moyen d'une couture.", "Pour le devis, précisez architecture, orientations, g/m², largeur, rouleau, couture, procédé, quantité et usage final."],
+      faqs: [{ question: "Quelle différence entre biaxial et quadriaxial ?", answer: "Le biaxial combine deux orientations, par exemple +45°/-45°. Le quadriaxial combine généralement 0°, +45°, 90° et -45°. Le choix suit le plan de stratification." }, { question: "Quelles données fournir pour un devis ?", answer: "Indiquez architecture, orientations, g/m², largeur, longueur de rouleau, couture, procédé résine, quantité et usage final." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "Plaque stratifiée CFRP avec surface sergé 3K et finition mate, brillante, poncée ou peel-ply pour panneaux et pièces usinées CNC.",
+      heroCopy: "Épaisseur, dimensions, stratification interne, planéité, finition, tolérances et plan CNC sont étudiés pour chaque commande ; cette plaque est distincte d'une lamelle CFRP pultrudée de renforcement.",
+      seoDescription: "Fournisseur de plaques carbone 3K mates ou brillantes avec dimensions sur mesure et usinage CNC sur plan.",
+      intro: ["La plaque 3K associe une surface tissée visible à une stratification interne définie selon l'épaisseur et la pièce.", "Pour le devis, précisez dimensions, épaisseur, finition, tolérances, plan, quantité et usage final."],
+      faqs: [{ question: "Est-ce une lamelle pultrudée de renforcement ?", answer: "Non. Cette page concerne une plaque stratifiée 3K pour panneaux et pièces. La lamelle pultrudée appartient au système de renforcement structurel." }, { question: "L'usinage sur plan est-il possible ?", answer: "Oui. Envoyez un fichier DXF, STEP ou un plan coté avec tolérances, perçages, finition et quantité." }],
+    },
+  },
+  ko: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "복합재의 다방향 보강을 위한 UD, 이축, 삼축 및 사축 구조의 다축 탄소섬유 NCF 원단입니다.",
+      heroCopy: "0°, 90°, +45°, -45° 방향의 300gsm 및 600gsm 구조를 공급하며, 견적 전에 구조, 폭, 롤 길이, 스티치, 수지 공정 및 최종 용도를 확인합니다.",
+      seoDescription: "진공 인퓨전, RTM 및 산업용 복합재 구조를 위한 300gsm 및 600gsm 다축 탄소섬유 NCF 공급업체입니다.",
+      intro: ["NCF는 스티치로 직선 탄소섬유 층을 지정된 방향에 고정합니다.", "견적 시 구조, 방향, g/m², 폭, 롤 길이, 스티치, 수지 공정, 수량 및 최종 용도를 알려주십시오."],
+      faqs: [{ question: "이축과 사축 NCF의 차이는 무엇입니까?", answer: "이축은 +45°/-45°와 같이 두 방향을 결합하고, 사축은 일반적으로 0°, +45°, 90°, -45°를 결합합니다. 선택은 적층 설계에 따릅니다." }, { question: "견적에 필요한 정보는 무엇입니까?", answer: "구조, 방향, g/m², 폭, 롤 길이, 스티치, 수지 공정, 수량 및 최종 용도를 알려주십시오." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "패널과 CNC 가공 부품을 위한 3K 능직 표면의 CFRP 적층판으로, 무광, 유광, 샌딩 또는 peel-ply 마감을 검토할 수 있습니다.",
+      heroCopy: "두께, 크기, 내부 적층, 평탄도, 마감, 공차 및 CNC 도면을 주문별로 검토하며, 구조 보강용 인발 CFRP 판과 구분해야 합니다.",
+      seoDescription: "무광 또는 유광 표면과 도면 기반 CNC 가공을 제공하는 3K 탄소섬유 적층판 공급업체입니다.",
+      intro: ["3K 적층판은 보이는 직조 표면과 부품 두께 및 용도에 맞춘 내부 적층을 결합합니다.", "견적 시 치수, 두께, 마감, 공차, 도면, 수량 및 최종 용도를 알려주십시오."],
+      faqs: [{ question: "구조 보강용 인발판과 동일합니까?", answer: "아닙니다. 이 페이지는 패널과 부품용 3K 적층판을 다룹니다. 인발판은 별도의 구조 보강 시스템에 속합니다." }, { question: "도면에 따른 CNC 가공이 가능합니까?", answer: "가능합니다. 공차, 구멍, 마감 및 수량이 포함된 DXF, STEP 또는 치수 도면을 보내주십시오." }],
+    },
+  },
+  pl: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "Multiaxialna tkanina węglowa NCF w układzie UD, biaxialnym, triaxialnym lub quadriaxialnym do wielokierunkowego wzmacniania kompozytów.",
+      heroCopy: "Konstrukcje 300gsm i 600gsm w kierunkach 0°, 90°, +45° i -45°; przed ofertą potwierdzamy architekturę, szerokość, długość rolki, szew, proces żywiczny i zastosowanie końcowe.",
+      seoDescription: "Dostawca multiaxialnej tkaniny węglowej NCF 300gsm i 600gsm do infuzji próżniowej, RTM i przemysłowych struktur kompozytowych.",
+      intro: ["NCF utrzymuje proste warstwy włókien węglowych w określonych kierunkach za pomocą szwu.", "Do wyceny podaj architekturę, kierunki, g/m², szerokość, rolkę, szew, proces, ilość i zastosowanie końcowe."],
+      faqs: [{ question: "Czym różni się biaxial od quadriaxial?", answer: "Biaxial łączy dwa kierunki, np. +45°/-45°. Quadriaxial zwykle łączy 0°, +45°, 90° i -45°. Wybór wynika z projektu laminatu." }, { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj konstrukcję, kierunki, g/m², szerokość, długość rolki, szew, proces żywiczny, ilość i zastosowanie końcowe." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "Płyta laminowana CFRP z widoczną powierzchnią 3K twill i wykończeniem matowym, błyszczącym, szlifowanym lub peel-ply do paneli i części CNC.",
+      heroCopy: "Grubość, wymiary, wewnętrzny układ warstw, płaskość, wykończenie, tolerancje i rysunek CNC są sprawdzane dla każdego zamówienia; produktu nie należy mylić z pultrudowaną płytą CFRP do wzmocnień.",
+      seoDescription: "Dostawca płyt węglowych 3K z matową lub błyszczącą powierzchnią i obróbką CNC według rysunku.",
+      intro: ["Płyta 3K łączy widoczną powierzchnię tkaną z wewnętrznym układem warstw dobranym do grubości i części.", "Do wyceny podaj wymiary, grubość, wykończenie, tolerancje, rysunek, ilość i zastosowanie końcowe."],
+      faqs: [{ question: "Czy to jest pultrudowana płyta do wzmocnień?", answer: "Nie. Ta strona dotyczy laminowanej płyty 3K do paneli i części. Płyta pultrudowana należy do oddzielnego systemu wzmocnień konstrukcyjnych." }, { question: "Czy możliwa jest obróbka według rysunku?", answer: "Tak. Prześlij DXF, STEP lub rysunek wymiarowy z tolerancjami, otworami, wykończeniem i ilością." }],
+    },
+  },
+  tr: {
+    "carbon-fiber-multiaxial-ncf-fabric": {
+      description: "Kompozitlerin çok yönlü takviyesi için UD, biaxial, triaxial ve quadriaxial yapılarda çok eksenli karbon fiber NCF kumaş.",
+      heroCopy: "0°, 90°, +45° ve -45° yönlerinde 300gsm ve 600gsm yapılar; mimari, genişlik, rulo uzunluğu, dikiş, reçine prosesi ve nihai kullanım teklif öncesinde doğrulanır.",
+      seoDescription: "Vakum infüzyon, RTM ve endüstriyel kompozit yapılar için 300gsm ve 600gsm çok eksenli karbon NCF tedarikçisi.",
+      intro: ["NCF, düz karbon fiber katmanlarını belirlenen yönlerde dikiş ile sabitler.", "Teklif için mimariyi, yönleri, g/m² değerini, genişliği, ruloyu, dikişi, prosesi, miktarı ve nihai kullanımı belirtin."],
+      faqs: [{ question: "Biaxial ile quadriaxial arasındaki fark nedir?", answer: "Biaxial, +45°/-45° gibi iki yönü birleştirir. Quadriaxial genellikle 0°, +45°, 90° ve -45° yönlerini birleştirir. Seçim laminat tasarımına bağlıdır." }, { question: "Teklif için hangi bilgiler gerekir?", answer: "Yapı, yönler, g/m², genişlik, rulo uzunluğu, dikiş, reçine prosesi, miktar ve nihai kullanım bilgilerini paylaşın." }],
+    },
+    "3k-carbon-fiber-laminate-sheet": {
+      description: "Panel ve CNC işlenmiş parçalar için 3K dimi yüzeyli; mat, parlak, zımparalı veya peel-ply seçenekli CFRP laminat plaka.",
+      heroCopy: "Kalınlık, boyut, iç katman dizilimi, düzlemsellik, yüzey, tolerans ve CNC çizimi her sipariş için incelenir; yapısal güçlendirme amaçlı pultrüzyon CFRP plakadan ayrıdır.",
+      seoDescription: "Mat veya parlak yüzey ve çizime göre CNC işleme seçenekli 3K karbon fiber laminat plaka tedarikçisi.",
+      intro: ["3K plaka, görünür dokuma yüzeyi parça kalınlığına ve kullanımına göre belirlenen iç katmanlarla birleştirir.", "Teklif için boyut, kalınlık, yüzey, tolerans, çizim, miktar ve nihai kullanımı belirtin."],
+      faqs: [{ question: "Yapısal güçlendirme için pultrüzyon plaka ile aynı mıdır?", answer: "Hayır. Bu sayfa panel ve parçalar için 3K laminat plakayı kapsar. Pultrüzyon plaka ayrı bir yapısal güçlendirme sistemine aittir." }, { question: "Çizime göre CNC işleme yapılabilir mi?", answer: "Evet. Tolerans, delik, yüzey ve miktarı içeren DXF, STEP veya ölçülü çizim gönderin." }],
+    },
+  },
+};
+
 function localizeFocus(locale: ExtendedLocale, focus: string) {
   return Object.entries({ ...focusTerms[locale], ...filamentWoundTubeTranslations[locale].focus })
     .sort(([left], [right]) => right.length - left.length)
@@ -154,22 +269,29 @@ function makeProducts(locale: ExtendedLocale) {
         "prepreg-carbon-fiber-materials": "Prepreg Carbon Fiber Materials",
         "chopped-carbon-fiber": "Chopped Carbon Fiber",
         "milled-carbon-fiber-powder": "Milled Carbon Fiber Powder",
+        "carbon-fiber-multiaxial-ncf-fabric": "Carbon Fiber Multiaxial NCF Fabric",
+        "3k-carbon-fiber-laminate-sheet": "3K Carbon Fiber Laminate Sheet",
         "structural-strengthening-system": "Structural Strengthening System",
         "filament-wound-carbon-fiber-tube": "Filament-Wound Carbon Fiber Tube",
       } as const)[slug]
     ];
+    const dualCoreCopy = slug === "carbon-fiber-multiaxial-ncf-fabric" || slug === "3k-carbon-fiber-laminate-sheet"
+      ? dualCoreProductCopy[locale][slug]
+      : undefined;
     return [slug, {
       name,
       shortName: name,
       category: slug === "filament-wound-carbon-fiber-tube"
         ? filamentWoundTubeTranslations[locale].category
-        : pack.categories[definition.category],
-      description: pack.productDescription(name, focus),
-      heroCopy: pack.productHero(name, focus),
-      seo: { title: name, description: pack.productDescription(name, focus), keywords: [name, `${name} ${pack.supplier}`] },
-      intro: pack.productIntro(name, focus),
+        : slug === "carbon-fiber-multiaxial-ncf-fabric" || slug === "3k-carbon-fiber-laminate-sheet"
+          ? dualCoreCategoryTranslations[locale][slug]
+          : pack.categories[definition.category],
+      description: dualCoreCopy?.description ?? pack.productDescription(name, focus),
+      heroCopy: dualCoreCopy?.heroCopy ?? pack.productHero(name, focus),
+      seo: { title: name, description: dualCoreCopy?.seoDescription ?? pack.productDescription(name, focus), keywords: [name, `${name} ${pack.supplier}`] },
+      intro: dualCoreCopy?.intro ?? pack.productIntro(name, focus),
       applications: definition.apps.map((key) => pack.applications[key]),
-      faqs: pack.productFaq(name, focus),
+      faqs: dualCoreCopy?.faqs ?? pack.productFaq(name, focus),
     } satisfies LocalizedProductContent];
   })) as Record<ProductSlug, LocalizedProductContent>;
 }

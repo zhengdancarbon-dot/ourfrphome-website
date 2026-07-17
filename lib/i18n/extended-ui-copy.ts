@@ -75,6 +75,8 @@ const productKeys = [
   "Prepreg Carbon Fiber Materials",
   "Chopped Carbon Fiber",
   "Milled Carbon Fiber Powder",
+  "Carbon Fiber Multiaxial NCF Fabric",
+  "3K Carbon Fiber Laminate Sheet",
   "Structural Strengthening System",
   "Filament-Wound Carbon Fiber Tube",
   "Prepreg Carbon Fiber Fabric",
@@ -83,12 +85,12 @@ const productKeys = [
 ] as const;
 
 const productValues: Record<ExtendedLocale, readonly string[]> = {
-  ru: ["Тканая углеродная ткань", "Углеродная ткань spread tow", "Однонаправленная углеродная ткань UD", "Углеродная нить и tow", "Углеродные препреги", "Рубленое углеродное волокно", "Молотый порошок углеродного волокна", "Система конструкционного усиления CFRP", "Углепластиковая труба филаментной намотки", "Углеродный препрег", "Ткань UD для конструкционного усиления", "Углеродное волокно для армирования пластика и смолы"],
-  ar: ["نسيج ألياف الكربون المنسوج", "نسيج ألياف الكربون spread tow", "نسيج ألياف الكربون أحادي الاتجاه UD", "خيوط وحزم ألياف الكربون", "مواد ألياف الكربون المسبقة التشريب", "ألياف كربون مقطعة", "مسحوق ألياف كربون مطحون", "نظام تقوية إنشائية CFRP", "أنبوب ألياف كربون باللف الخيطي", "نسيج كربوني مسبق التشريب", "نسيج UD للتقوية الإنشائية", "ألياف كربون لتقوية البلاستيك والراتنج"],
-  fr: ["Tissu de fibre de carbone", "Tissu carbone spread tow", "Tissu carbone unidirectionnel UD", "Fil et tow de fibre de carbone", "Préimprégnés en fibre de carbone", "Fibre de carbone coupée", "Poudre de fibre de carbone broyée", "Système de renforcement structurel CFRP", "Tube carbone enroulé filamentaire", "Tissu carbone préimprégné", "Tissu UD pour renforcement structurel", "Fibre de carbone pour renfort de plastiques et résines"],
-  ko: ["직조 탄소섬유 원단", "Spread tow 탄소섬유 원단", "UD 단방향 탄소섬유 원단", "탄소섬유 원사 및 tow", "탄소섬유 프리프레그", "단섬유 탄소섬유", "밀드 탄소섬유 분말", "CFRP 구조 보강 시스템", "필라멘트 와인딩 탄소섬유 튜브", "탄소섬유 프리프레그 원단", "구조 보강용 UD 탄소섬유 원단", "플라스틱 및 수지 보강용 탄소섬유"],
-  pl: ["Tkanina z włókna węglowego", "Tkanina węglowa spread tow", "Jednokierunkowa tkanina węglowa UD", "Przędza i tow z włókna węglowego", "Prepregi z włókna węglowego", "Cięte włókno węglowe", "Mielony proszek z włókna węglowego", "System wzmocnienia konstrukcyjnego CFRP", "Rura z włókna węglowego nawijana filamentowo", "Prepreg z tkaniny węglowej", "Tkanina UD do wzmocnień konstrukcyjnych", "Włókno węglowe do wzmacniania tworzyw i żywic"],
-  tr: ["Dokuma karbon fiber kumaş", "Spread tow karbon fiber kumaş", "UD tek yönlü karbon fiber kumaş", "Karbon fiber iplik ve tow", "Karbon fiber prepreg malzemeler", "Kırpılmış karbon fiber", "Öğütülmüş karbon fiber tozu", "CFRP yapısal güçlendirme sistemi", "Filament sarım karbon fiber tüp", "Karbon fiber prepreg kumaş", "Yapısal güçlendirme için UD karbon fiber kumaş", "Plastik ve reçine takviyesi için karbon fiber"],
+  ru: ["Тканая углеродная ткань", "Углеродная ткань spread tow", "Однонаправленная углеродная ткань UD", "Углеродная нить и tow", "Углеродные препреги", "Рубленое углеродное волокно", "Молотый порошок углеродного волокна", "Мультиаксиальная углеродная ткань NCF", "3K углепластиковый лист", "Система конструкционного усиления CFRP", "Углепластиковая труба филаментной намотки", "Углеродный препрег", "Ткань UD для конструкционного усиления", "Углеродное волокно для армирования пластика и смолы"],
+  ar: ["نسيج ألياف الكربون المنسوج", "نسيج ألياف الكربون spread tow", "نسيج ألياف الكربون أحادي الاتجاه UD", "خيوط وحزم ألياف الكربون", "مواد ألياف الكربون المسبقة التشريب", "ألياف كربون مقطعة", "مسحوق ألياف كربون مطحون", "نسيج كربون متعدد المحاور NCF", "صفيحة ألياف كربون 3K", "نظام تقوية إنشائية CFRP", "أنبوب ألياف كربون باللف الخيطي", "نسيج كربوني مسبق التشريب", "نسيج UD للتقوية الإنشائية", "ألياف كربون لتقوية البلاستيك والراتنج"],
+  fr: ["Tissu de fibre de carbone", "Tissu carbone spread tow", "Tissu carbone unidirectionnel UD", "Fil et tow de fibre de carbone", "Préimprégnés en fibre de carbone", "Fibre de carbone coupée", "Poudre de fibre de carbone broyée", "Tissu carbone multiaxial NCF", "Plaque stratifiée carbone 3K", "Système de renforcement structurel CFRP", "Tube carbone enroulé filamentaire", "Tissu carbone préimprégné", "Tissu UD pour renforcement structurel", "Fibre de carbone pour renfort de plastiques et résines"],
+  ko: ["직조 탄소섬유 원단", "Spread tow 탄소섬유 원단", "UD 단방향 탄소섬유 원단", "탄소섬유 원사 및 tow", "탄소섬유 프리프레그", "단섬유 탄소섬유", "밀드 탄소섬유 분말", "다축 탄소섬유 NCF 원단", "3K 탄소섬유 적층판", "CFRP 구조 보강 시스템", "필라멘트 와인딩 탄소섬유 튜브", "탄소섬유 프리프레그 원단", "구조 보강용 UD 탄소섬유 원단", "플라스틱 및 수지 보강용 탄소섬유"],
+  pl: ["Tkanina z włókna węglowego", "Tkanina węglowa spread tow", "Jednokierunkowa tkanina węglowa UD", "Przędza i tow z włókna węglowego", "Prepregi z włókna węglowego", "Cięte włókno węglowe", "Mielony proszek z włókna węglowego", "Multiaxialna tkanina węglowa NCF", "Płyta laminowana 3K z włókna węglowego", "System wzmocnienia konstrukcyjnego CFRP", "Rura z włókna węglowego nawijana filamentowo", "Prepreg z tkaniny węglowej", "Tkanina UD do wzmocnień konstrukcyjnych", "Włókno węglowe do wzmacniania tworzyw i żywic"],
+  tr: ["Dokuma karbon fiber kumaş", "Spread tow karbon fiber kumaş", "UD tek yönlü karbon fiber kumaş", "Karbon fiber iplik ve tow", "Karbon fiber prepreg malzemeler", "Kırpılmış karbon fiber", "Öğütülmüş karbon fiber tozu", "Çok eksenli karbon fiber NCF kumaş", "3K karbon fiber laminat plaka", "CFRP yapısal güçlendirme sistemi", "Filament sarım karbon fiber tüp", "Karbon fiber prepreg kumaş", "Yapısal güçlendirme için UD karbon fiber kumaş", "Plastik ve reçine takviyesi için karbon fiber"],
 };
 
 export const extendedProductTranslations = Object.fromEntries(
@@ -128,12 +130,12 @@ export function translateExtendedRfqType(locale: ExtendedLocale, label: string) 
     "Structural Strengthening System": "Structural Strengthening System",
   };
   const extras: Record<ExtendedLocale, Record<string, string>> = {
-    ru: { "Aramid / Carbon-Aramid Hybrid Fabric": "Арамидная / углеродно-арамидная гибридная ткань", "CFRP Profiles & Custom Parts": "Профили CFRP и детали на заказ" },
-    ar: { "Aramid / Carbon-Aramid Hybrid Fabric": "نسيج أراميد / هجين كربون-أراميد", "CFRP Profiles & Custom Parts": "مقاطع CFRP وقطع مخصصة" },
-    fr: { "Aramid / Carbon-Aramid Hybrid Fabric": "Tissu aramide / hybride carbone-aramide", "CFRP Profiles & Custom Parts": "Profils CFRP et pièces sur mesure" },
-    ko: { "Aramid / Carbon-Aramid Hybrid Fabric": "아라미드 / 탄소-아라미드 하이브리드 원단", "CFRP Profiles & Custom Parts": "CFRP 프로파일 및 맞춤 부품" },
-    pl: { "Aramid / Carbon-Aramid Hybrid Fabric": "Tkanina aramidowa / hybrydowa węgiel-aramid", "CFRP Profiles & Custom Parts": "Profile CFRP i części niestandardowe" },
-    tr: { "Aramid / Carbon-Aramid Hybrid Fabric": "Aramid / karbon-aramid hibrit kumaş", "CFRP Profiles & Custom Parts": "CFRP profiller ve özel parçalar" },
+    ru: { "Aramid / Carbon-Aramid Hybrid Fabric": "Арамидная / углеродно-арамидная гибридная ткань", "CFRP Profiles & Custom Parts": "Профили CFRP и детали на заказ", "Carbon Fiber Multiaxial NCF": "Мультиаксиальная углеродная ткань NCF" },
+    ar: { "Aramid / Carbon-Aramid Hybrid Fabric": "نسيج أراميد / هجين كربون-أراميد", "CFRP Profiles & Custom Parts": "مقاطع CFRP وقطع مخصصة", "Carbon Fiber Multiaxial NCF": "نسيج كربون متعدد المحاور NCF" },
+    fr: { "Aramid / Carbon-Aramid Hybrid Fabric": "Tissu aramide / hybride carbone-aramide", "CFRP Profiles & Custom Parts": "Profils CFRP et pièces sur mesure", "Carbon Fiber Multiaxial NCF": "Tissu carbone multiaxial NCF" },
+    ko: { "Aramid / Carbon-Aramid Hybrid Fabric": "아라미드 / 탄소-아라미드 하이브리드 원단", "CFRP Profiles & Custom Parts": "CFRP 프로파일 및 맞춤 부품", "Carbon Fiber Multiaxial NCF": "다축 탄소섬유 NCF" },
+    pl: { "Aramid / Carbon-Aramid Hybrid Fabric": "Tkanina aramidowa / hybrydowa węgiel-aramid", "CFRP Profiles & Custom Parts": "Profile CFRP i części niestandardowe", "Carbon Fiber Multiaxial NCF": "Multiaxialna tkanina węglowa NCF" },
+    tr: { "Aramid / Carbon-Aramid Hybrid Fabric": "Aramid / karbon-aramid hibrit kumaş", "CFRP Profiles & Custom Parts": "CFRP profiller ve özel parçalar", "Carbon Fiber Multiaxial NCF": "Çok eksenli karbon fiber NCF" },
   };
   return extras[locale][label] ?? extendedProductTranslations[locale][aliases[label] ?? label] ?? label;
 }
@@ -157,5 +159,13 @@ const additionalFieldTranslations: Record<ExtendedLocale, Record<string, string>
 };
 
 export function translateExtendedField(locale: ExtendedLocale, label: string) {
-  return additionalFieldTranslations[locale][label] ?? genericFieldTranslations[locale][label] ?? fieldFallback[locale];
+  const dualCoreFields: Record<ExtendedLocale, Record<string, string>> = {
+    ru: { "NCF architecture": "Архитектура NCF", "Fiber directions": "Направления волокон", "Stitch requirement": "Требование к прошивке", "Resin process": "Процесс со смолой" },
+    ar: { "NCF architecture": "بنية NCF", "Fiber directions": "اتجاهات الألياف", "Stitch requirement": "متطلبات خيط التثبيت", "Resin process": "عملية الراتنج" },
+    fr: { "NCF architecture": "Architecture NCF", "Fiber directions": "Orientations des fibres", "Stitch requirement": "Exigence de couture", "Resin process": "Procédé résine" },
+    ko: { "NCF architecture": "NCF 구조", "Fiber directions": "섬유 방향", "Stitch requirement": "스티치 요구 사항", "Resin process": "수지 공정" },
+    pl: { "NCF architecture": "Architektura NCF", "Fiber directions": "Kierunki włókien", "Stitch requirement": "Wymagania dotyczące szwu", "Resin process": "Proces żywiczny" },
+    tr: { "NCF architecture": "NCF mimarisi", "Fiber directions": "Elyaf yönleri", "Stitch requirement": "Dikiş gereksinimi", "Resin process": "Reçine prosesi" },
+  };
+  return dualCoreFields[locale][label] ?? additionalFieldTranslations[locale][label] ?? genericFieldTranslations[locale][label] ?? fieldFallback[locale];
 }

@@ -1,6 +1,6 @@
 export type ProductDocument = {
   productSlug: string;
-  type: "TDS" | "SDS" | "COA";
+  type: "TDS" | "SDS" | "COA" | "SPEC";
   title: string;
   specification: string;
   language: string;
@@ -79,6 +79,16 @@ export const productDocuments: ProductDocument[] = [
     revision: "Rev. 01 / 2026-07",
     href: "/downloads/tds/FRP-HOME-300-Mesh-Milled-Carbon-Fiber-Powder-TDS.pdf",
     fileSize: "67 KB",
+  },
+  {
+    productSlug: "3k-carbon-fiber-laminate-sheet",
+    type: "SPEC",
+    title: "3K Carbon Fiber Laminate Sheet Product Specification & RFQ Guide",
+    specification: "3K twill surface, finish, thickness, layup and CNC order-review checklist",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/specifications/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide.pdf",
+    fileSize: "68 KB",
   },
 ];
 

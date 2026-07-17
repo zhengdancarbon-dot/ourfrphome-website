@@ -21,6 +21,7 @@ Date: 2026-07-16
 | Carbon Fiber Yarn & Tow | High Strength 12K Carbon Fiber Tow | `正旦碳布TDS/TDS-ZDCF 55T-12K.pdf` | Published as supplier-origin supply reference |
 | Prepreg Carbon Fiber Materials | WP-L5100 Carbon Fiber Prepreg | `正旦碳布TDS/预浸/ZD_Carbon_Fiber_Prepreg_TDS.pdf` | Published with reference-value disclaimer |
 | Milled Carbon Fiber Powder | 300 Mesh Milled Carbon Fiber Powder | `正旦碳布TDS/Carbon_Fiber_Powder_TDS.pdf` | Published |
+| 3K Carbon Fiber Laminate Sheet | Product Specification & RFQ Guide | Current FRP HOME product scope and RFQ workflow | Published as `SPEC`, not represented as a TDS |
 
 ## Verified local source queue
 
@@ -31,7 +32,7 @@ Date: 2026-07-16
 | Multiaxial NCF | 300gsm biaxial family and 600gsm +/-45 biaxial NCF published; 0/90 300gsm, +/-45 400gsm and quadriaxial 400gsm remain in review | Add the next requested construction only after its active specification is confirmed |
 | Prepreg | T300 woven, T800 UD300, UD200, 12K 600gsm and resin records | Confirm active resin system and storage/cure profile per offered grade |
 | Milled powder | 200 mesh, 300 mesh, 400-500 mesh and 600-800 mesh | Publish additional mesh grades after current commercial availability is confirmed |
-| Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | Separate product TDS from test report; confirm resin and fiber grade |
+| Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | The reviewed 1.2 mm source describes pultruded structural-strengthening plate, not 3K laminate sheet. A formal 3K laminate TDS remains blocked until matching fiber, resin, layup, tolerance and test-method records are provided. |
 | Carbon sleeves | 3K and 12K sleeves in multiple diameters | Confirm braid angle, diameter tolerance and roll/package format |
 | Structural strengthening | UD fabric, plate, mesh, resin and anchor records | Build system documents only after component compatibility is reviewed |
 | Aramid / honeycomb | Aramid honeycomb source TDS | Confirm product is actively supplied and identify material grade |
@@ -42,4 +43,4 @@ Date: 2026-07-16
 - Product pages with a published file show a direct TDS download card.
 - Technical Center provides a central verified TDS download library.
 - Products without a published file continue to offer TDS / SDS / COA by request.
-- TDS clicks emit the `tds_download` GA4 event with locale and link URL.
+- TDS and specification-guide clicks emit the `tds_download` GA4 event with `locale`, `link_url`, `product_slug` and `document_title`.

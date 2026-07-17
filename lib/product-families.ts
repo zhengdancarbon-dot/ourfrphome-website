@@ -27,6 +27,7 @@ export const productFamilies: ProductFamily[] = [
     commonApplications:
       "Composite laminates, visible CFRP surfaces, civil UAV components, automotive panels and industrial shells.",
     items: [
+      { label: "Carbon Fiber Multiaxial NCF Fabric", href: "/products/carbon-fiber-multiaxial-ncf-fabric" },
       { label: "Woven Carbon Fiber Fabric", href: "/products/carbon-fiber-woven-fabric" },
       { label: "1K Woven Carbon Fiber Fabric", href: "/products/carbon-fiber-woven-fabric" },
       { label: "3K Twill Carbon Fiber Fabric", href: "/products/carbon-fiber-woven-fabric" },
@@ -37,7 +38,6 @@ export const productFamilies: ProductFamily[] = [
       { label: "8x8mm Spread Tow Carbon Fabric", href: "/products/spread-tow-carbon-fiber-fabric" },
       { label: "10x10mm Spread Tow Carbon Fabric", href: "/products/spread-tow-carbon-fiber-fabric" },
       { label: "UD Carbon Fiber Fabric", href: "/products/carbon-fiber-ud-fabric" },
-      { label: "Carbon Fiber Multiaxial NCF Fabric", href: "/products/carbon-fiber-multiaxial-ncf-fabric" },
       { label: "Carbon Aramid Hybrid Fabric", href: "/products/carbon-fiber-hybrid-jacquard-fabric" },
       { label: "Aramid Fabric", href: "/products/aramid-fabric" },
     ],
@@ -124,13 +124,13 @@ export const productFamilies: ProductFamily[] = [
     commonApplications:
       "Civil UAV parts, sports equipment, automation parts, structural profiles and machined components.",
     items: [
+      { label: "3K Carbon Fiber Laminate Sheet", href: "/products/3k-carbon-fiber-laminate-sheet" },
       { label: "Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },
       { label: "Roll-Wrapped Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },
       { label: "Filament-Wound Carbon Fiber Tube", href: "/products/filament-wound-carbon-fiber-tube" },
       { label: "Pultruded Carbon Fiber Tube", href: "/products/pultruded-carbon-fiber-tube" },
       { label: "Carbon Fiber Sheet / Plate", href: "/products/3k-carbon-fiber-laminate-sheet" },
       { label: "Carbon Fiber Rod", href: "/products/pultruded-carbon-fiber-tube" },
-      { label: "3K Carbon Fiber Laminate Sheet", href: "/products/3k-carbon-fiber-laminate-sheet" },
       { label: "3K Surface Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },
       { label: "CNC Machined CFRP Parts", href: "/products/custom-carbon-fiber-products" },
       { label: "Custom Carbon Fiber Products", href: "/products/custom-carbon-fiber-products" },

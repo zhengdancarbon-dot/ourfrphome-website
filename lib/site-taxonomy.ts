@@ -38,10 +38,13 @@ export type RfqProductType = {
 
 export const productSeries: ProductSeries[] = [
   {
-    title: "Carbon Fiber Reinforcements",
+    title: "Multiaxial NCF & Carbon Reinforcements",
     description:
-      "Woven carbon fiber fabric, spread tow fabric, UD fabric, tape and roving for composite reinforcement.",
+      "Multiaxial NCF, woven, spread tow and UD reinforcements for infusion, RTM and composite laminates.",
     items: [
+      "300gsm Biaxial Carbon NCF",
+      "600gsm +45°/-45° Biaxial Carbon NCF",
+      "UD / Biaxial / Triaxial / Quadriaxial NCF",
       "Woven Carbon Fiber Fabric",
       "1K Woven Carbon Fiber Fabric",
       "3K Twill Carbon Fiber Fabric",
@@ -51,9 +54,9 @@ export const productSeries: ProductSeries[] = [
       "Spread Tow Carbon Fiber Fabric",
       "Carbon Fiber Tape",
     ],
-    href: "/products/carbon-fiber-woven-fabric",
-    image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
-    specs: ["1K-12K tow options", "Plain / twill / spread tow", "1000-1500 mm typical width"],
+    href: "/products/carbon-fiber-multiaxial-ncf-fabric",
+    image: "/images/products/carbon-fiber-multiaxial-ncf-fabric.webp",
+    specs: ["UD / biaxial / triaxial / quadriaxial", "0° / 90° / +45° / -45°", "Width and roll by order"],
   },
   {
     title: "Carbon Fiber Yarn, Tow & Precursor Materials",
@@ -104,10 +107,13 @@ export const productSeries: ProductSeries[] = [
     specs: ["Fiber length by grade", "Powder / mesh by review", "Resin compatibility by application"],
   },
   {
-    title: "CFRP Profiles & Custom Parts",
+    title: "3K Carbon Fiber Plates & Custom Parts",
     description:
-      "Tubes, sheets, rods, CNC machined CFRP parts and custom components based on drawings or samples.",
+      "3K twill laminate sheets, CNC plates, tubes and custom CFRP components based on drawings or samples.",
     items: [
+      "3K Twill Carbon Fiber Laminate Sheet",
+      "Matte / Glossy Carbon Fiber Plate",
+      "CNC Cut Carbon Fiber Plate",
       "Carbon Fiber Tube",
       "Roll-Wrapped Carbon Fiber Tube",
       "Filament-Wound Carbon Fiber Tube",
@@ -117,9 +123,9 @@ export const productSeries: ProductSeries[] = [
       "CNC Machined CFRP Parts",
       "Custom CFRP Components",
     ],
-    href: "/products/custom-carbon-fiber-products",
-    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
-    specs: ["Dimensions by drawing", "Tolerance and surface finish by order", "Packing by component geometry"],
+    href: "/products/3k-carbon-fiber-laminate-sheet",
+    image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
+    specs: ["3K twill visible surface", "Matte / glossy / sanded / peel-ply", "CNC and tolerance by drawing"],
   },
   {
     title: "Structural Strengthening System",
@@ -309,10 +315,10 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
 ];
 
 export const featuredProductSlugs = [
-  "carbon-fiber-yarn-and-tow",
+  "carbon-fiber-multiaxial-ncf-fabric",
+  "3k-carbon-fiber-laminate-sheet",
   "carbon-fiber-woven-fabric",
-  "prepreg-carbon-fiber-materials",
-  "custom-carbon-fiber-products",
+  "carbon-fiber-yarn-and-tow",
 ];
 
 export const technicalGuides = [
@@ -408,6 +414,19 @@ export const rfqProductTypes: RfqProductType[] = [
       { name: "arealWeight", label: "Areal weight", placeholder: "e.g. 200 g/m2, 245 g/m2, 600 g/m2" },
       { name: "width", label: "Width", placeholder: "e.g. 1000 mm / 1270 mm / 1500 mm" },
       { name: "rollLength", label: "Roll length", placeholder: "e.g. 50 m / 100 m" },
+    ],
+  },
+  {
+    value: "multiaxial-ncf",
+    label: "Carbon Fiber Multiaxial NCF",
+    fields: [
+      { name: "ncfArchitecture", label: "NCF architecture", placeholder: "UD / biaxial / triaxial / quadriaxial" },
+      { name: "fiberDirections", label: "Fiber directions", placeholder: "0° / 90° / +45° / -45°" },
+      { name: "arealWeight", label: "Areal weight", placeholder: "300gsm / 600gsm / custom" },
+      { name: "width", label: "Width", placeholder: "e.g. 1270 mm / custom" },
+      { name: "rollLength", label: "Roll length", placeholder: "e.g. 50 m / custom" },
+      { name: "stitchRequirement", label: "Stitch requirement", placeholder: "PES / stitch gauge / project requirement" },
+      { name: "resinProcess", label: "Resin process", placeholder: "Vacuum infusion / RTM / other" },
     ],
   },
   {

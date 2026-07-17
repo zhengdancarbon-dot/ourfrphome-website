@@ -153,10 +153,12 @@ export default function TechnicalCenterPage() {
                     <a
                       className="button button-blue"
                       data-analytics-event="tds_download"
+                      data-product-slug={document.productSlug}
+                      data-document-title={document.title}
                       download
                       href={document.href}
                     >
-                      Download TDS <ArrowRight size={16} />
+                      Download {document.type} <ArrowRight size={16} />
                     </a>
                     {product ? (
                       <Link className="text-link" href={`/products/${product.slug}`}>

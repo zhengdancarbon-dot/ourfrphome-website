@@ -46,23 +46,23 @@ type LocalizedPageProps = {
 };
 
 const tdsDownloadCopy: Record<Exclude<Locale, "en">, { title: string; note: string; action: string }> = {
-  es: { title: "TDS verificadas para descargar", note: "Documento técnico en inglés. Confirme la especificación y los documentos del lote en la cotización.", action: "Descargar TDS" },
-  "pt-br": { title: "TDS verificadas para baixar", note: "Documento técnico em inglês. Confirme a especificação e os documentos do lote na cotação.", action: "Baixar TDS" },
-  ru: { title: "Проверенные TDS для скачивания", note: "Технический документ на английском языке. Подтвердите спецификацию и документы партии при запросе цены.", action: "Скачать TDS" },
-  ar: { title: "نشرات TDS موثقة للتنزيل", note: "المستند الفني باللغة الإنجليزية. يرجى تأكيد المواصفة ووثائق الدفعة عند طلب السعر.", action: "تنزيل TDS" },
-  fr: { title: "TDS vérifiées à télécharger", note: "Document technique en anglais. Confirmez la spécification et les documents de lot lors de la demande de prix.", action: "Télécharger la TDS" },
-  ko: { title: "검증된 TDS 다운로드", note: "영문 기술 문서입니다. 견적 시 사양과 배치 문서를 확인해 주세요.", action: "TDS 다운로드" },
-  pl: { title: "Zweryfikowane TDS do pobrania", note: "Dokument techniczny w języku angielskim. Potwierdź specyfikację i dokumenty partii w zapytaniu.", action: "Pobierz TDS" },
-  tr: { title: "Doğrulanmış TDS dosyaları", note: "Teknik belge İngilizcedir. Teklif sırasında spesifikasyonu ve parti belgelerini doğrulayın.", action: "TDS indir" },
+  es: { title: "Documentos técnicos para descargar", note: "Documento técnico en inglés. Confirme la especificación y los documentos del lote en la cotización.", action: "Descargar TDS" },
+  "pt-br": { title: "Documentos técnicos para baixar", note: "Documento técnico em inglês. Confirme a especificação e os documentos do lote na cotação.", action: "Baixar TDS" },
+  ru: { title: "Технические документы для скачивания", note: "Технический документ на английском языке. Подтвердите спецификацию и документы партии при запросе цены.", action: "Скачать TDS" },
+  ar: { title: "مستندات فنية للتنزيل", note: "المستند الفني باللغة الإنجليزية. يرجى تأكيد المواصفة ووثائق الدفعة عند طلب السعر.", action: "تنزيل TDS" },
+  fr: { title: "Documents techniques à télécharger", note: "Document technique en anglais. Confirmez la spécification et les documents de lot lors de la demande de prix.", action: "Télécharger la TDS" },
+  ko: { title: "기술 문서 다운로드", note: "영문 기술 문서입니다. 견적 시 사양과 배치 문서를 확인해 주세요.", action: "TDS 다운로드" },
+  pl: { title: "Dokumenty techniczne do pobrania", note: "Dokument techniczny w języku angielskim. Potwierdź specyfikację i dokumenty partii w zapytaniu.", action: "Pobierz TDS" },
+  tr: { title: "İndirilebilir teknik belgeler", note: "Teknik belge İngilizcedir. Teklif sırasında spesifikasyonu ve parti belgelerini doğrulayın.", action: "TDS indir" },
 };
 
 const featuredProductSlugs = [
+  "carbon-fiber-multiaxial-ncf-fabric",
+  "3k-carbon-fiber-laminate-sheet",
   "carbon-fiber-woven-fabric",
   "carbon-fiber-ud-fabric",
   "spread-tow-carbon-fiber-fabric",
   "prepreg-carbon-fiber-materials",
-  "chopped-carbon-fiber",
-  "milled-carbon-fiber-powder",
 ] as const;
 
 const featuredApplicationSlugs = [
@@ -94,6 +94,8 @@ function localizedProduct(product: ProductCatalogItem, locale: Exclude<Locale, "
 function inferRfqType(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-multiaxial-ncf-fabric") return "multiaxial-ncf";
+  if (product.slug === "3k-carbon-fiber-laminate-sheet") return "cfrp-part";
   if (product.slug === "carbon-fiber-ud-fabric") return "ud-fabric";
   if (product.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
   if (product.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
@@ -103,6 +105,7 @@ function inferRfqType(product: ProductCatalogItem) {
   if (source.includes("prepreg")) return "prepreg";
   if (source.includes("yarn") || source.includes("tow")) return "yarn-tow";
   if (source.includes("structural") || source.includes("strengthening")) return "structural-strengthening";
+  if (source.includes("tube") || source.includes("sheet") || source.includes("laminate") || source.includes("custom")) return "cfrp-part";
   return "woven-fabric";
 }
 
@@ -733,13 +736,15 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                     <a
                       className="tds-download-card"
                       data-analytics-event="tds_download"
+                      data-product-slug={product.slug}
+                      data-document-title={document.title}
                       download
                       href={document.href}
                       key={document.href}
                     >
                       <FileText size={23} />
                       <span>
-                        <strong>{tdsDownloadCopy[locale].action}</strong>
+                        <strong>{document.type === "SPEC" ? `Download ${document.type}` : tdsDownloadCopy[locale].action}</strong>
                         <small>{document.title}</small>
                         <small>{document.revision} · English · {document.fileSize}</small>
                       </span>
@@ -801,7 +806,11 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
             </div>
           </div>
           <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} sourcePage={`/${locale}/products/${product.slug}`} />}>
-            <InquiryForm initialProduct={product.name} locale={locale} />
+            <InquiryForm
+              initialProduct={product.name}
+              initialProductType={activeRfqType.value}
+              locale={locale}
+            />
           </Suspense>
         </div>
       </section>

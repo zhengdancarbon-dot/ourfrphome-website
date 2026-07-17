@@ -1,4 +1,5 @@
 import { absoluteUrl } from "@/lib/seo";
+import { dualCoreTechnicalArticles } from "@/lib/dual-core-technical-articles";
 
 export type TechnicalArticle = {
   slug: string;
@@ -602,7 +603,7 @@ export const technicalArticles: TechnicalArticle[] = [
       },
     ],
     publishedAt: "2026-07-16",
-    reviewedAt: "2026-07-16",
+    reviewedAt: "2026-07-17",
     sources: [
       {
         title: "Guide to Composites",
@@ -616,6 +617,7 @@ export const technicalArticles: TechnicalArticle[] = [
       },
     ],
   },
+  ...dualCoreTechnicalArticles,
 ];
 
 export function getTechnicalArticle(slug: string) {

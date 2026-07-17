@@ -547,6 +547,7 @@ const rfqTypeLabelTranslations: Record<"es" | "pt-br", Record<string, string>> =
   es: {
     "Carbon Fiber Yarn / Tow": "Hilo / tow de fibra de carbono",
     "Woven Carbon Fiber Fabric": "Tejido woven de carbono",
+    "Carbon Fiber Multiaxial NCF": "Tejido multiaxial NCF de carbono",
     "Aramid / Carbon-Aramid Hybrid Fabric": "Tejido aramida / híbrido carbono-aramida",
     "UD Carbon Fiber Fabric": "Tejido UD de carbono",
     "Spread Tow Carbon Fiber Fabric": "Tejido spread tow de carbono",
@@ -558,6 +559,7 @@ const rfqTypeLabelTranslations: Record<"es" | "pt-br", Record<string, string>> =
   "pt-br": {
     "Carbon Fiber Yarn / Tow": "Fio / tow de fibra de carbono",
     "Woven Carbon Fiber Fabric": "Tecido woven de carbono",
+    "Carbon Fiber Multiaxial NCF": "Tecido multiaxial NCF de carbono",
     "Aramid / Carbon-Aramid Hybrid Fabric": "Tecido aramida / híbrido carbono-aramida",
     "UD Carbon Fiber Fabric": "Tecido UD de carbono",
     "Spread Tow Carbon Fiber Fabric": "Tecido spread tow de carbono",
@@ -577,6 +579,10 @@ const rfqFieldLabelTranslations: Record<"es" | "pt-br", Record<string, string>> 
     "Compatible process": "Proceso compatible",
     "Bobbin weight": "Peso de bobina",
     "Weave type": "Tipo de tejido",
+    "NCF architecture": "Arquitectura NCF",
+    "Fiber directions": "Direcciones de fibra",
+    "Stitch requirement": "Requisito de costura",
+    "Resin process": "Proceso de resina",
     "Pattern size": "Tamaño de patrón",
     "Areal weight": "Peso areal",
     Width: "Ancho",
@@ -618,6 +624,10 @@ const rfqFieldLabelTranslations: Record<"es" | "pt-br", Record<string, string>> 
   },
   "pt-br": {
     "Tow size": "Tamanho do tow",
+    "NCF architecture": "Arquitetura NCF",
+    "Fiber directions": "Direções da fibra",
+    "Stitch requirement": "Requisito de costura",
+    "Resin process": "Processo de resina",
     "Brand requirement": "Requisito de marca",
     Grade: "Grau",
     "Sizing type": "Tipo de sizing",

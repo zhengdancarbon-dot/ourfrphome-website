@@ -38,10 +38,10 @@ const productGroups = [
     commonApplications:
       "Composite laminates, visible CFRP surfaces, automotive, sports, civil UAV and industrial panels",
     slugs: [
+      "carbon-fiber-multiaxial-ncf-fabric",
       "carbon-fiber-woven-fabric",
       "carbon-fiber-ud-fabric",
       "spread-tow-carbon-fiber-fabric",
-      "carbon-fiber-multiaxial-ncf-fabric",
     ],
   },
   {
@@ -87,10 +87,10 @@ const productGroups = [
     commonApplications:
       "Civil UAV components, sports equipment, automation supports, fixtures and lightweight assemblies",
     slugs: [
+      "3k-carbon-fiber-laminate-sheet",
       "3k-surface-carbon-fiber-tube",
       "filament-wound-carbon-fiber-tube",
       "pultruded-carbon-fiber-tube",
-      "3k-carbon-fiber-laminate-sheet",
       "custom-carbon-fiber-products",
     ],
   },
