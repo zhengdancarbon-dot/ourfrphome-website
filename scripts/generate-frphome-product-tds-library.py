@@ -48,6 +48,7 @@ class Sheet:
     applications: list[str]
     handling: list[str]
     source_note: str
+    issue_date: str = "16 JULY 2026"
 
 
 def p(text, style="BodyFRPH"):
@@ -102,7 +103,7 @@ def cover(canvas, doc, sheet):
         ("SUPPLIER / BRAND", "ZHEJIANG FRPHOME NEW MATERIAL CO., LTD."),
         ("DOCUMENT ID", sheet.document_id),
         ("PRODUCT CODE", sheet.product_code),
-        ("ISSUE", "REVISION 01  |  16 JULY 2026"),
+        ("ISSUE", f"REVISION 01  |  {sheet.issue_date}"),
     ]
     yy = y + h - 12 * mm
     for label, value in rows:
@@ -135,7 +136,7 @@ def header_footer(canvas, doc, sheet):
     canvas.setFont("Arial", 6.5)
     canvas.setFillColor(MUTED)
     canvas.drawString(14 * mm, 9.5 * mm, "ZHEJIANG FRPHOME NEW MATERIAL CO., LTD.  |  www.myfrphome.com")
-    canvas.drawRightString(PAGE_W - 14 * mm, 9.5 * mm, f"REV 01  |  16 JUL 2026  |  PAGE {doc.page}")
+    canvas.drawRightString(PAGE_W - 14 * mm, 9.5 * mm, f"REV 01  |  {sheet.issue_date}  |  PAGE {doc.page}")
     canvas.restoreState()
 
 
@@ -267,6 +268,39 @@ sheets = [
         applications=["Conductive polymer compounds", "Thermoset and thermoplastic reinforcement", "Coatings", "Friction materials", "Composite fillers"],
         handling=["Avoid dust generation and use suitable industrial hygiene controls.", "Store sealed in a cool, dry and ventilated area.", "Request the applicable SDS and validate dispersion, loading and electrical performance in the final formulation."],
         source_note="Prepared from the local PAN-based 300 mesh carbon fiber powder TDS record. Values are batch-variable reference data and require final order confirmation.",
+    ),
+    Sheet(
+        filename="FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
+        document_id="FRPH-TDS-CBX600-45-EN-R01",
+        title="600gsm +45/-45 Biaxial Carbon NCF",
+        subtitle="Balanced non-crimp reinforcement for shear and torsional loading",
+        product_code="FRPH-CBX600-45",
+        summary="A heavy, balanced +45/-45 stitched carbon non-crimp fabric with two 300 g/m2 carbon layers. The straight-fiber architecture is intended for efficient shear and torsional reinforcement in vacuum infusion, RTM and other dry-fabric composite processes.",
+        quick=[("ARCHITECTURE", "+45 / -45"), ("CARBON WEIGHT", "600 g/m2"), ("WIDTH", "1270 mm"), ("ROLL", "50 m")],
+        tables=[
+            ("Nominal product data", ["Property", "Nominal / typical value", "Quotation status"], [
+                ["Construction", "Balanced biaxial carbon NCF, +45 / -45", "Nominal"],
+                ["Carbon fiber areal weight", "600 g/m2", "Nominal; tolerance by order"],
+                ["Total dry fabric weight", "Approx. 608-612 g/m2 including stitch yarn", "Typical guidance"],
+                ["Layer distribution", "+45: 300 g/m2; -45: 300 g/m2", "Nominal"],
+                ["Carbon fiber", "12K preferred; 24K by agreement", "Confirm grade and sizing"],
+                ["Stitch yarn", "PES 75D (approx. 83 dtex) or equivalent", "Typical; equivalent by review"],
+                ["Stitch gauge / length", "E5; approx. 3.2 mm stitch length", "Typical; customizable"],
+                ["Nominal width", "1270 mm", "Tolerance by order"],
+                ["Nominal roll length", "50 m", "Confirm usable length and splice policy"],
+                ["Indicative dry thickness", "Approx. 0.55-0.85 mm", "Method and pressure dependent"],
+                ["Typical moisture control target", "<=0.30% by mass", "Confirm COA requirement"],
+            ]),
+            ("Theoretical roll quantities", ["Quantity", "Planning value", "Basis"], [
+                ["Theoretical area", "63.5 m2", "1.27 m x 50 m"],
+                ["Carbon fiber net mass", "38.10 kg", "63.5 m2 x 600 g/m2"],
+                ["Dry fabric mass including stitch", "Approx. 38.6-38.9 kg", "Excludes core and packaging"],
+            ]),
+        ],
+        applications=["Shear webs and torsion shells", "Marine and automotive composite structures", "Large infused panels", "Industrial composite tooling", "Sporting goods and structural repair laminates"],
+        handling=["Keep rolls sealed, dry, clean and protected from crushing, telescoping and edge damage.", "Control +45/-45 shear distortion during cutting and lay-up; validate permeability and fill time with the selected resin stack.", "Confirm fiber grade, sizing, width tolerance, roll length, splice policy, packaging, COA items and end use before order release.", "Dry-fabric data are not cured-laminate mechanical design allowables; validate the resin, cure, fiber volume and laminate design for the final part."],
+        source_note="Prepared from the customer-provided 600 g/m2 +45/-45 biaxial carbon NCF technical record dated 17 July 2026. Source-company branding was removed; nominal and typical construction data were retained with FRP HOME order-confirmation language. This sheet is not a batch certificate or independent test report.",
+        issue_date="17 JULY 2026",
     ),
     Sheet(
         filename="FRP-HOME-High-Strength-12K-Carbon-Fiber-Tow-Supply-TDS.pdf",

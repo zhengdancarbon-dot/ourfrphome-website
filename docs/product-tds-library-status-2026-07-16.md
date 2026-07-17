@@ -28,7 +28,7 @@ Date: 2026-07-16
 | --- | --- | --- |
 | Woven carbon fabric | 1K 80gsm, 3K 200/210/245/280gsm, 6K 300gsm, 12K 400/600gsm | Create specification-specific sheets after product/grade selection |
 | UD carbon fabric | TCU20/23/30/53/60/90/100 and company-standard files | Cross-check grade, width, test method and intended market before publishing |
-| Multiaxial NCF | 0/90 300gsm, +/-45 400/600gsm, quadriaxial 400gsm | Add the next requested construction rather than publishing every legacy file |
+| Multiaxial NCF | 300gsm biaxial family and 600gsm +/-45 biaxial NCF published; 0/90 300gsm, +/-45 400gsm and quadriaxial 400gsm remain in review | Add the next requested construction only after its active specification is confirmed |
 | Prepreg | T300 woven, T800 UD300, UD200, 12K 600gsm and resin records | Confirm active resin system and storage/cure profile per offered grade |
 | Milled powder | 200 mesh, 300 mesh, 400-500 mesh and 600-800 mesh | Publish additional mesh grades after current commercial availability is confirmed |
 | Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | Separate product TDS from test report; confirm resin and fiber grade |

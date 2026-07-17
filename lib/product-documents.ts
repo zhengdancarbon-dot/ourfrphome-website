@@ -41,6 +41,16 @@ export const productDocuments: ProductDocument[] = [
     fileSize: "113 KB",
   },
   {
+    productSlug: "carbon-fiber-multiaxial-ncf-fabric",
+    type: "TDS",
+    title: "600gsm +45/-45 Biaxial Carbon NCF",
+    specification: "600 g/m² carbon basis, balanced +45° / -45°, 1270 mm × 50 m",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
+    fileSize: "68 KB",
+  },
+  {
     productSlug: "carbon-fiber-yarn-and-tow",
     type: "TDS",
     title: "High Strength 12K Carbon Fiber Tow",
