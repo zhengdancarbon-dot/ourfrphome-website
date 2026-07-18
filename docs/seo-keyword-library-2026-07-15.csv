@@ -126,3 +126,23 @@ id,cluster,keyword,intent,priority,target_url,page_status
 125,Supplier and RFQ,carbon fiber fabric RFQ checklist,Transactional,P1,/technical-center/carbon-fiber-fabric-rfq-checklist,Planned
 126,Supplier and RFQ,how to evaluate a carbon fiber supplier,Informational,P2,/technical-center/carbon-fiber-supplier-evaluation-checklist,Planned
 127,Supplier and RFQ,custom carbon fiber material quotation,Transactional,P1,/contact,Existing
+128,Yarn and tow,carbon fiber roving supplier,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+129,Yarn and tow,carbon fiber tow manufacturer China,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+130,Yarn and tow,buy carbon fiber tow from China,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+131,Yarn and tow,1K carbon fiber yarn supplier,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+132,Yarn and tow,6K carbon fiber yarn supplier,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+133,Yarn and tow,50K carbon fiber tow supplier,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+134,Yarn and tow,T800 carbon fiber tow supplier,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+135,Yarn and tow,high strength 12K carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
+136,Yarn and tow,epoxy compatible carbon fiber tow,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+137,Yarn and tow,carbon fiber tow for weaving,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+138,Yarn and tow,carbon fiber tow for pultrusion,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+139,Yarn and tow,carbon fiber tow for prepreg production,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
+140,Yarn and tow,carbon fiber tow for braiding,Commercial,P2,/products/carbon-fiber-yarn-and-tow,Existing
+141,Yarn and tow,carbon fiber bobbin supplier,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
+142,Yarn and tow,small tow vs large tow carbon fiber,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
+143,Yarn and tow,1K vs 3K vs 12K carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
+144,Yarn and tow,carbon fiber tow sizing compatibility,Informational,P1,/technical-center/carbon-fiber-tow-sizing-resin-compatibility,Planned
+145,Yarn and tow,how to specify carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned
+146,Yarn and tow,carbon fiber tow RFQ checklist,Transactional,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned
+147,Yarn and tow,carbon fiber tow spool packaging,Commercial,P2,/products/carbon-fiber-yarn-and-tow,Existing

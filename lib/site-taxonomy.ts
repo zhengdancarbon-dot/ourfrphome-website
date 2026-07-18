@@ -317,8 +317,8 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
 export const featuredProductSlugs = [
   "carbon-fiber-multiaxial-ncf-fabric",
   "3k-carbon-fiber-laminate-sheet",
-  "carbon-fiber-woven-fabric",
   "carbon-fiber-yarn-and-tow",
+  "carbon-fiber-woven-fabric",
 ];
 
 export const technicalGuides = [

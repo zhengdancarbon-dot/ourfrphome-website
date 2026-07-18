@@ -1,6 +1,4 @@
-# FRP HOME Dual-Core Weekly SEO / GEO Report
-
-> **SUPERSEDED - historical only.** Use `docs/three-core-seo-geo-weekly-report-template.md` for current reporting.
+# FRP HOME Three-Core Weekly SEO / GEO Report
 
 Reporting week: `YYYY-MM-DD` to `YYYY-MM-DD`
 
@@ -12,14 +10,15 @@ Data sources: GSC / Bing / GA4 / RFQ inbox / outreach tracker / AI visibility ch
 
 - NCF outcome:
 - 3K plate outcome:
+- Yarn & Tow outcome:
 - Qualified inquiries:
 - Main issue:
 - Next action:
 
 ## Search Performance
 
-| Metric | NCF current | NCF prior | 3K plate current | 3K plate prior |
-| --- | ---: | ---: | ---: | ---: |
+| Metric | NCF current | 3K plate current | Yarn/Tow current | Prior comparison |
+| --- | ---: | ---: | ---: | --- |
 | Indexed pages | | | | |
 | Non-brand impressions | | | | |
 | Non-brand clicks | | | | |
@@ -31,14 +30,22 @@ Data sources: GSC / Bing / GA4 / RFQ inbox / outreach tracker / AI visibility ch
 | Cluster | Locale | Query | Impressions | Clicks | CTR | Position | Landing page | Action |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
 | NCF | | | | | | | | |
-| 3K plate | | | | | | | | |
+| 3K Plate | | | | | | | | |
+| Yarn & Tow | | | | | | | | |
 
 ## Conversion Events
 
 | Cluster | Locale | RFQ | TDS/SPEC download | WhatsApp | Email | Catalog | Qualified inquiry |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | NCF | | | | | | | |
-| 3K plate | | | | | | | |
+| 3K Plate | | | | | | | |
+| Yarn & Tow | | | | | | | |
+
+## Yarn Inquiry Qualification
+
+| Tow size | Grade | Sizing/process | Package | Quantity | Destination | End use | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
 
 ## Index And Crawl Issues
 
@@ -52,8 +59,8 @@ Data sources: GSC / Bing / GA4 / RFQ inbox / outreach tracker / AI visibility ch
 
 ## AI Visibility
 
-| Engine | Locale | Question | Brand shown | Citation URL | Factually accurate | Correction needed |
-| --- | --- | --- | --- | --- | --- | --- |
+| Engine | Locale | Cluster | Question | Brand shown | Citation URL | Factually accurate | Correction needed |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Decisions
 

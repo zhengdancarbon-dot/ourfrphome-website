@@ -1,5 +1,7 @@
 # FRP HOME Page-One Ranking Execution
 
+> **SUPERSEDED - historical only.** Carbon Fiber Yarn & Tow became a third priority cluster on 2026-07-18. Use `docs/three-core-page-one-ranking-execution-2026-07-18.md`.
+
 Date: 2026-07-18
 
 Production domain: https://www.myfrphome.com

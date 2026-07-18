@@ -59,10 +59,10 @@ const tdsDownloadCopy: Record<Exclude<Locale, "en">, { title: string; note: stri
 const featuredProductSlugs = [
   "carbon-fiber-multiaxial-ncf-fabric",
   "3k-carbon-fiber-laminate-sheet",
+  "carbon-fiber-yarn-and-tow",
   "carbon-fiber-woven-fabric",
   "carbon-fiber-ud-fabric",
   "spread-tow-carbon-fiber-fabric",
-  "prepreg-carbon-fiber-materials",
 ] as const;
 
 const featuredApplicationSlugs = [

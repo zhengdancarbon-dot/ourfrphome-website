@@ -1,5 +1,7 @@
 # FRP HOME Dual-Core AI Visibility Test List
 
+> **SUPERSEDED - historical only.** Use `docs/three-core-ai-visibility-test-list.md`.
+
 Run weekly in Google AI results where available, Bing/Copilot and any other verifiable search-answer interface. Use a clean session where practical. Record exact date, locale, engine, question, brand appearance, citation URL and factual errors. Do not treat an uncited answer as a verified brand mention.
 
 ## English

@@ -17,7 +17,7 @@ Prepared by:
 | Metric | Current week | Previous week | Change | Notes |
 | --- | ---: | ---: | ---: | --- |
 | Indexed pages |  |  |  |  |
-| Submitted sitemap URLs | 43 | 43 | 0 | Keep URL structure stable. |
+| Submitted sitemap URLs | 203 | 203 | 0 | Keep URL structure stable. |
 | Sitemap status |  |  |  |  |
 | Important excluded pages |  |  |  |  |
 
@@ -64,6 +64,7 @@ Notes:
 | `whatsapp_click` |  |  |  | Fires on WhatsApp link click. |
 | `email_click` |  |  |  | Fires on email link click. |
 | `catalog_download` |  |  |  | Fires on `/catalog` links and download links. |
+| `tds_download` |  |  |  | Segment by `product_slug`, including Carbon Fiber Yarn & Tow. |
 
 ## 7. Inquiry quality
 
