@@ -364,9 +364,9 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "Multiaxial NCF",
     category: "Non-Crimp Fabric",
     description:
-      "Carbon fiber axial and multiaxial non-crimp fabrics in UD, biaxial, triaxial and quadriaxial constructions for multi-directional composite loading.",
+      "Carbon fiber multiaxial NCF fabric in 300gsm and 600gsm biaxial formats, plus UD, triaxial and quadriaxial constructions for vacuum infusion, RTM and custom composite laminates.",
     heroCopy:
-      "Multiaxial carbon NCF fabrics combine stitched fiber layers at selected angles such as 0°, 90°, +45° and -45°, improving layup efficiency for large composite structures.",
+      "FRP HOME supplies carbon multiaxial non-crimp fabric with stitched 0°, 90°, +45° and -45° layers. Start an RFQ with architecture, total gsm, width, stitch, resin process and final application.",
     image: "/images/products/carbon-fiber-multiaxial-ncf-fabric.webp",
     gallery: [
       "/images/products/carbon-fiber-multiaxial-ncf-fabric.webp",
@@ -374,11 +374,22 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "biaxial, triaxial and quadriaxial carbon fabric structure",
     position: "54% 45%",
     seo: {
-      title: "Carbon Fiber Multiaxial NCF Fabric and Axial Carbon Fabric",
+      title: "Carbon Multiaxial NCF Fabric Supplier | 300/600gsm",
       description:
-        "Carbon fiber multiaxial NCF fabric supplier offering UD, biaxial, triaxial and quadriaxial stitched non-crimp fabric specifications for composite structures.",
+        "Source 300gsm and 600gsm biaxial carbon NCF in +45°/-45° or 0°/90°, plus triaxial and quadriaxial fabrics for infusion, RTM and custom widths.",
       keywords: [
         ...commonKeywords,
+        "carbon fiber multiaxial fabric supplier",
+        "carbon multiaxial NCF supplier",
+        "multiaxial carbon fiber fabric manufacturer",
+        "biaxial carbon fiber fabric supplier",
+        "300gsm biaxial carbon fabric",
+        "600gsm biaxial carbon fabric",
+        "+45 -45 carbon fiber fabric",
+        "0 90 carbon fiber biaxial fabric",
+        "carbon NCF for vacuum infusion",
+        "carbon NCF for RTM",
+        "custom width carbon NCF",
         "carbon fiber axial fabric",
         "carbon fiber biaxial fabric",
         "carbon fiber triaxial fabric",
@@ -451,6 +462,21 @@ export const productCatalog: ProductCatalogItem[] = [
         question: "Is multiaxial fabric the same as woven cloth?",
         answer:
           "No. Multiaxial fabric is usually a non-crimp stitched reinforcement, while woven cloth interlaces yarns and has more crimp but easier handling for many cosmetic parts.",
+      },
+      {
+        question: "Do you supply 300gsm and 600gsm biaxial carbon NCF?",
+        answer:
+          "Yes. FRP HOME publishes verified English TDS documents for 300gsm biaxial formats and a balanced 600gsm +45°/-45° carbon NCF. The final orientation, width, stitch, roll length and order specification must be confirmed before supply.",
+      },
+      {
+        question: "Can carbon multiaxial NCF be used for vacuum infusion or RTM?",
+        answer:
+          "These are common target processes for stitched carbon NCF, but resin compatibility, permeability, laminate stack, compaction and representative process trials must be reviewed for each project.",
+      },
+      {
+        question: "What information is needed for a custom carbon NCF quotation?",
+        answer:
+          "Provide the architecture, directions, total and per-layer gsm, width, roll length, stitch requirement, resin process, quantity, destination and final application.",
       },
     ],
   },
@@ -861,9 +887,9 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "3K Laminate Sheet",
     category: "Carbon Fiber Laminate Sheet",
     description:
-      "3K twill surface carbon fiber laminate sheets in multiple thicknesses for CNC parts, FPV drone frames, RC model parts, panels, fixtures and decorative structural components.",
+      "3K twill carbon fiber plate and laminate sheet with matte or glossy surfaces, custom thicknesses and CNC cutting for panels, fixtures and drawing-controlled industrial parts.",
     heroCopy:
-      "3K carbon fiber laminate sheets provide a recognizable twill carbon surface with controlled thickness and optional matte or glossy finish for machined composite parts.",
+      "FRP HOME supplies 3K carbon fiber plate and laminate sheet with matte, glossy, sanded or peel-ply finishes. Send the thickness, panel size, tolerance, surface requirement, quantity and CNC drawing for quotation.",
     image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
     gallery: [
       "/images/products/3k-carbon-fiber-laminate-sheet.webp",
@@ -873,15 +899,26 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "3K carbon fiber laminate sheet and CNC cut plates",
     position: "48% 46%",
     seo: {
-      title: "3K Carbon Fiber Laminate Sheet Various Thicknesses",
+      title: "3K Carbon Fiber Plate & Laminate Sheet Supplier | CNC",
       description:
-        "3K twill surface carbon fiber laminate sheet supplier offering various thicknesses for CNC machining, FPV drone frames, RC model parts, panels, automotive trim and fixtures.",
+        "Source 3K twill carbon fiber plate in 0.5-20 mm typical thicknesses, matte or glossy finish, custom panel sizes and CNC cutting to DXF or STEP drawings.",
       keywords: [
         ...commonKeywords,
         "3K carbon fiber plate",
+        "3K carbon fiber plate supplier",
+        "3K carbon fiber plate manufacturer",
+        "custom 3K carbon fiber sheet",
         "3K carbon fiber laminate sheet",
+        "3K twill carbon fiber sheet",
+        "matte 3K carbon fiber plate",
+        "glossy 3K carbon fiber sheet",
         "twill carbon fiber plate",
         "carbon fiber sheet supplier",
+        "carbon fiber laminate sheet manufacturer",
+        "custom thickness carbon fiber plate",
+        "CNC ready carbon fiber sheet",
+        "carbon fiber plate CNC cutting",
+        "carbon fiber panel cut to drawing",
         "FPV drone carbon fiber plate",
         "RC model carbon fiber sheet",
       ],
@@ -953,6 +990,21 @@ export const productCatalog: ProductCatalogItem[] = [
         question: "Can the plate be CNC machined?",
         answer:
           "Yes. CNC cutting and drilling can be discussed, but tool wear, dust control and edge quality should be considered.",
+      },
+      {
+        question: "Do you supply both matte and glossy 3K carbon fiber plate?",
+        answer:
+          "Yes. Matte, glossy, sanded and peel-ply surface options can be reviewed. Confirm the appearance-controlled face, approved sample, protective film and packing requirement before quotation.",
+      },
+      {
+        question: "What should I send for a custom CNC carbon fiber plate quote?",
+        answer:
+          "Send a DXF, STEP or dimensioned PDF with thickness, panel size, tolerance, hole and edge details, 3K surface requirement, finish, quantity, packing and final application.",
+      },
+      {
+        question: "Is carbon fiber sheet different from carbon fiber plate?",
+        answer:
+          "Buyers often use sheet, plate, panel and laminate for the same commercial family. The controlled thickness, layup, surface, dimensions, tolerance and drawing are more important than the name alone.",
       },
       {
         question: "Can 3K carbon fiber laminate sheet be used for civil UAV or FPV drone frames?",

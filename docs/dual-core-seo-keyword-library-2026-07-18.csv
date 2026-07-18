@@ -1,0 +1,121 @@
+id,cluster,keyword,intent,priority,target_url,page_status
+1,NCF Core,carbon fiber multiaxial fabric,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+2,NCF Core,carbon fiber multiaxial fabric supplier,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+3,NCF Core,carbon multiaxial NCF supplier,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+4,NCF Core,multiaxial carbon fiber fabric manufacturer,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+5,NCF Core,carbon non crimp fabric supplier,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+6,NCF Core,carbon NCF manufacturer China,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+7,NCF Core,stitched carbon fiber fabric supplier,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+8,NCF Core,warp knitted carbon fiber fabric,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+9,NCF Core,carbon fiber axial fabric,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+10,NCF Core,custom carbon NCF fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+11,NCF Biaxial,biaxial carbon fiber fabric,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+12,NCF Biaxial,biaxial carbon fiber fabric supplier,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+13,NCF Biaxial,biaxial carbon NCF manufacturer,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+14,NCF Biaxial,double bias carbon fiber fabric,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+15,NCF Biaxial,+45 -45 carbon fiber fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+16,NCF Biaxial,plus minus 45 carbon fiber fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+17,NCF Biaxial,0 90 carbon fiber biaxial fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+18,NCF Biaxial,0 degree 90 degree carbon fabric,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+19,NCF Biaxial,balanced biaxial carbon fabric,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+20,NCF Biaxial,12K biaxial carbon fiber fabric,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+21,NCF Biaxial,24K biaxial carbon fiber fabric,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+22,NCF Biaxial,300gsm biaxial carbon fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+23,NCF Biaxial,300gsm +45 -45 carbon NCF,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+24,NCF Biaxial,300gsm 0 90 carbon NCF,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+25,NCF Biaxial,400gsm biaxial carbon fabric,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+26,NCF Biaxial,600gsm biaxial carbon fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+27,NCF Biaxial,600gsm +45 -45 carbon NCF,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+28,NCF Biaxial,600gsm 0 90 carbon fabric,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+29,NCF Architecture,triaxial carbon fiber fabric,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+30,NCF Architecture,triaxial carbon NCF supplier,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+31,NCF Architecture,0 +45 -45 carbon NCF,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+32,NCF Architecture,quadriaxial carbon fiber fabric,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+33,NCF Architecture,quadriaxial carbon NCF supplier,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+34,NCF Architecture,0 +45 90 -45 carbon NCF,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+35,NCF Architecture,biaxial vs triaxial carbon NCF,Informational,P1,/technical-center/biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf,Live
+36,NCF Architecture,triaxial vs quadriaxial carbon fabric,Informational,P1,/technical-center/biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf,Live
+37,NCF Architecture,how to choose multiaxial carbon fabric,Informational,P2,/technical-center/biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf,Live
+38,NCF Specification,carbon NCF custom width,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+39,NCF Specification,1270mm carbon biaxial fabric,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+40,NCF Specification,2540mm wide carbon NCF,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+41,NCF Specification,carbon NCF roll supplier,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+42,NCF Specification,custom stitch carbon NCF,Transactional,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+43,NCF Specification,polyester stitched carbon fabric,Commercial,P3,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+44,NCF Specification,low crimp carbon reinforcement,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+45,NCF Specification,carbon NCF TDS,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+46,NCF Specification,300gsm carbon NCF TDS,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+47,NCF Specification,600gsm carbon NCF TDS,Transactional,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+48,NCF Process,carbon NCF for vacuum infusion,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+49,NCF Process,biaxial carbon fabric for vacuum infusion,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+50,NCF Process,carbon NCF for RTM,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+51,NCF Process,multiaxial carbon fabric for resin infusion,Commercial,P1,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+52,NCF Process,carbon NCF resin flow,Informational,P2,/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf,Live
+53,NCF Application,carbon NCF for composite panels,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+54,NCF Application,biaxial carbon fabric for marine panels,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+55,NCF Application,carbon NCF for automotive panels,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+56,NCF Application,carbon NCF for industrial structures,Commercial,P2,/products/carbon-fiber-multiaxial-ncf-fabric,Live
+57,NCF RFQ,carbon multiaxial fabric RFQ,Transactional,P1,/technical-center/carbon-fiber-multiaxial-ncf-rfq-checklist,Live
+58,NCF RFQ,biaxial carbon fabric quotation,Transactional,P1,/technical-center/carbon-fiber-multiaxial-ncf-rfq-checklist,Live
+59,NCF RFQ,what to specify for carbon NCF,Informational,P1,/technical-center/carbon-fiber-multiaxial-ncf-rfq-checklist,Live
+60,NCF RFQ,300gsm vs 600gsm biaxial carbon fabric,Informational,P1,/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf,Live
+61,3K Plate Core,3K carbon fiber plate,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+62,3K Plate Core,3K carbon fiber plate supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+63,3K Plate Core,3K carbon fiber plate manufacturer,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+64,3K Plate Core,3K carbon fiber sheet,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+65,3K Plate Core,3K carbon fiber sheet supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+66,3K Plate Core,carbon fiber laminate sheet supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+67,3K Plate Core,carbon fiber panel manufacturer,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+68,3K Plate Core,custom carbon fiber plate China,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+69,3K Plate Core,custom carbon fiber sheet manufacturer,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+70,3K Surface,3K twill carbon fiber plate,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+71,3K Surface,3K twill carbon fiber sheet,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+72,3K Surface,2x2 twill carbon fiber plate,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+73,3K Surface,matte 3K carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+74,3K Surface,matte carbon fiber sheet supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+75,3K Surface,glossy 3K carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+76,3K Surface,glossy carbon fiber sheet supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+77,3K Surface,sanded carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+78,3K Surface,peel ply carbon fiber sheet,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+79,3K Surface,one side glossy carbon fiber sheet,Transactional,P3,/products/3k-carbon-fiber-laminate-sheet,Live
+80,3K Surface,two side glossy carbon fiber plate,Transactional,P3,/products/3k-carbon-fiber-laminate-sheet,Live
+81,3K Thickness,0.5mm 3K carbon fiber sheet,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+82,3K Thickness,1mm 3K carbon fiber sheet,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+83,3K Thickness,1.5mm carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+84,3K Thickness,2mm 3K carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+85,3K Thickness,3mm carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+86,3K Thickness,4mm carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+87,3K Thickness,5mm carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+88,3K Thickness,6mm carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+89,3K Thickness,8mm carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+90,3K Thickness,10mm carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+91,3K Thickness,20mm carbon fiber laminate plate,Transactional,P3,/products/3k-carbon-fiber-laminate-sheet,Live
+92,3K Thickness,custom thickness carbon fiber plate,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+93,3K Size,400x500 carbon fiber sheet,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+94,3K Size,500x600 carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+95,3K Size,1000x1000 carbon fiber sheet,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+96,3K Size,custom size carbon fiber panel,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+97,3K CNC,CNC ready carbon fiber sheet,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+98,3K CNC,carbon fiber plate CNC cutting,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+99,3K CNC,CNC carbon fiber plate supplier,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+100,3K CNC,custom CNC carbon fiber sheet,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+101,3K CNC,carbon fiber plate cut to size,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+102,3K CNC,carbon fiber plate cut to drawing,Transactional,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+103,3K CNC,DXF carbon fiber plate cutting,Transactional,P2,/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide,Live
+104,3K CNC,STEP drawing carbon fiber machining,Transactional,P2,/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide,Live
+105,3K CNC,CNC drilled carbon fiber plate,Transactional,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+106,3K CNC,carbon fiber plate countersunk holes,Transactional,P2,/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide,Live
+107,3K CNC,carbon fiber plate edge finishing,Transactional,P2,/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide,Live
+108,3K CNC,carbon fiber machining RFQ,Transactional,P1,/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide,Live
+109,3K Construction,full carbon fiber laminate sheet,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+110,3K Construction,3K surface UD core carbon plate,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+111,3K Construction,woven carbon fiber laminate plate,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+112,3K Construction,balanced layup carbon fiber plate,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+113,3K Application,carbon fiber plate for industrial parts,Commercial,P1,/products/3k-carbon-fiber-laminate-sheet,Live
+114,3K Application,carbon fiber sheet for fixtures,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+115,3K Application,carbon fiber panel for equipment cover,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+116,3K Application,3K carbon plate for automotive trim,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+117,3K Application,carbon fiber plate for robotics,Commercial,P2,/products/3k-carbon-fiber-laminate-sheet,Live
+118,3K Guide,carbon fiber plate thickness selection,Informational,P1,/technical-center/carbon-fiber-plate-thickness-selection-guide,Live
+119,3K Guide,matte vs glossy carbon fiber sheet,Informational,P1,/technical-center/matte-vs-glossy-3k-carbon-fiber-sheet,Live
+120,3K Guide,carbon fiber sheet vs carbon fiber plate,Informational,P1,/products/3k-carbon-fiber-laminate-sheet,Live

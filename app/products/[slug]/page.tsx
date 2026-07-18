@@ -103,6 +103,26 @@ function inferRfqType(product: ProductCatalogItem) {
 function selectionGuidance(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-multiaxial-ncf-fabric") {
+    return [
+      "Choose the NCF architecture: UD, biaxial, triaxial or quadriaxial.",
+      "State every fiber direction, such as 0°/90° or +45°/-45°.",
+      "Confirm whether 300gsm, 600gsm or another total and per-layer weight is required.",
+      "Provide width, roll length, stitch requirement and cutting plan.",
+      "Identify vacuum infusion, RTM, prepreg conversion or another resin process.",
+      "Attach the laminate schedule and provide quantity, destination and final application.",
+    ];
+  }
+  if (product.slug === "3k-carbon-fiber-laminate-sheet") {
+    return [
+      "Confirm plate thickness, length, width and quantity from the drawing.",
+      "State whether the 3K twill surface is required on one face or both faces.",
+      "Choose matte, glossy, sanded or peel-ply finish and define appearance-critical faces.",
+      "Provide flatness, thickness tolerance, holes, countersinks and edge requirements.",
+      "Attach DXF, STEP or a dimensioned PDF for CNC cutting and drilling review.",
+      "Confirm protective film, packing, destination and final application.",
+    ];
+  }
   if (product.slug === "carbon-fiber-ud-fabric") {
     return [
       "Confirm the main load direction.",
