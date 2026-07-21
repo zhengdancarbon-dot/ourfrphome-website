@@ -93,12 +93,18 @@ function inferProductType(productName: string) {
   return "woven-fabric";
 }
 
-function trackRfqSubmit(productType: string, productName: string, locale: Locale) {
+function trackRfqSubmit(
+  productType: string,
+  productName: string,
+  locale: Locale,
+  sourcePage: string,
+) {
   const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
   gtag?.("event", "rfq_submit", {
     product_type: productType,
     product_name: productName || productType,
     locale,
+    source_page: sourcePage,
   });
 }
 
@@ -162,7 +168,12 @@ export function InquiryForm({
         setStatus("idle");
         return;
       }
-      trackRfqSubmit(activeProductType.label, selectedProductDetail, locale);
+      trackRfqSubmit(
+        activeProductType.label,
+        selectedProductDetail,
+        locale,
+        pathname || "/contact",
+      );
       form.reset();
       setErrors({});
       setStatus("success");

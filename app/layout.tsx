@@ -190,21 +190,23 @@ export default function RootLayout({
                 var absoluteHref = link.href || href;
 
                 var locale = currentLocale();
+                var sourcePage = window.location.pathname || "/";
                 var explicitEvent = link.getAttribute("data-analytics-event");
 
                 if (explicitEvent) {
                   sendEvent(explicitEvent, {
                     link_url: absoluteHref,
                     locale: locale,
+                    source_page: sourcePage,
                     product_slug: link.getAttribute("data-product-slug") || undefined,
                     document_title: link.getAttribute("data-document-title") || undefined
                   });
                 } else if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
-                  sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale });
+                  sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale, source_page: sourcePage });
                 } else if (href.indexOf("mailto:") === 0) {
-                  sendEvent("email_click", { link_url: href, locale: locale });
+                  sendEvent("email_click", { link_url: href, locale: locale, source_page: sourcePage });
                 } else if (href.indexOf("/catalog") >= 0 || link.hasAttribute("download")) {
-                  sendEvent("catalog_download", { link_url: absoluteHref, locale: locale });
+                  sendEvent("catalog_download", { link_url: absoluteHref, locale: locale, source_page: sourcePage });
                 }
               });
             })();

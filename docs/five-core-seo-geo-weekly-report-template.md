@@ -32,8 +32,8 @@ Data sources: GSC / Bing / GA4 / RFQ inbox / downloads / outreach / AI visibilit
 
 ## Conversion Events
 
-| Cluster | Locale | RFQ | TDS/SPEC | WhatsApp | Email | Catalog | Qualified inquiry |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Cluster | Locale | Source page | RFQ | TDS/SPEC | WhatsApp | Email | Catalog | Qualified inquiry |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 
 ## Inquiry Qualification
 
