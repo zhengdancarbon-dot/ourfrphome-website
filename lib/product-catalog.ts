@@ -168,9 +168,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "3K twill carbon fiber woven fabric",
     position: "18% 50%",
     seo: {
-      title: "Woven Carbon Fiber Fabric | 1K 3K 6K 12K Plain & Twill Carbon Cloth",
+      title: "3K Woven Carbon Fiber Fabric | Plain & Twill",
       description:
-        "Woven carbon fiber fabric in 1K, 3K, 6K and 12K tow sizes with plain, twill, satin, jacquard and spread tow patterns for visible CFRP and composite laminates.",
+        "3K woven carbon fiber fabric supplier for 200gsm twill and plain carbon cloth, with 1K, 6K and 12K options for visible CFRP and composite laminates.",
       keywords: [
         ...commonKeywords,
         "carbon fiber woven fabric",

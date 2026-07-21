@@ -1,5 +1,7 @@
 # FRP HOME Three-Core Page-One Ranking Execution
 
+> **SUPERSEDED - historical only.** Current ranking execution is governed by `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`.
+
 Date: 2026-07-18
 
 Production domain: https://www.myfrphome.com

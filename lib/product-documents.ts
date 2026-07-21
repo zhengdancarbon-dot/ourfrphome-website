@@ -31,6 +31,16 @@ export const productDocuments: ProductDocument[] = [
     fileSize: "67 KB",
   },
   {
+    productSlug: "structural-strengthening-system",
+    type: "TDS",
+    title: "300gsm UD Carbon Fiber Fabric for Strengthening",
+    specification: "300 g/m² unidirectional reinforcement for structural system review",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
+    fileSize: "67 KB",
+  },
+  {
     productSlug: "carbon-fiber-multiaxial-ncf-fabric",
     type: "TDS",
     title: "300gsm Biaxial Carbon Fiber Fabric",

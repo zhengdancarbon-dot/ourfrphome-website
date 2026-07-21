@@ -146,3 +146,11 @@ id,cluster,keyword,intent,priority,target_url,page_status
 145,Yarn and tow,how to specify carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned
 146,Yarn and tow,carbon fiber tow RFQ checklist,Transactional,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned
 147,Yarn and tow,carbon fiber tow spool packaging,Commercial,P2,/products/carbon-fiber-yarn-and-tow,Existing
+148,Strengthening,carbon fiber strengthening fabric supplier,Transactional,P1,/products/structural-strengthening-system,Existing
+149,Strengthening,300gsm carbon fiber fabric for strengthening,Transactional,P1,/products/carbon-fiber-ud-fabric,Existing
+150,Strengthening,pultruded carbon fiber plate supplier,Transactional,P1,/products/structural-strengthening-system,Existing
+151,Strengthening,1.2mm CFRP plate for strengthening,Transactional,P1,/products/structural-strengthening-system,Existing
+152,Strengthening,carbon fiber plate for beam strengthening,Commercial,P1,/products/structural-strengthening-system,Existing
+153,Woven fabric,3K woven carbon fiber cloth supplier,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+154,Woven fabric,3K 200gsm carbon fiber cloth supplier,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+155,Woven fabric,buy 3K twill carbon fiber fabric,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing

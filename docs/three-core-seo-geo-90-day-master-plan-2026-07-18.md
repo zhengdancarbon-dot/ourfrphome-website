@@ -1,14 +1,16 @@
 # FRP HOME Three-Core SEO / GEO 90-Day Master Plan
 
+> **SUPERSEDED - historical only.** As of 2026-07-21, execution is governed only by `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`.
+
 Date: 2026-07-18
 
 Production domain: https://www.myfrphome.com
 
-Status: active and authoritative
+Status: superseded and historical
 
 ## Authority
 
-This is the only active SEO / GEO execution plan. All earlier 30-day and dual-core plans are historical references.
+This plan was active from 2026-07-18 to 2026-07-21 and is retained only as a historical reference.
 
 Resource allocation:
 

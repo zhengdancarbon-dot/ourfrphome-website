@@ -62,7 +62,7 @@ const featuredProductSlugs = [
   "carbon-fiber-yarn-and-tow",
   "carbon-fiber-woven-fabric",
   "carbon-fiber-ud-fabric",
-  "spread-tow-carbon-fiber-fabric",
+  "structural-strengthening-system",
 ] as const;
 
 const featuredApplicationSlugs = [

@@ -1,6 +1,6 @@
 # 30-day SEO / GEO Acquisition Operations Plan - 2026-07-05
 
-> **SUPERSEDED - historical only.** As of 2026-07-18, execution is governed only by `docs/three-core-seo-geo-90-day-master-plan-2026-07-18.md`. Do not continue this plan.
+> **SUPERSEDED - historical only.** As of 2026-07-21, execution is governed only by `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`. Do not continue this plan.
 
 Production site: https://www.myfrphome.com
 

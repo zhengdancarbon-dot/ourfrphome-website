@@ -1,5 +1,7 @@
 # FRP HOME Three-Core AI Visibility Test List
 
+> **SUPERSEDED - historical only.** Use `docs/five-core-ai-visibility-test-list-2026-07-21.md`.
+
 Run weekly in verifiable Google AI results, Bing/Copilot and other traceable search-answer interfaces. Record date, locale, engine, question, brand appearance, citation URL and factual errors.
 
 ## English

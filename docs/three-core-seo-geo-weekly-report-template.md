@@ -1,5 +1,7 @@
 # FRP HOME Three-Core Weekly SEO / GEO Report
 
+> **SUPERSEDED - historical only.** Use `docs/five-core-seo-geo-weekly-report-template.md` for current reporting.
+
 Reporting week: `YYYY-MM-DD` to `YYYY-MM-DD`
 
 Prepared on: `YYYY-MM-DD`

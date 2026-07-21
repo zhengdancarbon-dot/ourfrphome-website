@@ -1,6 +1,6 @@
 # FRP HOME 30-Day SEO / GEO Growth Sprint
 
-> **SUPERSEDED - historical only.** As of 2026-07-18, execution is governed only by `docs/three-core-seo-geo-90-day-master-plan-2026-07-18.md`. Do not continue this plan.
+> **SUPERSEDED - historical only.** As of 2026-07-21, execution is governed only by `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`. Do not continue this plan.
 
 Start date: 2026-07-15
 Production domain: https://www.myfrphome.com

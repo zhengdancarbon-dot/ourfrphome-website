@@ -1,5 +1,7 @@
 # FRP HOME Three-Core GSC Baseline and Action
 
+> Snapshot created before the 2026-07-21 five-core expansion. Current execution is governed by `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`.
+
 Date: 2026-07-21
 
 ## Verified production status
