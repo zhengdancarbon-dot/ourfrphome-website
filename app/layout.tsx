@@ -17,8 +17,11 @@ const googleSiteVerification =
   process.env.GSC_VERIFICATION_CODE || process.env.NEXT_PUBLIC_GSC_VERIFICATION_CODE;
 const bingSiteVerification =
   process.env.BING_VERIFICATION_CODE || process.env.NEXT_PUBLIC_BING_VERIFICATION_CODE;
+const yandexSiteVerification =
+  process.env.YANDEX_VERIFICATION_CODE || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION_CODE;
 const verification: Metadata["verification"] = {
   ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
+  ...(yandexSiteVerification ? { yandex: yandexSiteVerification } : {}),
   ...(bingSiteVerification ? { other: { "msvalidate.01": bingSiteVerification } } : {}),
 };
 
@@ -62,7 +65,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: absoluteUrl("/"),
   },
-  ...(googleSiteVerification || bingSiteVerification ? { verification } : {}),
+  ...(googleSiteVerification || bingSiteVerification || yandexSiteVerification
+    ? { verification }
+    : {}),
 };
 
 const documentLanguageScript = `

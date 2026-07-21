@@ -70,9 +70,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Carbon fiber unidirectional fabric roll / UD tape",
     position: "28% 46%",
     seo: {
-      title: "UD Carbon Fiber Fabric | Unidirectional Carbon Fiber Reinforcement",
+      title: "UD Carbon Fiber Fabric Supplier | 200-600gsm",
       description:
-        "UD carbon fiber fabric supplier for 0 degree unidirectional reinforcement in 200, 300, 600 g/m2 and custom weights for composite laminates and structural strengthening.",
+        "UD carbon fiber fabric in 200, 300 and 600gsm for composite laminates, pultrusion and structural strengthening. Custom widths from 10-100 cm by review.",
       keywords: [
         ...commonKeywords,
         "carbon fiber UD fabric 200 g/m²",
@@ -694,9 +694,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Pultruded carbon fiber plate strips for structural reinforcement",
     position: "50% 46%",
     seo: {
-      title: "Carbon Fiber Structural Strengthening System | UD Fabric, CFRP Plate & Epoxy Resin",
+      title: "CFRP Strengthening System | UD Fabric & Plate",
       description:
-        "Carbon fiber structural strengthening system supplier for UD fabric, pultruded CFRP plate and structural epoxy resin used in concrete, bridge and building reinforcement.",
+        "CFRP strengthening system supplier for 300gsm UD carbon fabric, pultruded plates and epoxy resin for concrete, bridge and building reinforcement.",
       keywords: [
         ...commonKeywords,
         "pultruded carbon fiber plate",
@@ -757,13 +757,13 @@ export const productCatalog: ProductCatalogItem[] = [
           ],
         },
         {
-          title: "Typical technical range",
-          columns: ["Property", "Typical range", "Remark"],
+          title: "Qualification items for project review",
+          columns: ["Item", "Order confirmation", "Responsibility"],
           rows: [
-            ["Fiber volume content", "High fiber content, typically above 60%", "By production specification"],
-            ["Tensile strength", "2400-3100 MPa typical commercial range", "Design value by project engineer"],
-            ["Tensile modulus", "160-170 GPa typical standard modulus plate", "Higher modulus by request"],
-            ["Density", "Approx. 1.55–1.65 g/cm³ typical", "Depends on resin/fiber content"],
+            ["Fiber grade and volume content", "Selected plate specification and batch documentation", "Supplier document review"],
+            ["Tensile properties", "Selected plate TDS or agreed testing plan", "Project engineer approval"],
+            ["Dimensions and tolerance", "Approved width, thickness and length specification", "Order and inspection plan"],
+            ["Bonding surface", "Surface preparation agreed with the adhesive system", "Project engineer and adhesive supplier"],
             ["Compatible adhesive", "Structural epoxy bonding system by project", "Customer system approval required"],
           ],
         },

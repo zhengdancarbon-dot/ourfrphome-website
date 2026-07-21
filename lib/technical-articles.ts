@@ -689,6 +689,19 @@ export const technicalArticles: TechnicalArticle[] = [
           "FRP HOME supplies material and data support. Structural design responsibility remains with qualified engineers.",
       },
     ],
+    reviewedAt: "2026-07-21",
+    sources: [
+      {
+        title: "300gsm UD Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
+      },
+      {
+        title: "Carbon Fiber Structural Strengthening System",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/structural-strengthening-system",
+      },
+    ],
   },
   {
     slug: "carbon-fiber-fabric-for-vacuum-infusion",

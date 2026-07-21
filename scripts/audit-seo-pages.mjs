@@ -1,6 +1,7 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 203);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 205);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
+const expectedLocalizedCount = 19;
 
 function matches(html, pattern) {
   return pattern.test(html);
@@ -24,12 +25,14 @@ if (productionUrls.length !== expectedTotal) {
 }
 
 const pathnames = productionUrls.map((url) => new URL(url).pathname);
+const pathnameSet = new Set(pathnames);
 const localeCounts = Object.fromEntries(
   locales.map((locale) => [locale, pathnames.filter((path) => path === `/${locale}` || path.startsWith(`/${locale}/`)).length]),
 );
 const englishCount = pathnames.length - Object.values(localeCounts).reduce((sum, count) => sum + count, 0);
+const expectedEnglishCount = expectedTotal - locales.length * expectedLocalizedCount;
 
-if (englishCount !== 51 || Object.values(localeCounts).some((count) => count !== 19)) {
+if (englishCount !== expectedEnglishCount || Object.values(localeCounts).some((count) => count !== expectedLocalizedCount)) {
   throw new Error(`Unexpected locale distribution: en=${englishCount}, ${JSON.stringify(localeCounts)}`);
 }
 
@@ -44,6 +47,8 @@ async function worker() {
     const url = new URL(path, baseUrl);
     const { response, text } = await fetchText(url);
     const isLocalized = locales.some((locale) => path === `/${locale}` || path.startsWith(`/${locale}/`));
+    const hasLocalizedAlternates =
+      !isLocalized && locales.every((locale) => pathnameSet.has(path === "/" ? `/${locale}` : `/${locale}${path}`));
 
     if (response.status !== 200) failures.push(`${path}: HTTP ${response.status}`);
     if (!matches(text, /<title>[^<]+<\/title>/i)) failures.push(`${path}: missing title`);
@@ -53,7 +58,7 @@ async function worker() {
     const expectedCanonical = `https://www.myfrphome.com${path === "/" ? "" : path}`;
     if (canonical !== expectedCanonical) failures.push(`${path}: canonical ${canonical || "missing"}`);
 
-    if (isLocalized || ["/", "/products", "/contact", "/catalog", "/products/carbon-fiber-multiaxial-ncf-fabric", "/products/3k-carbon-fiber-laminate-sheet"].includes(path)) {
+    if (isLocalized || hasLocalizedAlternates) {
       const hreflangs = values(text, /<link[^>]+rel="alternate"[^>]+hrefLang="([^"]+)"/gi);
       const expected = ["en", "es", "pt-BR", "ru", "ar", "fr", "ko", "pl", "tr", "x-default"];
       for (const code of expected) {
