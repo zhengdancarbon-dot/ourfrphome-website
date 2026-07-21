@@ -55,7 +55,7 @@ id,cluster,keyword,intent,priority,target_url,page_status
 54,Yarn and tow,T300 carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
 55,Yarn and tow,T700 carbon fiber tow,Transactional,P1,/products/carbon-fiber-yarn-and-tow,Existing
 56,Yarn and tow,carbon fiber yarn vs tow vs roving,Informational,P2,/technical-center/carbon-fiber-yarn-vs-tow-vs-roving,Existing
-57,Yarn and tow,carbon fiber tow size guide 1K to 50K,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
+57,Yarn and tow,carbon fiber tow size guide 1K to 50K,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Existing
 58,Short fiber,chopped carbon fiber,Commercial,P1,/products/chopped-carbon-fiber,Existing
 59,Short fiber,chopped carbon fiber supplier,Transactional,P1,/products/chopped-carbon-fiber,Existing
 60,Short fiber,chopped carbon fiber for plastic reinforcement,Commercial,P1,/products/chopped-carbon-fiber,Existing
@@ -140,8 +140,8 @@ id,cluster,keyword,intent,priority,target_url,page_status
 139,Yarn and tow,carbon fiber tow for prepreg production,Commercial,P1,/products/carbon-fiber-yarn-and-tow,Existing
 140,Yarn and tow,carbon fiber tow for braiding,Commercial,P2,/products/carbon-fiber-yarn-and-tow,Existing
 141,Yarn and tow,carbon fiber bobbin supplier,Transactional,P2,/products/carbon-fiber-yarn-and-tow,Existing
-142,Yarn and tow,small tow vs large tow carbon fiber,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
-143,Yarn and tow,1K vs 3K vs 12K carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Planned
+142,Yarn and tow,small tow vs large tow carbon fiber,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Existing
+143,Yarn and tow,1K vs 3K vs 12K carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-tow-size-guide-1k-50k,Existing
 144,Yarn and tow,carbon fiber tow sizing compatibility,Informational,P1,/technical-center/carbon-fiber-tow-sizing-resin-compatibility,Planned
 145,Yarn and tow,how to specify carbon fiber tow,Informational,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned
 146,Yarn and tow,carbon fiber tow RFQ checklist,Transactional,P1,/technical-center/carbon-fiber-yarn-tow-rfq-checklist,Planned

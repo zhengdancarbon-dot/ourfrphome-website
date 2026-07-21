@@ -307,6 +307,103 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
   },
   {
+    slug: "carbon-fiber-tow-size-guide-1k-50k",
+    title: "Carbon Fiber Tow Size Guide: 1K to 50K",
+    description:
+      "Compare 1K, 3K, 6K, 12K, 24K, 48K and 50K carbon fiber tow for weaving, braiding, winding, pultrusion, prepreg conversion and RFQ preparation.",
+    image: "/images/products/carbon-fiber-yarn-and-tow-spools.jpg",
+    quickAnswer:
+      "The K number indicates the approximate filament count in a carbon fiber tow: 1K is about 1,000 filaments, 12K about 12,000 and 50K about 50,000. Tow size affects bundle width, handling, textile appearance and process throughput, but it does not by itself define tensile strength, modulus or final laminate performance.",
+    definition:
+      "Carbon fiber tow is a continuous bundle of carbon filaments supplied on a bobbin or spool. Buyers should specify tow size together with fiber grade, sizing compatibility, package format and downstream process. A larger tow can improve throughput in some industrial processes, while a smaller tow can support finer textile patterns and more detailed placement; the selected grade and process documentation control the actual properties.",
+    comparison: {
+      columns: ["Tow size", "Common procurement context", "Confirm before quotation"],
+      rows: [
+        ["1K", "Fine weaving, braiding and detailed visible textile structures", "Grade, sizing, package and process stability"],
+        ["3K", "Woven carbon fabric, braiding and visible 3K surface products", "Weaving behavior, fuzz control, grade and bobbin format"],
+        ["6K", "Intermediate textile and conversion requirements", "Actual availability, sizing and downstream equipment"],
+        ["12K", "Weaving, pultrusion, filament winding, prepreg and conversion", "Grade, sizing, bobbin weight, batch documents and final use"],
+        ["24K", "Industrial conversion, pultrusion, winding and heavier fabric formats", "Spreading behavior, equipment compatibility and package"],
+        ["48K / 50K", "Large-tow industrial conversion and higher-throughput processes", "Grade, handling, sizing, creel compatibility and trial quantity"],
+      ],
+    },
+    selectionAdvice: [
+      "Start with the downstream process and equipment rather than selecting tow size from K value alone.",
+      "Define the required fiber grade separately; tow size does not determine tensile strength or modulus.",
+      "Confirm sizing compatibility with the intended resin, weaving, pultrusion, winding or prepreg process.",
+      "Provide the required bobbin or spool format, package weight and creel limitations before quotation.",
+      "Use a representative trial when changing tow size, grade, sizing or supplier source.",
+    ],
+    applications: [
+      "Carbon fabric weaving",
+      "Braiding",
+      "Filament winding",
+      "Pultrusion",
+      "Prepreg conversion",
+      "Chopped fiber conversion",
+    ],
+    specifications: [
+      ["Tow size", "1K / 3K / 6K / 12K / 24K / 48K / 50K"],
+      ["Grade", "T300 / T700 / T800 / high modulus / custom by confirmed source"],
+      ["Sizing", "Epoxy-compatible or process-specific by order review"],
+      ["Package", "Bobbin / spool / carton / pallet by confirmed order"],
+      ["Documentation", "Final values follow the selected product and batch documentation"],
+    ],
+    recommendedProducts: [
+      "carbon-fiber-yarn-and-tow",
+      "carbon-fiber-woven-fabric",
+      "carbon-fiber-multiaxial-ncf-fabric",
+    ],
+    rfqInformation: [
+      "Product type",
+      "Tow size",
+      "Fiber grade",
+      "Sizing requirement",
+      "Downstream process",
+      "Bobbin or spool format",
+      "Package weight",
+      "Trial and production quantity",
+      "Destination country",
+      "Final application",
+    ],
+    faqs: [
+      {
+        question: "Is 50K carbon fiber tow stronger than 12K tow?",
+        answer:
+          "Not automatically. The K value describes approximate filament count, not tensile strength or modulus. Compare the selected grade, supplier documentation, sizing and final laminate design.",
+      },
+      {
+        question: "Can I replace 12K tow with 24K or 50K tow?",
+        answer:
+          "A direct substitution should not be assumed. Bundle width, spreading, handling, equipment settings and resin wet-out can change, so the downstream process and representative trial should be reviewed.",
+      },
+      {
+        question: "Which tow size is commonly used for visible woven carbon fabric?",
+        answer:
+          "3K is widely selected for a fine visible carbon pattern, while other tow sizes can be woven for different weights and textures. Weave, areal weight, width and surface target should be specified together.",
+      },
+      {
+        question: "What information is needed for a carbon fiber tow quotation?",
+        answer:
+          "Provide tow size, grade, sizing, downstream process, package format, quantity, destination and final application. Brand or source availability remains subject to stock, batch and compliance review.",
+      },
+    ],
+    publishedAt: "2026-07-21",
+    reviewedAt: "2026-07-21",
+    sources: [
+      {
+        title: "High Strength 12K Carbon Fiber Tow Supply TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-High-Strength-12K-Carbon-Fiber-Tow-Supply-TDS.pdf",
+      },
+      {
+        title: "Carbon Fiber Yarn & Tow",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/carbon-fiber-yarn-and-tow",
+      },
+    ],
+  },
+  {
     slug: "chopped-carbon-fiber-vs-milled-carbon-fiber-powder",
     title: "Chopped Carbon Fiber vs Milled Carbon Fiber Powder",
     description:

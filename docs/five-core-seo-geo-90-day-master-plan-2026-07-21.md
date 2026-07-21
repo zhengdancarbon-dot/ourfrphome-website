@@ -123,3 +123,7 @@ Report each cluster separately:
 - verified backlinks, citations and AI answer accuracy
 
 Every release must pass `pnpm lint`, `pnpm build`, desktop/mobile checks, canonical/hreflang validation and production smoke tests.
+
+## Execution Log
+
+- 2026-07-21: published `Carbon Fiber Tow Size Guide: 1K to 50K` from the verified Yarn & Tow product scope and 12K Tow TDS. This changes the planned production sitemap count from 203 to 204 URLs after release. The guide targets tow-size comparison and RFQ intent without asserting unsupported performance values or source availability.
