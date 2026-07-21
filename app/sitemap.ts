@@ -6,13 +6,22 @@ import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
 
+const productLastModified: Record<string, string> = {
+  "carbon-fiber-multiaxial-ncf-fabric": "2026-07-17",
+  "3k-carbon-fiber-laminate-sheet": "2026-07-17",
+  "carbon-fiber-yarn-and-tow": "2026-07-21",
+  "carbon-fiber-woven-fabric": "2026-07-21",
+  "carbon-fiber-ud-fabric": "2026-07-21",
+  "structural-strengthening-system": "2026-07-21",
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
-    { path: "/", changeFrequency: "weekly", priority: 1 },
+    { path: "/", changeFrequency: "weekly", priority: 1, lastModified: new Date("2026-07-21") },
     { path: "/products", changeFrequency: "weekly", priority: 0.95 },
     { path: "/applications", changeFrequency: "monthly", priority: 0.85 },
     { path: "/processes", changeFrequency: "monthly", priority: 0.85 },
-    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85 },
+    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-21") },
     { path: "/quality-control", changeFrequency: "monthly", priority: 0.75 },
     { path: "/about", changeFrequency: "monthly", priority: 0.75 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
@@ -25,8 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/products/${product.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.9,
-    ...(["carbon-fiber-multiaxial-ncf-fabric", "3k-carbon-fiber-laminate-sheet"].includes(product.slug)
-      ? { lastModified: new Date("2026-07-17") }
+    ...(productLastModified[product.slug]
+      ? { lastModified: new Date(productLastModified[product.slug]) }
       : {}),
   }));
   const applicationRoutes = applicationPages.map((page) => ({
