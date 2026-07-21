@@ -1,5 +1,6 @@
 import { applicationPages } from "@/lib/application-pages";
 import { productCatalog } from "@/lib/product-catalog";
+import { productDocuments } from "@/lib/product-documents";
 import { siteConfig } from "@/lib/site-config";
 import { technicalArticles } from "@/lib/technical-articles";
 
@@ -15,6 +16,27 @@ function linkLine(title: string, path: string, description?: string) {
 }
 
 export function GET() {
+  const priorityProductSlugs = [
+    "carbon-fiber-multiaxial-ncf-fabric",
+    "3k-carbon-fiber-laminate-sheet",
+    "carbon-fiber-yarn-and-tow",
+    "carbon-fiber-ud-fabric",
+    "structural-strengthening-system",
+    "carbon-fiber-woven-fabric",
+  ];
+  const priorityProductLines = priorityProductSlugs.flatMap((slug) => {
+    const product = productCatalog.find((item) => item.slug === slug);
+    return product
+      ? [linkLine(product.name, `/products/${product.slug}`, product.description)]
+      : [];
+  });
+  const verifiedDocumentLines = productDocuments.map((document) =>
+    linkLine(
+      `${document.type}: ${document.title}`,
+      document.href,
+      `${document.specification}; ${document.language}; ${document.revision}`,
+    ),
+  );
   const productLines = productCatalog.map((product) =>
     linkLine(product.name, `/products/${product.slug}`, product.description),
   );
@@ -60,6 +82,8 @@ export function GET() {
       linkLine("Compliance and End-Use Review", "/compliance-end-use-review"),
       linkLine("Contact / RFQ", "/contact"),
     ]),
+    section("Priority Commercial Products", priorityProductLines),
+    section("Verified Product Documents", verifiedDocumentLines),
     section("Products", productLines),
     section("Applications", applicationLines),
     section("Technical Articles", technicalLines),

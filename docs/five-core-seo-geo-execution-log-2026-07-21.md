@@ -44,6 +44,7 @@ Search volume is not estimated. Values above are direct GSC observations.
 8. Added Yandex verification metadata support without inventing a verification code.
 9. Set accurate sitemap `lastmod` values only for pages with significant verified changes.
 10. Added `source_page` to GA4 RFQ, TDS, catalog, email and WhatsApp events while preserving locale and product/document parameters.
+11. Promoted the six priority product URLs and nine verified TDS/SPEC documents near the top of `llms.txt` for clearer AI retrieval and source attribution.
 
 ## Rendered QA
 
