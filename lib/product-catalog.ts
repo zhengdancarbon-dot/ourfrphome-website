@@ -1628,9 +1628,9 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "12K / 24K / 50K carbon fiber tow spools",
     position: "71% 42%",
     seo: {
-      title: "Carbon Fiber Yarn & Tow | 1K 3K 6K 12K 24K 50K Chinese Brand Carbon Fiber",
+      title: "Carbon Fiber Tow Supplier | 1K-50K Yarn",
       description:
-        "Carbon fiber yarn and tow supplier for 1K, 3K, 6K, 12K, 24K, 48K and 50K tow, including selected Chinese and international brand options by request and review.",
+        "Carbon fiber tow supplier for 1K, 3K, 6K, 12K, 24K, 48K and 50K yarn used in weaving, winding, pultrusion and prepreg. Request grade and sizing.",
       keywords: [
         ...commonKeywords,
         "carbon fiber yarn supplier",
@@ -1718,6 +1718,11 @@ export const productCatalog: ProductCatalogItem[] = [
         question: "What information is needed for carbon fiber yarn quotation?",
         answer:
           "Please provide brand preference, grade, tow size, sizing requirement, package requirement, monthly quantity and downstream process.",
+      },
+      {
+        question: "Which carbon fiber tow sizes can you supply?",
+        answer:
+          "Inquiry options include 1K, 3K, 6K, 12K, 24K, 48K and 50K carbon fiber tow. Final availability, grade, sizing, package and batch documents are confirmed for each quotation.",
       },
       {
         question: "Can you support dual-use item export license documentation?",
