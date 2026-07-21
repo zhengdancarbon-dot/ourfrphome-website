@@ -72,6 +72,104 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
   },
   {
+    slug: "3k-200gsm-carbon-fiber-fabric-selection-rfq-guide",
+    title: "3K 200gsm Carbon Fiber Fabric RFQ Guide",
+    description:
+      "Select 3K 200gsm twill carbon fiber fabric and prepare an RFQ covering weave, width, roll length, surface target, resin process, quantity and end use.",
+    image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
+    quickAnswer:
+      "3K 200gsm twill carbon fiber fabric is a common bidirectional reinforcement for visible CFRP surfaces and general composite laminates. A complete RFQ should confirm 3K tow, 200 g/m2 areal weight, weave, width, roll length, surface requirement, resin process, quantity and final application; the website description alone is not an order specification.",
+    definition:
+      "The 3K designation describes an approximate 3,000-filament tow, while 200gsm describes fabric areal weight before resin. Twill describes the woven architecture and diagonal visual pattern. These terms do not define cured laminate thickness, resin content or final part performance, which depend on the complete material and process specification.",
+    comparison: {
+      columns: ["RFQ point", "FRP HOME reference", "What the buyer should confirm"],
+      rows: [
+        ["Tow and weight", "3K, 200 g/m2", "Required construction and acceptable tolerance"],
+        ["Weave", "Twill TDS available", "Twill or plain according to appearance and handling target"],
+        ["Width", "1000-1500 mm reference range", "Exact usable width and cutting plan"],
+        ["Roll supply", "Roll-packed dry reinforcement", "Roll length, core, protective packing and labels"],
+        ["Surface target", "Visible 3K woven texture", "Cosmetic first ply or general structural reinforcement"],
+        ["Process", "Dry carbon reinforcement", "Wet lay-up, vacuum bagging, infusion or prepreg conversion"],
+      ],
+    },
+    selectionAdvice: [
+      "Choose the weave from part geometry, handling and visible-surface requirements rather than appearance alone.",
+      "Confirm whether 200gsm is required as the exact product construction or only as a laminate-design target.",
+      "Match fabric width and roll length to the cutting plan to reduce seams and offcut waste.",
+      "Identify the resin system and process so compatibility and representative trial requirements can be reviewed.",
+      "Approve the final product specification and batch documents before production use.",
+    ],
+    applications: [
+      "Visible CFRP surface plies",
+      "Automotive composite panels",
+      "Sports equipment laminates",
+      "Industrial composite panels",
+      "Marine covers and components",
+      "Prepreg conversion",
+    ],
+    specifications: [
+      ["Tow size", "3K"],
+      ["Areal weight", "200 g/m2 reference construction"],
+      ["Weave", "Twill TDS available; other constructions by order review"],
+      ["Width", "1000 / 1270 / 1500 mm reference options"],
+      ["Supply form", "Dry fabric roll with export packing by confirmed order"],
+      ["Documentation", "Final values follow the approved specification and batch documents"],
+    ],
+    recommendedProducts: [
+      "carbon-fiber-woven-fabric",
+      "prepreg-carbon-fiber-materials",
+      "3k-carbon-fiber-laminate-sheet",
+    ],
+    rfqInformation: [
+      "3K tow requirement",
+      "200gsm construction",
+      "Weave type",
+      "Width and roll length",
+      "Surface requirement",
+      "Resin and process",
+      "Trial and production quantity",
+      "Packing and labels",
+      "Destination country",
+      "Final application",
+    ],
+    faqs: [
+      {
+        question: "Is 3K 200gsm twill carbon fiber fabric suitable for visible parts?",
+        answer:
+          "It is commonly selected for a recognizable woven carbon surface, but the final appearance also depends on layup, resin, tooling, cure, clear coat and surface finishing.",
+      },
+      {
+        question: "Does 200gsm determine cured laminate thickness?",
+        answer:
+          "No. It describes dry fabric areal weight. Cured thickness depends on compaction, resin content, ply count, process and laminate design.",
+      },
+      {
+        question: "Can plain weave be supplied instead of twill?",
+        answer:
+          "Plain and twill constructions can be reviewed, but the exact tow, weight, width, weave and tolerance must be confirmed in the quotation and final specification.",
+      },
+      {
+        question: "What should I send for a 3K carbon fabric quotation?",
+        answer:
+          "Send tow size, areal weight, weave, width, roll length, resin process, surface requirement, quantity, destination and final application. A sample or reference image can help clarify the visual target.",
+      },
+    ],
+    publishedAt: "2026-07-21",
+    reviewedAt: "2026-07-21",
+    sources: [
+      {
+        title: "3K 200gsm Twill Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-3K-200gsm-Twill-Carbon-Fiber-Fabric-TDS.pdf",
+      },
+      {
+        title: "Woven Carbon Fiber Fabric",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/carbon-fiber-woven-fabric",
+      },
+    ],
+  },
+  {
     slug: "plain-vs-twill-carbon-fiber-fabric",
     title: "Plain vs Twill Carbon Fiber Fabric",
     description:

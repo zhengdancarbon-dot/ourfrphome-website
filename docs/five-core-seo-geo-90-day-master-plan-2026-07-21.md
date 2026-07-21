@@ -127,3 +127,4 @@ Every release must pass `pnpm lint`, `pnpm build`, desktop/mobile checks, canoni
 ## Execution Log
 
 - 2026-07-21: published `Carbon Fiber Tow Size Guide: 1K to 50K` from the verified Yarn & Tow product scope and 12K Tow TDS. This changes the planned production sitemap count from 203 to 204 URLs after release. The guide targets tow-size comparison and RFQ intent without asserting unsupported performance values or source availability.
+- 2026-07-21: published `3K 200gsm Carbon Fiber Fabric RFQ Guide` from the verified Woven Carbon Fabric product scope and 3K 200gsm Twill TDS. The planned production sitemap count becomes 205 URLs after release.

@@ -154,3 +154,6 @@ id,cluster,keyword,intent,priority,target_url,page_status
 153,Woven fabric,3K woven carbon fiber cloth supplier,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
 154,Woven fabric,3K 200gsm carbon fiber cloth supplier,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
 155,Woven fabric,buy 3K twill carbon fiber fabric,Transactional,P1,/products/carbon-fiber-woven-fabric,Existing
+156,Woven fabric,how to select 3K 200gsm carbon fiber fabric,Informational,P1,/technical-center/3k-200gsm-carbon-fiber-fabric-selection-rfq-guide,Existing
+157,Woven fabric,3K 200gsm carbon fiber fabric RFQ,Transactional,P1,/technical-center/3k-200gsm-carbon-fiber-fabric-selection-rfq-guide,Existing
+158,Woven fabric,200gsm carbon fiber fabric width,Commercial,P2,/technical-center/3k-200gsm-carbon-fiber-fabric-selection-rfq-guide,Existing

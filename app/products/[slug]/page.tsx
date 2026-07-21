@@ -332,7 +332,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const hasVacuumInfusionGuide = vacuumInfusionGuideProducts.has(product.slug);
   const relatedGuides = technicalArticles
     .filter((article) => article.recommendedProducts.includes(product.slug))
-    .slice(-4);
+    .sort((a, b) =>
+      (b.reviewedAt ?? b.publishedAt ?? "").localeCompare(
+        a.reviewedAt ?? a.publishedAt ?? "",
+      ),
+    )
+    .slice(0, 4);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const productGalleryLimit = product.slug === "chopped-carbon-fiber" ? 6 : 4;
   const firstSpecTable = product.tds.tables[0];
