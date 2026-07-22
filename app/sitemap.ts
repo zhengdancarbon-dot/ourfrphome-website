@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { applicationPages } from "@/lib/application-pages";
-import { activeLocales, defaultLocale, hreflangLocales, localePath, localizedLocales, type Locale } from "@/lib/i18n/config";
+import { activeLocales, defaultLocale, hreflangLocales, localePath, localizedLocales, type Locale, type LocalizedLocale } from "@/lib/i18n/config";
 import { getPhaseOneLocalizedPaths, isPhaseOneLocalizedPath } from "@/lib/i18n/phase-one";
 import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl } from "@/lib/seo";
@@ -13,6 +13,17 @@ const productLastModified: Record<string, string> = {
   "carbon-fiber-woven-fabric": "2026-07-21",
   "carbon-fiber-ud-fabric": "2026-07-21",
   "structural-strengthening-system": "2026-07-21",
+};
+
+const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
+  ru: {
+    "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
+    "3k-carbon-fiber-laminate-sheet": "2026-07-22",
+    "carbon-fiber-yarn-and-tow": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-ud-fabric": "2026-07-22",
+    "structural-strengthening-system": "2026-07-22",
+  },
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -76,10 +87,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "lastModified" in route && route.lastModified instanceof Date
         ? route.lastModified
         : undefined;
+    const productSlug = route.path.startsWith("/products/")
+      ? route.path.slice("/products/".length)
+      : undefined;
+    const localizedLastModified = locale !== defaultLocale && productSlug
+      ? localizedProductLastModified[locale]?.[productSlug]
+      : undefined;
+    const entryLastModified = locale === defaultLocale
+      ? routeLastModified
+      : localizedLastModified
+        ? new Date(localizedLastModified)
+        : undefined;
 
     return {
       url: absoluteUrl(localePath(route.path, locale)),
-      ...(routeLastModified ? { lastModified: routeLastModified } : {}),
+      ...(entryLastModified ? { lastModified: entryLastModified } : {}),
       changeFrequency: route.changeFrequency,
       priority: locale === defaultLocale ? route.priority : Math.max(route.priority - 0.05, 0.5),
       ...(alternates(route.path) ? { alternates: alternates(route.path) } : {}),

@@ -48,6 +48,9 @@ Search volume is not estimated. Values above are direct GSC observations.
 12. Completed a five-core SERP and authority-gap review and created a manually reviewed outreach queue that excludes suspicious mirror sites and mass directories.
 13. Added natural Russian procurement questions for Yandex visibility monitoring while retaining end-use and trade-compliance review.
 14. Generated 162 tracked outreach URLs covering six priority landing pages, nine languages and email, LinkedIn and WhatsApp channels without changing canonical URLs.
+15. Reworked the six Russian priority pages around natural Yandex procurement terminology such as `углеродный жгут`, `углепластиковая плита`, `ЧПУ`, `углепластиковая ламель` and `саржевая ткань`, while preserving technical tokens and claim boundaries.
+16. Limited localized sitemap modification dates to pages and locales with a verified content change; other localized entries now omit unverified dates.
+17. Added a truthful `Product` entity inside each English and localized product `ItemPage` JSON-LD graph. The entity includes only visible product identity data and omits `Offer`, price, stock, reviews and ratings. The 205-page SEO audit now fails if a product detail page is missing this entity.
 
 ## Rendered QA
 

@@ -54,6 +54,11 @@ async function worker() {
     if (!matches(text, /<title>[^<]+<\/title>/i)) failures.push(`${path}: missing title`);
     if (!matches(text, /<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/i)) failures.push(`${path}: missing H1`);
 
+    const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
+    if (isProductDetail && !text.includes('"@type":"Product"')) {
+      failures.push(`${path}: missing Product structured data entity`);
+    }
+
     const canonical = values(text, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/gi)[0];
     const expectedCanonical = `https://www.myfrphome.com${path === "/" ? "" : path}`;
     if (canonical !== expectedCanonical) failures.push(`${path}: canonical ${canonical || "missing"}`);

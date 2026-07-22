@@ -118,10 +118,11 @@ export function createB2bProductPageSchema({
   locale?: Locale;
 }) {
   const imageUrl = absoluteUrl(image);
+  const productId = `${url}#product`;
 
-  // RFQ-only pages do not publish a price or customer ratings, so Product
-  // rich-result markup would be incomplete. ItemPage describes the product
-  // information honestly without inventing an offer, review, or rating.
+  // RFQ-only pages do not publish a price or customer ratings. Keep the page
+  // entity separate from the real product entity and do not invent Offer,
+  // Review, AggregateRating, price, availability, or stock data.
   return {
     "@context": "https://schema.org",
     "@type": "ItemPage",
@@ -138,15 +139,20 @@ export function createB2bProductPageSchema({
       contentUrl: imageUrl,
       caption: name,
     },
-    about: {
-      "@type": "Thing",
-      "@id": `${url}#product-information`,
+    mainEntity: {
+      "@type": "Product",
+      "@id": productId,
       name,
       description,
       image: imageUrl,
       url,
-      identifier: sku,
+      sku,
+      brand: {
+        "@type": "Brand",
+        name: siteConfig.brandName,
+      },
     },
+    about: { "@id": productId },
   };
 }
 
