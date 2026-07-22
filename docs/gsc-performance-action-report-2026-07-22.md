@@ -58,6 +58,12 @@ The latest seven-day sample shows higher discovery and a better aggregate positi
 
 Additional priority evidence includes `carbon fiber tow suppliers`, `1k carbon fiber tow`, `12k carbon fiber`, `50k tow carbon fiber`, `multiaxial carbon fiber fabrics`, `3k carbon fiber woven fabric`, `milled carbon fiber suppliers` and `carbon fiber woven fabric`.
 
+## Evidence-Gated Discovery Queries
+
+Three low-volume queries containing `carbon fiber precursor roving` appeared between average positions 13 and 17, with only two or three impressions each. They are useful discovery signals, but they do not justify changing the Yarn & Tow metadata or publishing a precursor product page yet. FRP HOME currently has a verified supplier-origin TDS for a 12K carbon fiber tow; it does not have enough first-party precursor product evidence to broaden the commercial claim safely.
+
+Action: retain these queries in the watchlist, request real precursor product specifications and supplier documentation before creating any dedicated content, and require a larger GSC sample before treating the apparent position as durable.
+
 ## Technical Finding: RFQ Query URLs
 
 Search Console reported impressions for localized `/contact?product=...&message=...` URLs. These are functional RFQ-prefill links, not independent landing pages. Their HTML already uses a clean self-family canonical such as `/es/contact` or `/pt-br/contact`.
@@ -69,13 +75,25 @@ Remediation on 2026-07-22:
 - Preserve product/message prefill and the existing inquiry API.
 - Do not block Contact in robots.txt and do not redirect away the customer-entered form context.
 
+Production verification after deployment: 207 sitemap pages were parsed, 208 product-prefilled RFQ links were found, and zero links were missing `rel="nofollow"`.
+
+## Index Coverage Snapshot
+
+The GSC Page indexing report was last updated on 2026-07-10 and therefore predates the current 207-URL production sitemap. It showed 38 indexed pages and 40 pages not indexed:
+
+- 38: `Discovered - currently not indexed`
+- 2: `Crawled - currently not indexed`
+
+The two crawled examples were `/products/pultruded-carbon-fiber-tube` (last crawled 2026-07-08) and `/products/carbon-fiber-ud-fabric` (last crawled 2026-07-03). Both dates precede the current content and sitemap cycle. No `Validate fix` action was started because this is a stale discovery snapshot rather than a confirmed technical error. The correct action is to wait for the newly submitted 207-URL sitemap to be processed, then compare the next coverage export.
+
 ## Controlled Actions
 
-1. Re-export page and query data after seven days.
-2. Do not perform another Yarn & Tow title rewrite until Google has recrawled the current version and a new comparison window exists.
-3. Keep NCF and 3K laminate metadata stable until the 50-impression or 14-indexed-day rule is met.
-4. Prioritize contextual links and verified TDS citations for woven fabric, NCF, Yarn & Tow and strengthening before adding more generic articles.
-5. Monitor the clean localized Contact pages and parameterized variants; expect canonical consolidation to take time.
-6. Evaluate conversions through GA4 `rfq_submit`, `tds_download`, `catalog_download`, `email_click` and `whatsapp_click` with `locale` and `source_page`.
+1. The production sitemap was re-submitted once in the verified Google Search Console property on 2026-07-22. Google returned `Sitemap submitted successfully`, and the property now reports 207 discovered pages.
+2. Re-export page and query data after seven days.
+3. Do not perform another Yarn & Tow title rewrite until Google has recrawled the current version and a new comparison window exists.
+4. Keep NCF and 3K laminate metadata stable until the 50-impression or 14-indexed-day rule is met.
+5. Prioritize contextual links and verified TDS citations for woven fabric, NCF, Yarn & Tow and strengthening before adding more generic articles.
+6. Monitor the clean localized Contact pages and parameterized variants; expect canonical consolidation to take time.
+7. Evaluate conversions through GA4 `rfq_submit`, `tds_download`, `catalog_download`, `email_click` and `whatsapp_click` with `locale` and `source_page`.
 
 No fixed ranking, traffic or inquiry result is promised. Progress is evaluated through qualified non-brand impressions, position-band movement, clicks, document downloads and RFQs.

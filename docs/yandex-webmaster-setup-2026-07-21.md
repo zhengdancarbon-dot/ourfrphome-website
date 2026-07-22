@@ -8,11 +8,13 @@ Production domain: `https://www.myfrphome.com`
 
 - Production homepage: HTTP 200.
 - Production robots: HTTP 200 and references `https://www.myfrphome.com/sitemap.xml`.
-- Production sitemap: HTTP 200 with 205 URLs after the current content releases.
+- Production sitemap: HTTP 200 with 207 URLs after the current content releases.
 - IndexNow key file: HTTP 200 at `/indexnow-key.txt`.
 - IndexNow on 2026-07-22: two HTTP 200 batches accepted 22 update notifications covering 20 unique genuinely changed URLs; the English and Russian strengthening URLs appeared in both batches because the TDS was added after their first submission.
+- Later evidence-alignment and source-citation releases were accepted in additional HTTP 200 IndexNow batches of 25 and 6 changed URLs. No unchanged bulk sitemap submission was sent through IndexNow.
 - Yandex Webmaster account: account-side setup is pending. Browser control cannot continue while the Mac is locked; no account binding or OAuth grant was performed unattended.
 - Yandex Metrica support: code-ready through `YANDEX_METRICA_ID`; no counter is loaded until a real numeric tag ID is configured.
+- Public `site:myfrphome.com` retrieval cannot be used as an index baseline from the automated environment because Yandex returned its anti-automation Verification page. Searchable and excluded page counts must be read from the verified Webmaster property.
 
 ## Verification Support
 
@@ -55,6 +57,8 @@ Create five matching JavaScript-event goals in Yandex Metrica. Event parameters 
 9. Add `/products/` and `/technical-center/` as monitored site sections after crawl data appears.
 10. Use Reindex pages only for the homepage and genuinely new or updated priority URLs.
 11. Import `docs/yandex-russian-priority-query-import-2026-07-22.txt` into a Saved query group. It contains 51 P1 queries; the full 72-query routing map is `docs/yandex-russian-keyword-map-2026-07-22.csv`.
+
+The browser is currently at the Yandex ID login stage. Google OAuth would create persistent account access and must not be approved unattended; continue only after explicit confirmation at that action.
 
 ## Monitoring
 

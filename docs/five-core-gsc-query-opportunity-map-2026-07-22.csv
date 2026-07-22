@@ -1,0 +1,37 @@
+cluster,query,impressions,average_position,target_url,decision
+Multiaxial NCF,ncf carbon fiber fabrics,18,46.67,/products/carbon-fiber-multiaxial-ncf-fabric,Monitor current evidence-led page
+Multiaxial NCF,multiaxial carbon fiber fabrics,6,64.50,/products/carbon-fiber-multiaxial-ncf-fabric,Monitor current evidence-led page
+Multiaxial NCF,multiaxial carbon fiber,4,75.50,/products/carbon-fiber-multiaxial-ncf-fabric,Monitor current evidence-led page
+Multiaxial NCF,quadriaxial carbon fiber fabrics,3,30.67,/products/carbon-fiber-multiaxial-ncf-fabric,Retain comparison coverage and wait for larger sample
+Multiaxial NCF,multiaxial carbon fiber fabric,1,31.00,/products/carbon-fiber-multiaxial-ncf-fabric,Promising but statistically insufficient
+Multiaxial NCF,wholesale multiaxial fabric cloth,1,50.00,/products/carbon-fiber-multiaxial-ncf-fabric,Do not force awkward wholesale wording
+Multiaxial NCF,triaxial carbon fiber fabrics,1,80.00,/products/carbon-fiber-multiaxial-ncf-fabric,Monitor comparison intent
+3K laminate sheet,cfrp sheets,7,59.14,/products/3k-carbon-fiber-laminate-sheet,Keep commercial sheet terminology
+3K laminate sheet,carbon fiber laminate sheets,2,33.00,/products/3k-carbon-fiber-laminate-sheet,Promising but below sample threshold
+3K laminate sheet,uav and drone 3k carbon fiber sheet,1,73.00,/products/3k-carbon-fiber-laminate-sheet,Keep civil and compliant end-use wording only
+Yarn and Tow,carbon fiber tow,13,62.69,/products/carbon-fiber-yarn-and-tow,Monitor current query-aligned metadata
+Yarn and Tow,1k carbon fiber tow,8,58.00,/products/carbon-fiber-yarn-and-tow,Keep RFQ option without availability guarantee
+Yarn and Tow,carbon fiber tow suppliers,7,67.86,/products/carbon-fiber-yarn-and-tow,Keep supplier intent and source-document boundary
+Yarn and Tow,50k tow carbon fiber,6,46.17,/products/carbon-fiber-yarn-and-tow,Keep RFQ option without availability guarantee
+Yarn and Tow,continuous tow carbon fiber,6,69.17,/products/carbon-fiber-yarn-and-tow,Monitor current page
+Yarn and Tow,what is carbon fiber tow,5,90.40,/technical-center/carbon-fiber-tow-size-guide-1k-to-50k,Route informational intent to guide
+Yarn and Tow,24k carbon fiber tow,4,73.00,/products/carbon-fiber-yarn-and-tow,Keep RFQ option without availability guarantee
+Yarn and Tow,carbon fiber yarn,3,54.67,/products/carbon-fiber-yarn-and-tow,Maintain yarn synonym coverage
+Yarn and Tow,50k carbon fiber tow,3,58.33,/products/carbon-fiber-yarn-and-tow,Keep RFQ option without availability guarantee
+Yarn and Tow,carbon fibre tow,3,61.67,/products/carbon-fiber-yarn-and-tow,Maintain British spelling naturally
+Yarn and Tow,prepreg tow,3,67.33,/products/carbon-fiber-yarn-and-tow,Require resin and storage documentation before expansion
+Yarn and Tow,carbon fiber yarn suppliers,2,65.00,/products/carbon-fiber-yarn-and-tow,Monitor current supplier intent
+Yarn and Tow,12k carbon fiber tow,2,73.50,/products/carbon-fiber-yarn-and-tow,Reinforce verified 12K TDS relationship
+Yarn and Tow,tow prepreg,1,45.00,/products/prepreg-carbon-fiber-materials,Do not merge dry tow and prepreg intent
+Strengthening,cfrp plates,2,41.00,/products/structural-strengthening-system,Keep pultruded strengthening plate distinction
+Strengthening,cfrp plate,1,38.00,/products/structural-strengthening-system,Promising but statistically insufficient
+3K woven fabric,woven carbon fiber,54,49.93,/products/carbon-fiber-woven-fabric,Hold current title through next recrawl window
+3K woven fabric,woven carbon fabrics,50,54.30,/products/carbon-fiber-woven-fabric,Hold current title through next recrawl window
+3K woven fabric,carbon fiber woven fabric,6,41.17,/products/carbon-fiber-woven-fabric,Maintain natural synonym coverage
+3K woven fabric,woven carbon,4,20.75,/products/carbon-fiber-woven-fabric,Promising but low volume; no title experiment yet
+3K woven fabric,3k carbon fiber woven fabric,4,43.75,/products/carbon-fiber-woven-fabric,Reinforce documented 3K 200gsm context
+3K woven fabric,1k carbon fiber cloth,4,46.25,/products/carbon-fiber-woven-fabric,Keep inquiry option and require matching document
+3K woven fabric,1k carbon fiber fabric,3,53.67,/products/carbon-fiber-woven-fabric,Keep inquiry option and require matching document
+Evidence gated,custom woven carbon fiber precursor roving,2,17.00,/products/carbon-fiber-yarn-and-tow,Do not expand claim without precursor product evidence
+3K woven fabric,woven carbon fiber fabric,2,36.00,/products/carbon-fiber-woven-fabric,Maintain natural synonym coverage
+3K woven fabric,woven carbon fiber cloth,1,44.00,/products/carbon-fiber-woven-fabric,Maintain cloth synonym without duplicate page
