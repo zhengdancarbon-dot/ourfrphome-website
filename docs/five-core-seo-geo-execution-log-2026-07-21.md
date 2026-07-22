@@ -53,6 +53,11 @@ Search volume is not estimated. Values above are direct GSC observations.
 17. Added a truthful `Product` entity inside each English and localized product `ItemPage` JSON-LD graph. The entity includes only visible product identity data and omits `Offer`, price, stock, reviews and ratings. The 205-page SEO audit now fails if a product detail page is missing this entity.
 18. Published a two-page FRP HOME TDS for source model ZCP1.2, correctly classified as a 1.2 mm pultruded CFRP civil strengthening plate rather than a 3K appearance laminate. The sheet retains explicit values from the 12 November 2024 source record, identifies missing test methods, removes legacy approval/certification claims and excludes unsupported or sensitive-use wording.
 19. Added optional Yandex Metrica support through `YANDEX_METRICA_ID`. When a real numeric tag is configured, the existing `rfq_submit`, `tds_download`, `catalog_download`, `email_click` and `whatsapp_click` events are sent to both GA4 and matching Yandex JavaScript-event goals with the existing locale and source parameters. No Yandex tracking code loads while the variable is empty.
+20. Added a 72-query Russian intent map plus a 51-query P1 import file for Yandex Webmaster. No search volume was estimated; demand will be populated from account data.
+21. Repaired three orphan English support pages by adding crawlable footer links, then verified zero orphan sitemap pages and a minimum of eight inbound links per sitemap page.
+22. Added one buyer-focused FAQ to each of the six Russian priority product pages and verified three FAQPage entities per page. IndexNow accepted all six updated URLs with HTTP 200.
+23. Added eight localized entry points and six Russian priority-product links to `llms.txt` for explicit AI/GEO discovery.
+24. Audited all 72 priority document links across nine languages. Every link resolves to a live PDF and carries `tds_download`, `product_slug` and `document_title` analytics context.
 
 ## Rendered QA
 
@@ -67,14 +72,16 @@ Search volume is not estimated. Values above are direct GSC observations.
 ### Google
 
 - Existing sitemap property is healthy.
+- The last recorded GSC snapshot shows 203 discovered URLs; production now has 205. Re-submit the same sitemap URL once when the logged-in browser is available.
 - The new guides are present in the production sitemap with real modification dates.
+- A 2026-07-22 public discovery check still returned an older cached strengthening-page version and did not surface the two new guides. Use the documented recrawl watchlist rather than repeated bulk requests.
 - Do not repeatedly request indexing. Use one URL Inspection request only if a new URL remains unindexed after seven days.
 - Review title/meta only when a page has been indexed for 14 days or reaches 50 impressions.
 
 ### Yandex
 
 - IndexNow discovery is active and accepted the newly updated URLs.
-- Webmaster account connection is pending because no Yandex ID is signed in.
+- Webmaster ownership verification is still pending. Account-side browser control cannot continue while the workstation is locked.
 - Required next account-side actions: add the exact HTTPS property, copy its verification code to Vercel as `YANDEX_VERIFICATION_CODE`, redeploy, verify ownership and submit the production sitemap once.
 - Keep the verification meta tag after approval because ownership may be checked again.
 
