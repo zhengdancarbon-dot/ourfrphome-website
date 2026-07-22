@@ -11,6 +11,12 @@ import { getUiCopy } from "@/lib/i18n/ui-copy";
 import { navItems } from "@/lib/site-data";
 import { siteConfig } from "@/lib/site-config";
 
+const supportResourceLinks = [
+  { href: "/technical-resources", label: "Technical Resources" },
+  { href: "/packaging-shipping", label: "Packaging & Shipping" },
+  { href: "/compliance-end-use-review", label: "Compliance & End-Use Review" },
+] as const;
+
 export function SiteFooter() {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
@@ -66,6 +72,11 @@ export function SiteFooter() {
             {navItems.slice(5).map((item) => (
               <Link href={phaseOneLocalePath(item.href, locale)} hrefLang={locale !== defaultLocale && !isPhaseOneLocalizedPath(item.href) ? "en" : undefined} key={item.href}>
                 {navigationLabel(item.href, item.label)}
+              </Link>
+            ))}
+            {supportResourceLinks.map((item) => (
+              <Link href={item.href} hrefLang={locale !== defaultLocale ? "en" : undefined} key={item.href}>
+                {locale !== defaultLocale ? `${item.label} (EN)` : item.label}
               </Link>
             ))}
             <Link href={phaseOneLocalePath("/contact", locale)}>
