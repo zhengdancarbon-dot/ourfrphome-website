@@ -64,12 +64,16 @@ The browser is currently at the Yandex ID login stage. Google OAuth would create
 
 - Check crawl statistics, searchable pages, excluded pages and optimization advice weekly.
 - Do not repeatedly delete and re-add the sitemap. Yandex rechecks an existing sitemap automatically.
+- Yandex states that a newly added or refreshed sitemap can take up to two weeks to process. Do not diagnose a failure from the first few days alone.
+- Add the property exactly as `https://www.myfrphome.com`; protocol and `www` form must match the final search URL.
 - Continue IndexNow only for URLs that are added, updated or deleted.
 - Compare Yandex queries and landing pages for the five priority product clusters once data is available.
 - Use Yandex query demand only after account data is available. The local keyword map intentionally contains no invented search volume.
 
 ## Official References
 
+- [Getting started and exact site URL](https://yandex.com/support/webmaster/en/service/quick-start)
+- [Verifying site rights](https://yandex.com/support/webmaster/en/service/rights)
 - [Sitemap files](https://yandex.com/support/webmaster/en/indexing-options/sitemap)
 - [Important page monitoring](https://yandex.com/support/webmaster/en/service/tracking-url)
 - [Search query monitoring](https://yandex.com/support/webmaster/en/service/popular-queries)

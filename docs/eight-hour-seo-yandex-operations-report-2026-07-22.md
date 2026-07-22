@@ -108,6 +108,8 @@ Required next Yandex sequence:
 5. Create one Metrica tag, configure `YANDEX_METRICA_ID`, redeploy and create the five JavaScript-event goals.
 6. Import the 51-query P1 Russian list and record searchable/excluded page baselines.
 
+Yandex's current official guidance says the property address must match the final protocol and `www` form, the verification meta must be in the homepage `<head>`, and sitemap processing can take up to two weeks. The first few days after submission should therefore be treated as a crawl window, not a failure.
+
 ## Verification
 
 - `pnpm lint`: PASS with zero errors; three pre-existing warnings remain in an unrelated Morocco output script.
