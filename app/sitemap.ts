@@ -12,10 +12,12 @@ const productLastModified: Record<string, string> = {
   "carbon-fiber-yarn-and-tow": "2026-07-21",
   "carbon-fiber-woven-fabric": "2026-07-21",
   "carbon-fiber-ud-fabric": "2026-07-21",
-  "structural-strengthening-system": "2026-07-21",
+  "structural-strengthening-system": "2026-07-22",
 };
 
 const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
+  es: { "structural-strengthening-system": "2026-07-22" },
+  "pt-br": { "structural-strengthening-system": "2026-07-22" },
   ru: {
     "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
     "3k-carbon-fiber-laminate-sheet": "2026-07-22",
@@ -24,6 +26,11 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
+  ar: { "structural-strengthening-system": "2026-07-22" },
+  fr: { "structural-strengthening-system": "2026-07-22" },
+  ko: { "structural-strengthening-system": "2026-07-22" },
+  pl: { "structural-strengthening-system": "2026-07-22" },
+  tr: { "structural-strengthening-system": "2026-07-22" },
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/products", changeFrequency: "weekly", priority: 0.95 },
     { path: "/applications", changeFrequency: "monthly", priority: 0.85 },
     { path: "/processes", changeFrequency: "monthly", priority: 0.85 },
-    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-21") },
+    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-22") },
     { path: "/quality-control", changeFrequency: "monthly", priority: 0.75 },
     { path: "/about", changeFrequency: "monthly", priority: 0.75 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.8 },

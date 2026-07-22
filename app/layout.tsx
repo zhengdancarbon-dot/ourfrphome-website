@@ -13,6 +13,11 @@ const defaultDescription =
   "Zhejiang FRPHome New Material Co., Ltd. manufactures carbon fiber fabric, UD fabric, prepreg and composite reinforcement materials with stable supply, custom specifications, technical support and export packing.";
 const ga4MeasurementId =
   process.env.GA4_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+const yandexMetricaIdValue =
+  process.env.YANDEX_METRICA_ID || process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;
+const yandexMetricaId = /^\d+$/.test(yandexMetricaIdValue?.trim() || "")
+  ? yandexMetricaIdValue?.trim()
+  : undefined;
 const googleSiteVerification =
   process.env.GSC_VERIFICATION_CODE || process.env.NEXT_PUBLIC_GSC_VERIFICATION_CODE;
 const bingSiteVerification =
@@ -164,14 +169,41 @@ export default function RootLayout({
             </Script>
           </>
         ) : null}
+        {yandexMetricaId ? (
+          <>
+            <Script id="yandex-metrica-init" strategy="afterInteractive">
+              {`
+                (function(m,e,t,r,i,k,a){
+                  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                  m[i].l=1*new Date();
+                  for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+                  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+                })(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=${yandexMetricaId}","ym");
+                ym(${yandexMetricaId},"init",{ssr:true,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});
+              `}
+            </Script>
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `<div><img src="https://mc.yandex.ru/watch/${yandexMetricaId}" style="position:absolute;left:-9999px" alt="" /></div>`,
+              }}
+            />
+          </>
+        ) : null}
         <Script id="conversion-click-tracking" strategy="afterInteractive">
           {`
             (function () {
+              var yandexCounterId = ${yandexMetricaId || "null"};
+
               function sendEvent(eventName, params) {
                 if (typeof window.gtag === "function") {
                   window.gtag("event", eventName, params || {});
                 }
+                if (yandexCounterId && typeof window.ym === "function") {
+                  window.ym(yandexCounterId, "reachGoal", eventName, params || {});
+                }
               }
+
+              window.frpTrackEvent = sendEvent;
 
               function currentLocale() {
                 var path = window.location.pathname || "/";

@@ -1,6 +1,6 @@
 # FRP HOME Product TDS Library Status
 
-Date: 2026-07-16
+Last updated: 2026-07-22
 
 ## Publishing standard
 
@@ -21,6 +21,7 @@ Date: 2026-07-16
 | Carbon Fiber Yarn & Tow | High Strength 12K Carbon Fiber Tow | `正旦碳布TDS/TDS-ZDCF 55T-12K.pdf` | Published as supplier-origin supply reference |
 | Prepreg Carbon Fiber Materials | WP-L5100 Carbon Fiber Prepreg | `正旦碳布TDS/预浸/ZD_Carbon_Fiber_Prepreg_TDS.pdf` | Published with reference-value disclaimer |
 | Milled Carbon Fiber Powder | 300 Mesh Milled Carbon Fiber Powder | `正旦碳布TDS/Carbon_Fiber_Powder_TDS.pdf` | Published |
+| Structural Strengthening System | 1.2 mm Pultruded CFRP Strengthening Plate | `正旦碳布TDS/ZCP1.2 carbon fiber laminate .pdf` dated 2024-11-12 | Published as a source-model TDS with missing test methods disclosed and legacy approval claims excluded |
 | 3K Carbon Fiber Laminate Sheet | Product Specification & RFQ Guide | Current FRP HOME product scope and RFQ workflow | Published as `SPEC`, not represented as a TDS |
 
 ## Verified local source queue
@@ -32,9 +33,9 @@ Date: 2026-07-16
 | Multiaxial NCF | 300gsm biaxial family and 600gsm +/-45 biaxial NCF published; 0/90 300gsm, +/-45 400gsm and quadriaxial 400gsm remain in review | Add the next requested construction only after its active specification is confirmed |
 | Prepreg | T300 woven, T800 UD300, UD200, 12K 600gsm and resin records | Confirm active resin system and storage/cure profile per offered grade |
 | Milled powder | 200 mesh, 300 mesh, 400-500 mesh and 600-800 mesh | Publish additional mesh grades after current commercial availability is confirmed |
-| Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | The reviewed 1.2 mm source describes pultruded structural-strengthening plate, not 3K laminate sheet. A formal 3K laminate TDS remains blocked until matching fiber, resin, layup, tolerance and test-method records are provided. |
+| Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | The reviewed ZCP1.2 source is now published only as a pultruded structural-strengthening plate TDS. A formal 3K laminate TDS remains blocked until matching fiber, resin, layup, tolerance and test-method records are provided. |
 | Carbon sleeves | 3K and 12K sleeves in multiple diameters | Confirm braid angle, diameter tolerance and roll/package format |
-| Structural strengthening | UD fabric, plate, mesh, resin and anchor records | Build system documents only after component compatibility is reviewed |
+| Structural strengthening | 300gsm UD fabric and ZCP1.2 pultruded plate TDS files published; mesh, resin and anchor records remain available for review | Build any combined system document only after component compatibility is reviewed |
 | Aramid / honeycomb | Aramid honeycomb source TDS | Confirm product is actively supplied and identify material grade |
 | Custom parts / tubes | Carbon tube reference and plate records | Create drawing-specific inspection sheets rather than generic guaranteed values |
 

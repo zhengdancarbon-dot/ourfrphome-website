@@ -51,6 +51,8 @@ Search volume is not estimated. Values above are direct GSC observations.
 15. Reworked the six Russian priority pages around natural Yandex procurement terminology such as `углеродный жгут`, `углепластиковая плита`, `ЧПУ`, `углепластиковая ламель` and `саржевая ткань`, while preserving technical tokens and claim boundaries.
 16. Limited localized sitemap modification dates to pages and locales with a verified content change; other localized entries now omit unverified dates.
 17. Added a truthful `Product` entity inside each English and localized product `ItemPage` JSON-LD graph. The entity includes only visible product identity data and omits `Offer`, price, stock, reviews and ratings. The 205-page SEO audit now fails if a product detail page is missing this entity.
+18. Published a two-page FRP HOME TDS for source model ZCP1.2, correctly classified as a 1.2 mm pultruded CFRP civil strengthening plate rather than a 3K appearance laminate. The sheet retains explicit values from the 12 November 2024 source record, identifies missing test methods, removes legacy approval/certification claims and excludes unsupported or sensitive-use wording.
+19. Added optional Yandex Metrica support through `YANDEX_METRICA_ID`. When a real numeric tag is configured, the existing `rfq_submit`, `tds_download`, `catalog_download`, `email_click` and `whatsapp_click` events are sent to both GA4 and matching Yandex JavaScript-event goals with the existing locale and source parameters. No Yandex tracking code loads while the variable is empty.
 
 ## Rendered QA
 

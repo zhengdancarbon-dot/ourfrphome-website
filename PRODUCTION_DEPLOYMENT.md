@@ -92,6 +92,19 @@ Important notes:
 - Current sender standard: `FRP HOME Website <website@myfrphome.com>`.
 - Redeploy after changing environment variables.
 
+Optional search and analytics variables:
+
+```text
+GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+GSC_VERIFICATION_CODE=your_google_verification_code
+BING_VERIFICATION_CODE=your_bing_verification_code
+YANDEX_VERIFICATION_CODE=your_yandex_verification_code
+YANDEX_METRICA_ID=your_numeric_yandex_metrica_tag_id
+INDEXNOW_KEY=your_indexnow_key
+```
+
+`YANDEX_METRICA_ID` is optional. When present, the site loads Yandex Metrica on every page and sends the existing RFQ, TDS, catalog, email and WhatsApp conversion events to matching JavaScript-event goals. Session Replay is disabled by default.
+
 ## 4. API Route Check
 
 Route:

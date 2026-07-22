@@ -99,13 +99,22 @@ function trackRfqSubmit(
   locale: Locale,
   sourcePage: string,
 ) {
-  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-  gtag?.("event", "rfq_submit", {
+  const analytics = window as Window & {
+    frpTrackEvent?: (eventName: string, params: Record<string, unknown>) => void;
+    gtag?: (...args: unknown[]) => void;
+  };
+  const params = {
     product_type: productType,
     product_name: productName || productType,
     locale,
     source_page: sourcePage,
-  });
+  };
+
+  if (analytics.frpTrackEvent) {
+    analytics.frpTrackEvent("rfq_submit", params);
+  } else {
+    analytics.gtag?.("event", "rfq_submit", params);
+  }
 }
 
 export function InquiryForm({

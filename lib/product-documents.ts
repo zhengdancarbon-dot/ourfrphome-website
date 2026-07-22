@@ -41,6 +41,16 @@ export const productDocuments: ProductDocument[] = [
     fileSize: "67 KB",
   },
   {
+    productSlug: "structural-strengthening-system",
+    type: "TDS",
+    title: "1.2 mm Pultruded CFRP Strengthening Plate",
+    specification: "1.2 mm pultruded CFRP plate; source model ZCP1.2",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-1.2mm-Pultruded-CFRP-Strengthening-Plate-TDS.pdf",
+    fileSize: "67 KB",
+  },
+  {
     productSlug: "carbon-fiber-multiaxial-ncf-fabric",
     type: "TDS",
     title: "300gsm Biaxial Carbon Fiber Fabric",
