@@ -45,6 +45,9 @@ Search volume is not estimated. Values above are direct GSC observations.
 9. Set accurate sitemap `lastmod` values only for pages with significant verified changes.
 10. Added `source_page` to GA4 RFQ, TDS, catalog, email and WhatsApp events while preserving locale and product/document parameters.
 11. Promoted the six priority product URLs and nine verified TDS/SPEC documents near the top of `llms.txt` for clearer AI retrieval and source attribution.
+12. Completed a five-core SERP and authority-gap review and created a manually reviewed outreach queue that excludes suspicious mirror sites and mass directories.
+13. Added natural Russian procurement questions for Yandex visibility monitoring while retaining end-use and trade-compliance review.
+14. Generated 162 tracked outreach URLs covering six priority landing pages, nine languages and email, LinkedIn and WhatsApp channels without changing canonical URLs.
 
 ## Rendered QA
 
@@ -77,5 +80,6 @@ Search volume is not estimated. Values above are direct GSC observations.
 3. Use GA4 Explore to break down the five conversion events by `locale`, `source_page` and product/document parameters.
 4. Complete Yandex Webmaster verification when an authenticated account is available.
 5. Continue source-backed NCF, 3K sheet, Yarn & Tow, strengthening and 3K woven content only when it answers a distinct procurement question.
+6. Review the first nine authority opportunities; no Russia-related contact proceeds without counterparty, destination, final-use and applicable trade-compliance approval.
 
 No ranking, traffic or inquiry count is guaranteed. Success is measured by index coverage, qualified non-brand impressions, position movement, clicks, downloads and RFQs.
