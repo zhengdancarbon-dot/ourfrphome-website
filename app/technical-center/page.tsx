@@ -37,16 +37,20 @@ const resources = [
 const articleSchema = technicalArticles.map((guide) => ({
   "@context": "https://schema.org",
   "@type": "Article",
+  "@id": `${absoluteUrl(`/technical-center/${guide.slug}`)}#article`,
   headline: guide.title,
   description: guide.description,
   image: absoluteUrl(guide.image),
   url: absoluteUrl(`/technical-center/${guide.slug}`),
+  mainEntityOfPage: absoluteUrl(`/technical-center/${guide.slug}`),
+  inLanguage: "en",
   ...(guide.publishedAt ? { datePublished: guide.publishedAt } : {}),
   ...(guide.reviewedAt ? { dateModified: guide.reviewedAt } : {}),
   ...(guide.sources ? { citation: guide.sources.map((source) => source.url) } : {}),
   author: {
     "@type": "Organization",
     name: siteConfig.companyName,
+    url: absoluteUrl("/about"),
   },
   publisher: {
     "@type": "Organization",

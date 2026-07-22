@@ -8,8 +8,8 @@ Authoritative plan: `docs/five-core-seo-geo-90-day-master-plan-2026-07-21.md`
 
 ## Verified Production Baseline
 
-- Sitemap: 205 URLs.
-- Locale distribution: 53 English URLs and 19 URLs for each of ES, PT-BR, RU, AR, FR, KO, PL and TR.
+- Sitemap: 207 URLs after the two priority RFQ guides are released.
+- Locale distribution: 55 English URLs and 19 URLs for each of ES, PT-BR, RU, AR, FR, KO, PL and TR.
 - Production crawl: 205 pages, 340 internal resources and three required negative routes; status PASS.
 - Google Search Console export, last three months: 4 clicks, 1.36K impressions, 0.3% CTR and average position 53.2.
 - GA4 tag: present in production HTML.
@@ -58,6 +58,9 @@ Search volume is not estimated. Values above are direct GSC observations.
 22. Added one buyer-focused FAQ to each of the six Russian priority product pages and verified three FAQPage entities per page. IndexNow accepted all six updated URLs with HTTP 200.
 23. Added eight localized entry points and six Russian priority-product links to `llms.txt` for explicit AI/GEO discovery.
 24. Audited all 72 priority document links across nine languages. Every link resolves to a live PDF and carries `tds_download`, `product_slug` and `document_title` analytics context.
+25. Added `Carbon Fiber Tow RFQ Checklist`, a transaction-focused guide that routes 1K-50K tow-size, grade, sizing, package, process, quantity and end-use questions to the Yarn & Tow page and verified 12K Tow TDS.
+26. Added `CFRP Strengthening Material RFQ Checklist`, a source-reviewed guide that separates strengthening UD fabric from pultruded CFRP plate order fields, links both verified FRP HOME TDS files and preserves the structural-engineering approval boundary.
+27. Improved English Article structured data with a stable article `@id`, `mainEntityOfPage`, `inLanguage` and an organization author URL. No price, stock, rating, certification or unsupported test data was added.
 
 ## Rendered QA
 
@@ -65,7 +68,7 @@ Search volume is not estimated. Values above are direct GSC observations.
 - Mobile `390x844`: no horizontal overflow; menu opens in the fresh production build; product hero and CTAs remain readable.
 - Spanish Contact at `390x844`: localized title/H1, `locale=es`, `sourcePage=/es/contact`, one RFQ form and no console errors.
 - `pnpm lint`: zero errors; three pre-existing warnings in an unrelated Morocco output script.
-- `pnpm build`: PASS; 214 static pages generated.
+- `pnpm build`: PASS; 216 static pages generated.
 
 ## Search Engine Status
 
@@ -87,7 +90,7 @@ Search volume is not estimated. Values above are direct GSC observations.
 
 ## Next Data-Driven Actions
 
-1. Monitor the two new guides for indexing and query impressions for seven days.
+1. Monitor the four recently published guides for indexing and query impressions for seven days.
 2. Re-export GSC page/query data before further title changes.
 3. Use GA4 Explore to break down the five conversion events by `locale`, `source_page` and product/document parameters.
 4. Complete Yandex Webmaster verification when an authenticated account is available.

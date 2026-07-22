@@ -1,5 +1,6 @@
 import { absoluteUrl } from "@/lib/seo";
 import { dualCoreTechnicalArticles } from "@/lib/dual-core-technical-articles";
+import { priorityTechnicalArticles } from "@/lib/priority-technical-articles";
 
 export type TechnicalArticle = {
   slug: string;
@@ -697,6 +698,11 @@ export const technicalArticles: TechnicalArticle[] = [
         url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
       },
       {
+        title: "1.2 mm Pultruded CFRP Strengthening Plate TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-1.2mm-Pultruded-CFRP-Strengthening-Plate-TDS.pdf",
+      },
+      {
         title: "Carbon Fiber Structural Strengthening System",
         publisher: "FRP HOME",
         url: "https://www.myfrphome.com/products/structural-strengthening-system",
@@ -826,6 +832,7 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
   },
   ...dualCoreTechnicalArticles,
+  ...priorityTechnicalArticles,
 ];
 
 export function getTechnicalArticle(slug: string) {
@@ -836,16 +843,20 @@ export function articleStructuredData(article: TechnicalArticle) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${absoluteUrl(`/technical-center/${article.slug}`)}#article`,
     headline: article.title,
     description: article.description,
     image: absoluteUrl(article.image),
     url: absoluteUrl(`/technical-center/${article.slug}`),
+    mainEntityOfPage: absoluteUrl(`/technical-center/${article.slug}`),
+    inLanguage: "en",
     ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
     ...(article.reviewedAt ? { dateModified: article.reviewedAt } : {}),
     ...(article.sources ? { citation: article.sources.map((source) => source.url) } : {}),
     author: {
       "@type": "Organization",
       name: "Zhejiang FRPHome New Material Co., Ltd.",
+      url: absoluteUrl("/about"),
     },
     publisher: {
       "@type": "Organization",

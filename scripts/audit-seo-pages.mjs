@@ -1,5 +1,5 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 205);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 207);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
 const expectedLocalizedCount = 19;
 
