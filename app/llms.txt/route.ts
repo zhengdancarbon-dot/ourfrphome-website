@@ -46,6 +46,24 @@ export function GET() {
   const technicalLines = technicalArticles.map((article) =>
     linkLine(article.title, `/technical-center/${article.slug}`, article.description),
   );
+  const localizedEntryLines = [
+    linkLine("Español", "/es", "Páginas comerciales y RFQ en español."),
+    linkLine("Português do Brasil", "/pt-br", "Páginas comerciais e RFQ em português brasileiro."),
+    linkLine("Русский", "/ru", "Коммерческие страницы и RFQ на русском языке."),
+    linkLine("العربية", "/ar", "صفحات تجارية وطلب عرض سعر باللغة العربية."),
+    linkLine("Français", "/fr", "Pages commerciales et RFQ en français."),
+    linkLine("한국어", "/ko", "한국어 제품 및 RFQ 페이지."),
+    linkLine("Polski", "/pl", "Polskie strony produktów i RFQ."),
+    linkLine("Türkçe", "/tr", "Türkçe ürün ve RFQ sayfaları."),
+  ];
+  const russianPriorityLines = [
+    linkLine("Мультиаксиальная углеродная ткань NCF", "/ru/products/carbon-fiber-multiaxial-ncf-fabric"),
+    linkLine("Лист и плита из углепластика 3K", "/ru/products/3k-carbon-fiber-laminate-sheet"),
+    linkLine("Углеродная нить и жгут (tow)", "/ru/products/carbon-fiber-yarn-and-tow"),
+    linkLine("Однонаправленная углеродная ткань UD", "/ru/products/carbon-fiber-ud-fabric"),
+    linkLine("Система конструкционного усиления CFRP", "/ru/products/structural-strengthening-system"),
+    linkLine("Ткань из углеродного волокна 3K", "/ru/products/carbon-fiber-woven-fabric"),
+  ];
 
   const content = [
     "# FRP HOME",
@@ -82,7 +100,9 @@ export function GET() {
       linkLine("Compliance and End-Use Review", "/compliance-end-use-review"),
       linkLine("Contact / RFQ", "/contact"),
     ]),
+    section("Localized Site Entry Points", localizedEntryLines),
     section("Priority Commercial Products", priorityProductLines),
+    section("Russian Priority Commercial Pages", russianPriorityLines),
     section("Verified Product Documents", verifiedDocumentLines),
     section("Products", productLines),
     section("Applications", applicationLines),
