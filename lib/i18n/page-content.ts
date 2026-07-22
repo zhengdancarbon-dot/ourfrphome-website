@@ -246,11 +246,11 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Refuerzo bidireccional tejido con hilos de carbono en urdimbre y trama para laminados equilibrados y superficies CFRP visibles.",
       heroCopy:
-        "Disponible en 1K, 3K, 6K y 12K, con tejido plain, twill, satén, jacquard y opciones spread tow de 8x8 mm o 10x10 mm.",
+        "FRP HOME publica un TDS para tejido twill 3K de 200 g/m². Otros tow, pesos, tejidos y patrones spread tow se revisan antes de cotizar.",
       seo: {
         title: "Tejido de fibra de carbono woven | 1K 3K 6K 12K plain y twill",
         description:
-          "Proveedor de tejido de carbono woven en 1K, 3K, 6K y 12K con plain, twill, satén, jacquard y spread tow para laminados CFRP.",
+          "Proveedor de tejido de carbono 3K con producto twill de 200 g/m² documentado; otros tow y tejidos se revisan para laminados CFRP.",
       },
       intro: [
         "El tejido woven combina fibras de carbono en dos direcciones para obtener manejo estable, buena apariencia y laminados equilibrados.",
@@ -260,7 +260,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       faqs: [
         {
           question: "¿Qué tejido de carbono se usa para superficies visibles?",
-          answer: "3K 200 g/m2 o 245 g/m2 twill suele ser un punto de partida por su patrón fino y reconocible.",
+          answer: "El tejido twill 3K de 200 g/m² documentado es un punto de partida práctico. Confirme aspecto, grado, sizing, ancho y proceso de resina antes del pedido.",
         },
         {
           question: "¿Puede reemplazar tejido UD?",
@@ -308,7 +308,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       seo: {
         title: "Tejido UD de fibra de carbono | Refuerzo unidireccional",
         description:
-          "Tejido UD de carbono en 200, 300, 600 g/m2 y anchos personalizados para laminados compuestos y refuerzo estructural.",
+          "Tejido UD de carbono con producto de 300 g/m² documentado y otras construcciones bajo revisión para laminados y refuerzo estructural.",
       },
       intro: [
         "El tejido UD coloca la mayor parte de la fibra en una dirección para reforzar la trayectoria principal de carga.",
@@ -545,11 +545,11 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Reforço bidirecional tecido com fios de carbono em urdume e trama para laminados equilibrados e superfícies CFRP visíveis.",
       heroCopy:
-        "Disponível em 1K, 3K, 6K e 12K, com weave plain, twill, cetim, jacquard e opções spread tow de 8x8 mm ou 10x10 mm.",
+        "A FRP HOME publica um TDS para tecido twill 3K de 200 g/m². Outros tow, pesos, tecidos e padrões spread tow são analisados antes da cotação.",
       seo: {
         title: "Tecido woven de fibra de carbono | 1K 3K 6K 12K plain e twill",
         description:
-          "Fornecedor de tecido carbono woven em 1K, 3K, 6K e 12K com plain, twill, cetim, jacquard e spread tow para laminados CFRP.",
+          "Fornecedor de tecido de carbono 3K com produto twill de 200 g/m² documentado; outros tow e tecidos são analisados para laminados CFRP.",
       },
       intro: [
         "O tecido woven combina fibras em duas direções para manuseio estável, boa aparência e laminados equilibrados.",
@@ -559,7 +559,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       faqs: [
         {
           question: "Qual tecido de carbono é usado para superfícies visíveis?",
-          answer: "3K 200 g/m2 ou 245 g/m2 twill costuma ser um ponto de partida pelo padrão fino e reconhecível.",
+          answer: "O tecido twill 3K de 200 g/m² documentado é um ponto de partida prático. Confirme aparência, grau, sizing, largura e processo de resina antes do pedido.",
         },
         {
           question: "Pode substituir tecido UD?",
@@ -607,7 +607,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       seo: {
         title: "Tecido UD de fibra de carbono | Reforço unidirecional",
         description:
-          "Tecido UD de carbono em 200, 300, 600 g/m2 e larguras personalizadas para laminados compósitos e reforço estrutural.",
+          "Tecido UD de carbono com produto de 300 g/m² documentado e outras construções sob análise para laminados e reforço estrutural.",
       },
       intro: [
         "O tecido UD coloca a maior parte da fibra em uma direção para reforçar a principal trajetória de carga.",
@@ -865,7 +865,7 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
       ],
       commonSpecifications: [
         ["Tejido visible", "3K twill / plain / spread tow"],
-        ["Peso", "200 / 240 / 245 / 300 g/m2 típico"],
+        ["Tejido visible documentado", "3K twill 200 g/m²; otras construcciones bajo revisión"],
         ["Formato", "Tejido seco, prepreg o placa laminada"],
       ],
       selectionGuide: [
@@ -992,9 +992,9 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         { name: "Resina epoxi estructural", href: "/products/structural-strengthening-system", note: "Bonding e impregnación por proyecto." },
       ],
       commonSpecifications: [
-        ["Peso tejido UD", "200 / 300 / 600 g/m2 o custom"],
-        ["Ancho tejido UD", "10 / 20 / 30 / 50 / 100 cm o custom"],
-        ["Placa CFRP", "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm"],
+        ["Tejido UD documentado", "300 g/m²; otras construcciones bajo revisión"],
+        ["Ancho tejido UD", "100-500 mm documentado para 300 g/m²"],
+        ["Placa CFRP documentada", "1.2 mm; ancho y longitud según cotización"],
       ],
       selectionGuide: [
         "Confirme tipo de estructura y dirección de carga.",
@@ -1040,7 +1040,7 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
       ],
       commonSpecifications: [
         ["Tecido visível", "3K twill / plain / spread tow"],
-        ["Peso", "200 / 240 / 245 / 300 g/m2 típico"],
+        ["Tecido visível documentado", "3K twill 200 g/m²; outras construções sob análise"],
         ["Formato", "Tecido seco, prepreg ou placa laminada"],
       ],
       selectionGuide: [
@@ -1167,9 +1167,9 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         { name: "Resina epóxi estrutural", href: "/products/structural-strengthening-system", note: "Colagem e impregnação por projeto." },
       ],
       commonSpecifications: [
-        ["Peso tecido UD", "200 / 300 / 600 g/m2 ou custom"],
-        ["Largura tecido UD", "10 / 20 / 30 / 50 / 100 cm ou custom"],
-        ["Placa CFRP", "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm"],
+        ["Tecido UD documentado", "300 g/m²; outras construções sob análise"],
+        ["Largura do tecido UD", "100-500 mm documentado para 300 g/m²"],
+        ["Placa CFRP documentada", "1.2 mm; largura e comprimento conforme cotação"],
       ],
       selectionGuide: [
         "Confirme tipo de estrutura e direção de carga.",

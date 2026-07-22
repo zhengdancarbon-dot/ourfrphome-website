@@ -40,7 +40,7 @@ export const technicalArticles: TechnicalArticle[] = [
       rows: [
         ["Tow size", "Fine 3K tow", "Larger 12K tow"],
         ["Appearance", "Classic small carbon texture", "Larger and more industrial texture"],
-        ["Typical weight", "160-245 g/m2 common", "300-600 g/m2 common"],
+        ["Published FRP HOME evidence", "3K 200 g/m² twill fabric TDS", "Tow/fabric construction requires matching product data"],
         ["Use case", "Visible parts, automotive, sports, UAV panels", "Large panels, industrial laminates, faster thickness build"],
         ["RFQ focus", "Weave, surface finish, width, roll length", "Areal weight, panel size, ply count, process"],
       ],
@@ -52,10 +52,9 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
     applications: ["Automotive trim", "Sports equipment", "Civil UAV panels", "Industrial panels", "Decorative CFRP"],
     specifications: [
-      ["3K common weights", "160 / 200 / 240 / 245 g/m2"],
-      ["12K common weights", "300 / 400 / 600 g/m2"],
-      ["Weaves", "Plain / twill / satin by order"],
-      ["Widths", "1000 / 1270 / 1500 mm or custom"],
+      ["Documented 3K fabric", "200 g/m² twill; 1000-1500 mm; 100 m nominal"],
+      ["12K woven request", "Confirm construction, weight, width, grade and matching TDS"],
+      ["Other weaves", "Confirm against the selected product record and sample"],
     ],
     recommendedProducts: ["carbon-fiber-woven-fabric", "spread-tow-carbon-fiber-fabric", "3k-carbon-fiber-laminate-sheet"],
     rfqInformation: ["Tow size", "Weave type", "Areal weight", "Width", "Roll length", "Surface finish", "Quantity", "End use"],
@@ -69,6 +68,13 @@ export const technicalArticles: TechnicalArticle[] = [
         question: "Which is better for visible carbon panels?",
         answer:
           "3K twill is the most common visible carbon option. Spread tow may be chosen for a flatter checker look.",
+      },
+    ],
+    sources: [
+      {
+        title: "3K 200gsm Twill Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-3K-200gsm-Twill-Carbon-Fiber-Fabric-TDS.pdf",
       },
     ],
   },
@@ -291,10 +297,10 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
     applications: ["Structural strengthening", "Pultrusion", "Composite laminates", "Automotive panels", "Sports equipment"],
     specifications: [
-      ["UD weight", "200 / 300 / 600 g/m2 or custom"],
-      ["UD width", "10 / 20 / 30 / 50 / 100 cm or custom"],
-      ["Woven tow", "1K / 3K / 6K / 12K"],
-      ["Woven pattern", "Plain / twill / satin / jacquard / spread tow"],
+      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Other UD construction", "By project specification and matching document review"],
+      ["Documented woven fabric", "3K 200 g/m² twill"],
+      ["Other woven construction", "By construction, sample and document review"],
     ],
     recommendedProducts: ["carbon-fiber-ud-fabric", "carbon-fiber-woven-fabric", "carbon-fiber-multiaxial-ncf-fabric"],
     rfqInformation: ["Application", "Main load direction", "Areal weight", "Width", "Fiber grade", "Resin process", "Quantity"],
@@ -562,17 +568,16 @@ export const technicalArticles: TechnicalArticle[] = [
     comparison: {
       columns: ["GSM range", "Typical use", "Notes"],
       rows: [
-        ["90-160 g/m2", "Light cosmetic skins and thin laminates", "Fine handling, lower build thickness"],
-        ["200-245 g/m2", "3K visible parts and general CFRP surfaces", "Common automotive and sports range"],
-        ["300-400 g/m2", "Medium laminates and larger panels", "Builds thickness faster"],
-        ["600 g/m2", "Heavy reinforcement and industrial laminates", "Confirm drape and resin process"],
-        ["Custom", "Project-specific reinforcement", "Requires construction review"],
+        ["3K 200 g/m² documented", "Visible parts and general CFRP surfaces", "Published FRP HOME twill-fabric TDS"],
+        ["Other woven GSM", "Project-specific reinforcement", "Requires matching construction data and order review"],
+        ["UD 300 g/m² documented", "Directional reinforcement", "Published FRP HOME UD-fabric TDS"],
+        ["NCF 300 / 600 g/m² documented", "Multidirectional reinforcement", "Published FRP HOME biaxial NCF TDS files"],
       ],
     },
     selectionAdvice: [
-      "Choose lower GSM for thin visible skins or small parts.",
-      "Choose 200-245 g/m2 for common 3K visible carbon applications.",
-      "Choose heavier fabrics when laminate thickness and productivity matter.",
+      "Start from the laminate schedule, visible-surface target and required fiber direction.",
+      "Use the published 3K 200 g/m² twill record as a documented reference for visible woven applications.",
+      "Request matching product data for any other GSM, tow, weave or construction.",
       "Confirm resin process because heavier fabrics may wet out differently.",
     ],
     applications: ["Automotive panels", "Sports equipment", "Marine covers", "Composite panels", "Decorative CFRP"],
@@ -593,7 +598,19 @@ export const technicalArticles: TechnicalArticle[] = [
       {
         question: "What GSM is common for 3K twill?",
         answer:
-          "200 g/m2, 240 g/m2 and 245 g/m2 are common 3K twill visible fabric ranges.",
+          "FRP HOME currently publishes a TDS for 3K 200 g/m² twill fabric. Other weights require a matching product record and order confirmation.",
+      },
+    ],
+    sources: [
+      {
+        title: "3K 200gsm Twill Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-3K-200gsm-Twill-Carbon-Fiber-Fabric-TDS.pdf",
+      },
+      {
+        title: "300gsm UD Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
       },
     ],
   },
@@ -671,10 +688,10 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
     applications: ["Concrete beams", "Bridge strengthening", "Slabs", "Columns", "Masonry or timber reinforcement"],
     specifications: [
-      ["CFRP plate", "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm thickness"],
-      ["Plate width", "50 / 80 / 100 / 120 / 150 mm or custom"],
-      ["UD fabric", "200 / 300 / 600 g/m2 or custom"],
-      ["Fabric width", "10 / 20 / 30 / 50 / 100 cm or custom"],
+      ["Documented CFRP plate", "1.2 mm; width and length by quotation"],
+      ["Other CFRP plate", "Matching product data and project approval required"],
+      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Other UD construction", "By project specification and document review"],
     ],
     recommendedProducts: ["structural-strengthening-system", "carbon-fiber-ud-fabric"],
     rfqInformation: ["Project type", "Structure type", "Required material", "Fabric weight", "Plate width/thickness", "Epoxy requirement", "Project area"],

@@ -70,31 +70,30 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "Carbon fiber unidirectional fabric roll / UD tape",
     position: "28% 46%",
     seo: {
-      title: "UD Carbon Fiber Fabric Supplier | 200-600gsm",
+      title: "300gsm UD Carbon Fiber Fabric Supplier | CFRP Reinforcement",
       description:
-        "UD carbon fiber fabric in 200, 300 and 600gsm for composite laminates, pultrusion and structural strengthening. Custom widths from 10-100 cm by review.",
+        "300gsm UD carbon fiber fabric with a documented 100-500 mm width range for composite laminates and structural strengthening; other constructions by review.",
       keywords: [
         ...commonKeywords,
-        "carbon fiber UD fabric 200 g/m²",
         "300 g/m² unidirectional carbon fabric",
-        "600 g/m² UD carbon fiber cloth",
+        "custom UD carbon fiber fabric",
         "carbon fiber reinforcement fabric",
       ],
     },
     specs: [
       { label: "Fiber direction", value: "0 degree unidirectional" },
-      { label: "Areal weight", value: "200 / 300 / 600 g/m2; custom" },
-      { label: "Width", value: "10 / 20 / 30 / 50 / 100 cm; custom" },
-      { label: "Fiber grade", value: "T300 / T700 / 12K / 24K / 50K; custom" },
+      { label: "Documented areal weight", value: "300 g/m²" },
+      { label: "Documented width", value: "100-500 mm" },
+      { label: "Other constructions", value: "By project specification and matching document review" },
     ],
     intro: [
       "Carbon Fiber UD Fabric places most of the carbon fiber in one principal direction, allowing engineers to build tensile strength and stiffness exactly where the laminate or reinforcement system needs it.",
       "The material is suitable for CFRP strengthening, pultruded profiles, directional reinforcement strips, fishing rod components, sports goods and other components where directional performance is more important than a balanced woven appearance.",
-      "FRP HOME can discuss standard 200 g/m², 300 g/m² and 600 g/m² UD fabrics, with custom width cutting from 10 cm to 100 cm for distributors, construction reinforcement companies and composite manufacturers.",
+      "FRP HOME publishes a TDS for a 300 g/m² UD fabric in 100-500 mm widths. Other weights, widths and fiber constructions require matching product records and order confirmation.",
     ],
     highlights: [
-      { label: "Standard weights", value: "200 / 300 / 600 g/m²" },
-      { label: "Custom width", value: "10-100 cm" },
+      { label: "Published fabric", value: "300 g/m² UD carbon fabric" },
+      { label: "Published width", value: "100-500 mm" },
       { label: "Resin process", value: "Epoxy wet layup, pultrusion, lamination" },
       { label: "Supply form", value: "Rolls, slit rolls, export cartons or pallets" },
     ],
@@ -110,27 +109,24 @@ export const productCatalog: ProductCatalogItem[] = [
       codePrefix: "FRPH-UD",
       revision: "Rev. 2026-06",
       note:
-        "Indicative product data for quotation and page building. Final TDS values are confirmed by fiber grade, sizing, width and batch.",
+        "The 300 g/m² row below is supported by the published FRP HOME TDS. Other constructions remain quotation items until matching product data are confirmed.",
       tables: [
         {
-          title: "Standard UD fabric range",
-          columns: ["Grade", "Typical areal weight", "Typical width", "Nominal fiber direction", "Typical roll length", "Indicative MOQ"],
+          title: "Documented and order-review UD fabric scope",
+          columns: ["Product / inquiry", "Areal weight", "Width", "Fiber direction", "Thickness / status", "Order review"],
           rows: [
-            ["FRPH-UD200", "200 g/m² typical", "100-1000 mm typical", "0° nominal", "100 m typical", "300-500 m² indicative"],
-            ["FRPH-UD300", "300 g/m² typical", "100-1000 mm typical", "0° nominal", "100 m typical", "300-500 m² indicative"],
-            ["FRPH-UD600", "600 g/m² typical", "100-1000 mm typical", "0° nominal", "50 / 100 m typical", "300-500 m² indicative"],
-            ["Custom UD", "100-800 g/m² typical by review", "By project review", "0° nominal", "By project review", "Project MOQ by review"],
+            ["FRPH-UD300", "300 g/m²", "100-500 mm", "0°", "0.167 mm nominal / published TDS", "Confirm grade, sizing, roll and batch documents"],
+            ["Other UD construction", "By project specification", "By project specification", "Project-defined", "Matching product data required", "Technical and commercial review"],
           ],
         },
         {
-          title: "Technical properties",
-          columns: ["Item", "Typical value", "Test / control"],
+          title: "Order confirmation items",
+          columns: ["Item", "Required confirmation", "Control basis"],
           rows: [
-            ["Fiber type", "PAN-based carbon fiber, standard or intermediate modulus by order", "COA and supplier data"],
-            ["Areal weight tolerance", "±5% typical", "Internal weighing"],
-            ["Width tolerance", "±2 mm to ±5 mm typical depending on width", "Roll inspection"],
-            ["Binder / stitching", "Epoxy-compatible binder or light stitching by specification", "Visual and handling check"],
-            ["Packing", "PE film, inner tube, carton or pallet by order", "Export packing record"],
+            ["Fiber grade and sizing", "Selected supplier grade and downstream resin process", "Supplier TDS / order specification"],
+            ["Areal weight and width", "Selected product and required tolerance", "Published TDS / order specification"],
+            ["Binder or stitching", "Construction required by the process", "Approved sample / order specification"],
+            ["Roll and packing", "Roll length, core and export protection", "Quotation and packing record"],
           ],
         },
       ],
@@ -156,7 +152,7 @@ export const productCatalog: ProductCatalogItem[] = [
     description:
       "Bidirectional woven carbon fiber reinforcement made by interlacing carbon fiber yarns in warp and weft directions for balanced handling and visible CFRP surfaces.",
     heroCopy:
-      "Woven carbon fiber fabric is available in 1K, 3K, 6K and 12K tow sizes with plain, twill, satin, jacquard and spread tow patterns, including 8x8mm and 10x10mm checker options.",
+      "FRP HOME publishes a TDS for 3K 200 g/m² twill carbon fiber fabric. Other tow sizes, weights, weaves and spread-tow patterns are reviewed against the requested construction before quotation.",
     image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
     gallery: [
       "/images/generated/3k-twill-carbon-fiber-gloss.png",
@@ -170,7 +166,7 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "3K Woven Carbon Fiber Fabric | Plain & Twill",
       description:
-        "3K woven carbon fiber fabric supplier for 200gsm twill and plain carbon cloth, with 1K, 6K and 12K options for visible CFRP and composite laminates.",
+        "3K woven carbon fiber fabric supplier for documented 200gsm twill carbon cloth, with other tow sizes and weaves reviewed for visible CFRP and laminates.",
       keywords: [
         ...commonKeywords,
         "carbon fiber woven fabric",
@@ -180,21 +176,20 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "Tow size", value: "1K / 3K / 6K / 12K" },
-      { label: "Weave", value: "Plain / twill / satin / jacquard / spread tow" },
-      { label: "Pattern", value: "Standard weave / 8x8mm / 10x10mm / custom" },
-      { label: "Areal weight", value: "90 / 160 / 200 / 240 / 300 / 600 g/m2; custom" },
-      { label: "Width", value: "1000 / 1270 / 1500 mm; custom" },
+      { label: "Documented product", value: "3K / 200 g/m² / twill" },
+      { label: "Documented width", value: "1000-1500 mm" },
+      { label: "Documented roll", value: "100 m nominal" },
+      { label: "Other constructions", value: "Tow, weave, weight and width by order review" },
     ],
     intro: [
       "Carbon Fiber Woven Fabric is woven with carbon fiber in both warp and weft directions, making it practical for balanced laminates and visible carbon surfaces.",
-      "The 90 g/m2 to 600 g/m2 range covers lightweight cosmetic skins, general composite shells and heavier laminate build-up. 1K gives a fine premium texture, 3K is the classic carbon look, 6K sits between fine and industrial texture, and 12K supports larger panels.",
+      "The published 3K 200 g/m² twill construction is intended for visible laminate surfaces and common composite layups. Other tow sizes, weights and constructions require matching product records and order confirmation.",
       "Plain weave, twill weave, satin weave, jacquard patterns and spread tow checker patterns such as 8x8mm and 10x10mm can be reviewed according to target appearance and process.",
-      "FRP HOME supplies standard woven carbon cloth and can review custom weight, width, weave, tow size and roll packing requirements for export orders.",
+      "FRP HOME supplies documented woven carbon cloth and can review custom weight, width, weave, tow size and roll packing requirements for export orders.",
     ],
     highlights: [
-      { label: "Weight range", value: "200-600 g/m²" },
-      { label: "Visual options", value: "3K twill, plain, satin, 12K twill" },
+      { label: "Published fabric", value: "3K 200 g/m² twill" },
+      { label: "Other visual options", value: "By construction and sample review" },
       { label: "Process", value: "Hand layup, vacuum bagging, infusion, prepregging" },
       { label: "Typical buyers", value: "Composite factories, auto tuning, marine and sports brands" },
     ],
@@ -210,19 +205,15 @@ export const productCatalog: ProductCatalogItem[] = [
       codePrefix: "FRPH-WC",
       revision: "Rev. 2026-06",
       note:
-        "Representative woven fabric range. Actual construction, pick count and yarn brand are confirmed before production.",
+        "The 3K 200 g/m² twill row below is supported by the published FRP HOME TDS. Other woven constructions remain quotation items until matching product data are confirmed.",
       tables: [
         {
-          title: "Standard woven fabric range",
-          columns: ["Grade", "Tow", "Typical areal weight", "Weave by order", "Typical width", "Typical roll length"],
+          title: "Documented and order-review woven fabric scope",
+          columns: ["Product / inquiry", "Tow", "Areal weight", "Weave", "Width", "Roll / status"],
           rows: [
-            ["FRPH-WC1K90", "1K by order", "90 / 100 g/m² typical", "Plain / twill", "1000 mm typical", "100 m typical"],
-            ["FRPH-WC3K200T", "3K by order", "200 g/m² typical", "2x2 twill", "1000 / 1270 / 1500 mm typical", "100 m typical"],
-            ["FRPH-WC3K245T", "3K by order", "240 / 245 g/m² typical", "Plain / 2x2 twill", "1000 / 1270 mm typical", "100 m typical"],
-            ["FRPH-WC6K320", "6K by order", "320 g/m² typical", "Plain / twill", "1000 / 1270 mm typical", "100 m typical"],
-            ["FRPH-WC12K400", "12K by order", "400 g/m² typical", "Plain / twill", "1000 / 1270 / 1500 mm typical", "50 / 100 m typical"],
-            ["FRPH-WC12K600", "12K by order", "600 g/m² typical", "Plain / twill", "1000 / 1270 mm typical", "50 m typical"],
-            ["FRPH-WC-ST", "12K / 24K by order", "160-300 g/m² typical", "Spread tow 8x8mm / 10x10mm", "1000 / 1270 mm typical", "50 / 100 m typical"],
+            ["FRPH-WCF-3K200-T", "3K", "200 g/m²", "Twill", "1000-1500 mm", "100 m nominal / published TDS"],
+            ["Other woven fabric", "By requested construction", "By requested construction", "Plain / twill / satin / jacquard", "By quotation", "Matching product data required"],
+            ["Spread tow fabric", "By requested construction", "By requested construction", "8x8mm / 10x10mm / custom", "By quotation", "Separate product review"],
           ],
         },
         {
@@ -241,7 +232,7 @@ export const productCatalog: ProductCatalogItem[] = [
           title: "TDS control items",
           columns: ["Item", "Typical value", "Remark"],
           rows: [
-            ["Areal weight tolerance", "±5% typical", "Final tolerance by specification"],
+            ["Areal weight tolerance", "By confirmed specification", "Final tolerance by order"],
             ["Moisture", "Dry reinforcement with protected packing typical", "Store dry and clean"],
             ["Fiber grade", "Standard and high-strength grade options", "Subject to raw material availability"],
             ["Surface quality", "Typical visual target: uniform weave and no visible oil contamination", "Visual inspection"],
@@ -254,7 +245,7 @@ export const productCatalog: ProductCatalogItem[] = [
       {
         question: "Which woven carbon fabric is best for visible carbon parts?",
         answer:
-          "3K 200 g/m² or 245 g/m² twill is commonly used for visible carbon parts because it gives a fine and recognizable carbon pattern.",
+          "The documented 3K 200 g/m² twill fabric is a practical starting point for visible carbon parts. Approve the actual weave appearance, fiber grade, sizing, width and resin process before ordering.",
       },
       {
         question: "Can 12K fabric replace multiple layers of 3K fabric?",
@@ -400,8 +391,8 @@ export const productCatalog: ProductCatalogItem[] = [
     specs: [
       { label: "Construction", value: "UD / biaxial / triaxial / quadriaxial" },
       { label: "Fiber angles", value: "0° / 90° / +45° / -45°" },
-      { label: "Areal weight", value: "200–1200 g/m² typical" },
-      { label: "Width", value: "1000-2540 mm; project width by review" },
+      { label: "Documented formats", value: "300 / 600 g/m² biaxial NCF" },
+      { label: "Documented roll", value: "1270 mm x 50 m; other formats by review" },
     ],
     intro: [
       "Carbon Fiber Multiaxial NCF Fabric, also called carbon NCF, uses stitched layers of unidirectional carbon fibers arranged at different angles. This reduces crimp and allows faster layup than stacking many separate plies.",
@@ -428,25 +419,23 @@ export const productCatalog: ProductCatalogItem[] = [
         "Indicative NCF architecture list compiled for website product pages. Final layer sequence and fiber distribution are engineered by order.",
       tables: [
         {
-          title: "Common multiaxial specifications",
-          columns: ["Type", "Nominal fiber orientation", "Typical areal weight", "Typical width", "Indicative use"],
+          title: "Documented and order-review NCF formats",
+          columns: ["Product / inquiry", "Fiber orientation", "Carbon areal weight", "Width and roll", "Status"],
           rows: [
-            ["Uniaxial NCF", "0° nominal", "200-800 g/m² typical", "1000-2540 mm typical", "Directional strips and pultrusion feed"],
-            ["Biaxial NCF", "+45° / -45° nominal", "300-800 g/m² typical", "1000-2540 mm typical", "Shear panels, hulls, torsion parts"],
-            ["Biaxial NCF", "0° / 90° nominal", "300-900 g/m² typical", "1000-2540 mm typical", "Balanced skins, panels, stiffened plates"],
-            ["Triaxial NCF", "0° / +45° / -45° nominal", "450-1000 g/m² typical", "1000-2540 mm typical", "Marine panels and industrial structures"],
-            ["Triaxial NCF", "+45° / 90° / -45° nominal", "450-1000 g/m² typical", "1000-2540 mm typical", "Shells requiring transverse support"],
-            ["Quadriaxial NCF", "0° / +45° / 90° / -45° nominal", "600-1200 g/m² typical", "1000-2540 mm typical", "Multi-load structural laminates"],
+            ["FRPH-CBX300-X", "+45° / -45°", "300 g/m²", "1270 mm x 50 m", "Published TDS"],
+            ["FRPH-CBX300-B", "0° / 90°", "300 g/m²", "1270 mm x 50 m", "Published TDS"],
+            ["FRPH-CBX600-45", "+45° / -45°", "600 g/m²", "1270 mm x 50 m", "Published TDS"],
+            ["UD / triaxial / quadriaxial / custom", "Project-defined", "By confirmed order", "By confirmed order", "Technical and commercial review"],
           ],
         },
         {
           title: "Technical options",
           columns: ["Item", "Option", "Remark"],
           rows: [
-            ["Fiber", "12K / 24K / 50K carbon fiber by order", "Standard and high-strength grade options"],
+            ["Fiber", "12K documented; alternatives by agreement", "Confirm grade, sizing and batch documents"],
             ["Stitch yarn", "Polyester or compatible stitching", "Selection by resin process"],
             ["Layer weight", "Custom per ply by project review", "Engineering review required"],
-            ["Roll length", "25-100 m typical", "Depends on weight and width"],
+            ["Roll length", "50 m documented; alternatives by order", "Depends on construction, weight and width"],
             ["Packing", "Wide roll with PE film and pallet by order", "Export handling required"],
           ],
         },
@@ -706,8 +695,8 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "UD fabric", value: "200 / 300 / 600 g/m2 or custom for strengthening" },
-      { label: "CFRP plate", value: "50 x 1.2 mm / 100 x 1.4 mm; custom" },
+      { label: "UD fabric", value: "300 g/m² documented; other constructions by project review" },
+      { label: "CFRP plate", value: "1.2 mm documented; width and length by quotation" },
       { label: "Epoxy resin", value: "Primer / saturant / plate adhesive by project" },
       { label: "Structure type", value: "Concrete / steel / masonry / bridge / building" },
     ],
@@ -715,12 +704,12 @@ export const productCatalog: ProductCatalogItem[] = [
       "Carbon Fiber Structural Strengthening System is designed for externally bonded reinforcement of concrete, masonry, timber and steel structures when used with compatible structural epoxy materials.",
       "UD carbon fiber fabric provides surface bonding and directional reinforcement for beams, slabs, columns and walls. Pultruded CFRP plate or laminate provides high-strength linear reinforcement for bridges, beams and strengthening projects.",
       "Structural epoxy resin is used as bonding and impregnation resin with carbon fabric or CFRP plate according to the selected strengthening method.",
-      "FRP HOME supplies standard 1.2 mm, 1.4 mm, 2.0 mm, 3.0 mm and 5.0 mm thickness options. Engineering design, substrate evaluation and adhesive selection remain the responsibility of the project engineer.",
+      "FRP HOME publishes source-reviewed data for a 1.2 mm pultruded CFRP strengthening plate. Other dimensions require quotation and document review. Engineering design, substrate evaluation and adhesive selection remain the responsibility of the project engineer.",
     ],
     highlights: [
-      { label: "Standard thickness", value: "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm" },
-      { label: "Standard width", value: "50-150 mm typical" },
-      { label: "Length", value: "Roll or straight length by project" },
+      { label: "Published plate", value: "1.2 mm pultruded CFRP strengthening plate" },
+      { label: "Width", value: "Confirmed in the quotation" },
+      { label: "Length", value: "Confirmed in the quotation" },
       { label: "System use", value: "Externally bonded reinforcement with epoxy adhesive" },
     ],
     applications: [
@@ -746,14 +735,11 @@ export const productCatalog: ProductCatalogItem[] = [
           ],
         },
         {
-          title: "Structural reinforcement plate range",
-          columns: ["Grade", "Typical thickness", "Typical width options", "Indicative length", "Surface by order", "Indicative use"],
+          title: "Structural reinforcement plate scope",
+          columns: ["Product", "Thickness", "Width and length", "Surface", "Document status", "Use review"],
           rows: [
-            ["FRPH-CP1.2", "1.2 mm typical", "50 / 80 / 100 / 120 mm typical", "50-250 m roll typical or by order", "Bonding surface by order", "General CFRP strengthening"],
-            ["FRPH-CP1.4", "1.4 mm typical", "50 / 80 / 100 / 120 / 150 mm typical", "50-250 m roll typical or by order", "Bonding surface by order", "Common construction plate"],
-            ["FRPH-CP2.0", "2.0 mm typical", "50 / 80 / 100 / 120 mm typical", "Straight or roll by review", "Bonding surface by order", "Higher area stiffness"],
-            ["FRPH-CP3.0", "3.0 mm typical", "50 / 80 / 100 mm typical", "Straight length by review", "Bonding surface by order", "Heavy reinforcement"],
-            ["FRPH-CP5.0", "5.0 mm typical", "Custom width by review", "Straight length by review", "Bonding surface by order", "Special structural projects"],
+            ["FRPH-CFRP-PLATE-1.2", "1.2 mm", "By quotation", "Bonding surface by order", "Published TDS", "Qualified engineering approval required"],
+            ["Other pultruded plate", "By project specification", "By quotation", "By adhesive-system review", "Matching source data required", "Qualified engineering approval required"],
           ],
         },
         {
@@ -773,7 +759,7 @@ export const productCatalog: ProductCatalogItem[] = [
       {
         question: "Which thickness is common for CFRP construction strengthening?",
         answer:
-          "1.2 mm and 1.4 mm plates are common for many externally bonded strengthening systems, while thicker plates are selected for special stiffness or capacity requirements.",
+          "FRP HOME currently publishes source-reviewed data for a 1.2 mm pultruded CFRP plate. Any alternate thickness, width, length and structural capacity must be confirmed against the selected product document and approved project design.",
       },
       {
         question: "Can FRP HOME provide design responsibility?",
@@ -901,7 +887,7 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "3K Carbon Fiber Plate & Laminate Sheet Supplier | CNC",
       description:
-        "Source 3K twill carbon fiber plate in 0.5-20 mm typical thicknesses, matte or glossy finish, custom panel sizes and CNC cutting to DXF or STEP drawings.",
+        "Source 3K twill carbon fiber plate with matte or glossy finish, order-specific thickness and panel size, plus CNC cutting to DXF or STEP drawings.",
       keywords: [
         ...commonKeywords,
         "3K carbon fiber plate",
@@ -925,9 +911,9 @@ export const productCatalog: ProductCatalogItem[] = [
     },
     specs: [
       { label: "Surface", value: "3K twill carbon fiber" },
-      { label: "Thickness", value: "0.5–20 mm typical; thicker panels by project review" },
+      { label: "Thickness", value: "Order-specific; confirm by drawing and quotation" },
       { label: "Finish", value: "Glossy / matte / peel-ply / sanded" },
-      { label: "Size", value: "400x500, 500x600, 1000x1000 mm; custom" },
+      { label: "Size", value: "Panel size or CNC geometry by drawing" },
     ],
     intro: [
       "3K Carbon Fiber Laminate Sheet is a cured carbon composite sheet with a 3K woven surface. It is widely used when buyers need a carbon appearance together with stable panel thickness.",
@@ -936,7 +922,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     highlights: [
       { label: "Standard surface", value: "3K twill carbon fiber" },
-      { label: "Thickness", value: "0.5 / 1 / 1.5 / 2 / 3 / 4 / 5 / 6 / 8 / 10 mm and custom" },
+      { label: "Thickness", value: "Confirmed for the selected layup and drawing" },
       { label: "Processing", value: "CNC cutting, drilling and edge finishing by request" },
       { label: "Finish", value: "Glossy or matte clear surface" },
     ],
@@ -956,24 +942,20 @@ export const productCatalog: ProductCatalogItem[] = [
         "Laminate sheet properties vary by layup. Thickness tolerance and flatness are confirmed by panel size and curing process.",
       tables: [
         {
-          title: "Typical thickness range",
-          columns: ["Grade", "Typical thickness", "Surface by order", "Typical panel size", "Finish by order", "Indicative use"],
+          title: "RFQ-controlled laminate options",
+          columns: ["Order item", "Required input", "Surface", "Dimensions", "Finish", "Confirmation"],
           rows: [
-            ["FRPH-LP3K-0.5", "0.5 mm typical", "3K twill by order", "400x500 mm typical or custom", "Gloss/matte by order", "Decorative skins"],
-            ["FRPH-LP3K-1.0", "1.0 mm typical", "3K twill by order", "500x600 mm typical or custom", "Gloss/matte by order", "Covers and panels"],
-            ["FRPH-LP3K-2.0", "2.0 mm typical", "3K twill by order", "500x600 / 1000x1000 mm typical", "Gloss/matte by order", "FPV drone frames and CNC parts"],
-            ["FRPH-LP3K-3.0", "3.0 mm typical", "3K twill by order", "500x600 / 1000x1000 mm typical", "Gloss/matte by order", "RC model and fixture plates"],
-            ["FRPH-LP3K-5.0", "5.0 mm typical", "3K twill by order", "Custom by order", "Gloss/matte by order", "High stiffness components"],
-            ["Custom plate", "6–20 mm typical; thicker panels by project review", "3K / UD / mixed by order", "Custom by order", "By order", "Tooling and industrial parts"],
+            ["Flat laminate sheet", "Target thickness and tolerance", "3K twill face by approved sample", "Panel drawing", "Matte / glossy / sanded / peel-ply", "Approved order specification"],
+            ["CNC-cut plate", "DXF / STEP / dimensioned PDF", "Appearance-controlled face marked", "Part geometry and holes", "By drawing and sample", "Machining and inspection review"],
+            ["Custom layup", "Load direction and use", "3K woven surface if required", "By drawing", "By order", "Technical feasibility review"],
           ],
         },
         {
-          title: "Typical TDS items",
-          columns: ["Item", "Typical value", "Remark"],
+          title: "Order confirmation items",
+          columns: ["Item", "Order input", "Remark"],
           rows: [
-            ["Density", "Approx. 1.45–1.65 g/cm³ typical", "Depends on layup and resin"],
-            ["Fiber layup", "3K surface with woven/UD inner plies typical or by order", "Custom layup available"],
-            ["Thickness tolerance", "±0.1 mm typical for thin panels", "Varies by thickness"],
+            ["Fiber layup", "3K surface with woven / UD / mixed inner plies", "Confirm by technical review"],
+            ["Thickness and tolerance", "Drawing-controlled requirement", "Confirm against the selected layup and process"],
             ["Surface", "Glossy or matte clear resin by order", "Protective film optional"],
             ["Packing", "Flat panel protection, carton or wooden case by order", "Export packing available"],
           ],
@@ -1685,14 +1667,13 @@ export const productCatalog: ProductCatalogItem[] = [
           ],
         },
         {
-          title: "Typical carbon yarn TDS range",
-          columns: ["Property", "Typical range", "Remark"],
+          title: "Grade and document confirmation",
+          columns: ["Property", "Required confirmation", "Remark"],
           rows: [
-            ["Tensile strength", "Approx. 3.5-6.4 GPa typical depending on grade", "Use supplier TDS for final value"],
-            ["Tensile modulus", "Approx. 230-295 GPa typical for common standard/intermediate grades", "High modulus available by project"],
-            ["Density", "Approx. 1.76–1.82 g/cm³ typical", "Fiber dependent"],
-            ["Filament diameter", "Approx. 5-7 µm typical", "Grade dependent"],
-            ["Sizing", "EP, VE, PA, PP or custom-compatible", "Confirm with downstream process"],
+            ["Tow and source grade", "Selected supplier TDS and batch", "12K source grade documented; other sizes by quotation"],
+            ["Tensile properties", "Selected supplier TDS / COA", "Do not use a generic family range for qualification"],
+            ["Sizing", "Supplier declaration and downstream process", "Confirm resin or polymer compatibility"],
+            ["Bobbin format", "Net weight and dimensions by source", "Confirm equipment fit before order"],
             ["Package", "Bobbin/spool in carton or pallet by supplier standard", "Supplier package standard"],
           ],
         },

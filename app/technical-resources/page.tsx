@@ -130,10 +130,10 @@ export default function TechnicalResourcesPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Woven carbon fabric</td><td>Balanced handling and visual finish</td><td>80–600 g/m² typical</td><td>Layup / Infusion / Prepreg</td><td>Panels and shells</td></tr>
-                <tr><td>UD carbon fabric</td><td>Maximum directional performance</td><td>100–800 g/m² typical</td><td>Layup / Pultrusion</td><td>Directional reinforcement strips and profiles</td></tr>
-                <tr><td>Carbon Fiber Multiaxial NCF Fabric</td><td>Efficient multi-directional layup</td><td>200–1200 g/m² typical</td><td>Infusion / RTM</td><td>Large structures</td></tr>
-                <tr><td>Carbon Fiber Prepreg Fabric</td><td>Controlled resin and fiber content</td><td>80–600 g/m² typical</td><td>Autoclave / OOA</td><td>Controlled laminate parts and composite panels</td></tr>
+                <tr><td>Woven carbon fabric</td><td>Balanced handling and visual finish</td><td>3K 200 g/m² twill documented; other constructions by review</td><td>Layup / Infusion / Prepreg</td><td>Panels and shells</td></tr>
+                <tr><td>UD carbon fabric</td><td>Maximum directional performance</td><td>300 g/m² documented; other constructions by review</td><td>Layup / Pultrusion</td><td>Directional reinforcement strips and profiles</td></tr>
+                <tr><td>Carbon Fiber Multiaxial NCF Fabric</td><td>Efficient multi-directional layup</td><td>300 / 600 g/m² documented; other formats by review</td><td>Infusion / RTM</td><td>Large structures</td></tr>
+                <tr><td>Carbon Fiber Prepreg Fabric</td><td>Controlled resin and fiber content</td><td>WP-L5100 TDS: UD 30-250; woven 200-480 g/m² dry fiber</td><td>Autoclave / OOA</td><td>Controlled laminate parts and composite panels</td></tr>
                 <tr><td>Aramid fabric</td><td>Impact and abrasion resistance</td><td>110–600 g/m² typical</td><td>Layup / Infusion</td><td>Protective laminates</td></tr>
               </tbody>
             </table>

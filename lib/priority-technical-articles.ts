@@ -139,7 +139,8 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       "Civil engineering distribution",
     ],
     specifications: [
-      ["UD fabric reference", "200 / 300 / 600 g/m2 options; final order by confirmed specification"],
+      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Other UD construction", "By project specification and matching document review"],
       ["Plate reference", "Width, thickness and length by selected product TDS and quotation"],
       ["Epoxy", "Primer / saturant / plate adhesive by approved project system"],
       ["Documents", "TDS and order or batch documents requested by project scope"],

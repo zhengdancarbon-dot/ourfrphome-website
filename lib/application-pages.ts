@@ -38,9 +38,9 @@ export const applicationPages: ApplicationPage[] = [
     ],
     commonSpecifications: [
       ["Visible fabric", "3K twill / plain / spread tow"],
-      ["Areal weight", "200 / 240 / 245 / 300 g/m2 typical"],
+      ["Documented visible fabric", "3K 200 g/m² twill; other constructions by review"],
       ["Prepreg format", "Woven prepreg or UD prepreg by part requirement"],
-      ["Sheet thickness", "0.5-10 mm typical; custom by drawing"],
+      ["Sheet thickness", "Order-specific by drawing and quotation"],
       ["Finish", "Gloss, matte, clear coat or sanded by order"],
     ],
     selectionGuide: [
@@ -221,10 +221,10 @@ export const applicationPages: ApplicationPage[] = [
       { name: "Structural Epoxy Resin", href: "/products/structural-strengthening-system", note: "Bonding and impregnation resin by project requirement." },
     ],
     commonSpecifications: [
-      ["UD fabric weight", "200 / 300 / 600 g/m2 or custom"],
-      ["UD fabric width", "10 / 20 / 30 / 50 / 100 cm or custom"],
-      ["CFRP plate thickness", "1.2 / 1.4 / 2.0 / 3.0 / 5.0 mm"],
-      ["CFRP plate width", "50 / 80 / 100 / 120 / 150 mm or custom"],
+      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Other UD constructions", "By project specification and document review"],
+      ["Documented CFRP plate", "1.2 mm; width and length by quotation"],
+      ["Other CFRP plate dimensions", "Require matching product data and project approval"],
       ["Resin", "Primer / saturant / plate adhesive by project"],
     ],
     selectionGuide: [
@@ -282,7 +282,7 @@ export const applicationPages: ApplicationPage[] = [
       ["Fabric", "3K twill, plain, UD or spread tow"],
       ["Prepreg", "Woven or UD prepreg by layup requirement"],
       ["Tube", "OD / ID / wall thickness / length by drawing"],
-      ["Sheet", "0.5-10 mm typical; custom thickness available"],
+      ["Sheet", "Thickness and dimensions by drawing and quotation"],
       ["Finish", "Gloss, matte, painted or sanded"],
     ],
     selectionGuide: [
@@ -343,8 +343,8 @@ export const applicationPages: ApplicationPage[] = [
     commonSpecifications: [
       ["Pattern", "3K twill / plain / satin / jacquard / spread tow"],
       ["Spread tow", "8x8mm / 10x10mm / custom"],
-      ["Areal weight", "160 / 200 / 240 / 245 / 300 g/m2 or custom"],
-      ["Panel thickness", "0.5-10 mm typical for laminate sheets"],
+      ["Documented woven fabric", "3K 200 g/m² twill; other constructions by review"],
+      ["Panel thickness", "Order-specific by drawing and quotation"],
       ["Finish", "Gloss, matte or clear surface by order"],
     ],
     selectionGuide: [

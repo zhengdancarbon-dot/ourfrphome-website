@@ -501,11 +501,8 @@ export default function CatalogPageRoute() {
             <DataTable
               columns={["Thickness", "Common width", "Format", "Surface", "Typical application"]}
               rows={[
-                ["1.2 mm", "50 / 80 / 100 / 120 mm", "Roll or straight", "Sanded / peel-ply by order", "General strengthening"],
-                ["1.4 mm", "50 / 80 / 100 / 120 / 150 mm", "Roll or straight", "Bonding surface by order", "Construction systems"],
-                ["2.0 mm", "50 / 80 / 100 / 120 mm", "By review", "Bonding surface by order", "Higher area stiffness"],
-                ["3.0 mm", "50 / 80 / 100 mm", "Straight length", "Bonding surface by order", "Heavy reinforcement"],
-                ["Custom", "By project", "By project", "By project", "Special structural use"],
+                ["1.2 mm documented", "By quotation", "By quotation", "Bonding surface by order", "Engineered strengthening system"],
+                ["Other thickness", "By project specification", "By project specification", "By adhesive-system review", "Requires matching product data"],
               ]}
             />
             <div className={styles.warningBox}>
@@ -542,10 +539,9 @@ export default function CatalogPageRoute() {
             <DataTable
               columns={["Type", "Thickness", "Surface", "Size", "Processing"]}
               rows={[
-                ["Thin laminate", "0.5-1.0 mm", "3K twill / plain", "Standard / custom", "Cutting by review"],
-                ["General sheet", "1.5-3.0 mm", "Matte / glossy", "Standard / custom", "CNC / drilling"],
-                ["Structural sheet", "4-10 mm", "Woven / mixed layup", "Custom", "CNC / edge finish"],
-                ["Heavy plate", "10-30 mm", "By layup", "Project-specific", "Drawing review"],
+                ["Flat laminate sheet", "By drawing", "3K twill face by approved sample", "By drawing", "Cutting by review"],
+                ["CNC-cut plate", "By drawing", "Matte / glossy / sanded", "Part geometry", "CNC / drilling / edge finish"],
+                ["Custom layup panel", "By technical review", "Woven / UD / mixed layup", "Project-specific", "Drawing and process review"],
               ]}
             />
             <div className={styles.optionGrid}>

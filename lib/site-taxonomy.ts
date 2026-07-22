@@ -449,9 +449,9 @@ export const rfqProductTypes: RfqProductType[] = [
     label: "UD Carbon Fiber Fabric",
     fields: [
       { name: "fiberDirectionRequirement", label: "Fiber direction requirement", placeholder: "0 degree / main load direction / custom" },
-      { name: "arealWeight", label: "Areal weight", placeholder: "200 / 300 / 600 g/m2 or custom" },
-      { name: "width", label: "Width", placeholder: "10 cm / 20 cm / 50 cm / 100 cm / custom" },
-      { name: "fiberGrade", label: "Fiber grade", placeholder: "T300 / T700 / 12K / 24K / 50K / custom" },
+      { name: "arealWeight", label: "Areal weight", placeholder: "Documented 300 g/m2 or project-specific construction" },
+      { name: "width", label: "Width", placeholder: "Documented 100-500 mm or project-specific width" },
+      { name: "fiberGrade", label: "Fiber grade", placeholder: "Confirm selected grade and matching supplier TDS" },
       { name: "rollLength", label: "Roll length", placeholder: "e.g. 50 m / 100 m / custom" },
       { name: "resinSystem", label: "Resin system or process", placeholder: "Epoxy / pultrusion / strengthening / laminate" },
     ],
@@ -514,8 +514,8 @@ export const rfqProductTypes: RfqProductType[] = [
     fields: [
       { name: "projectType", label: "Project type", placeholder: "Concrete beam / bridge / masonry / slab / column" },
       { name: "materialRequired", label: "Material required", placeholder: "UD fabric / CFRP plate / epoxy resin / system" },
-      { name: "udFabricWeight", label: "UD fabric weight", placeholder: "e.g. 200 g/m2 / 300 g/m2 / 600 g/m2" },
-      { name: "cfrpPlateWidthThickness", label: "CFRP plate width and thickness", placeholder: "e.g. 50 x 1.2 mm / 100 x 1.4 mm" },
+      { name: "udFabricWeight", label: "UD fabric weight", placeholder: "e.g. documented 300 g/m2 or project-specific construction" },
+      { name: "cfrpPlateWidthThickness", label: "CFRP plate width and thickness", placeholder: "e.g. 1.2 mm plate; width and length by project" },
       { name: "epoxyResinRequirement", label: "Epoxy resin requirement", placeholder: "Primer / saturant / plate adhesive" },
       { name: "projectArea", label: "Project area", placeholder: "Approximate m2 or linear meters" },
     ],

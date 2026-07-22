@@ -104,7 +104,7 @@ const packs: Record<ExtendedLocale, Pack> = {
 const productDefinitions: Record<ProductSlug, { category: keyof Pack["categories"]; focus: string; apps: Array<keyof Pack["applications"]> }> = {
   "carbon-fiber-woven-fabric": { category: "woven", focus: "1K / 3K / 6K / 12K, plain / twill, g/m2, width", apps: ["panels", "automotive", "sports", "civilDrone"] },
   "spread-tow-carbon-fiber-fabric": { category: "spread", focus: "8x8mm / 10x10mm, tow, g/m2, width", apps: ["panels", "automotive", "sports"] },
-  "carbon-fiber-ud-fabric": { category: "ud", focus: "T300 / T700, 200 / 300 / 600 g/m2, width, fiber direction", apps: ["pultrusion", "concrete", "infusion"] },
+  "carbon-fiber-ud-fabric": { category: "ud", focus: "300 g/m2 documented, width, fiber direction, other constructions by review", apps: ["pultrusion", "concrete", "infusion"] },
   "carbon-fiber-yarn-and-tow": { category: "yarn", focus: "1K / 3K / 6K / 12K / 24K / 50K, T300 / T700, sizing", apps: ["pultrusion", "infusion", "molding"] },
   "prepreg-carbon-fiber-materials": { category: "prepreg", focus: "woven / UD / spread tow, resin content, cure profile", apps: ["automotive", "sports", "molding"] },
   "chopped-carbon-fiber": { category: "chopped", focus: "3 mm / 6 mm / 12 mm, sizing, matrix", apps: ["plastics", "automotive"] },
