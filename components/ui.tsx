@@ -171,6 +171,7 @@ export function ProductCard({ product, index }: { product: Product; index: numbe
           <Link
             href={`/contact?product=${encodeURIComponent(product.name)}`}
             className="button button-dark product-inquiry-button"
+            rel="nofollow"
           >
             Send Inquiry <ArrowRight size={17} />
           </Link>
@@ -197,7 +198,7 @@ export function InquiryBand({ product }: { product?: string } = {}) {
           and application. Our team will review the details and respond with a
           practical quotation or material suggestion.
         </p>
-        <Link href={inquiryHref} className="button button-light">
+        <Link href={inquiryHref} className="button button-light" rel={product ? "nofollow" : undefined}>
           Send Inquiry <ArrowRight size={18} />
         </Link>
       </div>

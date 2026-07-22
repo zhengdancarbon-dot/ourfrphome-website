@@ -381,7 +381,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <>
-      <Link href={inquiryHref} className="sticky-rfq-button">
+      <Link href={inquiryHref} className="sticky-rfq-button" rel="nofollow">
         Request a Quote <ArrowRight size={17} />
       </Link>
 
@@ -401,7 +401,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <h1>{product.name}</h1>
               <p className="product-definition">{product.description}</p>
               <div className="product-template-actions">
-                <Link href={inquiryHref} className="button button-blue">
+                <Link href={inquiryHref} className="button button-blue" rel="nofollow">
                   Request a Quote <ArrowRight size={17} />
                 </Link>
                 <Link href="/technical-center" className="button button-outline">

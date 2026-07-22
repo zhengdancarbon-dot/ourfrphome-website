@@ -577,7 +577,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
 
   return (
     <>
-      <Link href={inquiryHref} className="sticky-rfq-button">
+      <Link href={inquiryHref} className="sticky-rfq-button" rel="nofollow">
         {copy.common.requestQuote} <ArrowRight size={17} />
       </Link>
 
@@ -597,7 +597,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               <h1>{content.name}</h1>
               <p className="product-definition">{content.description}</p>
               <div className="product-template-actions">
-                <Link href={inquiryHref} className="button button-blue">
+                <Link href={inquiryHref} className="button button-blue" rel="nofollow">
                   {copy.common.requestQuote} <ArrowRight size={17} />
                 </Link>
                 <Link href="/technical-center" hrefLang="en" className="button button-outline">
