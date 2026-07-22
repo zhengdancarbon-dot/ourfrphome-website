@@ -2,6 +2,13 @@ const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
 const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 207);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
 const expectedLocalizedCount = 19;
+const priorityProductPages = new Map([
+  ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
+  ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
+  ["/products/carbon-fiber-yarn-and-tow", ["Carbon Fiber Tow Supplier", "Carbon Fiber Yarn & Tow"]],
+  ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
+  ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
+]);
 
 function matches(html, pattern) {
   return pattern.test(html);
@@ -38,6 +45,7 @@ if (englishCount !== expectedEnglishCount || Object.values(localeCounts).some((c
 
 const failures = [];
 const internalResources = new Set();
+const checkedPriorityPages = new Set();
 let cursor = 0;
 
 async function worker() {
@@ -57,6 +65,23 @@ async function worker() {
     const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
+    }
+
+    const priorityTerms = priorityProductPages.get(path);
+    if (priorityTerms) {
+      checkedPriorityPages.add(path);
+      const [titleTerm, h1Term] = priorityTerms;
+      if (!text.includes(`<title>${titleTerm}`)) failures.push(`${path}: priority title no longer starts with ${titleTerm}`);
+      if (!matches(text, new RegExp(`<h1(?:\\s[^>]*)?>[^<]*${h1Term.replaceAll("&", "&amp;")}`, "i"))) {
+        failures.push(`${path}: priority H1 no longer contains ${h1Term}`);
+      }
+      if (!matches(text, /href="\/contact\?product=[^"]+"/i)) failures.push(`${path}: missing product-prefilled RFQ link`);
+      const hasVerifiedDownload = path === "/products/3k-carbon-fiber-laminate-sheet"
+        ? matches(text, /href="\/downloads\/specifications\/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide\.pdf"/i)
+        : matches(text, /href="\/downloads\/tds\/[^"]+\.pdf"/i);
+      if (!hasVerifiedDownload) failures.push(`${path}: missing verified product download`);
+      if (!text.includes('"@type":"FAQPage"')) failures.push(`${path}: missing FAQ structured data`);
+      if (!text.includes('"@type":"BreadcrumbList"')) failures.push(`${path}: missing breadcrumb structured data`);
     }
 
     const canonical = values(text, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/gi)[0];
@@ -81,6 +106,10 @@ async function worker() {
 
 await Promise.all(Array.from({ length: 12 }, worker));
 
+for (const path of priorityProductPages.keys()) {
+  if (!checkedPriorityPages.has(path)) failures.push(`${path}: priority product page missing from sitemap`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -101,6 +130,7 @@ console.log(JSON.stringify({
   locales: { en: englishCount, ...localeCounts },
   checkedPages: pathnames.length,
   checkedInternalResources: internalResources.size,
+  checkedPriorityProductPages: checkedPriorityPages.size,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

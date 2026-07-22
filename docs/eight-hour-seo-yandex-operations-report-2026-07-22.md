@@ -31,6 +31,7 @@ No fixed Google or Yandex ranking is promised. The current direction is positive
 - Reviewed the 2026-07-10 Page indexing snapshot: 38 indexed, 38 discovered-not-indexed and two crawled-not-indexed.
 - The two crawled examples were the pultruded tube and UD fabric pages, with crawl dates before the current content cycle. No premature `Validate fix` action was started.
 - Converted live query evidence into `docs/five-core-gsc-query-opportunity-map-2026-07-22.csv` without inventing search volume.
+- A public exact-domain search snapshot surfaced the Structural Strengthening System page. Other exact `site:` queries returned incomplete result sets, so they were not treated as an index count or ranking measurement; GSC remains the source of record.
 
 ### Query Decisions
 
@@ -114,17 +115,17 @@ Yandex's current official guidance says the property address must match the fina
 
 - `pnpm lint`: PASS with zero errors; three pre-existing warnings remain in an unrelated Morocco output script.
 - `pnpm build`: PASS; 216 static pages generated.
-- Local production-equivalent SEO audit: PASS, 207 pages / 346 resources / three negative checks.
-- Post-deployment production SEO audit: PASS with the same counts.
+- Local production-equivalent SEO audit: PASS, 207 pages / 346 resources / five priority-product checks / three negative checks.
+- Post-deployment production SEO audit: PASS with the same counts. The audit now protects the five priority pages' title/H1 targeting, prefilled RFQ entry, verified product download and Product/FAQ/Breadcrumb entities.
 - Robots: HTTP 200, allows the site, blocks `/api/`, and references the correct production sitemap.
 - Sitemap: HTTP 200, 207 URLs, only `https://www.myfrphome.com`.
 - Six priority products, robots, sitemap, `llms.txt` and the IndexNow key all return HTTP 200.
 
 ## Git and Deployment
 
-This eight-hour workstream spans commits `075507a` through `9089a9f`, including 19 scoped production commits. The latest commit is:
+Before the final monitoring-only commit, this eight-hour workstream spans commits `075507a` through `1803009`, including 21 scoped commits. The latest recorded commit is:
 
-`9089a9f Record search performance and analytics verification`
+`1803009 Confirm Yandex submission timing and ownership steps`
 
 Unrelated photo, Morocco promotion, external image and output directories were not staged or modified.
 
