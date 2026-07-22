@@ -12,9 +12,11 @@ Production domain: `https://www.myfrphome.com`
 - IndexNow key file: HTTP 200 at `/indexnow-key.txt`.
 - IndexNow on 2026-07-22: two HTTP 200 batches accepted 22 update notifications covering 20 unique genuinely changed URLs; the English and Russian strengthening URLs appeared in both batches because the TDS was added after their first submission.
 - Later evidence-alignment and source-citation releases were accepted in additional HTTP 200 IndexNow batches of 25 and 6 changed URLs. No unchanged bulk sitemap submission was sent through IndexNow.
-- Yandex Webmaster account: account-side setup is pending. Browser control cannot continue while the Mac is locked; no account binding or OAuth grant was performed unattended.
+- Yandex Webmaster property: ownership verified for exactly `https://www.myfrphome.com` on 2026-07-22.
+- Production verification meta: PRESENT and matched the Yandex-provided value after a Vercel Production redeploy. The sensitive value is not recorded in this report.
+- Yandex sitemap submission: `https://www.myfrphome.com/sitemap.xml` was accepted on 2026-07-22 and is in the `Processing queue` with 207 production URLs.
 - Yandex Metrica support: code-ready through `YANDEX_METRICA_ID`; no counter is loaded until a real numeric tag ID is configured.
-- Public `site:myfrphome.com` retrieval cannot be used as an index baseline from the automated environment because Yandex returned its anti-automation Verification page. Searchable and excluded page counts must be read from the verified Webmaster property.
+- No Yandex index count is reported yet. The newly verified property and sitemap have not completed their first processing window, and public `site:` results are not used as an index-count substitute.
 
 ## Verification Support
 
@@ -44,21 +46,23 @@ When a numeric tag ID is configured, the tag loads on every page with outbound-l
 
 Create five matching JavaScript-event goals in Yandex Metrica. Event parameters retain `locale`, `source_page`, and the available product or document fields. Use `?_ym_debug=2` for a controlled browser verification after the counter is live.
 
+## Completed Account-Side Actions
+
+1. Logged in to Yandex ID with the user's approval.
+2. Added exactly `https://www.myfrphome.com` in Yandex Webmaster.
+3. Configured `YANDEX_VERIFICATION_CODE` in Vercel Production without exposing its value.
+4. Redeployed and confirmed the live verification meta.
+5. Completed ownership verification.
+6. Submitted `https://www.myfrphome.com/sitemap.xml`; Yandex placed it in the processing queue.
+
 ## Remaining Account-Side Actions
 
-1. Log in to Yandex ID or explicitly approve Google-to-Yandex account binding.
-2. Add exactly `https://www.myfrphome.com` in Yandex Webmaster.
-3. Copy the Yandex verification code into Vercel Production as `YANDEX_VERIFICATION_CODE`.
-4. Redeploy and confirm the live meta tag without exposing the code in reports.
-5. Complete ownership verification.
-6. Submit `https://www.myfrphome.com/sitemap.xml` on the Sitemap files page.
-7. Create one Yandex Metrica tag for `myfrphome.com`, configure its numeric ID as `YANDEX_METRICA_ID`, and redeploy.
-8. Create the five JavaScript-event goals listed above and validate them with `?_ym_debug=2`.
-9. Add `/products/` and `/technical-center/` as monitored site sections after crawl data appears.
-10. Use Reindex pages only for the homepage and genuinely new or updated priority URLs.
-11. Import `docs/yandex-russian-priority-query-import-2026-07-22.txt` into a Saved query group. It contains 51 P1 queries; the full 72-query routing map is `docs/yandex-russian-keyword-map-2026-07-22.csv`.
-
-The browser is currently at the Yandex ID login stage. Google OAuth would create persistent account access and must not be approved unattended; continue only after explicit confirmation at that action.
+1. Wait for the initial sitemap processing window, then record searchable pages, excluded pages, crawl statistics and recommendations from the verified property.
+2. Create one Yandex Metrica tag for `myfrphome.com`, configure its numeric ID as `YANDEX_METRICA_ID`, and redeploy only after the real counter ID is available.
+3. Create the five JavaScript-event goals listed above and validate them with `?_ym_debug=2`.
+4. Add `/products/` and `/technical-center/` as monitored site sections after crawl data appears.
+5. Use Reindex pages only for genuinely new or updated priority URLs. The current priority updates were already accepted through IndexNow and should not be resubmitted unchanged.
+6. Import `docs/yandex-russian-priority-query-import-2026-07-22.txt` into a Saved query group when query-group controls become available. It contains 51 P1 queries; the full 72-query routing map is `docs/yandex-russian-keyword-map-2026-07-22.csv`.
 
 ## Monitoring
 

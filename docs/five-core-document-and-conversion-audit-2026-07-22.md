@@ -55,10 +55,10 @@ The 3K laminate file remains a Product Specification & RFQ Guide. It is not labe
 | Google Search Console verification | PRESENT |
 | Bing verification | PRESENT |
 | Shared conversion event bridge | PRESENT |
-| Yandex Webmaster verification | MISSING |
+| Yandex Webmaster verification | PRESENT |
 | Yandex Metrica tag | MISSING |
 
-Yandex code support is complete, but no Yandex data is being collected until valid production values are supplied for `YANDEX_VERIFICATION_CODE` and `YANDEX_METRICA_ID` and a fresh production deployment is completed.
+Yandex Webmaster ownership is verified and the 207-URL production sitemap is in the processing queue. Yandex Metrica data is not collected until a real `YANDEX_METRICA_ID` is created, configured and deployed; no placeholder counter is used.
 
 ## Claim Boundary
 

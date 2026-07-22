@@ -15,7 +15,7 @@ Primary clusters: Multiaxial carbon NCF, 3K carbon fiber laminate sheet, carbon 
 - GA4 is active. The authenticated property reports 36 active users and 151 events in the last seven days. Its 28-day Events report includes four real `catalog_download` events from three users.
 - The complete production SEO crawl passes all 207 pages, 346 internal resources and three negative 404 checks.
 - The latest deployment is Vercel Production `dpl_ECsecomCGsTVQ3kwGXxD5CSVDwXv`, aliased to `www.myfrphome.com`.
-- Yandex site-side readiness and IndexNow are complete. Webmaster ownership and Metrica cannot be completed until Google-to-Yandex OAuth is explicitly approved and the two real Yandex values are obtained.
+- Yandex Webmaster ownership is verified, the production verification meta is live, IndexNow is active and the 207-URL sitemap is in Yandex's processing queue. Yandex Metrica remains intentionally unconfigured until a real counter ID is created.
 
 No fixed Google or Yandex ranking is promised. The current direction is positive, but page-one progress must be measured over later crawl and query windows.
 
@@ -88,26 +88,26 @@ Completed:
 
 - IndexNow key is live at `/indexnow-key.txt`.
 - All genuine update batches returned HTTP 200.
-- Production supports `YANDEX_VERIFICATION_CODE` and `YANDEX_METRICA_ID` without loading placeholder values.
+- `YANDEX_VERIFICATION_CODE`: PRESENT in Vercel Production; its value is not exposed in reports.
+- Yandex Webmaster ownership is verified for exactly `https://www.myfrphome.com`.
+- `https://www.myfrphome.com/sitemap.xml` was submitted once and Yandex placed it in the `Processing queue` on 2026-07-22.
+- Production supports `YANDEX_METRICA_ID` without loading a placeholder value.
 - Existing five conversion events are ready to route to matching Yandex JavaScript goals after a real counter is configured.
 - Russian priority pages, FAQs, keyword routing and AI/GEO discovery links are live.
 
-Blocked account-side:
+Pending measurement setup:
 
-- `YANDEX_VERIFICATION_CODE`: MISSING in Vercel Production.
 - `YANDEX_METRICA_ID`: MISSING in Vercel Production.
-- The Yandex ID page is waiting for Google OAuth approval. That action creates persistent account access and was not performed unattended.
-- The Mac later auto-locked, preventing further browser control.
-- Public `site:` retrieval returned Yandex's anti-automation Verification page, so no index count was fabricated.
+- A real Metrica counter must be created before configuring the tag or five JavaScript-event goals.
+- The newly submitted sitemap has not completed processing, so searchable/excluded page baselines are not yet available.
+- No public `site:` result is used as a substitute for the verified Webmaster index reports.
 
-Required next Yandex sequence:
+Required next Yandex sequence after processing begins:
 
-1. Unlock the Mac and explicitly confirm Google-to-Yandex OAuth.
-2. Add exactly `https://www.myfrphome.com` in Yandex Webmaster.
-3. Configure the returned verification value as `YANDEX_VERIFICATION_CODE` in Vercel Production and redeploy.
-4. Verify ownership and submit the 207-URL production sitemap once.
-5. Create one Metrica tag, configure `YANDEX_METRICA_ID`, redeploy and create the five JavaScript-event goals.
-6. Import the 51-query P1 Russian list and record searchable/excluded page baselines.
+1. Allow the initial sitemap processing window and record crawl, searchable-page and excluded-page baselines.
+2. Create one Metrica tag, configure `YANDEX_METRICA_ID`, redeploy and create the five JavaScript-event goals.
+3. Import the 51-query P1 Russian list when the query controls are available.
+4. Use Reindex pages only for genuinely changed priority URLs; do not repeat unchanged IndexNow or sitemap submissions.
 
 Yandex's current official guidance says the property address must match the final protocol and `www` form, the verification meta must be in the homepage `<head>`, and sitemap processing can take up to two weeks. The first few days after submission should therefore be treated as a crawl window, not a failure.
 
@@ -123,9 +123,9 @@ Yandex's current official guidance says the property address must match the fina
 
 ## Git and Deployment
 
-Before the final monitoring-only commit, this eight-hour workstream spans commits `075507a` through `1803009`, including 21 scoped commits. The latest recorded commit is:
+This eight-hour workstream spans commits `075507a` through `cb81b0b`, followed by this final account-state record. The latest production-code commit before the record update is:
 
-`1803009 Confirm Yandex submission timing and ownership steps`
+`cb81b0b Protect priority products in SEO audit`
 
 Unrelated photo, Morocco promotion, external image and output directories were not staged or modified.
 
