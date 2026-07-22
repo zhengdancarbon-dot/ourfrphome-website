@@ -62,6 +62,7 @@ Search volume is not estimated. Values above are direct GSC observations.
 26. Added `CFRP Strengthening Material RFQ Checklist`, a source-reviewed guide that separates strengthening UD fabric from pultruded CFRP plate order fields, links both verified FRP HOME TDS files and preserves the structural-engineering approval boundary.
 27. Improved English Article structured data with a stable article `@id`, `mainEntityOfPage`, `inLanguage` and an organization author URL. No price, stock, rating, certification or unsupported test data was added.
 28. Reconciled visible priority-product specifications with the published FRP HOME document library. The 3K woven page now leads with the documented 3K 200 g/m² twill construction; the UD page with the documented 300 g/m², 100-500 mm construction; NCF with documented 300/600 g/m² constructions; and strengthening plate with the documented 1.2 mm source model. Unsupported generic ranges were replaced with explicit quotation and matching-document review language across product pages, application pages, Catalog, Technical Resources, RFQ fields and supporting articles.
+29. Added visible primary-reference sections and Article Schema `citation` URLs to the six NCF and 3K laminate buyer guides. The three NCF guides cite the verified 300gsm and 600gsm TDS files; the three 3K laminate guides cite the accurately labeled Product Specification & RFQ Guide rather than presenting it as a TDS. Sitemap modification dates were updated only for pages and locales genuinely changed on 2026-07-22.
 
 ## Rendered QA
 

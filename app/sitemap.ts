@@ -7,17 +7,25 @@ import { absoluteUrl } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
 
 const productLastModified: Record<string, string> = {
-  "carbon-fiber-multiaxial-ncf-fabric": "2026-07-17",
-  "3k-carbon-fiber-laminate-sheet": "2026-07-17",
-  "carbon-fiber-yarn-and-tow": "2026-07-21",
-  "carbon-fiber-woven-fabric": "2026-07-21",
-  "carbon-fiber-ud-fabric": "2026-07-21",
+  "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
+  "3k-carbon-fiber-laminate-sheet": "2026-07-22",
+  "carbon-fiber-yarn-and-tow": "2026-07-22",
+  "carbon-fiber-woven-fabric": "2026-07-22",
+  "carbon-fiber-ud-fabric": "2026-07-22",
   "structural-strengthening-system": "2026-07-22",
 };
 
 const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
-  es: { "structural-strengthening-system": "2026-07-22" },
-  "pt-br": { "structural-strengthening-system": "2026-07-22" },
+  es: {
+    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-ud-fabric": "2026-07-22",
+    "structural-strengthening-system": "2026-07-22",
+  },
+  "pt-br": {
+    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-ud-fabric": "2026-07-22",
+    "structural-strengthening-system": "2026-07-22",
+  },
   ru: {
     "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
     "3k-carbon-fiber-laminate-sheet": "2026-07-22",
@@ -33,6 +41,24 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
   tr: { "structural-strengthening-system": "2026-07-22" },
 };
 
+const applicationLastModified: Record<string, string> = {
+  "automotive-carbon-fiber-parts": "2026-07-22",
+  "sports-equipment": "2026-07-22",
+  "decorative-cfrp-panels": "2026-07-22",
+  "structural-strengthening": "2026-07-22",
+};
+
+const localizedApplicationLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
+  es: {
+    "automotive-carbon-fiber-parts": "2026-07-22",
+    "structural-strengthening": "2026-07-22",
+  },
+  "pt-br": {
+    "automotive-carbon-fiber-parts": "2026-07-22",
+    "structural-strengthening": "2026-07-22",
+  },
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: "/", changeFrequency: "weekly", priority: 1, lastModified: new Date("2026-07-21") },
@@ -44,8 +70,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "monthly", priority: 0.75 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
     { path: "/compliance-end-use-review", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/catalog", changeFrequency: "monthly", priority: 0.75 },
-    { path: "/technical-resources", changeFrequency: "monthly", priority: 0.5 },
+    { path: "/catalog", changeFrequency: "monthly", priority: 0.75, lastModified: new Date("2026-07-22") },
+    { path: "/technical-resources", changeFrequency: "monthly", priority: 0.5, lastModified: new Date("2026-07-22") },
     { path: "/packaging-shipping", changeFrequency: "monthly", priority: 0.5 },
   ] as const;
   const productRoutes = productCatalog.map((product) => ({
@@ -60,6 +86,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/applications/${page.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.82,
+    ...(applicationLastModified[page.slug]
+      ? { lastModified: new Date(applicationLastModified[page.slug]) }
+      : {}),
   }));
   const technicalArticleRoutes = technicalArticles.map((article) => ({
     path: `/technical-center/${article.slug}`,
@@ -100,10 +129,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const localizedLastModified = locale !== defaultLocale && productSlug
       ? localizedProductLastModified[locale]?.[productSlug]
       : undefined;
+    const applicationSlug = route.path.startsWith("/applications/")
+      ? route.path.slice("/applications/".length)
+      : undefined;
+    const localizedApplicationDate = locale !== defaultLocale && applicationSlug
+      ? localizedApplicationLastModified[locale]?.[applicationSlug]
+      : undefined;
+    const localizedDate = localizedLastModified || localizedApplicationDate;
     const entryLastModified = locale === defaultLocale
       ? routeLastModified
-      : localizedLastModified
-        ? new Date(localizedLastModified)
+      : localizedDate
+        ? new Date(localizedDate)
         : undefined;
 
     return {

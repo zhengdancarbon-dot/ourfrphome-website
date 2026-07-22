@@ -1,6 +1,28 @@
 import type { TechnicalArticle } from "@/lib/technical-articles";
 
 const publishedAt = "2026-07-17";
+const reviewedAt = "2026-07-22";
+
+const ncfSources = [
+  {
+    title: "300gsm Biaxial Carbon Fiber Fabric TDS",
+    publisher: "FRP HOME",
+    url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-Biaxial-Carbon-Fabric-TDS.pdf",
+  },
+  {
+    title: "600gsm +45°/-45° Biaxial Carbon NCF TDS",
+    publisher: "FRP HOME",
+    url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
+  },
+];
+
+const laminateSources = [
+  {
+    title: "3K Carbon Fiber Laminate Sheet Product Specification & RFQ Guide",
+    publisher: "FRP HOME",
+    url: "https://www.myfrphome.com/downloads/specifications/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide.pdf",
+  },
+];
 
 export const dualCoreTechnicalArticles: TechnicalArticle[] = [
   {
@@ -40,7 +62,8 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Can 300gsm and 600gsm NCF be used in one laminate?", answer: "They may be combined when the laminate design calls for it, but the full stack and resin process should be validated by the customer's technical team." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: ncfSources,
   },
   {
     slug: "carbon-fiber-multiaxial-ncf-rfq-checklist",
@@ -80,7 +103,8 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Should I request a sample first?", answer: "A representative trial can help confirm handling and processing before production, especially when the stack, resin or geometry is new." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: ncfSources,
   },
   {
     slug: "biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf",
@@ -113,14 +137,15 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Can the direction order be customized?", answer: "Project-defined constructions can be reviewed when the layer sequence, mass distribution, width, volume and process are provided." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: ncfSources,
   },
   {
     slug: "carbon-fiber-plate-thickness-selection-guide",
     title: "Carbon Fiber Plate Thickness Selection Guide",
     description: "Select a 3K carbon fiber laminate sheet thickness by part geometry, layup, finish, tolerance and CNC requirements without confusing it with pultruded strengthening plate.",
     image: "/images/products/3k-carbon-fiber-laminate-sheet.webp",
-    quickAnswer: "Plate thickness should follow the part design, support span, load case, layup, machining allowance and attachment method. Website thickness ranges are sourcing references, not guaranteed engineering performance or order tolerances.",
+    quickAnswer: "Plate thickness should follow the part design, support span, load case, layup, machining allowance and attachment method. Any available thickness, tolerance and layup must be confirmed in the drawing, quotation and approved order specification.",
     definition: "A 3K carbon fiber laminate sheet is a cured CFRP panel that can use visible 3K twill surface plies and project-defined inner reinforcement. It is different from a pultruded CFRP plate used in structural strengthening systems.",
     comparison: {
       columns: ["Decision", "Thin laminate", "Thicker laminate"],
@@ -147,7 +172,8 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Is 3K laminate sheet the same as pultruded strengthening plate?", answer: "No. They use different product definitions, manufacturing routes and application controls and should not be substituted without engineering review." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: laminateSources,
   },
   {
     slug: "3k-carbon-fiber-plate-cnc-rfq-guide",
@@ -182,7 +208,8 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Should I specify matte or glossy before CNC cutting?", answer: "Yes. Surface finish and appearance-critical faces affect sheet selection, handling and protection." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: laminateSources,
   },
   {
     slug: "matte-vs-glossy-3k-carbon-fiber-sheet",
@@ -215,6 +242,7 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       { question: "Can the finish be matched from a photo?", answer: "Photos help communication but lighting and displays vary. Use a physical approval sample for critical appearance matching." },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt,
+    sources: laminateSources,
   },
 ];
