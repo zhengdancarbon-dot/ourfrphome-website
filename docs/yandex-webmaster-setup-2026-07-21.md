@@ -10,8 +10,8 @@ Production domain: `https://www.myfrphome.com`
 - Production robots: HTTP 200 and references `https://www.myfrphome.com/sitemap.xml`.
 - Production sitemap: HTTP 200 with 205 URLs after the current content releases.
 - IndexNow key file: HTTP 200 at `/indexnow-key.txt`.
-- Latest IndexNow submission: HTTP 200 accepted for 12 genuinely updated English and Russian priority-product URLs on 2026-07-22.
-- Yandex Webmaster account: blocked at Yandex ID login. No account binding or OAuth grant was performed without confirmation.
+- IndexNow on 2026-07-22: two HTTP 200 batches accepted 22 update notifications covering 20 unique genuinely changed URLs; the English and Russian strengthening URLs appeared in both batches because the TDS was added after their first submission.
+- Yandex Webmaster account: account-side setup is pending. Browser control cannot continue while the Mac is locked; no account binding or OAuth grant was performed unattended.
 - Yandex Metrica support: code-ready through `YANDEX_METRICA_ID`; no counter is loaded until a real numeric tag ID is configured.
 
 ## Verification Support
@@ -54,6 +54,7 @@ Create five matching JavaScript-event goals in Yandex Metrica. Event parameters 
 8. Create the five JavaScript-event goals listed above and validate them with `?_ym_debug=2`.
 9. Add `/products/` and `/technical-center/` as monitored site sections after crawl data appears.
 10. Use Reindex pages only for the homepage and genuinely new or updated priority URLs.
+11. Import `docs/yandex-russian-priority-query-import-2026-07-22.txt` into a Saved query group. It contains 51 P1 queries; the full 72-query routing map is `docs/yandex-russian-keyword-map-2026-07-22.csv`.
 
 ## Monitoring
 
@@ -61,3 +62,12 @@ Create five matching JavaScript-event goals in Yandex Metrica. Event parameters 
 - Do not repeatedly delete and re-add the sitemap. Yandex rechecks an existing sitemap automatically.
 - Continue IndexNow only for URLs that are added, updated or deleted.
 - Compare Yandex queries and landing pages for the five priority product clusters once data is available.
+- Use Yandex query demand only after account data is available. The local keyword map intentionally contains no invented search volume.
+
+## Official References
+
+- [Sitemap files](https://yandex.com/support/webmaster/en/indexing-options/sitemap)
+- [Important page monitoring](https://yandex.com/support/webmaster/en/service/tracking-url)
+- [Search query monitoring](https://yandex.com/support/webmaster/en/service/popular-queries)
+- [Managing query groups](https://yandex.com/support/webmaster/en/service/search-queries)
+- [JavaScript event goals](https://yandex.com/support/metrica/en/general/goal-js-event)

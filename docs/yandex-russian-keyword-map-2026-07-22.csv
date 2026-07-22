@@ -1,0 +1,73 @@
+id,cluster,russian_query,english_intent,intent_type,priority,target_url,content_status,next_action
+1,Multiaxial NCF,мультиаксиальная углеродная ткань,carbon fiber multiaxial fabric,Commercial,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Add to Yandex saved query group after verification
+2,Multiaxial NCF,поставщик мультиаксиальной углеродной ткани,carbon fiber multiaxial fabric supplier,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor query and URL impressions
+3,Multiaxial NCF,купить мультиаксиальную углеродную ткань,bulk buy multiaxial carbon fabric,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor query and URL impressions
+4,Multiaxial NCF,углеродная ткань NCF,carbon NCF fabric,Commercial,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Add to Yandex saved query group after verification
+5,Multiaxial NCF,поставщик углеродной ткани NCF,carbon NCF supplier,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor query and URL impressions
+6,Multiaxial NCF,биаксиальная углеродная ткань,biaxial carbon fiber fabric,Commercial,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Add to Yandex saved query group after verification
+7,Multiaxial NCF,двухосная углеродная ткань,biaxial carbon reinforcement,Commercial,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor terminology used by buyers
+8,Multiaxial NCF,углеродная ткань +45 -45,+45 -45 carbon fabric,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor query and URL impressions
+9,Multiaxial NCF,углеродная ткань 0 90,0 90 carbon fabric,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor query and URL impressions
+10,Multiaxial NCF,биаксиальная углеродная ткань 300 г м2,300gsm biaxial carbon fabric,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Keep 300gsm TDS visible
+11,Multiaxial NCF,биаксиальная углеродная ткань 600 г м2,600gsm biaxial carbon fabric,Transactional,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Keep 600gsm TDS visible
+12,Multiaxial NCF,трехосная углеродная ткань,triaxial carbon fabric,Commercial,P2,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Do not add values without source data
+13,Multiaxial NCF,четырехосная углеродная ткань,quadriaxial carbon fabric,Commercial,P2,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Do not add values without source data
+14,Multiaxial NCF,углеродная ткань для вакуумной инфузии,carbon fabric for vacuum infusion,Commercial,P1,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor process intent
+15,Multiaxial NCF,углеродная ткань для RTM,carbon fabric for RTM,Commercial,P2,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Monitor process intent
+16,Multiaxial NCF,углеродная NCF ткань нестандартной ширины,custom width carbon NCF,Transactional,P2,/ru/products/carbon-fiber-multiaxial-ncf-fabric,Live,Retain width as RFQ field
+17,3K Laminate Sheet,углепластиковая плита 3K,3K carbon fiber plate,Commercial,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Add to Yandex saved query group after verification
+18,3K Laminate Sheet,лист углепластика 3K,3K carbon fiber sheet,Commercial,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Monitor plate versus sheet terminology
+19,3K Laminate Sheet,купить углепластиковую плиту 3K,buy 3K carbon plate,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Monitor query and URL impressions
+20,3K Laminate Sheet,поставщик листового углепластика,carbon sheet supplier,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Monitor query and URL impressions
+21,3K Laminate Sheet,саржевый лист углепластика 3K,3K twill carbon sheet,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Keep surface weave clear
+22,3K Laminate Sheet,матовая углепластиковая плита,matte carbon plate,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Keep finish as RFQ field
+23,3K Laminate Sheet,глянцевая углепластиковая плита,glossy carbon plate,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Keep finish as RFQ field
+24,3K Laminate Sheet,углепластиковая плита под ЧПУ,carbon plate for CNC machining,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Monitor CNC intent
+25,3K Laminate Sheet,резка углепластика ЧПУ,CNC cutting carbon fiber sheet,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Route drawing based RFQs here
+26,3K Laminate Sheet,сверление углепластиковой плиты,carbon plate drilling,Commercial,P2,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Retain machining review language
+27,3K Laminate Sheet,углепластиковая плита по чертежу,custom drawing carbon plate,Transactional,P1,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Route drawing based RFQs here
+28,3K Laminate Sheet,углепластиковая панель на заказ,custom carbon panel,Transactional,P2,/ru/products/3k-carbon-fiber-laminate-sheet,Live,Do not publish unsupported tolerances
+29,Yarn and Tow,углеродный жгут,carbon fiber tow,Commercial,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Add to Yandex saved query group after verification
+30,Yarn and Tow,углеродная нить,carbon fiber yarn,Commercial,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor yarn versus tow terminology
+31,Yarn and Tow,поставщик углеродного жгута,carbon tow supplier,Transactional,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor query and URL impressions
+32,Yarn and Tow,купить углеродный жгут,buy carbon fiber tow,Transactional,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor query and URL impressions
+33,Yarn and Tow,углеродный жгут 1K,1K carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+34,Yarn and Tow,углеродный жгут 3K,3K carbon tow,Transactional,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+35,Yarn and Tow,углеродный жгут 6K,6K carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+36,Yarn and Tow,углеродный жгут 12K,12K carbon tow,Transactional,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Keep verified 12K TDS visible
+37,Yarn and Tow,углеродный жгут 24K,24K carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+38,Yarn and Tow,углеродный жгут 48K,48K carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+39,Yarn and Tow,углеродный жгут 50K,50K carbon tow,Transactional,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Confirm availability by quotation
+40,Yarn and Tow,углеродный жгут T300,T300 carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Do not imply source authorization
+41,Yarn and Tow,углеродный жгут T700,T700 carbon tow,Transactional,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Do not imply source authorization
+42,Yarn and Tow,углеродный жгут для пултрузии,carbon tow for pultrusion,Commercial,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor process intent
+43,Yarn and Tow,углеродный жгут для намотки,carbon tow for filament winding,Commercial,P1,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor process intent
+44,Yarn and Tow,углеродный жгут для плетения,carbon tow for braiding,Commercial,P2,/ru/products/carbon-fiber-yarn-and-tow,Live,Monitor process intent
+45,Strengthening UD,однонаправленная углеродная ткань,unidirectional carbon fabric,Commercial,P1,/ru/products/carbon-fiber-ud-fabric,Live,Keep generic UD intent on this URL
+46,Strengthening UD,ткань UD из углеродного волокна,UD carbon fabric,Commercial,P1,/ru/products/carbon-fiber-ud-fabric,Live,Keep generic UD intent on this URL
+47,Strengthening UD,поставщик однонаправленной углеродной ткани,UD carbon fabric supplier,Transactional,P1,/ru/products/carbon-fiber-ud-fabric,Live,Monitor query and URL impressions
+48,Strengthening UD,однонаправленная углеродная ткань 300 г м2,300gsm UD carbon fabric,Transactional,P1,/ru/products/carbon-fiber-ud-fabric,Live,Keep verified 300gsm TDS visible
+49,Strengthening UD,однонаправленная углеродная ткань 600 г м2,600gsm UD carbon fabric,Transactional,P2,/ru/products/carbon-fiber-ud-fabric,Live,Confirm specification by quotation
+50,Strengthening System,углеродная ткань для усиления конструкций,carbon fabric for structural strengthening,Commercial,P1,/ru/products/structural-strengthening-system,Live,Route structural intent here
+51,Strengthening System,углеродная ткань для усиления бетона,carbon fabric for concrete strengthening,Commercial,P1,/ru/products/structural-strengthening-system,Live,Retain engineering review language
+52,Strengthening System,система усиления конструкций CFRP,CFRP strengthening system,Commercial,P1,/ru/products/structural-strengthening-system,Live,Monitor query and URL impressions
+53,Strengthening System,углепластиковая ламель,pultruded CFRP plate,Commercial,P1,/ru/products/structural-strengthening-system,Live,Add to Yandex saved query group after verification
+54,Strengthening System,пултрузионная углепластиковая ламель,pultruded CFRP strengthening plate,Transactional,P1,/ru/products/structural-strengthening-system,Live,Keep verified 1.2mm TDS visible
+55,Strengthening System,углепластиковая пластина для усиления,carbon plate for strengthening,Commercial,P1,/ru/products/structural-strengthening-system,Live,Keep distinct from 3K laminate
+56,Strengthening System,углепластиковая ламель 1.2 мм,1.2mm pultruded CFRP plate,Transactional,P1,/ru/products/structural-strengthening-system,Live,Keep verified 1.2mm TDS visible
+57,Strengthening System,углеродная ткань и эпоксидная смола для усиления,CFRP fabric and epoxy strengthening system,Commercial,P2,/ru/products/structural-strengthening-system,Live,Do not imply system approval
+58,Strengthening System,усиление железобетона углепластиком,CFRP concrete strengthening,Informational,P2,/ru/products/structural-strengthening-system,Live,Retain qualified engineer requirement
+59,3K Woven Fabric,углеродная ткань 3K,3K carbon fiber fabric,Commercial,P1,/ru/products/carbon-fiber-woven-fabric,Live,Add to Yandex saved query group after verification
+60,3K Woven Fabric,карбоновая ткань 3K,3K carbon cloth,Commercial,P1,/ru/products/carbon-fiber-woven-fabric,Live,Monitor colloquial terminology
+61,3K Woven Fabric,поставщик углеродной ткани 3K,3K carbon fabric supplier,Transactional,P1,/ru/products/carbon-fiber-woven-fabric,Live,Monitor query and URL impressions
+62,3K Woven Fabric,купить углеродную ткань 3K,buy 3K carbon fabric,Transactional,P1,/ru/products/carbon-fiber-woven-fabric,Live,Monitor query and URL impressions
+63,3K Woven Fabric,саржевая углеродная ткань 3K,3K twill carbon fabric,Transactional,P1,/ru/products/carbon-fiber-woven-fabric,Live,Keep weave clear
+64,3K Woven Fabric,углеродная ткань 3K 200 г м2,3K 200gsm carbon fabric,Transactional,P1,/ru/products/carbon-fiber-woven-fabric,Live,Keep verified TDS visible
+65,3K Woven Fabric,саржевая углеродная ткань 200 г м2,200gsm twill carbon fabric,Transactional,P1,/ru/products/carbon-fiber-woven-fabric,Live,Monitor query and URL impressions
+66,3K Woven Fabric,углеродная ткань полотняного переплетения,plain weave carbon fabric,Commercial,P2,/ru/products/carbon-fiber-woven-fabric,Live,Confirm weave by quotation
+67,3K Woven Fabric,углеродная ткань в рулоне,carbon fabric roll,Transactional,P2,/ru/products/carbon-fiber-woven-fabric,Live,Retain roll length as RFQ field
+68,3K Woven Fabric,углеродная ткань нестандартной ширины,custom width carbon fabric,Transactional,P2,/ru/products/carbon-fiber-woven-fabric,Live,Retain width as RFQ field
+69,3K Woven Fabric,саржевая углеродная ткань для вакуумной инфузии,twill carbon fabric for vacuum infusion,Commercial,P2,/ru/products/carbon-fiber-woven-fabric,Live,Compare landing URL against NCF intent
+70,Brand and Supplier,FRP HOME углеродные материалы,FRP HOME carbon materials,Navigational,P1,/ru/,Live,Monitor brand discovery
+71,Brand and Supplier,поставщик углеродных материалов из Китая,China carbon materials supplier,Commercial,P1,/ru/products,Live,Monitor non brand discovery
+72,Brand and Supplier,производитель углепластиковых материалов Китай,China CFRP materials manufacturer,Commercial,P2,/ru/products,Live,Do not imply unsupported manufacturing scope
