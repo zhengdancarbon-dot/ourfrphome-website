@@ -51,3 +51,36 @@ Locale URL counts:
 - No production deployment was performed.
 - No user photo, TDS source, Chinese material, `outputs/`, or Morocco promotion directory was modified or staged.
 - The intentionally removed localized applications index was not restored.
+
+## Revalidation after the source deletion report
+
+The repository was rechecked after a further report that many source files had
+been deleted:
+
+- The current branch contains 73 tracked files under `app/`, `components/`,
+  `lib/`, `scripts/`, and `src/`. This is the largest source tree among the
+  current local and fetched remote branches; `origin/main` contains 69.
+- No tracked file is deleted in the working tree or index.
+- The current branch has no deleted source path relative to `origin/main`.
+- The union of all fetched remote branches contains only one source path absent
+  from the current branch: the intentionally retired localized applications
+  index documented above.
+- Dangling Git trees and the pre-repair object backup contain no additional
+  source path that is missing from the current branch.
+- A fresh production build generated 216 pages. The full local production audit
+  passed for 207 sitemap URLs, 346 internal resources, six priority product
+  pages, 27 localized video pages, and three negative 404 checks.
+
+## Independent recovery bundle
+
+A complete Git recovery bundle was created and verified at:
+
+`.codex-output-work/FRP-HOME-source-recovery-2026-07-23.bundle`
+
+The ignored bundle is 70 MB, contains the complete history, and records both
+`codex/repository-recovery-20260723` at `7e39a6b` and `origin/main` at
+`d57e226`. It excludes untracked source-material and output directories.
+
+The recovery branch has not yet been pushed to GitHub. The push was attempted
+but the local HTTPS Git client had no available GitHub credential. No remote
+branch, merge, or production deployment was performed by that failed attempt.
