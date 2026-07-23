@@ -280,6 +280,259 @@ const russianPriorityProductCopy: Partial<Record<ProductSlug, DualCoreCopy>> = {
   },
 };
 
+type AdditionalPrioritySlug =
+  | "carbon-fiber-yarn-and-tow"
+  | "carbon-fiber-ud-fabric"
+  | "structural-strengthening-system"
+  | "carbon-fiber-woven-fabric";
+
+const additionalPrioritySlugs = new Set<ProductSlug>([
+  "carbon-fiber-yarn-and-tow",
+  "carbon-fiber-ud-fabric",
+  "structural-strengthening-system",
+  "carbon-fiber-woven-fabric",
+]);
+
+function isAdditionalPrioritySlug(slug: ProductSlug): slug is AdditionalPrioritySlug {
+  return additionalPrioritySlugs.has(slug);
+}
+
+const additionalPriorityProductCopy: Record<
+  Exclude<ExtendedLocale, "ru">,
+  Record<AdditionalPrioritySlug, DualCoreCopy>
+> = {
+  ar: {
+    "carbon-fiber-yarn-and-tow": {
+      description: "خيوط وحزم ألياف كربون مستمرة (tow) للنسيج والتضفير والسحب المستمر واللف بالخيوط وتحويل prepreg والتقطيع.",
+      heroCopy: "يُراجع مقاس الحزمة 1K / 3K / 6K / 12K / 24K / 50K ودرجة الليف ومواد المعالجة السطحية (sizing) والعملية المتوافقة ووزن البكرة والكمية والاستخدام النهائي ودولة الوجهة قبل عرض السعر.",
+      seoDescription: "مورد خيوط وحزم ألياف الكربون (tow) بمقاسات 1K إلى 50K للنسيج والسحب المستمر واللف بالخيوط وتصنيع المواد المركبة.",
+      intro: ["يُختار مقاس tow ودرجة الليف ومواد sizing وفق عملية التحويل اللاحقة ومتطلبات المعدات.", "للطلب، حدد مقاس tow والدرجة ومواد sizing وشكل البكرة والعملية والكمية والاستخدام النهائي ودولة الوجهة."],
+      faqs: [
+        { question: "ما مقاسات tow التي يمكن طلبها؟", answer: "يمكن تحديد 1K أو 3K أو 6K أو 12K أو 24K أو 50K في طلب السعر. يعتمد التوفر الفعلي على الدرجة ومواد sizing والدفعة والكمية والاستخدام النهائي." },
+        { question: "هل يتوفر مستند TDS لمنتج 12K؟", answer: "نعم. تتضمن الصفحة مستند TDS مرجعياً لحزمة ألياف كربون مستمرة 12K. يجب تأكيد الدرجة والمصدر والدفعة ومواد sizing في الطلب النهائي." },
+        { question: "ما البيانات المطلوبة لعرض السعر؟", answer: "حدد مقاس tow ودرجة الليف ومواد sizing والعملية المتوافقة ووزن البكرة والكمية والاستخدام النهائي ودولة الوجهة." },
+      ],
+    },
+    "carbon-fiber-ud-fabric": {
+      description: "نسيج ألياف كربون أحادي الاتجاه UD للتقوية الاتجاهية في المواد المركبة وأنظمة التقوية الإنشائية، مع مراجعة الوزن السطحي والعرض ودرجة الليف لكل طلب.",
+      heroCopy: "لطلب السعر، حدد درجة الليف وg/m² والعرض واتجاه الألياف وعملية الراتنج والكمية والاستخدام النهائي ودولة الوجهة. يتوفر TDS موثق لمنتج 300gsm.",
+      seoDescription: "مورد نسيج ألياف كربون أحادي الاتجاه UD، بما في ذلك 300gsm الموثق، للمواد المركبة والتقوية الإنشائية.",
+      intro: ["يركز نسيج UD معظم الألياف في اتجاه واحد ويُختار وفق مسار الحمل وعملية التصنيع.", "تُراجع مواصفة الطلب والدفعة والعرض وتوافق الراتنج والاستخدام النهائي قبل التوريد."],
+      faqs: [
+        { question: "هل يتوفر TDS لنسيج UD بوزن 300gsm؟", answer: "نعم. يمكن تنزيل TDS لمنتج UD بوزن 300gsm من الصفحة، مع تأكيد المواصفة النهائية لكل طلب ودفعة." },
+        { question: "هل يصلح أي نسيج UD للتقوية الإنشائية؟", answer: "لا. يجب أن تتوافق الألياف والبنية والراتنج مع تصميم المشروع والركيزة وطريقة التركيب، ويجب اعتماد الاختيار من مهندس مؤهل." },
+        { question: "ما المعلومات المطلوبة للطلب؟", answer: "حدد درجة الليف وg/m² والعرض واتجاه الألياف وعملية الراتنج والكمية والمشروع ودولة الوجهة." },
+      ],
+    },
+    "structural-strengthening-system": {
+      description: "نظام تقوية إنشائية CFRP يضم نسيج كربون أحادي الاتجاه UD وصفائح CFRP مسحوبة وراتنج إيبوكسي متوافق لمشروعات التقوية المدنية.",
+      heroCopy: "يُختار النظام وفق تصميم المشروع والركيزة واتجاه التقوية وأبعاد الصفيحة أو وزن النسيج ومتطلبات الإيبوكسي ومراجعة مهندس مؤهل.",
+      seoDescription: "مورد نسيج UD وصفائح CFRP مسحوبة ومواد إيبوكسي لتقوية الخرسانة والجسور والمباني.",
+      intro: ["يوفر نسيج UD تقوية اتجاهية قابلة للتكيف مع السطح، بينما تعمل صفيحة CFRP المسحوبة كعنصر صلب جاهز ضمن النظام.", "تظل الأحمال والتصميم وإعداد الركيزة والتركيب والقبول من مسؤولية مهندس مؤهل والمتطلبات المطبقة على المشروع."],
+      faqs: [
+        { question: "متى يُستخدم نسيج UD ومتى تُستخدم صفيحة CFRP؟", answer: "يعتمد الاختيار على الهندسة والركيزة واتجاه الحمل وتصميم التقوية وطريقة التركيب، ويجب أن يؤكده مهندس المشروع." },
+        { question: "ما مستندات TDS المتوفرة؟", answer: "تتضمن الصفحة TDS لنسيج UD بوزن 300gsm ولصفيحة CFRP مسحوبة بسماكة 1.2 mm. تنطبق البيانات فقط على المنتجات المحددة في المستندات." },
+        { question: "ما البيانات المطلوبة لعرض السعر؟", answer: "حدد نوع المنشأ والركيزة ومساحة المشروع والنسيج أو الصفيحة والأبعاد ونظام الإيبوكسي والكمية ودولة الوجهة ومستندات التصميم المتاحة." },
+      ],
+    },
+    "carbon-fiber-woven-fabric": {
+      description: "نسيج ألياف كربون منسوج plain أو twill للترسيب الجاف والتسريب والقولبة والأسطح الظاهرة من CFRP.",
+      heroCopy: "يُراجع مقاس tow ‏1K / 3K / 6K / 12K ونوع النسج وg/m² والعرض وطول اللفة وعملية الراتنج والكمية والاستخدام النهائي. يتوفر TDS لنسيج 3K twill بوزن 200gsm.",
+      seoDescription: "مورد نسيج ألياف كربون منسوج، بما في ذلك 3K twill بوزن 200gsm، مع مراجعة النسج وg/m² والعرض واللفة.",
+      intro: ["يوفر نسج plain بنية مستقرة، بينما يمنح twill قابلية تشكيل أفضل ونمط CFRP ظاهراً مميزاً.", "للطلب، حدد مقاس tow ونوع النسج وg/m² والعرض وطول اللفة وعملية الراتنج والكمية والاستخدام النهائي."],
+      faqs: [
+        { question: "هل يتوفر TDS لنسيج 3K twill بوزن 200gsm؟", answer: "نعم. يتوفر TDS لهذا المنتج، بينما يؤكد العرض وطول اللفة ومواصفة الطلب بصورة منفصلة." },
+        { question: "ما الفرق بين plain وtwill؟", answer: "يتميز plain بتشابك أكثر ثباتاً، بينما يوفر twill عادة قابلية تشكيل أفضل ونمطاً قطرياً ظاهراً. يعتمد الاختيار على الشكل والهندسة والعملية." },
+        { question: "ما البيانات المطلوبة لعرض السعر؟", answer: "حدد مقاس tow ونوع النسج وg/m² والعرض وطول اللفة وعملية الراتنج والكمية والاستخدام النهائي ودولة الوجهة." },
+      ],
+    },
+  },
+  fr: {
+    "carbon-fiber-yarn-and-tow": {
+      description: "Fil, mèche continue (tow) et roving de carbone pour tissage, tressage, pultrusion, enroulement filamentaire, transformation prepreg et découpe.",
+      heroCopy: "Pour le devis, confirmez la taille de tow 1K / 3K / 6K / 12K / 24K / 50K, le grade, l'ensimage, le procédé compatible, le poids de bobine, la quantité, l'usage final et le pays de destination.",
+      seoDescription: "Fournisseur de fil et tow de fibre de carbone 1K à 50K pour tissage, pultrusion, enroulement filamentaire et fabrication de composites.",
+      intro: ["La taille de tow, le grade et l'ensimage se choisissent selon le procédé de transformation et les équipements en aval.", "Pour une demande complète, précisez taille de tow, grade, ensimage, conditionnement, procédé, quantité, usage final et destination."],
+      faqs: [
+        { question: "Quelles tailles de tow peut-on demander ?", answer: "Une demande peut indiquer 1K, 3K, 6K, 12K, 24K ou 50K. La disponibilité dépend du grade, de l'ensimage, du lot, de la quantité et de l'usage final." },
+        { question: "Un TDS est-il disponible pour le tow 12K ?", answer: "Oui. La page propose un TDS de référence pour un tow continu 12K. Le grade exact, la source, le lot et l'ensimage restent à confirmer dans la commande." },
+        { question: "Quelles informations fournir pour un devis ?", answer: "Indiquez taille de tow, grade, ensimage, procédé compatible, poids de bobine, quantité, usage final et pays de destination." },
+      ],
+    },
+    "carbon-fiber-ud-fabric": {
+      description: "Tissu carbone unidirectionnel UD pour le renfort directionnel des composites et des systèmes de renforcement, avec masse surfacique, largeur et grade confirmés par demande.",
+      heroCopy: "Pour le devis, précisez grade de fibre, g/m², largeur, direction des fibres, procédé résine, quantité, usage final et destination. Un TDS vérifié est disponible pour le produit 300gsm.",
+      seoDescription: "Fournisseur de tissu carbone unidirectionnel UD, dont un produit 300gsm documenté, pour composites et renforcement structurel.",
+      intro: ["Le tissu UD concentre l'essentiel des fibres dans une direction et se choisit selon le trajet de charge et le procédé.", "La spécification de commande, le lot, la largeur, la compatibilité résine et l'usage final sont confirmés avant fourniture."],
+      faqs: [
+        { question: "Un TDS est-il disponible pour le tissu UD 300gsm ?", answer: "Oui. Le TDS du produit UD 300gsm est téléchargeable sur la page. La spécification finale reste à confirmer pour chaque commande et lot." },
+        { question: "Tout tissu UD convient-il au renforcement structurel ?", answer: "Non. La fibre, la construction et la résine doivent correspondre au projet, au support et à la méthode de pose, sous validation d'un ingénieur qualifié." },
+        { question: "Quelles données fournir pour un devis ?", answer: "Précisez grade de fibre, g/m², largeur, direction des fibres, procédé résine, quantité, projet et pays de destination." },
+      ],
+    },
+    "structural-strengthening-system": {
+      description: "Système de renforcement structurel CFRP associant tissu carbone UD, lamelle CFRP pultrudée et résine époxy compatible pour des projets civils de renforcement.",
+      heroCopy: "Le système se choisit selon l'étude du projet, le support, la direction du renfort, les dimensions de lamelle ou la masse du tissu, le système époxy et l'examen d'un ingénieur qualifié.",
+      seoDescription: "Fournisseur de tissu UD, lamelles CFRP pultrudées et époxy pour le renforcement du béton, des ponts et des bâtiments.",
+      intro: ["Le tissu UD s'adapte au support pour un renfort directionnel, tandis que la lamelle CFRP pultrudée constitue un élément rigide du système.", "Charges, calcul, préparation du support, pose et réception restent sous la responsabilité de l'ingénieur qualifié et des exigences du projet."],
+      faqs: [
+        { question: "Quand choisir un tissu UD ou une lamelle CFRP ?", answer: "Le choix dépend de la géométrie, du support, de la direction de charge, du calcul et de la méthode de pose. Il doit être confirmé par l'ingénieur du projet." },
+        { question: "Quels TDS sont disponibles ?", answer: "La page propose les TDS du tissu UD 300gsm et d'une lamelle CFRP pultrudée de 1.2 mm. Les données ne s'appliquent qu'aux produits identifiés dans ces documents." },
+        { question: "Quelles données fournir pour un devis ?", answer: "Indiquez type de structure, support, surface du projet, tissu ou lamelle, dimensions, système époxy, quantité, pays de destination et documents de conception disponibles." },
+      ],
+    },
+    "carbon-fiber-woven-fabric": {
+      description: "Tissu de fibre de carbone en armure toile ou sergé pour stratification sèche, infusion, moulage et surfaces CFRP visibles.",
+      heroCopy: "Pour le devis, confirmez tow 1K / 3K / 6K / 12K, armure, g/m², largeur, longueur de rouleau, procédé résine, quantité et usage final. Un TDS est disponible pour le tissu sergé 3K 200gsm.",
+      seoDescription: "Fournisseur de tissu de fibre de carbone, dont un sergé 3K 200gsm documenté, avec armure, g/m², largeur et rouleau à confirmer.",
+      intro: ["L'armure toile apporte une structure stable, tandis que le sergé offre généralement une meilleure drapabilité et un motif CFRP diagonal visible.", "Pour le devis, précisez taille de tow, armure, g/m², largeur, longueur de rouleau, procédé résine, quantité et usage final."],
+      faqs: [
+        { question: "Un TDS est-il disponible pour le sergé 3K 200gsm ?", answer: "Oui. Le TDS de ce produit est téléchargeable, tandis que largeur, longueur de rouleau et spécification de commande sont confirmées séparément." },
+        { question: "Quelle différence entre toile et sergé ?", answer: "La toile présente un entrecroisement plus stable. Le sergé offre généralement davantage de drapabilité et un motif diagonal visible. Le choix dépend de la géométrie, de la surface et du procédé." },
+        { question: "Quelles données fournir pour un devis ?", answer: "Indiquez taille de tow, armure, g/m², largeur, longueur de rouleau, procédé résine, quantité, usage final et pays de destination." },
+      ],
+    },
+  },
+  ko: {
+    "carbon-fiber-yarn-and-tow": {
+      description: "직조, 브레이딩, 인발 성형, 필라멘트 와인딩, prepreg 전환 및 절단 공정을 위한 탄소섬유 원사와 연속 토우(tow)입니다.",
+      heroCopy: "견적 전에 1K / 3K / 6K / 12K / 24K / 50K 토우 크기, 섬유 등급, 사이징, 호환 공정, 보빈 중량, 수량, 최종 용도 및 도착 국가를 확인합니다.",
+      seoDescription: "직조, 인발 성형, 필라멘트 와인딩 및 복합재 제조용 1K-50K 탄소섬유 원사와 토우 공급업체입니다.",
+      intro: ["토우 크기, 섬유 등급 및 사이징은 후속 전환 공정과 장비 요건에 따라 선택합니다.", "문의 시 토우 크기, 등급, 사이징, 패키지 형식, 공정, 수량, 최종 용도 및 도착 국가를 알려주십시오."],
+      faqs: [
+        { question: "어떤 탄소섬유 토우 크기를 문의할 수 있습니까?", answer: "1K, 3K, 6K, 12K, 24K 또는 50K를 지정할 수 있습니다. 실제 공급 여부는 등급, 사이징, 배치, 수량 및 최종 용도 검토에 따릅니다." },
+        { question: "12K 토우 TDS가 있습니까?", answer: "예. 연속 12K 탄소섬유 토우에 대한 참조 TDS를 제공합니다. 정확한 등급, 공급원, 배치 및 사이징은 최종 주문에서 확인해야 합니다." },
+        { question: "견적에 필요한 정보는 무엇입니까?", answer: "토우 크기, 섬유 등급, 사이징, 호환 공정, 보빈 중량, 수량, 최종 용도 및 도착 국가를 알려주십시오." },
+      ],
+    },
+    "carbon-fiber-ud-fabric": {
+      description: "복합재와 구조 보강 시스템의 방향성 보강을 위한 일방향 UD 탄소섬유 원단으로, 면중량, 폭 및 섬유 등급을 주문별로 검토합니다.",
+      heroCopy: "견적 시 섬유 등급, g/m², 폭, 섬유 방향, 수지 공정, 수량, 최종 용도 및 도착 국가를 알려주십시오. 300gsm 제품의 검증된 TDS를 제공합니다.",
+      seoDescription: "복합재 및 구조 보강용 300gsm 문서화 제품을 포함한 일방향 UD 탄소섬유 원단 공급업체입니다.",
+      intro: ["UD 원단은 대부분의 섬유를 한 방향에 배치하며, 하중 경로와 제조 공정에 따라 선택합니다.", "공급 전에 주문 사양, 배치, 폭, 수지 호환성 및 최종 용도를 확인합니다."],
+      faqs: [
+        { question: "300gsm UD 원단 TDS가 있습니까?", answer: "예. 페이지에서 300gsm UD 제품 TDS를 다운로드할 수 있습니다. 최종 사양은 주문과 배치별로 확인합니다." },
+        { question: "모든 UD 원단을 구조 보강에 사용할 수 있습니까?", answer: "아닙니다. 섬유, 원단 구조 및 수지는 프로젝트 설계, 바탕면 및 시공 방법과 일치해야 하며 자격을 갖춘 엔지니어가 선택을 확인해야 합니다." },
+        { question: "견적에 필요한 정보는 무엇입니까?", answer: "섬유 등급, g/m², 폭, 섬유 방향, 수지 공정, 수량, 프로젝트 및 도착 국가를 알려주십시오." },
+      ],
+    },
+    "structural-strengthening-system": {
+      description: "토목 구조 보강 프로젝트를 위한 일방향 UD 탄소섬유 원단, 인발 CFRP 판 및 호환 에폭시 수지로 구성된 CFRP 구조 보강 시스템입니다.",
+      heroCopy: "프로젝트 설계, 바탕면, 보강 방향, 판 치수 또는 원단 면중량, 에폭시 시스템 및 자격을 갖춘 엔지니어의 검토에 따라 재료를 선택합니다.",
+      seoDescription: "콘크리트, 교량 및 건물 보강용 UD 원단, 인발 CFRP 판 및 에폭시 재료 공급업체입니다.",
+      intro: ["UD 원단은 표면 형상에 맞춘 방향성 보강에 사용되며, 인발 CFRP 판은 시스템의 강성 보강 요소로 사용됩니다.", "하중, 설계, 바탕면 준비, 시공 및 검수는 자격을 갖춘 엔지니어와 프로젝트 요구사항에 따라 결정해야 합니다."],
+      faqs: [
+        { question: "UD 원단과 CFRP 판 중 무엇을 선택해야 합니까?", answer: "형상, 바탕면, 하중 방향, 보강 설계 및 시공 방법에 따라 달라지며 프로젝트 엔지니어가 확인해야 합니다." },
+        { question: "어떤 TDS를 제공합니까?", answer: "300gsm UD 원단과 1.2 mm 인발 CFRP 보강판 TDS를 제공합니다. 데이터는 문서에 명시된 제품에만 적용됩니다." },
+        { question: "견적에 필요한 정보는 무엇입니까?", answer: "구조물 유형, 바탕면, 프로젝트 면적, 원단 또는 판, 치수, 에폭시 시스템, 수량, 도착 국가 및 보유 설계 문서를 알려주십시오." },
+      ],
+    },
+    "carbon-fiber-woven-fabric": {
+      description: "드라이 레이업, 인퓨전, 성형 및 가시 CFRP 표면을 위한 평직 또는 능직 탄소섬유 직물입니다.",
+      heroCopy: "견적 전에 1K / 3K / 6K / 12K 토우 크기, 직조 방식, g/m², 폭, 롤 길이, 수지 공정, 수량 및 최종 용도를 확인합니다. 3K 200gsm 능직 제품 TDS를 제공합니다.",
+      seoDescription: "3K 200gsm 능직 문서화 제품을 포함한 탄소섬유 직물 공급업체로, 직조, g/m², 폭 및 롤 사양을 검토합니다.",
+      intro: ["평직은 안정적인 구조를 제공하고, 능직은 일반적으로 성형성이 높으며 눈에 보이는 대각선 CFRP 무늬를 만듭니다.", "문의 시 토우 크기, 직조 방식, g/m², 폭, 롤 길이, 수지 공정, 수량 및 최종 용도를 알려주십시오."],
+      faqs: [
+        { question: "3K 200gsm 능직 TDS가 있습니까?", answer: "예. 해당 제품의 TDS를 다운로드할 수 있으며 폭, 롤 길이 및 주문 사양은 별도로 확인합니다." },
+        { question: "평직과 능직의 차이는 무엇입니까?", answer: "평직은 교차 구조가 안정적이고, 능직은 일반적으로 성형성이 높으며 대각선 표면 무늬를 보입니다. 부품 형상, 표면 및 공정에 따라 선택합니다." },
+        { question: "견적에 필요한 정보는 무엇입니까?", answer: "토우 크기, 직조 방식, g/m², 폭, 롤 길이, 수지 공정, 수량, 최종 용도 및 도착 국가를 알려주십시오." },
+      ],
+    },
+  },
+  pl: {
+    "carbon-fiber-yarn-and-tow": {
+      description: "Przędza, ciągła wiązka (tow) i roving z włókna węglowego do tkania, oplatania, pultruzji, nawijania, produkcji prepregu i cięcia.",
+      heroCopy: "Do oferty potwierdzamy rozmiar tow 1K / 3K / 6K / 12K / 24K / 50K, gatunek włókna, preparację powierzchniową (sizing), zgodny proces, masę szpuli, ilość, zastosowanie końcowe i kraj docelowy.",
+      seoDescription: "Dostawca przędzy i tow z włókna węglowego 1K-50K do tkania, pultruzji, nawijania i produkcji kompozytów.",
+      intro: ["Rozmiar tow, gatunek włókna i sizing dobiera się do dalszego procesu oraz wymagań urządzeń.", "W zapytaniu podaj rozmiar tow, gatunek, sizing, format nawoju, proces, ilość, zastosowanie końcowe i kraj docelowy."],
+      faqs: [
+        { question: "Jakie rozmiary tow można podać w zapytaniu?", answer: "Można wskazać 1K, 3K, 6K, 12K, 24K lub 50K. Dostępność zależy od gatunku, sizingu, partii, ilości i zastosowania końcowego." },
+        { question: "Czy jest dostępny TDS dla tow 12K?", answer: "Tak. Strona zawiera referencyjny TDS dla ciągłej wiązki 12K. Dokładny gatunek, źródło, partia i sizing wymagają potwierdzenia w zamówieniu." },
+        { question: "Jakie informacje są potrzebne do wyceny?", answer: "Podaj rozmiar tow, gatunek włókna, sizing, zgodny proces, masę szpuli, ilość, zastosowanie końcowe i kraj docelowy." },
+      ],
+    },
+    "carbon-fiber-ud-fabric": {
+      description: "Jednokierunkowa tkanina węglowa UD do kierunkowego zbrojenia kompozytów i systemów wzmocnień, z masą powierzchniową, szerokością i gatunkiem potwierdzanymi dla zapytania.",
+      heroCopy: "Do wyceny podaj gatunek włókna, g/m², szerokość, kierunek włókien, proces żywiczny, ilość, zastosowanie końcowe i kraj docelowy. Dostępny jest zweryfikowany TDS produktu 300gsm.",
+      seoDescription: "Dostawca jednokierunkowej tkaniny węglowej UD, w tym udokumentowanego produktu 300gsm, do kompozytów i wzmocnień konstrukcyjnych.",
+      intro: ["Tkanina UD skupia większość włókien w jednym kierunku i jest dobierana do toru obciążenia oraz procesu.", "Przed dostawą potwierdzamy specyfikację zamówienia, partię, szerokość, zgodność z żywicą i zastosowanie końcowe."],
+      faqs: [
+        { question: "Czy jest dostępny TDS tkaniny UD 300gsm?", answer: "Tak. TDS produktu UD 300gsm można pobrać ze strony. Ostateczna specyfikacja jest potwierdzana dla zamówienia i partii." },
+        { question: "Czy każda tkanina UD nadaje się do wzmocnień konstrukcyjnych?", answer: "Nie. Włókno, konstrukcja i żywica muszą odpowiadać projektowi, podłożu i metodzie montażu, a wybór powinien zatwierdzić wykwalifikowany inżynier." },
+        { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj gatunek włókna, g/m², szerokość, kierunek włókien, proces żywiczny, ilość, projekt i kraj docelowy." },
+      ],
+    },
+    "structural-strengthening-system": {
+      description: "System wzmocnień konstrukcyjnych CFRP obejmujący jednokierunkową tkaninę UD, pultrudowaną płytę CFRP i zgodną żywicę epoksydową do cywilnych projektów wzmocnień.",
+      heroCopy: "Materiał dobiera się według projektu, podłoża, kierunku wzmocnienia, wymiarów płyty lub masy tkaniny, systemu epoksydowego i oceny wykwalifikowanego inżyniera.",
+      seoDescription: "Dostawca tkaniny UD, pultrudowanych płyt CFRP i epoksydów do wzmacniania betonu, mostów i budynków.",
+      intro: ["Tkanina UD dopasowuje się do powierzchni i zapewnia zbrojenie kierunkowe, a pultrudowana płyta CFRP stanowi sztywny element systemu.", "Obciążenia, obliczenia, przygotowanie podłoża, montaż i odbiór określa wykwalifikowany inżynier zgodnie z wymaganiami projektu."],
+      faqs: [
+        { question: "Kiedy wybrać tkaninę UD, a kiedy płytę CFRP?", answer: "Wybór zależy od geometrii, podłoża, kierunku obciążenia, projektu wzmocnienia i metody montażu. Powinien go potwierdzić inżynier projektu." },
+        { question: "Jakie dokumenty TDS są dostępne?", answer: "Strona udostępnia TDS tkaniny UD 300gsm oraz pultrudowanej płyty CFRP 1.2 mm. Dane dotyczą wyłącznie produktów wskazanych w dokumentach." },
+        { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj typ konstrukcji, podłoże, powierzchnię projektu, tkaninę lub płytę, wymiary, system epoksydowy, ilość, kraj docelowy i dostępne dokumenty projektowe." },
+      ],
+    },
+    "carbon-fiber-woven-fabric": {
+      description: "Tkanina z włókna węglowego o splocie płóciennym lub twill do układania na sucho, infuzji, formowania i widocznych powierzchni CFRP.",
+      heroCopy: "Do wyceny potwierdzamy tow 1K / 3K / 6K / 12K, splot, g/m², szerokość, długość rolki, proces żywiczny, ilość i zastosowanie końcowe. Dostępny jest TDS tkaniny 3K twill 200gsm.",
+      seoDescription: "Dostawca tkanin z włókna węglowego, w tym udokumentowanej tkaniny 3K twill 200gsm, z doborem splotu, g/m², szerokości i rolki.",
+      intro: ["Splot płócienny zapewnia stabilną strukturę, a twill zwykle lepsze układanie i widoczny ukośny wzór CFRP.", "W zapytaniu podaj rozmiar tow, splot, g/m², szerokość, długość rolki, proces żywiczny, ilość i zastosowanie końcowe."],
+      faqs: [
+        { question: "Czy jest dostępny TDS tkaniny 3K twill 200gsm?", answer: "Tak. TDS tego produktu można pobrać, natomiast szerokość, długość rolki i specyfikacja zamówienia są potwierdzane oddzielnie." },
+        { question: "Czym różni się splot płócienny od twill?", answer: "Splot płócienny ma stabilniejsze przeplatanie, a twill zwykle lepiej się układa i tworzy ukośny wzór. Wybór zależy od geometrii, powierzchni i procesu." },
+        { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj rozmiar tow, splot, g/m², szerokość, długość rolki, proces żywiczny, ilość, zastosowanie końcowe i kraj docelowy." },
+      ],
+    },
+  },
+  tr: {
+    "carbon-fiber-yarn-and-tow": {
+      description: "Dokuma, örme, pultrüzyon, filament sarım, prepreg dönüşümü ve kırpma için karbon fiber iplik, sürekli tow ve roving.",
+      heroCopy: "Teklif öncesinde 1K / 3K / 6K / 12K / 24K / 50K tow boyutu, fiber sınıfı, sizing, uyumlu proses, bobin ağırlığı, miktar, nihai kullanım ve varış ülkesi doğrulanır.",
+      seoDescription: "Dokuma, pultrüzyon, filament sarım ve kompozit üretimi için 1K-50K karbon fiber iplik ve tow tedarikçisi.",
+      intro: ["Tow boyutu, fiber sınıfı ve sizing, sonraki dönüşüm prosesi ve ekipman gereksinimlerine göre seçilir.", "Talebinizde tow boyutu, sınıf, sizing, paket biçimi, proses, miktar, nihai kullanım ve varış ülkesini belirtin."],
+      faqs: [
+        { question: "Hangi karbon fiber tow boyutları talep edilebilir?", answer: "Talepte 1K, 3K, 6K, 12K, 24K veya 50K belirtilebilir. Gerçek tedarik sınıf, sizing, parti, miktar ve nihai kullanım incelemesine bağlıdır." },
+        { question: "12K tow için TDS var mı?", answer: "Evet. Sayfada sürekli 12K karbon fiber tow için referans TDS bulunur. Kesin sınıf, kaynak, parti ve sizing siparişte doğrulanmalıdır." },
+        { question: "Teklif için hangi bilgiler gerekir?", answer: "Tow boyutu, fiber sınıfı, sizing, uyumlu proses, bobin ağırlığı, miktar, nihai kullanım ve varış ülkesini belirtin." },
+      ],
+    },
+    "carbon-fiber-ud-fabric": {
+      description: "Kompozitler ve yapısal güçlendirme sistemlerinde yönlü takviye için tek yönlü UD karbon fiber kumaş; g/m², genişlik ve fiber sınıfı talebe göre doğrulanır.",
+      heroCopy: "Teklif için fiber sınıfı, g/m², genişlik, fiber yönü, reçine prosesi, miktar, nihai kullanım ve varış ülkesini belirtin. 300gsm ürün için doğrulanmış TDS mevcuttur.",
+      seoDescription: "Kompozit ve yapısal güçlendirme için belgeli 300gsm ürün dahil tek yönlü UD karbon fiber kumaş tedarikçisi.",
+      intro: ["UD kumaş, fiberlerin çoğunu tek yönde toplar ve yük yolu ile üretim prosesine göre seçilir.", "Tedarik öncesinde sipariş spesifikasyonu, parti, genişlik, reçine uyumu ve nihai kullanım doğrulanır."],
+      faqs: [
+        { question: "300gsm UD kumaş TDS'si var mı?", answer: "Evet. 300gsm UD ürün TDS'si sayfadan indirilebilir. Nihai spesifikasyon sipariş ve parti için ayrıca doğrulanır." },
+        { question: "Her UD kumaş yapısal güçlendirme için uygun mudur?", answer: "Hayır. Fiber, yapı ve reçine proje tasarımına, yüzeye ve uygulama yöntemine uygun olmalı; seçim yetkin bir mühendis tarafından onaylanmalıdır." },
+        { question: "Teklif için hangi veriler gerekir?", answer: "Fiber sınıfı, g/m², genişlik, fiber yönü, reçine prosesi, miktar, proje ve varış ülkesini belirtin." },
+      ],
+    },
+    "structural-strengthening-system": {
+      description: "Sivil güçlendirme projeleri için tek yönlü UD karbon kumaş, pultrüzyon CFRP plaka ve uyumlu epoksi reçineden oluşan CFRP yapısal güçlendirme sistemi.",
+      heroCopy: "Malzeme; proje tasarımı, yüzey, güçlendirme yönü, plaka boyutları veya kumaş g/m² değeri, epoksi sistemi ve yetkin mühendis incelemesine göre seçilir.",
+      seoDescription: "Beton, köprü ve bina güçlendirme için UD kumaş, pultrüzyon CFRP plaka ve epoksi malzeme tedarikçisi.",
+      intro: ["UD kumaş yüzeye uyum sağlayarak yönlü takviye sunar; pultrüzyon CFRP plaka ise sistemin rijit takviye elemanıdır.", "Yükler, hesap, yüzey hazırlığı, uygulama ve kabul yetkin mühendis ile proje gerekliliklerine göre belirlenmelidir."],
+      faqs: [
+        { question: "UD kumaş mı yoksa CFRP plaka mı seçilmelidir?", answer: "Seçim geometriye, yüzeye, yük yönüne, güçlendirme tasarımına ve uygulama yöntemine bağlıdır; proje mühendisi tarafından doğrulanmalıdır." },
+        { question: "Hangi TDS belgeleri mevcuttur?", answer: "Sayfada 300gsm UD kumaş ve 1.2 mm pultrüzyon CFRP güçlendirme plakası TDS'leri bulunur. Veriler yalnızca belgelerde tanımlanan ürünler için geçerlidir." },
+        { question: "Teklif için hangi bilgiler gerekir?", answer: "Yapı tipi, yüzey, proje alanı, kumaş veya plaka, boyutlar, epoksi sistemi, miktar, varış ülkesi ve mevcut tasarım belgelerini paylaşın." },
+      ],
+    },
+    "carbon-fiber-woven-fabric": {
+      description: "Kuru serim, infüzyon, kalıplama ve görünür CFRP yüzeyleri için plain veya twill dokuma karbon fiber kumaş.",
+      heroCopy: "Teklif öncesinde 1K / 3K / 6K / 12K tow boyutu, dokuma, g/m², genişlik, rulo uzunluğu, reçine prosesi, miktar ve nihai kullanım doğrulanır. 3K 200gsm twill ürün TDS'si mevcuttur.",
+      seoDescription: "Belgeli 3K 200gsm twill ürün dahil dokuma karbon fiber kumaş tedarikçisi; dokuma, g/m², genişlik ve rulo seçimi.",
+      intro: ["Plain dokuma kararlı bir yapı sunarken twill genellikle daha iyi şekil alır ve görünür çapraz CFRP deseni oluşturur.", "Talebinizde tow boyutu, dokuma, g/m², genişlik, rulo uzunluğu, reçine prosesi, miktar ve nihai kullanımı belirtin."],
+      faqs: [
+        { question: "3K 200gsm twill TDS'si var mı?", answer: "Evet. Bu ürünün TDS'si indirilebilir; genişlik, rulo uzunluğu ve sipariş spesifikasyonu ayrıca doğrulanır." },
+        { question: "Plain ve twill dokuma arasındaki fark nedir?", answer: "Plain dokuma daha kararlı bir kesişim sunar; twill genellikle daha iyi şekillenir ve çapraz yüzey deseni gösterir. Seçim geometriye, yüzeye ve prosese bağlıdır." },
+        { question: "Teklif için hangi bilgiler gerekir?", answer: "Tow boyutu, dokuma, g/m², genişlik, rulo uzunluğu, reçine prosesi, miktar, nihai kullanım ve varış ülkesini belirtin." },
+      ],
+    },
+  },
+};
+
 function localizeFocus(locale: ExtendedLocale, focus: string) {
   return Object.entries({ ...focusTerms[locale], ...filamentWoundTubeTranslations[locale].focus })
     .sort(([left], [right]) => right.length - left.length)
@@ -308,6 +561,8 @@ function makeProducts(locale: ExtendedLocale) {
     ];
     const dualCoreCopy = locale === "ru" && russianPriorityProductCopy[slug]
       ? russianPriorityProductCopy[slug]
+      : locale !== "ru" && isAdditionalPrioritySlug(slug)
+        ? additionalPriorityProductCopy[locale][slug]
       : slug === "carbon-fiber-multiaxial-ncf-fabric" || slug === "3k-carbon-fiber-laminate-sheet"
       ? dualCoreProductCopy[locale][slug]
       : undefined;

@@ -38,23 +38,33 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
   },
   ar: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "structural-strengthening-system": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
+    "carbon-fiber-ud-fabric": "2026-07-23",
+    "structural-strengthening-system": "2026-07-23",
   },
   fr: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "structural-strengthening-system": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
+    "carbon-fiber-ud-fabric": "2026-07-23",
+    "structural-strengthening-system": "2026-07-23",
   },
   ko: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "structural-strengthening-system": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
+    "carbon-fiber-ud-fabric": "2026-07-23",
+    "structural-strengthening-system": "2026-07-23",
   },
   pl: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "structural-strengthening-system": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
+    "carbon-fiber-ud-fabric": "2026-07-23",
+    "structural-strengthening-system": "2026-07-23",
   },
   tr: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "structural-strengthening-system": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
+    "carbon-fiber-ud-fabric": "2026-07-23",
+    "structural-strengthening-system": "2026-07-23",
   },
 };
 
