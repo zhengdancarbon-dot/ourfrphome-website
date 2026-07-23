@@ -54,6 +54,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 15. Audited all available 1.2 mm, 1.4 mm, 3.0 mm and 5.0 mm carbon-plate records and confirmed that they describe pultruded structural-strengthening plate, not visible 3K laminate sheet. Retained the 3K download as a `SPEC` guide and documented the exact evidence required for a future formal TDS in `docs/3k-laminate-tds-source-gap-2026-07-23.md`.
 16. Added the real `717.MP4` directional-layer equipment footage to the Multiaxial NCF product in nine languages, with a source-derived poster and localized `VideoObject`. The copy does not assign an unverified gsm, angle set or batch identity and directs buyers to the selected TDS and RFQ.
 17. Verified five official industry discovery routes and prepared the first manually reviewed authority-outreach batch in `docs/six-core-authority-outreach-batch-01-2026-07-23.csv`, with individualized drafts in `docs/six-core-authority-outreach-batch-01-drafts-2026-07-23.md`. Every record is explicitly marked `Prepared - not sent`; no external form, email, payment or upload was submitted.
+18. Completed the first Yandex-oriented procurement review for all six Russian priority product pages. Tightened NCF, 12K tow and 3K laminate document boundaries, corrected one engineering sentence, and verified 207 sitemap URLs plus six Russian page outputs in `docs/six-core-russian-yandex-procurement-audit-2026-07-23.md`.
 
 ### In Progress
 
@@ -63,7 +64,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 
 ### Next
 
-1. Review the six corresponding RU pages first for Yandex procurement terminology, then ES, PT-BR, FR, TR, PL, AR and KO.
+1. Continue the six-product procurement terminology review in ES, PT-BR, FR, TR, PL, AR and KO; Russian review is complete.
 2. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
 3. Request recrawling only after the release is approved and deployed; do not repeatedly submit unchanged URLs.
 

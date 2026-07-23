@@ -31,7 +31,7 @@ The current recovery branch contains 1,160 inserted lines and 19 deleted lines r
 - Generated routes: 216
 - Sitemap URL audit: 207/207 PASS
 - Internal resource audit: 346/346 PASS
-- Priority product page audit: 5/5 PASS
+- Priority product page audit: 6/6 PASS
 - Negative 404 checks: 3/3 PASS
 
 Locale URL counts:
@@ -78,8 +78,9 @@ A complete Git recovery bundle was created and verified at:
 `.codex-output-work/FRP-HOME-source-recovery-2026-07-23.bundle`
 
 The ignored bundle is 70 MB, contains the complete history, and records both
-`codex/repository-recovery-20260723` at `7e39a6b` and `origin/main` at
-`d57e226`. It excludes untracked source-material and output directories.
+the latest committed `codex/repository-recovery-20260723` branch state and
+`origin/main` at `d57e226`. It excludes untracked source-material and output
+directories.
 
 The recovery branch has not yet been pushed to GitHub. The push was attempted
 but the local HTTPS Git client had no available GitHub credential. No remote
