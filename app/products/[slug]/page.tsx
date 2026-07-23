@@ -14,10 +14,12 @@ import {
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
 import { ProductImageZoom } from "@/components/product-image-zoom";
+import { ProductVideo } from "@/components/product-video";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
+import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
 import {
@@ -345,6 +347,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     `Please quote ${product.name}. My target specification and quantity are below.`,
   )}`;
   const productUrl = absoluteUrl(`/products/${product.slug}`);
+  const productVideo = getProductVideo(product.slug, "en");
+  const productVideoSchema = productVideo
+    ? createProductVideoSchema(productVideo, productUrl, "en")
+    : undefined;
   const productPageSchema = createB2bProductPageSchema({
     name: product.name,
     description: product.description,
@@ -428,6 +434,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               ["Quick Answer", "#quick-answer"],
               ["Specifications", "#specifications"],
               ["Overview", "#overview"],
+              ...(productVideo ? [["Production Video", "#production-video"]] : []),
               ["Recommended For", "#recommended-for"],
               ["How to Choose", "#how-to-choose"],
               ["RFQ Info", "#rfq-info"],
@@ -510,6 +517,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
               </div>
             </section>
+
+            {productVideo ? <ProductVideo video={productVideo} /> : null}
 
             <section className="product-detail-card">
               <SectionHeading
@@ -782,7 +791,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([productPageSchema, breadcrumbSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            productPageSchema,
+            breadcrumbSchema,
+            faqSchema,
+            ...(productVideoSchema ? [productVideoSchema] : []),
+          ]),
+        }}
       />
     </>
   );

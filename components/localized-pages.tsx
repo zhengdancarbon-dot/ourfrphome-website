@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { ArrowRight, CheckCircle2, ClipboardList, FileText, Ruler, Settings2 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
 import { ProductImageZoom } from "@/components/product-image-zoom";
+import { ProductVideo } from "@/components/product-video";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, PageHero, SectionHeading } from "@/components/ui";
 import { applicationBreadcrumbSchema, getApplicationPage } from "@/lib/application-pages";
@@ -31,6 +32,7 @@ import {
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
+import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { productFamilies } from "@/lib/product-families";
 import {
   absoluteUrl,
@@ -548,6 +550,10 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
     locale,
   );
   const productUrl = localizedJsonLdUrl(`/products/${slug}`, locale);
+  const productVideo = getProductVideo(product.slug, locale);
+  const productVideoSchema = productVideo
+    ? createProductVideoSchema(productVideo, productUrl, locale)
+    : undefined;
   const productPageSchema = createB2bProductPageSchema({
     name: content.name,
     description: content.description,
@@ -619,6 +625,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               [copy.common.quickAnswer, "#quick-answer"],
               [copy.common.specifications, "#specifications"],
               [copy.common.overview, "#overview"],
+              ...(productVideo ? [[productVideo.eyebrow, "#production-video"]] : []),
               [copy.common.applications, "#applications"],
               ["RFQ", "#rfq-info"],
               ...(downloadableDocuments.length > 0 ? [[copy.common.documents, "#documents"]] : []),
@@ -692,6 +699,8 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                 </div>
               </div>
             </section>
+
+            {productVideo ? <ProductVideo video={productVideo} /> : null}
 
             <section className="product-detail-card" id="applications">
               <SectionHeading eyebrow={copy.common.applications} title={content.category} />
@@ -817,7 +826,14 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([productPageSchema, breadcrumbSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            productPageSchema,
+            breadcrumbSchema,
+            faqSchema,
+            ...(productVideoSchema ? [productVideoSchema] : []),
+          ]),
+        }}
       />
     </>
   );

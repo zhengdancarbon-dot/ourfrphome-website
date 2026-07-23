@@ -4,7 +4,7 @@ Date: 2026-07-21
 
 Production domain: `https://www.myfrphome.com`
 
-Status: active and authoritative
+Status: historical; superseded by `docs/six-core-exposure-growth-task-2026-07-23.md`
 
 ## Authority And Allocation
 
