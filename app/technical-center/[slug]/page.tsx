@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ClipboardList } from "lucide-react";
+import { ArrowRight, ClipboardList, FileText } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
+import { productDocuments } from "@/lib/product-documents";
 import { createPageMetadata } from "@/lib/seo";
 import {
   articleBreadcrumbSchema,
@@ -52,6 +53,15 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
   const recommendedProducts = article.recommendedProducts
     .map((productSlug) => productCatalog.find((product) => product.slug === productSlug))
     .filter((product) => product !== undefined);
+  const downloadableDocuments = article.recommendedProducts
+    .flatMap((productSlug) =>
+      productDocuments.filter((document) => document.productSlug === productSlug),
+    )
+    .filter((document) => article.sources?.some((source) => source.url.endsWith(document.href)))
+    .filter(
+      (document, index, documents) =>
+        documents.findIndex((candidate) => candidate.href === document.href) === index,
+    );
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -85,6 +95,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
             <a href="#selection">Selection advice</a>
             <a href="#applications">Applications</a>
             <a href="#specifications">Specifications</a>
+            {downloadableDocuments.length > 0 ? <a href="#documents">Documents</a> : null}
             <a href="#rfq">RFQ information</a>
             <a href="#faq">FAQ</a>
             {article.sources ? <a href="#sources">Sources</a> : null}
@@ -176,6 +187,37 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                 </table>
               </div>
             </section>
+
+            {downloadableDocuments.length > 0 ? (
+              <section className="product-detail-card" id="documents">
+                <SectionHeading
+                  eyebrow="Verified product documents"
+                  title="Download the references used in this guide."
+                  copy="These English PDFs are tied to the listed product scope. Confirm the final order specification and required batch documents in the RFQ."
+                />
+                <div className="tds-download-list">
+                  {downloadableDocuments.map((document) => (
+                    <a
+                      className="tds-download-card"
+                      data-analytics-event="tds_download"
+                      data-product-slug={document.productSlug}
+                      data-document-title={document.title}
+                      download
+                      href={document.href}
+                      key={document.href}
+                    >
+                      <FileText size={23} />
+                      <span>
+                        <strong>Download {document.type}</strong>
+                        <small>{document.title}</small>
+                        <small>{document.revision} · {document.language} · {document.fileSize}</small>
+                      </span>
+                      <ArrowRight size={18} />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             <section className="product-detail-card">
               <div className="section-title-row">

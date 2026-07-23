@@ -42,18 +42,22 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 3. Added controlled playback and localized visible copy to the EN, ES, PT-BR, RU, AR, FR, KO, PL and TR Yarn & Tow product pages.
 4. Added localized `VideoObject` structured data with the real media URL, poster, duration, publication date and language code.
 5. Verified all nine routes return 200, the MP4 is served as `video/mp4`, the sitemap remains at 207 URLs, `pnpm lint` has zero errors and `pnpm build` generates 216 pages.
+6. Added visible, tracked TDS downloads to source-backed Technical Center articles without exposing a document on an unrelated guide.
+7. Created a six-cluster, nine-language UTM link pack for email, LinkedIn and WhatsApp outreach.
+8. Prepared a manually reviewed authority-outreach shortlist and white-hat submission playbook.
+9. Added server-rendered language and direction semantics to every localized page and verified Arabic templates expose `lang="ar"` and `dir="rtl"` before client hydration.
 
 ### In Progress
 
 1. Prepare the next source-backed NCF and 3K laminate release from existing verified TDS and buyer guides.
-2. Review the six English priority pages for visible document links, buyer questions and contextual links from Technical Center.
-3. Prepare a manually reviewed authority-outreach shortlist for composites directories, engineering media, distributors, processors and relevant exhibitions.
+2. Begin the first manually reviewed outreach batch and record listing status, destination URL, UTM campaign and response.
+3. Re-export GSC and Yandex performance after the next data window and apply the 14-day / 50-impression decision rule.
 
 ### Next
 
-1. Separate UTM reporting for UD fabric and pultruded strengthening plate even when both use the same strengthening campaign family.
-2. Review the six corresponding RU pages first for Yandex procurement terminology, then ES, PT-BR, FR, TR, PL, AR and KO.
-3. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
+1. Review the six corresponding RU pages first for Yandex procurement terminology, then ES, PT-BR, FR, TR, PL, AR and KO.
+2. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
+3. Request recrawling only after the release is approved and deployed; do not repeatedly submit unchanged URLs.
 
 ### Measurement Cycle
 

@@ -9,7 +9,7 @@ import { technicalArticles } from "@/lib/technical-articles";
 const productLastModified: Record<string, string> = {
   "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
   "3k-carbon-fiber-laminate-sheet": "2026-07-22",
-  "carbon-fiber-yarn-and-tow": "2026-07-22",
+  "carbon-fiber-yarn-and-tow": "2026-07-23",
   "carbon-fiber-woven-fabric": "2026-07-22",
   "carbon-fiber-ud-fabric": "2026-07-22",
   "structural-strengthening-system": "2026-07-22",
@@ -17,11 +17,13 @@ const productLastModified: Record<string, string> = {
 
 const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
   es: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
     "carbon-fiber-woven-fabric": "2026-07-22",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
   "pt-br": {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
     "carbon-fiber-woven-fabric": "2026-07-22",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
@@ -29,16 +31,31 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
   ru: {
     "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
     "3k-carbon-fiber-laminate-sheet": "2026-07-22",
-    "carbon-fiber-yarn-and-tow": "2026-07-22",
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
     "carbon-fiber-woven-fabric": "2026-07-22",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
-  ar: { "structural-strengthening-system": "2026-07-22" },
-  fr: { "structural-strengthening-system": "2026-07-22" },
-  ko: { "structural-strengthening-system": "2026-07-22" },
-  pl: { "structural-strengthening-system": "2026-07-22" },
-  tr: { "structural-strengthening-system": "2026-07-22" },
+  ar: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
+    "structural-strengthening-system": "2026-07-22",
+  },
+  fr: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
+    "structural-strengthening-system": "2026-07-22",
+  },
+  ko: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
+    "structural-strengthening-system": "2026-07-22",
+  },
+  pl: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
+    "structural-strengthening-system": "2026-07-22",
+  },
+  tr: {
+    "carbon-fiber-yarn-and-tow": "2026-07-23",
+    "structural-strengthening-system": "2026-07-22",
+  },
 };
 
 const applicationLastModified: Record<string, string> = {

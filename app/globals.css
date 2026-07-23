@@ -313,19 +313,30 @@ img {
   bottom: calc(100% + 8px);
 }
 
-html[dir="rtl"] body {
+/* The localized wrapper is server-rendered; :has keeps RTL correct before JS runs. */
+.localized-document {
+  display: contents;
+}
+
+html[dir="rtl"] body,
+body:has(.localized-document[dir="rtl"]) {
   direction: rtl;
 }
 
 html[dir="rtl"] input,
 html[dir="rtl"] textarea,
 html[dir="rtl"] select,
-html[dir="rtl"] [dir="ltr"] {
+html[dir="rtl"] [dir="ltr"],
+body:has(.localized-document[dir="rtl"]) input,
+body:has(.localized-document[dir="rtl"]) textarea,
+body:has(.localized-document[dir="rtl"]) select,
+body:has(.localized-document[dir="rtl"]) [dir="ltr"] {
   direction: ltr;
   text-align: left;
 }
 
-html[dir="rtl"] .language-menu {
+html[dir="rtl"] .language-menu,
+body:has(.localized-document[dir="rtl"]) .language-menu {
   direction: rtl;
 }
 
