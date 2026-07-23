@@ -47,6 +47,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 8. Prepared a manually reviewed authority-outreach shortlist and white-hat submission playbook.
 9. Added server-rendered language and direction semantics to every localized page and verified Arabic templates expose `lang="ar"` and `dir="rtl"` before client hydration.
 10. Replaced generic generated copy with product-specific procurement content for Yarn & Tow, UD fabric, structural strengthening and 3K woven fabric across AR, FR, KO, PL and TR, covering 20 localized commercial pages.
+11. Closed the RFQ attribution gap by preserving approved UTM and Google/Bing/Yandex click parameters in the inquiry source URL and `rfq_submit` event across same-tab navigation.
 
 ### In Progress
 

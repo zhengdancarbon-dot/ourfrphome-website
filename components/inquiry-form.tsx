@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   MAX_ATTACHMENT_SIZE_MB,
   validateInquiryPayload,
@@ -19,6 +19,11 @@ import {
 import { products } from "@/lib/site-data";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
+import {
+  createAttributedSourcePage,
+  getAttributionEventParameters,
+  getAttributionQuery,
+} from "@/lib/utm-attribution";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -33,6 +38,8 @@ const fieldValidationMessages: Record<Locale, string> = {
   pl: "Sprawdź to pole.",
   tr: "Lütfen bu alanı kontrol edin.",
 };
+
+const attributionSessionKey = "frp-home-rfq-attribution";
 
 function localizeInquiryErrors(errors: InquiryErrors, locale: Locale) {
   return Object.fromEntries(
@@ -108,6 +115,7 @@ function trackRfqSubmit(
     product_name: productName || productType,
     locale,
     source_page: sourcePage,
+    ...getAttributionEventParameters(sourcePage),
   };
 
   if (analytics.frpTrackEvent) {
@@ -128,6 +136,8 @@ export function InquiryForm({
 } = {}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const currentAttributionQuery = getAttributionQuery(searchParams);
+  const [persistedAttributionQuery, setPersistedAttributionQuery] = useState("");
   const copy = getUiCopy(locale);
   const selectedProduct = searchParams.get("product") ?? initialProduct ?? "";
   const initialMessage = searchParams.get("message") ?? "";
@@ -136,6 +146,32 @@ export function InquiryForm({
   );
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<InquiryErrors>({});
+  const sourcePage = createAttributedSourcePage(
+    pathname || "/contact",
+    currentAttributionQuery || persistedAttributionQuery,
+  );
+
+  useEffect(() => {
+    let nextAttributionQuery = "";
+
+    try {
+      if (currentAttributionQuery) {
+        sessionStorage.setItem(attributionSessionKey, currentAttributionQuery);
+        nextAttributionQuery = currentAttributionQuery;
+      } else {
+        nextAttributionQuery = sessionStorage.getItem(attributionSessionKey) || "";
+      }
+    } catch {
+      nextAttributionQuery = "";
+    }
+
+    const timeoutId = window.setTimeout(
+      () => setPersistedAttributionQuery(nextAttributionQuery),
+      0,
+    );
+
+    return () => window.clearTimeout(timeoutId);
+  }, [currentAttributionQuery]);
 
   const activeProductType =
     rfqProductTypes.find((type) => type.value === productType) ?? rfqProductTypes[1];
@@ -181,7 +217,7 @@ export function InquiryForm({
         activeProductType.label,
         selectedProductDetail,
         locale,
-        pathname || "/contact",
+        sourcePage,
       );
       form.reset();
       setErrors({});
@@ -208,7 +244,7 @@ export function InquiryForm({
     <form className="inquiry-form rfq-form" onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
       <input name="locale" type="hidden" value={locale} readOnly />
-      <input name="sourcePage" type="hidden" value={pathname || "/contact"} readOnly />
+      <input name="sourcePage" type="hidden" value={sourcePage} readOnly />
       <div className="rfq-type-select" aria-label={copy.rfq.productType}>
         <span>{copy.rfq.productType}</span>
         <div className="rfq-type-grid" role="group" aria-label={copy.rfq.productType}>
