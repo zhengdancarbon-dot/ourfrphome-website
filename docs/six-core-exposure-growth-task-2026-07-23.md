@@ -48,12 +48,14 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 9. Added server-rendered language and direction semantics to every localized page and verified Arabic templates expose `lang="ar"` and `dir="rtl"` before client hydration.
 10. Replaced generic generated copy with product-specific procurement content for Yarn & Tow, UD fabric, structural strengthening and 3K woven fabric across AR, FR, KO, PL and TR, covering 20 localized commercial pages.
 11. Closed the RFQ attribution gap by preserving approved UTM and Google/Bing/Yandex click parameters in the inquiry source URL and `rfq_submit` event across same-tab navigation.
+12. Reconciled the latest available GSC, Yandex and GA4 evidence into `docs/six-core-search-performance-review-2026-07-23.md` without treating missing data as zero or claiming unproven rankings.
+13. Added a repeatable Google/Yandex export checklist and six-core weekly report template so future title, content and conversion decisions follow the 14-day / 50-impression and 20-organic-visit gates.
 
 ### In Progress
 
 1. Prepare the next source-backed NCF and 3K laminate release from existing verified TDS and buyer guides.
 2. Begin the first manually reviewed outreach batch and record listing status, destination URL, UTM campaign and response.
-3. Re-export GSC and Yandex performance after the next data window and apply the 14-day / 50-impression decision rule.
+3. Re-export GSC and Yandex performance after the next complete data window using `docs/six-core-google-yandex-export-checklist-2026-07-23.md`, then apply the 14-day / 50-impression decision rule.
 
 ### Next
 
@@ -64,6 +66,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 ### Measurement Cycle
 
 - Re-export GSC and Yandex data weekly, not daily.
+- Use `docs/six-core-seo-geo-weekly-report-template.md` as the authoritative weekly report format.
 - Review metadata only after 14 indexed days or 50 impressions for that page.
 - Review conversion friction after 20 valid organic visits without RFQ, TDS, email, WhatsApp or catalog action.
 - Use one indexing request after a material update; do not repeatedly request indexing.
