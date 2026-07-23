@@ -76,13 +76,86 @@ const yarnTowVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | 
   },
 };
 
-export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
-  if (slug !== "carbon-fiber-yarn-and-tow") return undefined;
+const wovenFabricVideo = {
+  src: "/videos/3k-woven-carbon-fiber-weaving-line.mp4",
+  poster: "/images/products/3k-woven-carbon-fiber-weaving-line-poster.jpg",
+  duration: "PT12S",
+  uploadDate: "2026-07-23",
+};
 
-  return {
-    ...yarnTowVideo,
-    ...yarnTowVideoCopy[locale],
-  };
+const wovenFabricVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+  en: {
+    eyebrow: "Weaving video",
+    title: "Twill carbon fiber fabric moving through the loom",
+    description:
+      "A real workshop view of woven carbon fiber fabric being formed on a production loom. Confirm tow size, areal weight, width, weave, roll length and finish in the RFQ.",
+  },
+  es: {
+    eyebrow: "Vídeo de tejido",
+    title: "Tejido de fibra de carbono sarga avanzando en el telar",
+    description:
+      "Vista real de taller del tejido de fibra de carbono formándose en un telar de producción. Confirme tamaño del tow, gramaje, ancho, ligamento, longitud de rollo y acabado en la RFQ.",
+  },
+  "pt-br": {
+    eyebrow: "Vídeo de tecelagem",
+    title: "Tecido de fibra de carbono sarja avançando no tear",
+    description:
+      "Vista real de fábrica do tecido de fibra de carbono sendo formado em um tear de produção. Confirme tamanho do tow, gramatura, largura, trama, comprimento do rolo e acabamento na RFQ.",
+  },
+  ru: {
+    eyebrow: "Видео ткачества",
+    title: "Саржевая углеродная ткань на производственном станке",
+    description:
+      "Реальный цеховой вид формирования тканого углеродного материала на производственном станке. Размер tow, поверхностную плотность, ширину, переплетение, длину рулона и отделку следует подтвердить в RFQ.",
+  },
+  ar: {
+    eyebrow: "فيديو النسيج",
+    title: "نسيج ألياف الكربون بنمط twill أثناء مروره عبر النول",
+    description:
+      "مشهد حقيقي من الورشة لتشكيل نسيج ألياف الكربون على نول الإنتاج. يجب تأكيد حجم tow والوزن المساحي والعرض ونمط النسج وطول اللفة والتشطيب في طلب العرض.",
+  },
+  fr: {
+    eyebrow: "Vidéo de tissage",
+    title: "Tissu carbone sergé en cours de formation sur le métier",
+    description:
+      "Vue réelle en atelier d'un tissu de fibre de carbone formé sur un métier de production. Confirmez la taille du tow, le grammage, la largeur, l'armure, la longueur du rouleau et la finition dans la RFQ.",
+  },
+  ko: {
+    eyebrow: "제직 영상",
+    title: "생산 직기에서 이동하는 능직 탄소섬유 직물",
+    description:
+      "생산 직기에서 탄소섬유 직물이 형성되는 실제 작업 현장 영상입니다. tow 크기, 면중량, 폭, 직조 방식, 롤 길이 및 마감은 RFQ에서 확인해야 합니다.",
+  },
+  pl: {
+    eyebrow: "Film z tkania",
+    title: "Tkanina węglowa o splocie skośnym na krośnie produkcyjnym",
+    description:
+      "Rzeczywisty widok produkcji tkaniny z włókna węglowego na krośnie. Rozmiar tow, gramaturę, szerokość, splot, długość rolki i wykończenie należy potwierdzić w RFQ.",
+  },
+  tr: {
+    eyebrow: "Dokuma videosu",
+    title: "Üretim tezgâhında ilerleyen dimi karbon fiber kumaş",
+    description:
+      "Karbon fiber dokuma kumaşın üretim tezgâhında oluştuğu gerçek atölye görüntüsüdür. Tow boyutu, gramaj, genişlik, dokuma, rulo uzunluğu ve yüzey RFQ sırasında doğrulanmalıdır.",
+  },
+};
+
+export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
+  if (slug === "carbon-fiber-yarn-and-tow") {
+    return {
+      ...yarnTowVideo,
+      ...yarnTowVideoCopy[locale],
+    };
+  }
+
+  if (slug === "carbon-fiber-woven-fabric") {
+    return {
+      ...wovenFabricVideo,
+      ...wovenFabricVideoCopy[locale],
+    };
+  }
+
+  return undefined;
 }
 
 export function createProductVideoSchema(

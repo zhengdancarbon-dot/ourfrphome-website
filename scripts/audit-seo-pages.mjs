@@ -6,9 +6,31 @@ const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
   ["/products/carbon-fiber-yarn-and-tow", ["Carbon Fiber Tow Supplier", "Carbon Fiber Yarn & Tow"]],
+  ["/products/carbon-fiber-ud-fabric", ["300gsm UD Carbon Fiber Fabric Supplier", "UD Carbon Fiber Fabric"]],
   ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
+const videoProductPages = new Map([
+  ["carbon-fiber-yarn-and-tow", {
+    src: "/videos/carbon-fiber-yarn-tow-spool-creel.mp4",
+    poster: "/images/products/carbon-fiber-yarn-tow-production-creel-poster.jpg",
+  }],
+  ["carbon-fiber-woven-fabric", {
+    src: "/videos/3k-woven-carbon-fiber-weaving-line.mp4",
+    poster: "/images/products/3k-woven-carbon-fiber-weaving-line-poster.jpg",
+  }],
+]);
+const languageCodes = {
+  en: "en",
+  es: "es",
+  "pt-br": "pt-BR",
+  ru: "ru",
+  ar: "ar",
+  fr: "fr",
+  ko: "ko",
+  pl: "pl",
+  tr: "tr",
+};
 
 function matches(html, pattern) {
   return pattern.test(html);
@@ -46,6 +68,7 @@ if (englishCount !== expectedEnglishCount || Object.values(localeCounts).some((c
 const failures = [];
 const internalResources = new Set();
 const checkedPriorityPages = new Set();
+const checkedVideoPages = new Set();
 let cursor = 0;
 
 async function worker() {
@@ -65,6 +88,26 @@ async function worker() {
     const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
+    }
+
+    const productSlug = path.match(/\/products\/([^/]+)$/)?.[1];
+    const video = productSlug ? videoProductPages.get(productSlug) : undefined;
+    if (video) {
+      checkedVideoPages.add(path);
+      const locale = path.match(/^\/(es|pt-br|ru|ar|fr|ko|pl|tr)\//)?.[1] || "en";
+      const expectedLanguage = languageCodes[locale];
+      if (!text.includes(`src="${video.src}"`)) failures.push(`${path}: missing product video source`);
+      if (!text.includes(`poster="${video.poster}"`)) failures.push(`${path}: missing product video poster`);
+      if (!text.includes('"@type":"VideoObject"')) failures.push(`${path}: missing VideoObject structured data`);
+      if (!text.includes(`"contentUrl":"https://www.myfrphome.com${video.src}"`)) {
+        failures.push(`${path}: incorrect VideoObject contentUrl`);
+      }
+      if (!text.includes(`"thumbnailUrl":["https://www.myfrphome.com${video.poster}"]`)) {
+        failures.push(`${path}: incorrect VideoObject thumbnailUrl`);
+      }
+      if (!text.includes(`"inLanguage":"${expectedLanguage}"`)) {
+        failures.push(`${path}: incorrect VideoObject inLanguage`);
+      }
     }
 
     const priorityTerms = priorityProductPages.get(path);
@@ -110,6 +153,11 @@ for (const path of priorityProductPages.keys()) {
   if (!checkedPriorityPages.has(path)) failures.push(`${path}: priority product page missing from sitemap`);
 }
 
+const expectedVideoPageCount = videoProductPages.size * (locales.length + 1);
+if (checkedVideoPages.size !== expectedVideoPageCount) {
+  failures.push(`Expected ${expectedVideoPageCount} localized video pages, found ${checkedVideoPages.size}`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -131,6 +179,7 @@ console.log(JSON.stringify({
   checkedPages: pathnames.length,
   checkedInternalResources: internalResources.size,
   checkedPriorityProductPages: checkedPriorityPages.size,
+  checkedLocalizedVideoPages: checkedVideoPages.size,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

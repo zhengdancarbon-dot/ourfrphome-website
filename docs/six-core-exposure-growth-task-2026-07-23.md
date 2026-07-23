@@ -50,6 +50,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 11. Closed the RFQ attribution gap by preserving approved UTM and Google/Bing/Yandex click parameters in the inquiry source URL and `rfq_submit` event across same-tab navigation.
 12. Reconciled the latest available GSC, Yandex and GA4 evidence into `docs/six-core-search-performance-review-2026-07-23.md` without treating missing data as zero or claiming unproven rankings.
 13. Added a repeatable Google/Yandex export checklist and six-core weekly report template so future title, content and conversion decisions follow the 14-day / 50-impression and 20-organic-visit gates.
+14. Published a source-derived 12-second Woven Fabric loom video with a responsive poster, nine-language visible copy and localized `VideoObject`, while keeping tow size, areal weight and batch identity as TDS/RFQ confirmation items.
 
 ### In Progress
 

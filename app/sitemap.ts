@@ -10,7 +10,7 @@ const productLastModified: Record<string, string> = {
   "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
   "3k-carbon-fiber-laminate-sheet": "2026-07-22",
   "carbon-fiber-yarn-and-tow": "2026-07-23",
-  "carbon-fiber-woven-fabric": "2026-07-22",
+  "carbon-fiber-woven-fabric": "2026-07-23",
   "carbon-fiber-ud-fabric": "2026-07-22",
   "structural-strengthening-system": "2026-07-22",
 };
@@ -18,13 +18,13 @@ const productLastModified: Record<string, string> = {
 const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
   es: {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
   "pt-br": {
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
@@ -32,7 +32,7 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
     "carbon-fiber-multiaxial-ncf-fabric": "2026-07-22",
     "3k-carbon-fiber-laminate-sheet": "2026-07-22",
     "carbon-fiber-yarn-and-tow": "2026-07-23",
-    "carbon-fiber-woven-fabric": "2026-07-22",
+    "carbon-fiber-woven-fabric": "2026-07-23",
     "carbon-fiber-ud-fabric": "2026-07-22",
     "structural-strengthening-system": "2026-07-22",
   },
