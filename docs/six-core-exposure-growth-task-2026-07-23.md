@@ -55,6 +55,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 16. Added the real `717.MP4` directional-layer equipment footage to the Multiaxial NCF product in nine languages, with a source-derived poster and localized `VideoObject`. The copy does not assign an unverified gsm, angle set or batch identity and directs buyers to the selected TDS and RFQ.
 17. Verified five official industry discovery routes and prepared the first manually reviewed authority-outreach batch in `docs/six-core-authority-outreach-batch-01-2026-07-23.csv`, with individualized drafts in `docs/six-core-authority-outreach-batch-01-drafts-2026-07-23.md`. Every record is explicitly marked `Prepared - not sent`; no external form, email, payment or upload was submitted.
 18. Completed the first Yandex-oriented procurement review for all six Russian priority product pages. Tightened NCF, 12K tow and 3K laminate document boundaries, corrected one engineering sentence, and verified 207 sitemap URLs plus six Russian page outputs in `docs/six-core-russian-yandex-procurement-audit-2026-07-23.md`.
+19. Completed evidence-boundary and procurement-language review for the six Spanish and six Brazilian Portuguese priority pages. Corrected NCF architecture scope, 12K tow reference-TDS scope, 3K laminate SPEC classification, 300gsm UD and 1.2 mm strengthening documentation, then verified all 12 server outputs in `docs/six-core-es-ptbr-procurement-audit-2026-07-23.md`.
 
 ### In Progress
 
@@ -64,7 +65,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 
 ### Next
 
-1. Continue the six-product procurement terminology review in ES, PT-BR, FR, TR, PL, AR and KO; Russian review is complete.
+1. Continue the six-product procurement terminology review in FR, TR, PL, AR and KO; RU, ES and PT-BR reviews are complete.
 2. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
 3. Request recrawling only after the release is approved and deployed; do not repeatedly submit unchanged URLs.
 

@@ -259,6 +259,10 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       applications: ["Partes automotrices visibles", "Paneles CFRP", "Equipos deportivos", "Componentes civiles UAV", "Laminados industriales"],
       faqs: [
         {
+          question: "¿Qué TDS está disponible para el tejido woven?",
+          answer: "La página ofrece un TDS en inglés para tejido twill 3K de 200 g/m². El ancho, la longitud del rollo y la especificación final se confirman para cada pedido.",
+        },
+        {
           question: "¿Qué tejido de carbono se usa para superficies visibles?",
           answer: "El tejido twill 3K de 200 g/m² documentado es un punto de partida práctico. Confirme aspecto, grado, sizing, ancho y proceso de resina antes del pedido.",
         },
@@ -304,7 +308,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Refuerzo unidireccional con la mayoría de fibras orientadas en una dirección para resistencia y rigidez controladas.",
       heroCopy:
-        "Se usa cuando la resistencia direccional y la orientación de capas son críticas en laminados, reparación, pultrusión o refuerzo estructural.",
+        "Para cotizar, indique grado de fibra, g/m², ancho, dirección, proceso de resina, cantidad, uso final y país de destino. La página ofrece un TDS en inglés para el producto UD de 300gsm.",
       seo: {
         title: "Tejido UD de fibra de carbono | Refuerzo unidireccional",
         description:
@@ -312,17 +316,21 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       },
       intro: [
         "El tejido UD coloca la mayor parte de la fibra en una dirección para reforzar la trayectoria principal de carga.",
-        "Es práctico para refuerzo CFRP, pultrusión, reparación y laminados donde la apariencia woven no es prioritaria.",
+        "La especificación del pedido, el lote, el ancho, la compatibilidad con resina y el uso final se confirman antes del suministro.",
       ],
       applications: ["Refuerzo de concreto", "Pultrusión", "Reparación compuesta", "Laminados direccionales", "Componentes deportivos"],
       faqs: [
+        {
+          question: "¿Hay un TDS para tejido UD de 300gsm?",
+          answer: "Sí. La página ofrece un TDS en inglés para el producto UD de 300gsm. La especificación definitiva debe confirmarse para el pedido y el lote.",
+        },
         {
           question: "¿Cuál es la diferencia entre UD y woven?",
           answer: "UD concentra las fibras en una dirección; woven equilibra urdimbre y trama para manejo y apariencia.",
         },
         {
-          question: "¿Se puede suministrar en anchos estrechos?",
-          answer: "Sí, los anchos estrechos pueden revisarse para refuerzo, reparación o pultrusión.",
+          question: "¿Cualquier tejido UD sirve para refuerzo estructural?",
+          answer: "No. La fibra, la construcción, la resina, el sustrato y el método de instalación deben corresponder al diseño, que debe ser revisado por un ingeniero calificado.",
         },
       ],
     },
@@ -333,7 +341,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Hilo, tow y roving de fibra de carbono para tejido, trenzado, enrollado filamentario, pultrusión, prepreg y conversión posterior.",
       heroCopy:
-        "Opciones 1K, 3K, 6K, 12K, 24K, 48K y 50K pueden revisarse según proceso, sizing, lote, stock y cumplimiento.",
+        "Las opciones 1K, 3K, 6K, 12K, 24K, 48K y 50K se revisan según grado, sizing, proceso, lote, cantidad, uso final, país de destino y cumplimiento.",
       seo: {
         title: "Hilo y tow de fibra de carbono | 1K 3K 12K 24K 50K",
         description:
@@ -345,6 +353,10 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       ],
       applications: ["Tejido", "Trenzado", "Pultrusión", "Prepreg", "Filament winding", "Chopping"],
       faqs: [
+        {
+          question: "¿Qué TDS de tow está disponible?",
+          answer: "La página ofrece un TDS de referencia en inglés para tow continuo de 12K. El grado, origen, lote y sizing exactos se confirman para el pedido; el documento no se aplica automáticamente a otros tamaños de tow.",
+        },
         {
           question: "¿Qué datos se necesitan para hilo o tow?",
           answer: "Tow size, grado, sizing, peso de bobina, proceso compatible, cantidad, destino y uso final.",
@@ -484,12 +496,13 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       shortName: "NCF multiaxial de carbono",
       category: "Tejido no-crimp",
       description: "Tejido NCF de carbono UD, biaxial, triaxial y cuadriaxial con capas cosidas para cargas multidireccionales.",
-      heroCopy: "Construcciones 300gsm y 600gsm con direcciones 0°, 90°, +45° y -45°; la arquitectura, anchura, puntada, resina y rollo se confirman antes de cotizar.",
+      heroCopy: "Hay TDS en inglés para NCF biaxial de 300gsm en construcciones +45°/-45° y 0°/90°, y para 600gsm +45°/-45°. Otras arquitecturas y direcciones se revisan por RFQ junto con anchura, rollo, puntada, proceso de resina y uso final.",
       seo: { title: "Tejido multiaxial NCF de carbono | Biaxial 300gsm y 600gsm", description: "Proveedor de tejido multiaxial NCF de carbono UD, biaxial, triaxial y cuadriaxial para infusión, RTM y estructuras compuestas." },
-      intro: ["NCF mantiene las capas de fibra en direcciones seleccionadas mediante una puntada, sin el entrelazado de un tejido woven.", "La selección debe confirmar orientación, peso por capa, anchura, longitud del rollo, hilo de costura, proceso de resina y aplicación final."],
+      intro: ["NCF mantiene las capas de fibra en direcciones seleccionadas mediante una puntada, sin el entrelazado de un tejido woven.", "La documentación cubre NCF biaxial 300gsm en +45°/-45° y 0°/90°, además de 600gsm +45°/-45°. La RFQ debe confirmar arquitectura, g/m², anchura, rollo, puntada, proceso, cantidad y uso final."],
       applications: ["Infusión al vacío", "RTM", "Paneles compuestos grandes", "Estructuras industriales", "Laminados multidireccionales"],
       faqs: [
         { question: "¿Qué diferencia hay entre biaxial y cuadriaxial?", answer: "Biaxial combina dos direcciones, por ejemplo +45°/-45°; cuadriaxial combina normalmente 0°, +45°, 90° y -45°. La selección depende del diseño del laminado." },
+        { question: "¿Qué TDS de NCF están disponibles?", answer: "Puede descargar TDS en inglés para NCF biaxial 300gsm en +45°/-45° y 0°/90°, y para 600gsm +45°/-45°. Las demás construcciones se confirman por separado para el pedido." },
         { question: "¿Qué datos necesita una cotización?", answer: "Indique construcción, direcciones, g/m², anchura, rollo, hilo de costura, proceso de resina, cantidad y uso final." },
       ],
     },
@@ -504,6 +517,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       applications: ["Paneles industriales", "Piezas CNC", "Soportes y útiles", "Componentes automotrices", "Equipos deportivos"],
       faqs: [
         { question: "¿Es igual a una placa pultruida estructural?", answer: "No. Esta página trata placas laminadas 3K para paneles y piezas. La placa pultruida de refuerzo pertenece al sistema de refuerzo estructural." },
+        { question: "¿Qué documento técnico está disponible?", answer: "La página ofrece una guía en inglés para especificación y preparación de RFQ. No es un TDS con propiedades confirmadas para un lote concreto; los parámetros finales se acuerdan para el pedido." },
         { question: "¿Se puede cortar según dibujo?", answer: "Sí. Envíe DXF, STEP o plano con dimensiones, tolerancias, agujeros, acabado y cantidad para revisión." },
       ],
     },
@@ -514,7 +528,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Sistema de tejido UD, placa CFRP pultruida y resina epoxi para refuerzo de concreto, mampostería, puentes y edificios.",
       heroCopy:
-        "El sistema se revisa según diseño del proyecto, sustrato, dirección de carga, área de refuerzo y requisitos de resina.",
+        "El sistema se revisa según diseño, sustrato, dirección de carga, área, tejido o placa, sistema epoxi y evaluación de un ingeniero calificado.",
       seo: {
         title: "Sistema de refuerzo estructural CFRP | Tejido UD y placa pultruida",
         description:
@@ -531,8 +545,12 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
           answer: "Normalmente es un sistema con tejido UD, placa CFRP, primer, saturante o adhesivo epoxi.",
         },
         {
+          question: "¿Qué TDS están disponibles para el sistema?",
+          answer: "La página ofrece TDS en inglés para tejido UD de 300gsm y placa CFRP pultruida de 1.2 mm. Los datos se aplican únicamente a los productos identificados en esos documentos.",
+        },
+        {
           question: "¿FRP HOME realiza diseño estructural?",
-          answer: "Suministramos materiales y datos técnicos. El diseño y aprobación deben hacerlos ingenieros calificados.",
+          answer: "Suministramos materiales y datos técnicos. El cálculo, el diseño, la instalación y la aprobación deben estar a cargo de ingenieros calificados.",
         },
       ],
     },
@@ -557,6 +575,10 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       ],
       applications: ["Peças automotivas visíveis", "Painéis CFRP", "Equipamentos esportivos", "Componentes civis UAV", "Laminados industriais"],
       faqs: [
+        {
+          question: "Qual TDS está disponível para o tecido woven?",
+          answer: "A página oferece um TDS em inglês para tecido twill 3K de 200 g/m². A largura, o comprimento do rolo e a especificação final são confirmados para cada pedido.",
+        },
         {
           question: "Qual tecido de carbono é usado para superfícies visíveis?",
           answer: "O tecido twill 3K de 200 g/m² documentado é um ponto de partida prático. Confirme aparência, grau, sizing, largura e processo de resina antes do pedido.",
@@ -603,7 +625,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Reforço unidirecional com a maioria das fibras orientadas em uma direção para resistência e rigidez controladas.",
       heroCopy:
-        "Usado quando resistência direcional e orientação de camadas são críticas em laminados, reparo, pultrusão ou reforço estrutural.",
+        "Para cotação, informe grau da fibra, g/m², largura, direção, processo de resina, quantidade, uso final e país de destino. A página oferece um TDS em inglês para o produto UD de 300gsm.",
       seo: {
         title: "Tecido UD de fibra de carbono | Reforço unidirecional",
         description:
@@ -611,17 +633,21 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       },
       intro: [
         "O tecido UD coloca a maior parte da fibra em uma direção para reforçar a principal trajetória de carga.",
-        "É prático para reforço CFRP, pultrusão, reparo e laminados em que aparência woven não é prioridade.",
+        "A especificação do pedido, o lote, a largura, a compatibilidade com a resina e o uso final são confirmados antes do fornecimento.",
       ],
       applications: ["Reforço de concreto", "Pultrusão", "Reparo compósito", "Laminados direcionais", "Componentes esportivos"],
       faqs: [
+        {
+          question: "Existe TDS para tecido UD de 300gsm?",
+          answer: "Sim. A página oferece um TDS em inglês para o produto UD de 300gsm. A especificação final deve ser confirmada para o pedido e o lote.",
+        },
         {
           question: "Qual é a diferença entre UD e woven?",
           answer: "UD concentra fibras em uma direção; woven equilibra urdume e trama para manuseio e aparência.",
         },
         {
-          question: "Pode ser fornecido em larguras estreitas?",
-          answer: "Sim, larguras estreitas podem ser revisadas para reforço, reparo ou pultrusão.",
+          question: "Qualquer tecido UD serve para reforço estrutural?",
+          answer: "Não. A fibra, a construção, a resina, o substrato e o método de instalação devem corresponder ao projeto, que precisa ser revisado por um engenheiro qualificado.",
         },
       ],
     },
@@ -632,7 +658,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Fio, tow e roving de fibra de carbono para tecelagem, trança, filament winding, pultrusão, prepreg e conversão posterior.",
       heroCopy:
-        "Opções 1K, 3K, 6K, 12K, 24K, 48K e 50K podem ser revisadas conforme processo, sizing, lote, estoque e conformidade.",
+        "As opções 1K, 3K, 6K, 12K, 24K, 48K e 50K são revisadas conforme grau, sizing, processo, lote, quantidade, uso final, país de destino e conformidade.",
       seo: {
         title: "Fio e tow de fibra de carbono | 1K 3K 12K 24K 50K",
         description:
@@ -644,6 +670,10 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       ],
       applications: ["Tecelagem", "Trança", "Pultrusão", "Prepreg", "Filament winding", "Chopping"],
       faqs: [
+        {
+          question: "Qual TDS de tow está disponível?",
+          answer: "A página oferece um TDS de referência em inglês para tow contínuo de 12K. O grau, a origem, o lote e o sizing exatos são confirmados para o pedido; o documento não se aplica automaticamente a outros tamanhos de tow.",
+        },
         {
           question: "Quais dados são necessários para fio ou tow?",
           answer: "Tow size, grau, sizing, peso da bobina, processo compatível, quantidade, destino e uso final.",
@@ -783,12 +813,13 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       shortName: "NCF multiaxial de carbono",
       category: "Tecido não-crimp",
       description: "Tecido NCF de carbono UD, biaxial, triaxial e quadriaxial com camadas costuradas para cargas multidirecionais.",
-      heroCopy: "Construções 300gsm e 600gsm com direções 0°, 90°, +45° e -45°; arquitetura, largura, costura, resina e rolo são confirmados antes da cotação.",
+      heroCopy: "Há TDS em inglês para NCF biaxial de 300gsm nas construções +45°/-45° e 0°/90°, e para 600gsm +45°/-45°. Outras arquiteturas e direções são analisadas por RFQ junto com largura, rolo, costura, processo de resina e uso final.",
       seo: { title: "Tecido multiaxial NCF de carbono | Biaxial 300gsm e 600gsm", description: "Fornecedor de tecido multiaxial NCF de carbono UD, biaxial, triaxial e quadriaxial para infusão, RTM e estruturas compósitas." },
-      intro: ["O NCF mantém camadas de fibra em direções selecionadas por meio de costura, sem o entrelaçamento de um tecido woven.", "A seleção deve confirmar orientação, peso por camada, largura, comprimento do rolo, fio de costura, processo de resina e uso final."],
+      intro: ["O NCF mantém camadas de fibra em direções selecionadas por meio de costura, sem o entrelaçamento de um tecido woven.", "A documentação cobre NCF biaxial 300gsm em +45°/-45° e 0°/90°, além de 600gsm +45°/-45°. A RFQ deve confirmar arquitetura, g/m², largura, rolo, costura, processo, quantidade e uso final."],
       applications: ["Infusão a vácuo", "RTM", "Painéis compósitos grandes", "Estruturas industriais", "Laminados multidirecionais"],
       faqs: [
         { question: "Qual é a diferença entre biaxial e quadriaxial?", answer: "Biaxial combina duas direções, como +45°/-45°; quadriaxial normalmente combina 0°, +45°, 90° e -45°. A seleção depende do projeto do laminado." },
+        { question: "Quais TDS de NCF estão disponíveis?", answer: "É possível baixar TDS em inglês para NCF biaxial 300gsm em +45°/-45° e 0°/90°, e para 600gsm +45°/-45°. As demais construções são confirmadas separadamente para o pedido." },
         { question: "Quais dados são necessários para cotação?", answer: "Informe construção, direções, g/m², largura, rolo, fio de costura, processo de resina, quantidade e uso final." },
       ],
     },
@@ -803,6 +834,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       applications: ["Painéis industriais", "Peças CNC", "Suportes e gabaritos", "Componentes automotivos", "Equipamentos esportivos"],
       faqs: [
         { question: "É igual a uma placa pultrudada estrutural?", answer: "Não. Esta página trata de placas laminadas 3K para painéis e peças. A placa pultrudada de reforço pertence ao sistema de reforço estrutural." },
+        { question: "Qual documento técnico está disponível?", answer: "A página oferece um guia em inglês para especificação e preparação da RFQ. Não é um TDS com propriedades confirmadas para um lote específico; os parâmetros finais são acordados para o pedido." },
         { question: "Pode ser cortada conforme desenho?", answer: "Sim. Envie DXF, STEP ou desenho com dimensões, tolerâncias, furos, acabamento e quantidade para análise." },
       ],
     },
@@ -813,7 +845,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Sistema de tecido UD, placa CFRP pultrudada e resina epóxi para reforço de concreto, alvenaria, pontes e edifícios.",
       heroCopy:
-        "O sistema é revisado conforme projeto, substrato, direção de carga, área de reforço e requisitos de resina.",
+        "O sistema é revisado conforme projeto, substrato, direção de carga, área, tecido ou placa, sistema epóxi e avaliação de um engenheiro qualificado.",
       seo: {
         title: "Sistema de reforço estrutural CFRP | Tecido UD e placa pultrudada",
         description:
@@ -830,8 +862,12 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
           answer: "Normalmente é um sistema com tecido UD, placa CFRP, primer, saturante ou adesivo epóxi.",
         },
         {
+          question: "Quais TDS estão disponíveis para o sistema?",
+          answer: "A página oferece TDS em inglês para tecido UD de 300gsm e placa CFRP pultrudada de 1.2 mm. Os dados se aplicam apenas aos produtos identificados nesses documentos.",
+        },
+        {
           question: "A FRP HOME faz projeto estrutural?",
-          answer: "Fornecemos materiais e dados técnicos. Projeto e aprovação devem ser feitos por engenheiros qualificados.",
+          answer: "Fornecemos materiais e dados técnicos. Cálculo, projeto, instalação e aprovação devem ser conduzidos por engenheiros qualificados.",
         },
       ],
     },
