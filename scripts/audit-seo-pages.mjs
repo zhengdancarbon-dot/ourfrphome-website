@@ -11,6 +11,10 @@ const priorityProductPages = new Map([
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
 const videoProductPages = new Map([
+  ["carbon-fiber-multiaxial-ncf-fabric", {
+    src: "/videos/carbon-fiber-multiaxial-ncf-directional-layer-production.mp4",
+    poster: "/images/products/carbon-fiber-multiaxial-ncf-production-poster.jpg",
+  }],
   ["carbon-fiber-yarn-and-tow", {
     src: "/videos/carbon-fiber-yarn-tow-spool-creel.mp4",
     poster: "/images/products/carbon-fiber-yarn-tow-production-creel-poster.jpg",

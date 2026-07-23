@@ -140,7 +140,78 @@ const wovenFabricVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title
   },
 };
 
+const multiaxialNcfVideo = {
+  src: "/videos/carbon-fiber-multiaxial-ncf-directional-layer-production.mp4",
+  poster: "/images/products/carbon-fiber-multiaxial-ncf-production-poster.jpg",
+  duration: "PT18S",
+  uploadDate: "2026-07-23",
+};
+
+const multiaxialNcfVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+  en: {
+    eyebrow: "Production video",
+    title: "Directional carbon layers on production equipment",
+    description:
+      "A real workshop view of carbon reinforcement layers being positioned on production equipment. Confirm the NCF architecture, 0°/90° or +45°/-45° directions, total and per-layer gsm, stitch, width and roll length against the selected TDS and RFQ.",
+  },
+  es: {
+    eyebrow: "Vídeo de producción",
+    title: "Capas direccionales de carbono en el equipo de producción",
+    description:
+      "Vista real de taller de capas de refuerzo de carbono colocadas en un equipo de producción. Confirme en la TDS y la RFQ seleccionadas la arquitectura NCF, las direcciones 0°/90° o +45°/-45°, el gsm total y por capa, la costura, el ancho y la longitud del rollo.",
+  },
+  "pt-br": {
+    eyebrow: "Vídeo de produção",
+    title: "Camadas direcionais de carbono no equipamento de produção",
+    description:
+      "Vista real de fábrica de camadas de reforço de carbono sendo posicionadas no equipamento de produção. Confirme na TDS e na RFQ selecionadas a arquitetura NCF, as direções 0°/90° ou +45°/-45°, o gsm total e por camada, a costura, a largura e o comprimento do rolo.",
+  },
+  ru: {
+    eyebrow: "Видео производства",
+    title: "Направленные слои углеродного волокна на производственном оборудовании",
+    description:
+      "Реальный вид из цеха: слои углеродного армирования укладываются на производственном оборудовании. Архитектуру NCF, направления 0°/90° или +45°/-45°, общую и послойную поверхностную плотность, прошивку, ширину и длину рулона следует подтвердить по выбранному TDS и RFQ.",
+  },
+  ar: {
+    eyebrow: "فيديو الإنتاج",
+    title: "طبقات كربون اتجاهية على معدات الإنتاج",
+    description:
+      "مشهد حقيقي من الورشة لطبقات تقوية كربونية أثناء وضعها على معدات الإنتاج. يجب تأكيد بنية NCF واتجاهات 0°/90° أو +45°/-45° والوزن الكلي ووزن كل طبقة بالغرام/م² والخياطة والعرض وطول اللفة وفق TDS المختار وطلب العرض.",
+  },
+  fr: {
+    eyebrow: "Vidéo de production",
+    title: "Couches directionnelles de carbone sur l'équipement de production",
+    description:
+      "Vue réelle en atelier de couches de renfort carbone positionnées sur un équipement de production. Confirmez dans la TDS et la RFQ sélectionnées l'architecture NCF, les directions 0°/90° ou +45°/-45°, le grammage total et par couche, la couture, la largeur et la longueur du rouleau.",
+  },
+  ko: {
+    eyebrow: "생산 영상",
+    title: "생산 설비 위의 방향성 탄소섬유 층",
+    description:
+      "생산 설비에서 탄소 보강층이 배치되는 실제 작업 현장 영상입니다. 선택한 TDS와 RFQ에서 NCF 구조, 0°/90° 또는 +45°/-45° 방향, 전체 및 층별 gsm, 스티치, 폭과 롤 길이를 확인해야 합니다.",
+  },
+  pl: {
+    eyebrow: "Film z produkcji",
+    title: "Kierunkowe warstwy węglowe na urządzeniu produkcyjnym",
+    description:
+      "Rzeczywisty widok hali produkcyjnej, na której warstwy zbrojenia węglowego są układane na urządzeniu. Architekturę NCF, kierunki 0°/90° lub +45°/-45°, gramaturę całkowitą i każdej warstwy, szew, szerokość oraz długość rolki należy potwierdzić w wybranym TDS i RFQ.",
+  },
+  tr: {
+    eyebrow: "Üretim videosu",
+    title: "Üretim ekipmanında yönlü karbon katmanları",
+    description:
+      "Karbon takviye katmanlarının üretim ekipmanında konumlandırıldığı gerçek atölye görüntüsüdür. NCF yapısı, 0°/90° veya +45°/-45° yönleri, toplam ve katman başına gsm, dikiş, genişlik ve rulo uzunluğu seçilen TDS ve RFQ üzerinden doğrulanmalıdır.",
+  },
+};
+
 export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
+  if (slug === "carbon-fiber-multiaxial-ncf-fabric") {
+    return {
+      ...multiaxialNcfVideo,
+      ...multiaxialNcfVideoCopy[locale],
+    };
+  }
+
   if (slug === "carbon-fiber-yarn-and-tow") {
     return {
       ...yarnTowVideo,

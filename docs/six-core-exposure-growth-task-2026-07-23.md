@@ -51,10 +51,12 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 12. Reconciled the latest available GSC, Yandex and GA4 evidence into `docs/six-core-search-performance-review-2026-07-23.md` without treating missing data as zero or claiming unproven rankings.
 13. Added a repeatable Google/Yandex export checklist and six-core weekly report template so future title, content and conversion decisions follow the 14-day / 50-impression and 20-organic-visit gates.
 14. Published a source-derived 12-second Woven Fabric loom video with a responsive poster, nine-language visible copy and localized `VideoObject`, while keeping tow size, areal weight and batch identity as TDS/RFQ confirmation items.
+15. Audited all available 1.2 mm, 1.4 mm, 3.0 mm and 5.0 mm carbon-plate records and confirmed that they describe pultruded structural-strengthening plate, not visible 3K laminate sheet. Retained the 3K download as a `SPEC` guide and documented the exact evidence required for a future formal TDS in `docs/3k-laminate-tds-source-gap-2026-07-23.md`.
+16. Added the real `717.MP4` directional-layer equipment footage to the Multiaxial NCF product in nine languages, with a source-derived poster and localized `VideoObject`. The copy does not assign an unverified gsm, angle set or batch identity and directs buyers to the selected TDS and RFQ.
 
 ### In Progress
 
-1. Prepare the next source-backed NCF and 3K laminate release from existing verified TDS and buyer guides.
+1. Prepare the next source-backed NCF release from existing verified TDS and buyer guides; keep the 3K laminate release at specification-guide level until a matching laminate production record or test report is supplied.
 2. Begin the first manually reviewed outreach batch and record listing status, destination URL, UTM campaign and response.
 3. Re-export GSC and Yandex performance after the next complete data window using `docs/six-core-google-yandex-export-checklist-2026-07-23.md`, then apply the 14-day / 50-impression decision rule.
 
