@@ -112,3 +112,26 @@ No missing source file was restored over the current tree because the complete
 recovered source was already present. Synchronizing this branch to GitHub must
 be handled separately and must not trigger a production deployment without
 explicit approval.
+
+## Revalidation on 2026-07-27 after a new deletion report
+
+- The working tree and index again contain zero deleted tracked files.
+- The current recovery branch contains 74 tracked source files under `app/`,
+  `components/`, `lib/`, `scripts/`, and `src/`.
+- The union of every fetched local and remote branch contains 75 source paths.
+  The sole path absent from the current tree remains
+  `app/[locale]/applications/page.tsx`, intentionally retired in `cc7596d`.
+- The recovery branch contains no deleted path relative to `main`; it adds
+  source, documents, verified PDFs, videos, and audit tooling.
+- The independent 27 July recovery bundle verifies successfully and records
+  complete Git history at commit `202ecec`.
+- `pnpm lint` passed with zero project errors and three warnings in an ignored,
+  unrelated Morocco output script.
+- `pnpm build` passed TypeScript and generated 219 routes.
+- No user photo, TDS source, Chinese material, output, or promotion directory
+  was modified or staged.
+
+The recovered source is complete locally. A safe push of
+`codex/repository-recovery-20260723` was attempted, but the local HTTPS Git
+client had no readable GitHub credential. No remote branch, `main` merge, or
+production deployment was performed.
