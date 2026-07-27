@@ -56,5 +56,12 @@ performance or document availability.
 
 ## Release status
 
-The change is prepared on the recovery branch only. It has not been merged to
-`main`, deployed to production or submitted to a search engine.
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-1za30y9nh-zhendgan.vercel.app`
+- Deployment: `dpl_EsyDCT8N6EggWgQZF3LuF9fgVDqN`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and 219 generated routes
+
+The change remains on the recovery branch. It has not been merged to `main`,
+deployed to production or submitted to a search engine.
