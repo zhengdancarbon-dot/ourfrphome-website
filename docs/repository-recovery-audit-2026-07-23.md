@@ -85,3 +85,30 @@ directories.
 The recovery branch has not yet been pushed to GitHub. The push was attempted
 but the local HTTPS Git client had no available GitHub credential. No remote
 branch, merge, or production deployment was performed by that failed attempt.
+
+## Revalidation on 2026-07-27
+
+A new recovery audit was completed after another source deletion report:
+
+- The working tree and index contain zero deleted tracked files.
+- The recovery branch contains 319 tracked files; the fetched `origin/main`
+  snapshot contains 286 tracked files.
+- The recovery branch is 33 tracked files ahead of the fetched production
+  branch snapshot. The apparent source loss is therefore a remote branch
+  synchronization gap, not a deletion in the recovered local tree.
+- The recovery bundle and current branch both resolve to commit `0def5b8` before
+  this report-only checkpoint.
+- `git bundle verify` confirms that the bundle contains complete Git history.
+- `git fsck --full` found no missing or corrupt object. Unreachable objects are
+  retained historical objects and do not indicate current tree corruption.
+- `pnpm lint` passed with zero project errors and the same three unrelated
+  warnings from the ignored Morocco output script.
+- `pnpm build` passed, including TypeScript, and generated 216 routes.
+- The production-mode SEO audit passed for all 207 sitemap URLs, 346 internal
+  resources, six priority product pages, 27 localized video pages, and three
+  negative 404 checks.
+
+No missing source file was restored over the current tree because the complete
+recovered source was already present. Synchronizing this branch to GitHub must
+be handled separately and must not trigger a production deployment without
+explicit approval.
