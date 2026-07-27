@@ -19,6 +19,7 @@ import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
+import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
@@ -351,12 +352,21 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const productVideoSchema = productVideo
     ? createProductVideoSchema(productVideo, productUrl, "en")
     : undefined;
+  const productResources = createProductResourceSchemas({
+    productUrl,
+    productName: product.name,
+    documents: downloadableDocuments,
+    guides: relatedGuides,
+    documentsListName: `${product.name} technical documents`,
+    guidesListName: `${product.name} buyer guides`,
+  });
   const productPageSchema = createB2bProductPageSchema({
     name: product.name,
     description: product.description,
     image: product.image,
     url: productUrl,
     sku: product.tds.codePrefix,
+    subjectOf: productResources.subjectOf,
   });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -798,6 +808,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             breadcrumbSchema,
             faqSchema,
             ...(productVideoSchema ? [productVideoSchema] : []),
+            ...productResources.schemas,
           ]),
         }}
       />

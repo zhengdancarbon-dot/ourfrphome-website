@@ -32,6 +32,7 @@ import {
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
+import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { productFamilies } from "@/lib/product-families";
@@ -743,6 +744,14 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
   const productVideoSchema = productVideo
     ? createProductVideoSchema(productVideo, productUrl, locale)
     : undefined;
+  const productResources = createProductResourceSchemas({
+    productUrl,
+    productName: content.name,
+    documents: downloadableDocuments,
+    guides: relatedGuides,
+    documentsListName: tdsDownloadCopy[locale].title,
+    guidesListName: englishGuideCopy[locale].title,
+  });
   const productPageSchema = createB2bProductPageSchema({
     name: content.name,
     description: content.description,
@@ -750,6 +759,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
     url: productUrl,
     sku: product.tds.codePrefix,
     locale,
+    subjectOf: productResources.subjectOf,
   });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -1047,6 +1057,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
             breadcrumbSchema,
             faqSchema,
             ...(productVideoSchema ? [productVideoSchema] : []),
+            ...productResources.schemas,
           ]),
         }}
       />

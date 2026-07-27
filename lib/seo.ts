@@ -109,6 +109,7 @@ export function createB2bProductPageSchema({
   image,
   sku,
   locale = defaultLocale,
+  subjectOf = [],
 }: {
   name: string;
   description: string;
@@ -116,6 +117,7 @@ export function createB2bProductPageSchema({
   image: string;
   sku: string;
   locale?: Locale;
+  subjectOf?: { "@id": string }[];
 }) {
   const imageUrl = absoluteUrl(image);
   const productId = `${url}#product`;
@@ -151,6 +153,7 @@ export function createB2bProductPageSchema({
         "@type": "Brand",
         name: siteConfig.brandName,
       },
+      ...(subjectOf.length ? { subjectOf } : {}),
     },
     about: { "@id": productId },
   };

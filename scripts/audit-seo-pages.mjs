@@ -22,6 +22,22 @@ const priorityProductPages = new Map([
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
 const priorityProductSlugs = [...priorityProductPages.keys()].map((path) => path.split("/").pop());
+const priorityProductResourceCounts = new Map([
+  ["carbon-fiber-multiaxial-ncf-fabric", 3],
+  ["3k-carbon-fiber-laminate-sheet", 1],
+  ["carbon-fiber-yarn-and-tow", 1],
+  ["carbon-fiber-ud-fabric", 2],
+  ["structural-strengthening-system", 3],
+  ["carbon-fiber-woven-fabric", 1],
+]);
+const englishPriorityGuideCounts = new Map([
+  ["carbon-fiber-multiaxial-ncf-fabric", 4],
+  ["3k-carbon-fiber-laminate-sheet", 4],
+  ["carbon-fiber-yarn-and-tow", 3],
+  ["carbon-fiber-ud-fabric", 4],
+  ["structural-strengthening-system", 4],
+  ["carbon-fiber-woven-fabric", 4],
+]);
 const englishPriorityProductNames = [
   "Carbon Fiber Multiaxial NCF Fabric",
   "3K Carbon Fiber Laminate Sheet",
@@ -109,6 +125,10 @@ function values(html, pattern) {
   return [...html.matchAll(pattern)].map((match) => match[1]);
 }
 
+function occurrenceCount(text, value) {
+  return text.split(value).length - 1;
+}
+
 async function fetchText(url) {
   const response = await fetch(url, { redirect: "manual" });
   return { response, text: await response.text() };
@@ -137,6 +157,7 @@ if (englishCount !== expectedEnglishCount || Object.values(localeCounts).some((c
 const failures = [];
 const internalResources = new Set();
 const checkedPriorityPages = new Set();
+const checkedPriorityResourcePages = new Set();
 const checkedVideoPages = new Set();
 const checkedTechnicalPages = new Set();
 const checkedLocalizedPriorityDirectories = new Set();
@@ -364,6 +385,56 @@ async function worker() {
     }
 
     const productSlug = path.match(/\/products\/([^/]+)$/)?.[1];
+    const priorityDocumentCount = productSlug
+      ? priorityProductResourceCounts.get(productSlug)
+      : undefined;
+    if (productSlug && priorityDocumentCount) {
+      checkedPriorityResourcePages.add(path);
+      const productionPath = path === "/" ? "" : path;
+      const productUrl = `https://www.myfrphome.com${productionPath}`;
+      const expectedGuideCount = path.startsWith("/products/")
+        ? englishPriorityGuideCounts.get(productSlug)
+        : Math.min(englishPriorityGuideCounts.get(productSlug) ?? 0, 3);
+
+      if (!text.includes(`\"@id\":\"${productUrl}#technical-documents\"`)) {
+        failures.push(`${path}: missing product technical-document ItemList`);
+      }
+      if (!text.includes(`\"@id\":\"${productUrl}#buyer-guides\"`)) {
+        failures.push(`${path}: missing product buyer-guide ItemList`);
+      }
+      if (!text.includes(`\"subjectOf\":[{\"@id\":\"${productUrl}#technical-documents\"},{\"@id\":\"${productUrl}#buyer-guides\"}]`)) {
+        failures.push(`${path}: Product entity does not reference both resource lists`);
+      }
+      if (!text.includes(`\"about\":{\"@id\":\"${productUrl}#product\"}`)) {
+        failures.push(`${path}: resource entities do not reference the Product entity`);
+      }
+      if (occurrenceCount(text, '\"@type\":\"DigitalDocument\"') < priorityDocumentCount) {
+        failures.push(`${path}: expected ${priorityDocumentCount} DigitalDocument entities`);
+      }
+      if (!text.includes(`\"numberOfItems\":${priorityDocumentCount},\"itemListElement\"`)) {
+        failures.push(`${path}: technical-document ItemList count is incorrect`);
+      }
+      if (!text.includes(`\"numberOfItems\":${expectedGuideCount},\"itemListElement\"`)) {
+        failures.push(`${path}: buyer-guide ItemList count is incorrect`);
+      }
+      if (occurrenceCount(text, '\"@type\":\"Article\"') < expectedGuideCount) {
+        failures.push(`${path}: expected ${expectedGuideCount} buyer-guide Article entities`);
+      }
+      if (!text.includes('\"encodingFormat\":\"application/pdf\"')) {
+        failures.push(`${path}: missing PDF encoding format`);
+      }
+      if (!text.includes('\"inLanguage\":\"en\"')) {
+        failures.push(`${path}: English document/guide language is missing`);
+      }
+      if (productSlug === "3k-carbon-fiber-laminate-sheet") {
+        if (!text.includes('\"genre\":\"Product specification and RFQ guide\"')) {
+          failures.push(`${path}: 3K laminate document is not classified as SPEC guidance`);
+        }
+        if (text.includes('\"genre\":\"Technical data sheet\"')) {
+          failures.push(`${path}: 3K laminate SPEC is incorrectly classified as a TDS`);
+        }
+      }
+    }
     const video = productSlug ? videoProductPages.get(productSlug) : undefined;
     if (video) {
       checkedVideoPages.add(path);
@@ -488,6 +559,11 @@ if (checkedPriorityHomepages.size !== locales.length + 1) {
   failures.push(`Expected ${locales.length + 1} priority homepages, found ${checkedPriorityHomepages.size}`);
 }
 
+const expectedPriorityResourcePageCount = priorityProductResourceCounts.size * (locales.length + 1);
+if (checkedPriorityResourcePages.size !== expectedPriorityResourcePageCount) {
+  failures.push(`Expected ${expectedPriorityResourcePageCount} priority product resource pages, found ${checkedPriorityResourcePages.size}`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -509,6 +585,7 @@ console.log(JSON.stringify({
   checkedPages: pathnames.length,
   checkedInternalResources: internalResources.size,
   checkedPriorityProductPages: checkedPriorityPages.size,
+  checkedPriorityProductResourcePages: checkedPriorityResourcePages.size,
   checkedTechnicalArticles: checkedTechnicalPages.size,
   checkedLocalizedVideoPages: checkedVideoPages.size,
   checkedPriorityDiscoveryLinks: priorityDiscoveryLinks.length,
