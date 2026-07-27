@@ -54,5 +54,12 @@ The production audit now blocks a release when:
 
 ## Release status
 
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-b9b0tn95t-zhendgan.vercel.app`
+- Deployment: `dpl_D5JZBc6FMHQsY7zfy1CqaYH5tUSW`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and all 219 generated routes.
+
 The change remains on the recovery branch only. It has not been merged to
 `main`, deployed to production or submitted to Google, Yandex or IndexNow.
