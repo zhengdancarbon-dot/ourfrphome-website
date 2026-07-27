@@ -13,10 +13,10 @@ import {
 import { InquiryForm } from "@/components/inquiry-form";
 import { Eyebrow } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
-import { createPageMetadata } from "@/lib/seo";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
+import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import {
   complianceNotice,
-  featuredProductSlugs,
   materialApplications,
   manufacturingProcesses,
   productSeries,
@@ -42,9 +42,25 @@ export const metadata: Metadata = createPageMetadata({
   image: "/images/home/home-yarn-creel-hero-gray.jpg",
 });
 
-const featuredProducts = featuredProductSlugs
-  .map((slug) => productCatalog.find((product) => product.slug === slug))
+const featuredProducts = priorityDiscoveryRoutes
+  .map((route) => productCatalog.find((product) => product.slug === route.productSlug))
   .filter((product) => product !== undefined);
+
+const priorityProductsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${absoluteUrl("/")}#priority-products`,
+  name: "Priority carbon fiber products for RFQ",
+  inLanguage: "en",
+  numberOfItems: featuredProducts.length,
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: featuredProducts.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: product.name,
+    url: absoluteUrl(`/products/${product.slug}`),
+  })),
+};
 
 const whyWorkWithUs = [
   {
@@ -263,7 +279,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section featured-products-section">
+      <section className="section featured-products-section" data-priority-products>
         <div className="site-shell">
           <div className="section-title-row">
             <div>
@@ -276,7 +292,11 @@ export default function HomePage() {
           </div>
           <div className="featured-product-grid">
             {featuredProducts.map((product) => (
-              <article className="featured-product-card" key={product.slug}>
+              <article
+                className="featured-product-card"
+                key={product.slug}
+                data-priority-product-slug={product.slug}
+              >
                 <div className="featured-product-image">
                   <Image src={product.image} alt={product.visualLabel} fill sizes="(max-width: 760px) 100vw, 25vw" />
                 </div>
@@ -402,6 +422,10 @@ export default function HomePage() {
           </Suspense>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priorityProductsSchema) }}
+      />
     </>
   );
 }

@@ -115,14 +115,7 @@ const englishGuideCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: 
   },
 };
 
-const featuredProductSlugs = [
-  "carbon-fiber-multiaxial-ncf-fabric",
-  "3k-carbon-fiber-laminate-sheet",
-  "carbon-fiber-yarn-and-tow",
-  "carbon-fiber-woven-fabric",
-  "carbon-fiber-ud-fabric",
-  "structural-strengthening-system",
-] as const;
+const featuredProductSlugs = priorityDiscoveryRoutes.map((route) => route.productSlug);
 
 const priorityProductsCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: string; note: string }> = {
   es: {
@@ -231,6 +224,24 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
   const featuredProducts = featuredProductSlugs
     .map((slug) => productCatalog.find((product) => product.slug === slug))
     .filter((product) => product !== undefined);
+  const priorityProductsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${localizedJsonLdUrl("/", locale)}#priority-products`,
+    name: content.sections.productTitle,
+    inLanguage: hreflangLocales[locale],
+    numberOfItems: featuredProducts.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: featuredProducts.map((product, index) => {
+      const localized = localizedProduct(product, locale);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: localized.name,
+        url: localizedJsonLdUrl(`/products/${product.slug}`, locale),
+      };
+    }),
+  };
 
   return (
     <>
@@ -279,7 +290,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
         </div>
       </section>
 
-      <section className="section home-product-series">
+      <section className="section home-product-series" data-priority-products>
         <div className="site-shell">
           <div className="home-section-heading">
             <div>
@@ -292,7 +303,11 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
             {featuredProducts.map((product, index) => {
               const localized = localizedProduct(product, locale);
               return (
-                <article className="series-card" key={product.slug}>
+                <article
+                  className="series-card"
+                  key={product.slug}
+                  data-priority-product-slug={product.slug}
+                >
                   <Link href={localizedLink(`/products/${product.slug}`, locale)} className="series-image">
                     <Image src={product.image} alt={localized.name} fill sizes="(max-width: 760px) calc(100vw - 26px), 33vw" />
                     <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
@@ -360,6 +375,10 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
           </div>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priorityProductsSchema) }}
+      />
     </>
   );
 }

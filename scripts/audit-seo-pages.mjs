@@ -129,6 +129,7 @@ const checkedPriorityPages = new Set();
 const checkedVideoPages = new Set();
 const checkedTechnicalPages = new Set();
 const checkedLocalizedPriorityDirectories = new Set();
+const checkedPriorityHomepages = new Set();
 let cursor = 0;
 
 async function worker() {
@@ -148,6 +149,51 @@ async function worker() {
     const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
+    }
+
+    const homepageLocale = path === "/" ? "en" : locales.find((locale) => path === `/${locale}`);
+    if (homepageLocale) {
+      checkedPriorityHomepages.add(path);
+      if (!text.includes("data-priority-products=\"true\"")) {
+        failures.push(`${path}: missing homepage priority-product section`);
+      }
+      if (!text.includes('"@type":"ItemList"')) {
+        failures.push(`${path}: missing homepage priority ItemList structured data`);
+      }
+      if (!text.includes('"numberOfItems":6')) {
+        failures.push(`${path}: homepage priority ItemList does not contain six products`);
+      }
+      if (!text.includes(`\"inLanguage\":\"${languageCodes[homepageLocale]}\"`)) {
+        failures.push(`${path}: homepage priority ItemList has incorrect language`);
+      }
+
+      let previousPriorityCardIndex = -1;
+      for (const slug of priorityProductSlugs) {
+        const cardMarker = `data-priority-product-slug=\"${slug}\"`;
+        const cardIndex = text.indexOf(cardMarker);
+        if (cardIndex === -1) {
+          failures.push(`${path}: missing homepage priority product card ${slug}`);
+        } else if (cardIndex <= previousPriorityCardIndex) {
+          failures.push(`${path}: homepage priority product order is incorrect at ${slug}`);
+        }
+        previousPriorityCardIndex = cardIndex;
+
+        const localizedPrefix = homepageLocale === "en" ? "" : `/${homepageLocale}`;
+        if (!text.includes(`href=\"${localizedPrefix}/products/${slug}\"`)) {
+          failures.push(`${path}: missing homepage priority product link ${slug}`);
+        }
+        if (!text.includes(`\"url\":\"https://www.myfrphome.com${localizedPrefix}/products/${slug}\"`)) {
+          failures.push(`${path}: missing homepage priority ItemList URL ${slug}`);
+        }
+      }
+
+      if (homepageLocale !== "en") {
+        for (const englishName of englishPriorityProductNames) {
+          if (text.includes(`\"name\":\"${englishName}\"`)) {
+            failures.push(`${path}: homepage priority ItemList fell back to English name ${englishName}`);
+          }
+        }
+      }
     }
 
     const localizedProductsDirectory = path.match(/^\/(es|pt-br|ru|ar|fr|ko|pl|tr)\/products$/)?.[1];
@@ -371,6 +417,10 @@ if (checkedLocalizedPriorityDirectories.size !== locales.length) {
   failures.push(`Expected ${locales.length} localized priority product directories, found ${checkedLocalizedPriorityDirectories.size}`);
 }
 
+if (checkedPriorityHomepages.size !== locales.length + 1) {
+  failures.push(`Expected ${locales.length + 1} priority homepages, found ${checkedPriorityHomepages.size}`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -397,6 +447,7 @@ console.log(JSON.stringify({
   checkedPriorityDiscoveryLinks: priorityDiscoveryLinks.length,
   checkedLocalizedLlmsPriorityLinks,
   checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
+  checkedPriorityHomepages: checkedPriorityHomepages.size,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

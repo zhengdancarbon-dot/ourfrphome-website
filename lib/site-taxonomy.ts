@@ -314,15 +314,6 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
   },
 ];
 
-export const featuredProductSlugs = [
-  "carbon-fiber-multiaxial-ncf-fabric",
-  "3k-carbon-fiber-laminate-sheet",
-  "carbon-fiber-yarn-and-tow",
-  "carbon-fiber-woven-fabric",
-  "carbon-fiber-ud-fabric",
-  "structural-strengthening-system",
-];
-
 export const technicalGuides = [
   {
     title: "Carbon Fiber 101",
