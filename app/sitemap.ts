@@ -136,7 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
     { path: "/compliance-end-use-review", changeFrequency: "monthly", priority: 0.7 },
     { path: "/catalog", changeFrequency: "monthly", priority: 0.75, lastModified: new Date("2026-07-22") },
-    { path: "/technical-resources", changeFrequency: "monthly", priority: 0.5, lastModified: new Date("2026-07-22") },
+    { path: "/technical-resources", changeFrequency: "monthly", priority: 0.5, lastModified: new Date("2026-07-27") },
     { path: "/packaging-shipping", changeFrequency: "monthly", priority: 0.5 },
   ] as const;
   const productRoutes = productCatalog.map((product) => ({

@@ -89,6 +89,17 @@ const languageCodes = {
   pl: "pl",
   tr: "tr",
 };
+const priorityDocumentLinks = [
+  "/downloads/tds/FRP-HOME-300gsm-Biaxial-Carbon-Fabric-TDS.pdf",
+  "/downloads/tds/FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
+  "/downloads/tds/FRP-HOME-400gsm-Quadraxial-Carbon-NCF-Supply-TDS.pdf",
+  "/downloads/specifications/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide.pdf",
+  "/downloads/tds/FRP-HOME-High-Strength-12K-Carbon-Fiber-Tow-Supply-TDS.pdf",
+  "/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
+  "/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+  "/downloads/tds/FRP-HOME-1.2mm-Pultruded-CFRP-Strengthening-Plate-TDS.pdf",
+  "/downloads/tds/FRP-HOME-3K-200gsm-Twill-Carbon-Fiber-Fabric-TDS.pdf",
+];
 
 function matches(html, pattern) {
   return pattern.test(html);
@@ -249,6 +260,41 @@ async function worker() {
         if (!text.includes(`\"url\":\"https://www.myfrphome.com/products/${slug}\"`)) {
           failures.push(`${path}: missing priority ItemList URL ${slug}`);
         }
+      }
+    }
+
+    if (path === "/technical-resources") {
+      if (!text.includes("data-priority-document-library=\"true\"")) {
+        failures.push(`${path}: missing priority document library`);
+      }
+      if (!text.includes('"@type":"DigitalDocument"')) {
+        failures.push(`${path}: missing DigitalDocument structured data`);
+      }
+      if (!text.includes(`\"numberOfItems\":${priorityDocumentLinks.length}`)) {
+        failures.push(`${path}: priority document ItemList count is incorrect`);
+      }
+      for (const documentHref of priorityDocumentLinks) {
+        if (!text.includes(`data-document-href=\"${documentHref}\"`)) {
+          failures.push(`${path}: missing priority document card ${documentHref}`);
+        }
+        if (!text.includes(`href=\"${documentHref}\"`)) {
+          failures.push(`${path}: missing priority document download ${documentHref}`);
+        }
+        if (!text.includes(`\"url\":\"https://www.myfrphome.com${documentHref}\"`)) {
+          failures.push(`${path}: missing DigitalDocument URL ${documentHref}`);
+        }
+      }
+      for (const slug of priorityProductSlugs) {
+        if (!text.includes(`href=\"/products/${slug}\"`)) {
+          failures.push(`${path}: missing priority product link ${slug}`);
+        }
+      }
+      if (!text.includes("data-analytics-event=\"tds_download\"")) {
+        failures.push(`${path}: missing TDS download analytics attributes`);
+      }
+      const laminateSpecCard = /<article[^>]*data-document-href="\/downloads\/specifications\/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide\.pdf"[^>]*data-document-type="SPEC"[^>]*>/;
+      if (!laminateSpecCard.test(text)) {
+        failures.push(`${path}: 3K laminate specification guide is not labeled SPEC`);
       }
     }
 
@@ -448,6 +494,7 @@ console.log(JSON.stringify({
   checkedLocalizedLlmsPriorityLinks,
   checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
   checkedPriorityHomepages: checkedPriorityHomepages.size,
+  checkedPriorityDocuments: priorityDocumentLinks.length,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

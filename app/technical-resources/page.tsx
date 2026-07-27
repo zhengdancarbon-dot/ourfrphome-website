@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, BookOpenText, FileCheck2, FileText, FlaskConical, Ruler } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
-import { productCatalog } from "@/lib/product-catalog";
-import { createPageMetadata } from "@/lib/seo";
+import { productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
+import { productDocuments, type ProductDocument } from "@/lib/product-documents";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
+import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
@@ -34,6 +37,54 @@ const resources = [
 
 const tdsDisclaimer =
   "Typical values are provided for material selection and RFQ preparation only. Final values should be confirmed according to order specification, production batch, test method and official COA and TDS documents.";
+
+type PriorityDocumentEntry = {
+  document: ProductDocument;
+  products: ProductCatalogItem[];
+};
+
+const priorityDocuments: PriorityDocumentEntry[] = [];
+
+for (const route of priorityDiscoveryRoutes) {
+  const product = productCatalog.find((item) => item.slug === route.productSlug);
+  if (!product) continue;
+
+  for (const document of productDocuments.filter((item) => item.productSlug === route.productSlug)) {
+    const existing = priorityDocuments.find((entry) => entry.document.href === document.href);
+    if (existing) {
+      if (!existing.products.some((item) => item.slug === product.slug)) existing.products.push(product);
+    } else {
+      priorityDocuments.push({ document, products: [product] });
+    }
+  }
+}
+
+const priorityDocumentSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${absoluteUrl("/technical-resources")}#verified-priority-documents`,
+  name: "Verified technical documents for priority carbon fiber products",
+  inLanguage: "en",
+  numberOfItems: priorityDocuments.length,
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: priorityDocuments.map(({ document, products }, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "DigitalDocument",
+      "@id": absoluteUrl(document.href),
+      name: document.title,
+      encodingFormat: "application/pdf",
+      inLanguage: "en",
+      url: absoluteUrl(document.href),
+      about: products.map((product) => ({
+        "@type": "Product",
+        name: product.name,
+        url: absoluteUrl(`/products/${product.slug}`),
+      })),
+    },
+  })),
+};
 
 export default function TechnicalResourcesPage() {
   return (
@@ -69,6 +120,57 @@ export default function TechnicalResourcesPage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" data-priority-document-library>
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Verified downloads"
+            title="Technical documents for the six priority product groups."
+            copy="These English PDF files are published from reviewed source records. Confirm the final order specification, revision, batch documents and test requirements in the RFQ."
+          />
+          <div className="tds-library-grid">
+            {priorityDocuments.map(({ document, products }) => (
+              <article
+                className="tds-library-card"
+                key={document.href}
+                data-document-href={document.href}
+                data-document-type={document.type}
+              >
+                <div><FileText size={28} /><span>{document.type}</span></div>
+                <h2>{document.title}</h2>
+                <p>{document.specification}</p>
+                <dl>
+                  <div><dt>Revision</dt><dd>{document.revision}</dd></div>
+                  <div><dt>Language</dt><dd>{document.language}</dd></div>
+                  <div><dt>File</dt><dd>PDF · {document.fileSize}</dd></div>
+                  <div>
+                    <dt>Related product</dt>
+                    <dd>{products.map((product) => product.name).join(" / ")}</dd>
+                  </div>
+                </dl>
+                <div className="tds-library-actions">
+                  <a
+                    className="button button-blue"
+                    data-analytics-event="tds_download"
+                    data-product-slug={document.productSlug}
+                    data-related-product-slugs={products.map((product) => product.slug).join(",")}
+                    data-document-title={document.title}
+                    download
+                    href={document.href}
+                  >
+                    Download {document.type} <ArrowRight size={16} />
+                  </a>
+                  {products.map((product) => (
+                    <Link className="text-link" href={`/products/${product.slug}`} key={product.slug}>
+                      {product.shortName} <ArrowRight size={16} />
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -144,6 +246,10 @@ export default function TechnicalResourcesPage() {
         </div>
       </section>
       <InquiryBand />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priorityDocumentSchema) }}
+      />
     </>
   );
 }
