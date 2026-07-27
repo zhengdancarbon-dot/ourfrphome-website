@@ -64,18 +64,19 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 25. Strengthened the existing 3K 200gsm Carbon Fiber Fabric RFQ Guide with the verified FRP HOME TDS, including product code, source style, dry-fabric thickness, yarn count, width and nominal roll-length boundaries. Added a three-guide woven-fabric buyer cluster to the English and eight localized automotive application pages without creating a new URL or changing article metadata. Build, 207-URL SEO audit, nine-language link checks, desktop/mobile layout and Arabic RTL checks passed; evidence is recorded in `docs/3k-200gsm-woven-rfq-and-automotive-links-2026-07-27.md`.
 26. Converted the local 400gsm `0/+45/90/-45` quadraxial source record into an explicitly labeled FRP HOME supplier-origin supply-reference TDS. Published the download on all nine Multiaxial NCF product pages and strengthened the existing architecture guide with the documented 12K layer, stitch, width and roll-format data without claiming FRP HOME manufacture, authorization, stock or batch certification. The PDF render, build, 207-URL SEO audit, nine-language download analytics, mobile layout and Arabic RTL checks passed; evidence is recorded in `docs/400gsm-quadraxial-ncf-tds-and-guide-2026-07-27.md`.
 27. Converted the archived TCU20 record into a narrowly scoped 200gsm UD strengthening-fabric supply reference. Only readable construction fields were retained; corrupted mechanical values, old approval language, shelf-life claims and unsupported current-source assertions were excluded. The file is connected to the nine-language UD and strengthening-system document libraries, and the two existing strengthening buyer guides now distinguish the 200gsm legacy-source reference from the 300gsm product TDS and 1.2 mm pultruded-plate TDS. Evidence is recorded in `docs/200gsm-ud-strengthening-supply-reference-2026-07-27.md`.
+28. Read the live Google Search Console and Yandex Webmaster dashboards without changing account settings. Google now reports 5 clicks, 1,942 impressions, 0.3% CTR and 50.3 average position through 2026-07-24; the visible Woven queries reached 67 and 61 impressions, while two visible NCF queries reached 36 and 22. Yandex reports no site errors and added 98 pages in its 2026-07-25 search update. Because the evidence-led Woven and NCF releases were updated on 2026-07-27, metadata remains stable until a clean post-update comparison window is available. Evidence is recorded in `docs/six-core-google-yandex-data-review-2026-07-27.md`.
 
 ### In Progress
 
 1. Keep the 3K laminate release at specification-guide level until a matching laminate production record or test report is supplied.
 2. Obtain action-time approval for the first manually reviewed outreach batch, then record the real send date, response, public listing URL and referral performance. Commercial budget approval is required for paid channels, and the Russia/CIS opportunity also requires destination, counterparty, payment and end-use review.
-3. Re-export GSC and Yandex performance after the next complete data window using `docs/six-core-google-yandex-export-checklist-2026-07-23.md`, then apply the 14-day / 50-impression decision rule.
+3. Re-export GSC and Yandex performance during the next weekly review using `docs/six-core-google-yandex-export-checklist-2026-07-23.md`. Do not run a Woven or NCF metadata experiment before a complete post-update comparison window after 2026-08-10.
 
 ### Next
 
 1. Complete the normal-browser review of the Ready Preview and one controlled RFQ delivery check; request one recrawl only after an approved production deployment.
 2. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
-3. Re-export GSC and Yandex data after the next complete reporting window and apply the 14-day / 50-impression rule before changing metadata.
+3. Re-export GSC and Yandex data after the next complete reporting window. Compare the post-2026-07-27 release window after 2026-08-10, then apply the 14-day / 50-impression rule before changing metadata.
 
 ### Measurement Cycle
 
