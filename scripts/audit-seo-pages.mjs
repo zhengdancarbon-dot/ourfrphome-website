@@ -148,6 +148,29 @@ async function worker() {
       }
     }
 
+    if (path === "/products") {
+      if (!text.includes("data-priority-products=\"true\"")) {
+        failures.push(`${path}: missing English priority-product section`);
+      }
+      if (!text.includes('"@type":"ItemList"')) {
+        failures.push(`${path}: missing priority ItemList structured data`);
+      }
+      if (!text.includes('"numberOfItems":6')) {
+        failures.push(`${path}: priority ItemList does not contain six products`);
+      }
+      for (const slug of priorityProductSlugs) {
+        if (!text.includes(`data-priority-product-slug=\"${slug}\"`)) {
+          failures.push(`${path}: missing priority product card ${slug}`);
+        }
+        if (!text.includes(`href=\"/products/${slug}\"`)) {
+          failures.push(`${path}: missing priority product link ${slug}`);
+        }
+        if (!text.includes(`\"url\":\"https://www.myfrphome.com/products/${slug}\"`)) {
+          failures.push(`${path}: missing priority ItemList URL ${slug}`);
+        }
+      }
+    }
+
     const isTechnicalArticle = /^\/technical-center\/[^/]+$/.test(path);
     if (isTechnicalArticle) {
       checkedTechnicalPages.add(path);

@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FileText, ImagePlus } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
-import { createPageMetadata } from "@/lib/seo";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
+import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { products } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
@@ -130,6 +131,24 @@ const productGroups = [
 ];
 
 const productMap = new Map(products.map((product) => [product.slug, product]));
+const priorityProducts = priorityDiscoveryRoutes.flatMap((route) => {
+  const product = productMap.get(route.productSlug);
+  return product ? [product] : [];
+});
+const priorityProductsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${absoluteUrl("/products")}#priority-products`,
+  name: "Priority carbon fiber products for RFQ",
+  numberOfItems: priorityProducts.length,
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: priorityProducts.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: product.name,
+    url: absoluteUrl(product.detailHref ?? `/products/${product.slug}`),
+  })),
+};
 const heroTeasers = [
   { title: "Carbon fabrics", detail: "UD, woven, spread tow and multiaxial reinforcements" },
   { title: "Prepreg materials", detail: "Controlled resin content for repeatable laminates" },
@@ -156,6 +175,35 @@ export default function ProductsPage() {
           ))}
         </div>
       </PageHero>
+      <section className="section section-soft" data-priority-products>
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Priority products"
+            title="Six procurement routes for current priority materials."
+            copy="Start with the relevant product page, then confirm specification, quantity, process, destination, final application and required TDS, COA or inspection documents in the RFQ. Published references remain subject to quotation and order confirmation."
+          />
+          <div className="priority-path-grid">
+            {priorityProducts.map((product) => (
+              <article
+                className="priority-path-card"
+                data-priority-product-slug={product.slug}
+                key={product.slug}
+              >
+                <span>{product.category}</span>
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
+                <Link
+                  className="button button-blue"
+                  href={product.detailHref ?? `/products/${product.slug}`}
+                  prefetch={false}
+                >
+                  View product page <ArrowRight size={16} />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section">
         <div className="site-shell">
           <div className="products-directory-intro" id="product-catalog">
@@ -262,6 +310,10 @@ export default function ProductsPage() {
         </div>
       </section>
       <InquiryBand />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priorityProductsSchema) }}
+      />
     </>
   );
 }
