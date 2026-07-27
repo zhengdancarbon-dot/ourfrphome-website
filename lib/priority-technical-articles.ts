@@ -10,27 +10,28 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       "Prepare a specification-first RFQ for 1K-50K carbon fiber tow covering grade, sizing, package, process, quantity, destination and final application.",
     image: "/images/products/carbon-fiber-yarn-and-tow-spools.jpg",
     quickAnswer:
-      "A complete carbon fiber tow RFQ states the tow size, fiber grade, sizing compatibility, downstream process, bobbin or spool requirement, trial and production quantity, destination and final application. Terms such as 12K, T700 or epoxy sizing describe different parts of the specification and should not be treated as interchangeable.",
+      "A complete carbon fiber tow RFQ states the tow size, exact source grade, sizing compatibility, downstream process, bobbin format, trial and production quantity, destination and final application. FRP HOME's published reference covers a 12K, epoxy-sized, untwisted source grade with 800 g/km linear density and a nominal 4 kg bobbin. Other tow sizes and grades require separate source, availability and document confirmation.",
     definition:
-      "Carbon fiber tow is a continuous bundle of carbon filaments supplied on a package for weaving, braiding, filament winding, pultrusion, prepreg conversion or chopping. The K value identifies approximate filament count; grade and sizing must be confirmed separately from tow size.",
+      "Carbon fiber tow is a continuous bundle of carbon filaments supplied on a bobbin or spool for weaving, braiding, filament winding, pultrusion, prepreg conversion or chopping. The K value identifies approximate filament count; it does not identify tensile strength, modulus, sizing, twist, source grade or package. Those fields must be confirmed separately.",
     comparison: {
       columns: ["RFQ field", "Example", "Why the supplier needs it"],
       rows: [
-        ["Tow size", "3K / 12K / 24K / 50K", "Defines the approximate filament-count class and handling range"],
-        ["Fiber grade", "T300 / T700 / project-defined", "Controls the product family and applicable manufacturer data"],
-        ["Sizing", "Epoxy-compatible / process-specific", "Supports resin and downstream-process review"],
-        ["Package", "Bobbin or spool format and target weight", "Supports creel, handling, packing and quotation review"],
-        ["Process", "Weaving / winding / pultrusion / prepreg", "Connects the fiber package and sizing to the intended conversion route"],
-        ["Commercial scope", "Trial and production quantity, destination", "Supports availability, compliance and shipping review"],
+        ["Tow size", "12K documented; other K counts by source review", "Defines the approximate filament-count class and handling range"],
+        ["Exact source grade", "FRPH-CF12K55 / source grade ZDCF 55T-12K", "Connects the RFQ to the applicable supplier-origin data and traceability"],
+        ["Typical source properties", "5500 MPa strength, 240 GPa modulus, 2.2% elongation", "Reference values tested to GB/T 3362-2017; not a batch certificate or laminate allowable"],
+        ["Linear density", "800 g/km typical", "Affects package length, textile conversion and process setup"],
+        ["Sizing and twist", "Epoxy sizing; untwisted", "Supports resin and downstream-equipment compatibility review"],
+        ["Package", "Nominal 4 kg bobbin for the documented source grade", "Supports creel, handling, packing and quotation review"],
+        ["Commercial scope", "Trial and production quantity, destination and end use", "Supports source availability, compliance and shipping review"],
       ],
     },
     selectionAdvice: [
       "Start with the downstream process and equipment rather than choosing tow size from K value alone.",
-      "Attach the required manufacturer grade or property document when a named grade is mandatory.",
-      "State the resin family and any sizing restriction; do not assume all epoxy-compatible sizings behave identically.",
-      "Confirm package dimensions, net package weight and creel limitations before the production quotation.",
-      "Separate the representative trial quantity from the expected production quantity.",
-      "Provide end use, end user and destination when compliance review is required.",
+      "Name the exact required source grade or attach the controlling property document. A general label such as 12K or T700 is not a complete product identity.",
+      "State the resin family and sizing restriction; do not assume every epoxy-sized tow behaves identically in weaving, pultrusion, winding or prepreg conversion.",
+      "Confirm bobbin dimensions, nominal net weight, winding format, unwind direction and creel limitations before the production quotation.",
+      "Request source traceability, applicable TDS and required COA fields. The published supplier-origin values are not a batch certificate.",
+      "Separate the representative trial quantity from the expected production quantity and provide destination, end user and final application for compliance review.",
     ],
     applications: [
       "Carbon fabric weaving",
@@ -41,11 +42,14 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       "Chopped fiber conversion",
     ],
     specifications: [
-      ["Tow size", "1K / 3K / 6K / 12K / 24K / 48K / 50K by confirmed source"],
-      ["Grade", "Order-specific; final values follow the selected manufacturer and batch documents"],
-      ["Sizing", "Resin- and process-specific confirmation required"],
-      ["Package", "Bobbin / spool / carton / pallet by confirmed order"],
-      ["Compliance", "Destination and final application reviewed before supply where required"],
+      ["Documented product", "12K continuous carbon fiber tow; FRPH-CF12K55 / source grade ZDCF 55T-12K"],
+      ["Typical tensile properties", "5500 MPa strength, 240 GPa modulus and 2.2% elongation to GB/T 3362-2017"],
+      ["Density", "1.80 g/cm³ typical to GB/T 30019-2013"],
+      ["Linear density", "800 g/km typical to GB/T 3362-2017"],
+      ["Sizing and twist", "Epoxy sizing; untwisted supplier declaration"],
+      ["Package reference", "Nominal 4 kg bobbin; final dimensions and packing by quotation"],
+      ["Evidence boundary", "Supplier-origin reference values; no FRP HOME manufacture or official brand authorization is implied"],
+      ["Other tow sizes", "1K / 3K / 6K / 24K / 48K / 50K only by confirmed source, availability and matching documents"],
     ],
     recommendedProducts: [
       "carbon-fiber-yarn-and-tow",
@@ -57,11 +61,13 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       "Fiber grade",
       "Sizing requirement",
       "Downstream process",
-      "Bobbin or spool format",
-      "Package weight",
+      "Bobbin dimensions and unwind direction",
+      "Nominal package weight",
       "Trial quantity",
       "Production quantity",
+      "Required TDS, COA and traceability fields",
       "Destination country",
+      "End user",
       "Final application",
     ],
     faqs: [
@@ -85,9 +91,19 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
         answer:
           "No. The K value is an approximate filament count. Strength and modulus are controlled by the selected fiber grade and manufacturer data, while final laminate performance also depends on processing and design.",
       },
+      {
+        question: "Are the published 5500 MPa and 240 GPa values guaranteed for every 12K shipment?",
+        answer:
+          "No. They are typical supplier-origin values for the identified source grade. Confirm source availability, the final order specification, applicable test methods and required batch or COA values before purchase approval.",
+      },
+      {
+        question: "Does the FRP HOME TDS mean FRP HOME manufactures or is officially authorized for the source grade?",
+        answer:
+          "No. The document identifies supplier-origin reference data for procurement review. Manufacture, official brand authorization, source availability and batch traceability are not implied and must be confirmed separately.",
+      },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt: "2026-07-27",
     sources: [
       {
         title: "High Strength 12K Carbon Fiber Tow Supply TDS",
