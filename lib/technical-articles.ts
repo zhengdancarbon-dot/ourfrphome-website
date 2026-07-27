@@ -910,6 +910,7 @@ export const technicalArticles: TechnicalArticle[] = [
 ];
 
 const strengtheningGuideSlugs = [
+  "300gsm-ud-carbon-fiber-fabric-rfq-guide",
   "cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening",
   "cfrp-strengthening-material-rfq-checklist",
   "ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric",

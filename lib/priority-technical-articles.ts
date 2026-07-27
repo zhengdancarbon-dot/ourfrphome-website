@@ -4,6 +4,110 @@ const publishedAt = "2026-07-22";
 
 export const priorityTechnicalArticles: TechnicalArticle[] = [
   {
+    slug: "300gsm-ud-carbon-fiber-fabric-rfq-guide",
+    title: "300gsm UD Carbon Fiber Fabric RFQ Guide",
+    description:
+      "Prepare a specification-first RFQ for documented 300gsm unidirectional carbon fiber fabric covering direction, width, backing, fiber grade, resin process, quantity and final application.",
+    image: "/images/products/carbon-fiber-ud-fabric.webp",
+    quickAnswer:
+      "FRP HOME product FRPH-UD300 is a 300 g/m² unidirectional carbon reinforcement with a documented 0° direction, 0.167 mm nominal dry-fabric thickness and 100-500 mm available width. A complete RFQ must still confirm selected width, tolerance, secondary yarn or backing, fiber grade, resin system, roll format, quantity, destination and final application. The dry-fabric data is not a cured-laminate design allowable.",
+    definition:
+      "Unidirectional carbon fiber fabric places most carbon reinforcement in one primary direction. The 300gsm label describes nominal dry-fabric areal weight, while 0° identifies the principal fiber direction. Neither value defines cured laminate thickness, system strength or project suitability without the selected fiber, resin, process, layup and test basis.",
+    comparison: {
+      columns: ["RFQ field", "Documented FRPH-UD300 reference", "Order confirmation"],
+      rows: [
+        ["Construction", "Unidirectional carbon fiber fabric; 0° primary direction", "Secondary yarn, backing and handling construction by order"],
+        ["Areal weight", "300 g/m² nominal", "Tolerance and test method in the approved specification"],
+        ["Dry thickness", "0.167 mm nominal dry-fabric reference", "Do not use as cured laminate thickness or structural design allowable"],
+        ["Width", "100-500 mm available-width reference", "Selected usable or slit width, tolerance and roll format"],
+        ["Fiber grade", "By confirmed order; T300, T700 or alternate grade may be reviewed", "Exact source grade, sizing and applicable documents"],
+        ["System performance", "Mechanical properties are system-dependent", "Resin, cure, laminate design and project test method"],
+      ],
+    },
+    selectionAdvice: [
+      "Start with the required load direction and approved laminate or strengthening design; UD reinforcement is not a balanced woven surface.",
+      "Use FRPH-UD300 when the documented 300 g/m² construction is the intended reference, then confirm areal-weight tolerance and the applicable revision in the quotation.",
+      "Choose the width from the 100-500 mm documented range according to the cutting plan, overlap or strengthening layout, and confirm usable-width tolerance.",
+      "State whether secondary yarn, backing or another handling aid is required; these details affect placement and resin wet-out and are not fixed by the 300gsm label.",
+      "Confirm exact fiber grade, sizing and resin compatibility. T300 or T700 is an order-review option, not an automatic grade declaration for every roll.",
+      "Request a representative trial and the required TDS or batch-document fields before production approval, especially for a new resin, process or structural system.",
+    ],
+    applications: [
+      "CFRP structural strengthening",
+      "Directional composite laminates",
+      "Pultrusion feed reinforcement",
+      "Composite repair",
+      "Beam and spar reinforcement",
+      "Load-path controlled industrial parts",
+    ],
+    specifications: [
+      ["Product code", "FRPH-UD300"],
+      ["Construction", "Unidirectional carbon fiber fabric; secondary yarn and backing by order"],
+      ["Principal direction", "0° UD"],
+      ["Areal weight", "300 g/m² nominal; tolerance confirmed by order"],
+      ["Nominal thickness", "0.167 mm dry-fabric reference, not cured laminate thickness"],
+      ["Available width", "100-500 mm; selected slit width confirmed by order"],
+      ["Fiber grade", "Exact grade and sizing by confirmed order"],
+      ["Mechanical properties", "System-dependent; confirm fiber, resin, cure and test method"],
+    ],
+    recommendedProducts: ["carbon-fiber-ud-fabric", "structural-strengthening-system"],
+    rfqInformation: [
+      "FRPH-UD300 reference and required revision",
+      "Primary fiber direction and laminate schedule",
+      "Areal weight and tolerance",
+      "Selected width and width tolerance",
+      "Secondary yarn or backing requirement",
+      "Exact fiber grade and sizing",
+      "Resin system and processing method",
+      "Roll length, core and packing",
+      "Trial and production quantity",
+      "Required TDS, COA or batch fields",
+      "Destination country",
+      "Final application and design responsibility",
+    ],
+    faqs: [
+      {
+        question: "Does 300gsm UD carbon fiber fabric have a cured thickness of 0.167 mm?",
+        answer:
+          "No. The TDS identifies 0.167 mm as a nominal dry-fabric reference. Cured thickness depends on compaction, resin content, laminate schedule and process.",
+      },
+      {
+        question: "Is every FRPH-UD300 roll made with T700 carbon fiber?",
+        answer:
+          "No. The current TDS states that fiber grade is confirmed by order and lists T300, T700 or an alternate grade as review options. The exact source grade and sizing must appear in the approved order documents.",
+      },
+      {
+        question: "Can 300gsm UD fabric be used for structural strengthening?",
+        answer:
+          "It can be considered when the project design specifies a compatible UD fabric and resin system. Material supply information does not replace structural design, substrate assessment, installation procedure or project approval.",
+      },
+      {
+        question: "What width is available for the documented 300gsm UD fabric?",
+        answer:
+          "The current TDS records a 100-500 mm available-width range. Confirm the selected usable or slit width, tolerance, roll length and packing in the quotation.",
+      },
+      {
+        question: "What should a buyer send for a 300gsm UD fabric quotation?",
+        answer:
+          "Send the load direction or laminate schedule, 300 g/m² requirement, width, backing or secondary-yarn requirement, fiber grade, sizing, resin process, roll format, quantity, destination and final application.",
+      },
+    ],
+    publishedAt: "2026-07-27",
+    reviewedAt: "2026-07-27",
+    sources: [
+      {
+        title: "300gsm UD Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
+      },
+      {
+        title: "UD Carbon Fiber Fabric",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/carbon-fiber-ud-fabric",
+      },
+    ],
+  },
+  {
     slug: "carbon-fiber-tow-rfq-checklist",
     title: "Carbon Fiber Tow RFQ Checklist",
     description:

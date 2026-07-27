@@ -1,7 +1,8 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 207);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 208);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
 const expectedLocalizedCount = 19;
+const expectedTechnicalArticleCount = 22;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
@@ -81,6 +82,7 @@ const failures = [];
 const internalResources = new Set();
 const checkedPriorityPages = new Set();
 const checkedVideoPages = new Set();
+const checkedTechnicalPages = new Set();
 let cursor = 0;
 
 async function worker() {
@@ -100,6 +102,25 @@ async function worker() {
     const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
+    }
+
+    const isTechnicalArticle = /^\/technical-center\/[^/]+$/.test(path);
+    if (isTechnicalArticle) {
+      checkedTechnicalPages.add(path);
+      if (!text.includes('"@type":"Article"')) failures.push(`${path}: missing Article structured data`);
+      if (!text.includes('"@type":"FAQPage"')) failures.push(`${path}: missing FAQ structured data`);
+      if (!text.includes('"@type":"BreadcrumbList"')) failures.push(`${path}: missing breadcrumb structured data`);
+    }
+
+    if (path === "/technical-center/300gsm-ud-carbon-fiber-fabric-rfq-guide") {
+      if (!text.includes("FRPH-UD300")) failures.push(`${path}: missing documented product code`);
+      if (!text.includes("0.167 mm")) failures.push(`${path}: missing dry-fabric thickness boundary`);
+      if (!text.includes('href="/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf"')) {
+        failures.push(`${path}: missing verified 300gsm UD TDS download`);
+      }
+      if (!text.includes('href="/products/carbon-fiber-ud-fabric"')) {
+        failures.push(`${path}: missing UD product link`);
+      }
     }
 
     const productSlug = path.match(/\/products\/([^/]+)$/)?.[1];
@@ -170,6 +191,10 @@ if (checkedVideoPages.size !== expectedVideoPageCount) {
   failures.push(`Expected ${expectedVideoPageCount} localized video pages, found ${checkedVideoPages.size}`);
 }
 
+if (checkedTechnicalPages.size !== expectedTechnicalArticleCount) {
+  failures.push(`Expected ${expectedTechnicalArticleCount} technical articles, found ${checkedTechnicalPages.size}`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -191,6 +216,7 @@ console.log(JSON.stringify({
   checkedPages: pathnames.length,
   checkedInternalResources: internalResources.size,
   checkedPriorityProductPages: checkedPriorityPages.size,
+  checkedTechnicalArticles: checkedTechnicalPages.size,
   checkedLocalizedVideoPages: checkedVideoPages.size,
   negative404Checks: 3,
   status: "PASS",
