@@ -68,5 +68,17 @@ adding unsupported product claims.
 
 ## Release status
 
-The implementation is committed only on the recovery branch. It has not been
-merged to `main`, deployed to production or submitted to a search engine.
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-3oswnenli-zhendgan.vercel.app`
+- Deployment: `dpl_7gPxzsTJUMZicaCv1TtSC9tC3T6M`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and 219 generated routes
+
+Direct access to the `vercel.app` hostname timed out from the current execution
+network. The report therefore relies on the successful Vercel build plus the
+equivalent local production-mode crawl and browser QA; it does not claim an
+unobserved remote page response.
+
+The implementation remains on the recovery branch. It has not been merged to
+`main`, deployed to production or submitted to a search engine.
