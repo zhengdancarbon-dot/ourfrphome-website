@@ -6,6 +6,10 @@ Branch: `codex/repository-recovery-20260723`
 
 Production status: unchanged
 
+Preview: `https://ourfrphome-website-fw5t1531w-zhendgan.vercel.app`
+
+Vercel deployment: `dpl_HkkcnnSa63oNcdC5FxSNURd8PQXU` (`READY`, target `preview`)
+
 ## Purpose
 
 Add a source-backed comparison for strengthening buyers deciding what must be specified when an RFQ mentions 200gsm or 300gsm unidirectional carbon fiber fabric. The guide does not turn dry-fabric references into structural design values and does not create a second commercial product route.
@@ -76,8 +80,10 @@ Both two-page PDFs were rendered at 120 dpi and visually checked. No clipping, o
 | Mobile 390 x 844 | No page overflow; long H1 fits; both 680 px tables scroll only inside 319 px containers |
 | Arabic mobile | `lang="ar"`, `dir="rtl"`, guide and both TDS links present |
 | Browser console | No errors or warnings |
+| Vercel Preview build | Pass, 219 generated pages |
+| Vercel deployment | `READY`, target `preview` |
 
-Vercel Preview status and deployment identity are added after the committed branch is deployed. Production remains unchanged until separate approval.
+Vercel CLI confirms deployment `dpl_HkkcnnSa63oNcdC5FxSNURd8PQXU` is Ready and targeted to Preview. Direct access to the `vercel.app` hostname timed out from the current execution network, so this report does not claim a remote-browser page load or RFQ delivery test. Equivalent local production output passed the complete 210-URL audit and responsive browser checks. Production remains unchanged until separate approval.
 
 ## Release Boundary
 
