@@ -72,5 +72,17 @@ The sitemap records 2026-07-27 as the real update date for
 
 ## Release status
 
-The change is on the recovery branch only. It has not been merged to `main`,
-deployed to production or submitted to Google, Yandex or IndexNow.
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-b3i5k5zj8-zhendgan.vercel.app`
+- Deployment: `dpl_9V4P3sDrJM7QZxWFiCyZQ9FmWv2z`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and all 219 generated routes.
+
+Direct `vercel.app` access still times out from the current execution network.
+The desktop/mobile browser evidence above therefore comes from the exact
+Preview commit running in local production mode; no remote page response is
+inferred.
+
+The change remains on the recovery branch only. It has not been merged to
+`main`, deployed to production or submitted to Google, Yandex or IndexNow.
