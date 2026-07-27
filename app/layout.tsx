@@ -193,6 +193,17 @@ export default function RootLayout({
           {`
             (function () {
               var yandexCounterId = ${yandexMetricaId || "null"};
+              var attributionSessionKey = "frp-home-rfq-attribution";
+              var attributionParameterNames = [
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "utm_term",
+                "gclid",
+                "msclkid",
+                "yclid"
+              ];
 
               function sendEvent(eventName, params) {
                 if (typeof window.gtag === "function") {
@@ -212,6 +223,40 @@ export default function RootLayout({
                 return locales.indexOf(segment) >= 0 ? segment : "en";
               }
 
+              function currentAttributionQuery() {
+                var current = new URLSearchParams(window.location.search || "");
+                var attribution = new URLSearchParams();
+
+                attributionParameterNames.forEach(function (name) {
+                  var value = (current.get(name) || "").trim();
+                  if (value) attribution.set(name, value.slice(0, 120));
+                });
+
+                var query = attribution.toString();
+
+                try {
+                  if (query) {
+                    window.sessionStorage.setItem(attributionSessionKey, query);
+                  } else {
+                    query = window.sessionStorage.getItem(attributionSessionKey) || "";
+                  }
+                } catch (_) {}
+
+                return query;
+              }
+
+              function withAttribution(params, attributionQuery) {
+                var attributed = Object.assign({}, params);
+                var attribution = new URLSearchParams(attributionQuery || "");
+
+                attributionParameterNames.forEach(function (name) {
+                  var value = attribution.get(name);
+                  if (value) attributed[name] = value;
+                });
+
+                return attributed;
+              }
+
               document.addEventListener("click", function (event) {
                 var target = event.target;
                 if (!target || !target.closest) return;
@@ -222,23 +267,25 @@ export default function RootLayout({
                 var absoluteHref = link.href || href;
 
                 var locale = currentLocale();
-                var sourcePage = window.location.pathname || "/";
+                var attributionQuery = currentAttributionQuery();
+                var sourcePage = (window.location.pathname || "/") +
+                  (attributionQuery ? "?" + attributionQuery : "");
                 var explicitEvent = link.getAttribute("data-analytics-event");
 
                 if (explicitEvent) {
-                  sendEvent(explicitEvent, {
+                  sendEvent(explicitEvent, withAttribution({
                     link_url: absoluteHref,
                     locale: locale,
                     source_page: sourcePage,
                     product_slug: link.getAttribute("data-product-slug") || undefined,
                     document_title: link.getAttribute("data-document-title") || undefined
-                  });
+                  }, attributionQuery));
                 } else if (href.indexOf("https://wa.me/") === 0 || href.indexOf("wa.me/") >= 0) {
-                  sendEvent("whatsapp_click", { link_url: absoluteHref, locale: locale, source_page: sourcePage });
+                  sendEvent("whatsapp_click", withAttribution({ link_url: absoluteHref, locale: locale, source_page: sourcePage }, attributionQuery));
                 } else if (href.indexOf("mailto:") === 0) {
-                  sendEvent("email_click", { link_url: href, locale: locale, source_page: sourcePage });
+                  sendEvent("email_click", withAttribution({ link_url: href, locale: locale, source_page: sourcePage }, attributionQuery));
                 } else if (href.indexOf("/catalog") >= 0 || link.hasAttribute("download")) {
-                  sendEvent("catalog_download", { link_url: absoluteHref, locale: locale, source_page: sourcePage });
+                  sendEvent("catalog_download", withAttribution({ link_url: absoluteHref, locale: locale, source_page: sourcePage }, attributionQuery));
                 }
               });
             })();
