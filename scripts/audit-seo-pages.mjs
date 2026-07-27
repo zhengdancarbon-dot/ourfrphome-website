@@ -12,6 +12,14 @@ const priorityProductPages = new Map([
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
 const priorityProductSlugs = [...priorityProductPages.keys()].map((path) => path.split("/").pop());
+const englishPriorityProductNames = [
+  "Carbon Fiber Multiaxial NCF Fabric",
+  "3K Carbon Fiber Laminate Sheet",
+  "Carbon Fiber Yarn & Tow",
+  "UD Carbon Fiber Fabric",
+  "Carbon Fiber Structural Strengthening System",
+  "Woven Carbon Fiber Fabric",
+];
 const priorityDiscoveryLinks = [
   "/products/carbon-fiber-multiaxial-ncf-fabric",
   "/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf",
@@ -144,6 +152,23 @@ async function worker() {
         }
         if (!text.includes(`href=\"/${localizedProductsDirectory}/products/${slug}\"`)) {
           failures.push(`${path}: missing localized priority product link ${slug}`);
+        }
+        if (!text.includes(`\"url\":\"https://www.myfrphome.com/${localizedProductsDirectory}/products/${slug}\"`)) {
+          failures.push(`${path}: missing localized priority ItemList URL ${slug}`);
+        }
+      }
+      if (!text.includes('"@type":"ItemList"')) {
+        failures.push(`${path}: missing localized priority ItemList structured data`);
+      }
+      if (!text.includes('"numberOfItems":6')) {
+        failures.push(`${path}: localized priority ItemList does not contain six products`);
+      }
+      if (!text.includes(`\"inLanguage\":\"${languageCodes[localizedProductsDirectory]}\"`)) {
+        failures.push(`${path}: localized priority ItemList has incorrect language`);
+      }
+      for (const englishName of englishPriorityProductNames) {
+        if (text.includes(`\"name\":\"${englishName}\"`)) {
+          failures.push(`${path}: localized priority ItemList fell back to English name ${englishName}`);
         }
       }
     }

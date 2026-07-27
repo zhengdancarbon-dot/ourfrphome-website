@@ -10,7 +10,7 @@ import { ProductVideo } from "@/components/product-video";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, PageHero, SectionHeading } from "@/components/ui";
 import { applicationBreadcrumbSchema, getApplicationPage } from "@/lib/application-pages";
-import type { Locale } from "@/lib/i18n/config";
+import { hreflangLocales, type Locale } from "@/lib/i18n/config";
 import {
   getLocalizedApplicationContent,
   getLocalizedProductContent,
@@ -33,6 +33,7 @@ import {
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocuments } from "@/lib/product-documents";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { productFamilies } from "@/lib/product-families";
 import {
   absoluteUrl,
@@ -380,9 +381,27 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
   const copy = getUiCopy(locale);
   const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
   const priorityCopy = priorityProductsCopy[locale];
-  const priorityProducts = featuredProductSlugs
-    .map((slug) => productCatalog.find((product) => product.slug === slug))
+  const priorityProducts = priorityDiscoveryRoutes
+    .map((route) => productCatalog.find((product) => product.slug === route.productSlug))
     .filter((product) => product !== undefined);
+  const priorityProductsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${localizedJsonLdUrl("/products", locale)}#priority-products`,
+    name: priorityCopy.title,
+    inLanguage: hreflangLocales[locale],
+    numberOfItems: priorityProducts.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: priorityProducts.map((product, index) => {
+      const localized = localizedProduct(product, locale);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: localized.name,
+        url: localizedJsonLdUrl(`/products/${product.slug}`, locale),
+      };
+    }),
+  };
 
   return (
     <>
@@ -517,6 +536,10 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
           </div>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priorityProductsSchema) }}
+      />
     </>
   );
 }
