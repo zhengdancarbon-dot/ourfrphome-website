@@ -86,17 +86,35 @@ const applicationLastModified: Record<string, string> = {
   "automotive-carbon-fiber-parts": "2026-07-22",
   "sports-equipment": "2026-07-22",
   "decorative-cfrp-panels": "2026-07-22",
-  "structural-strengthening": "2026-07-22",
+  "structural-strengthening": "2026-07-27",
 };
 
 const localizedApplicationLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
   es: {
     "automotive-carbon-fiber-parts": "2026-07-22",
-    "structural-strengthening": "2026-07-22",
+    "structural-strengthening": "2026-07-27",
   },
   "pt-br": {
     "automotive-carbon-fiber-parts": "2026-07-22",
-    "structural-strengthening": "2026-07-22",
+    "structural-strengthening": "2026-07-27",
+  },
+  ru: {
+    "structural-strengthening": "2026-07-27",
+  },
+  ar: {
+    "structural-strengthening": "2026-07-27",
+  },
+  fr: {
+    "structural-strengthening": "2026-07-27",
+  },
+  ko: {
+    "structural-strengthening": "2026-07-27",
+  },
+  pl: {
+    "structural-strengthening": "2026-07-27",
+  },
+  tr: {
+    "structural-strengthening": "2026-07-27",
   },
 };
 

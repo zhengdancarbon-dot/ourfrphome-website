@@ -42,7 +42,10 @@ import {
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
-import { technicalArticles } from "@/lib/technical-articles";
+import {
+  getStrengtheningTechnicalGuides,
+  technicalArticles,
+} from "@/lib/technical-articles";
 
 type LocalizedPageProps = {
   locale: Exclude<Locale, "en">;
@@ -958,6 +961,9 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
     .map((productSlug) => productCatalog.find((product) => product.slug === productSlug))
     .filter((product) => product !== undefined)
     .filter((product) => isPhaseOneProductSlug(product.slug));
+  const relatedGuides = page.slug === "structural-strengthening"
+    ? getStrengtheningTechnicalGuides()
+    : [];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -1002,6 +1008,7 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
             <a href="#specifications">{copy.common.specifications}</a>
             <a href="#selection">{copy.common.overview}</a>
             <a href="#rfq">RFQ</a>
+            {relatedGuides.length > 0 ? <a href="#technical-guides">{englishGuideCopy[locale].eyebrow}</a> : null}
             <a href="#faq">{copy.common.faq}</a>
           </aside>
 
@@ -1090,6 +1097,31 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
                 })}
               </div>
             </section>
+
+            {relatedGuides.length > 0 ? (
+              <section className="product-detail-card" id="technical-guides">
+                <SectionHeading
+                  eyebrow={englishGuideCopy[locale].eyebrow}
+                  title={englishGuideCopy[locale].title}
+                  copy={englishGuideCopy[locale].note}
+                />
+                <div className="application-detail-list">
+                  {relatedGuides.map((guide) => (
+                    <Link
+                      href={`/technical-center/${guide.slug}`}
+                      hrefLang="en"
+                      key={guide.slug}
+                    >
+                      <span>
+                        <strong>{guide.title}</strong>
+                        <small>{englishGuideCopy[locale].action}</small>
+                      </span>
+                      <ArrowRight size={17} />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             <section className="product-detail-card product-faq-section" id="faq">
               <SectionHeading eyebrow={copy.common.faq} title={content.title} />

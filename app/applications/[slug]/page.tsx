@@ -11,6 +11,7 @@ import {
 } from "@/lib/application-pages";
 import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
+import { getStrengtheningTechnicalGuides } from "@/lib/technical-articles";
 
 type ApplicationPageProps = {
   params: Promise<{ slug: string }>;
@@ -51,6 +52,9 @@ export default async function ApplicationDetailPage({ params }: ApplicationPageP
   const relatedProducts = page.relatedProducts
     .map((productSlug) => productCatalog.find((product) => product.slug === productSlug))
     .filter((product) => product !== undefined);
+  const relatedGuides = page.slug === "structural-strengthening"
+    ? getStrengtheningTechnicalGuides()
+    : [];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -92,6 +96,7 @@ export default async function ApplicationDetailPage({ params }: ApplicationPageP
             <a href="#specifications">Specifications</a>
             <a href="#selection">Selection guide</a>
             <a href="#rfq">RFQ details</a>
+            {relatedGuides.length > 0 ? <a href="#technical-guides">Buyer guides</a> : null}
             <a href="#faq">FAQ</a>
           </aside>
 
@@ -211,6 +216,27 @@ export default async function ApplicationDetailPage({ params }: ApplicationPageP
                 ))}
               </div>
             </section>
+
+            {relatedGuides.length > 0 ? (
+              <section className="product-detail-card" id="technical-guides">
+                <SectionHeading
+                  eyebrow="Buyer guides"
+                  title="Compare the strengthening materials before RFQ."
+                  copy="These source-reviewed guides explain material-form differences and the project information needed for a clearer quotation."
+                />
+                <div className="application-detail-list">
+                  {relatedGuides.map((guide) => (
+                    <Link href={`/technical-center/${guide.slug}`} key={guide.slug}>
+                      <span>
+                        <strong>{guide.title}</strong>
+                        <small>Open technical guide</small>
+                      </span>
+                      <ArrowRight size={17} />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             <section className="product-detail-card product-faq-section" id="faq">
               <SectionHeading eyebrow="FAQ" title="Common application questions." />

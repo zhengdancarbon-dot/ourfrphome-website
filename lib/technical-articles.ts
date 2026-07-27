@@ -668,46 +668,84 @@ export const technicalArticles: TechnicalArticle[] = [
       "Compare pultruded CFRP plates and UD carbon fiber fabric for concrete, bridge and building strengthening systems.",
     image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     quickAnswer:
-      "CFRP plate provides high axial stiffness in strip reinforcement, while UD carbon fiber fabric conforms to surfaces and covers wider strengthening areas with a compatible epoxy system.",
+      "Use pultruded CFRP plate when the approved strengthening design calls for a narrow, dimension-controlled laminate strip. Use UD carbon fiber fabric when the design requires directional reinforcement over broader, curved or wrapped surfaces. FRP HOME's published references cover a 1.2 mm pultruded plate and a 300 g/m² UD fabric; neither document replaces structural design or approval of the complete adhesive system.",
     definition:
-      "Both materials can be part of a structural strengthening system. Final project design should be reviewed by qualified engineers.",
+      "Pultruded CFRP strengthening plate is a cured, dimensioned laminate used as an externally bonded system component. UD carbon fiber fabric is a dry reinforcement that places most fibers in one direction and must be impregnated or bonded with an approved resin system. They are different material forms with different RFQ fields, installation controls and engineering responsibilities.",
     comparison: {
       columns: ["Item", "CFRP plate", "UD carbon fiber fabric"],
       rows: [
-        ["Form", "Pultruded laminate strip", "Dry unidirectional fabric roll"],
-        ["Use", "High-capacity strip reinforcement", "Surface bonding and area reinforcement"],
-        ["Dimensions", "Width and thickness defined", "Areal weight and width defined"],
-        ["Resin need", "Plate adhesive system", "Saturating epoxy resin system"],
-        ["RFQ focus", "Plate width, thickness, length, surface", "Fabric weight, width, project area, epoxy"],
+        ["Published FRP HOME reference", "FRPH-CFRP-PLATE-1.2; source model ZCP1.2", "FRPH-UD300"],
+        ["Supplied form", "Pultruded, cured CFRP laminate strip", "Dry unidirectional carbon reinforcement roll"],
+        ["Documented size basis", "1.2 mm nominal thickness; width, length and tolerances by quotation", "300 g/m²; 0.167 mm nominal dry-fabric thickness; 100-500 mm width"],
+        ["Geometry", "Linear strip reinforcement", "Broad, curved or wrapped surface reinforcement"],
+        ["Bonding route", "Compatible structural plate adhesive", "Compatible saturating or bonding resin system"],
+        ["RFQ focus", "Width, length, thickness tolerance, bonding surface and adhesive", "Areal weight, width, roll length, direction, backing and resin"],
+        ["Approval boundary", "Plate, substrate, adhesive, anchorage and installation reviewed as one engineered system", "Fabric, substrate, resin, overlap and installation reviewed as one engineered system"],
       ],
     },
     selectionAdvice: [
-      "Use CFRP plate when narrow high-stiffness strip reinforcement is required.",
-      "Use UD fabric when reinforcement must conform to broader areas or wrapped surfaces.",
-      "Confirm substrate, load direction, project area and epoxy requirement before RFQ.",
+      "Start from a qualified engineer's design actions, substrate assessment and approved strengthening layout; do not substitute one material form from a website comparison.",
+      "Use the plate route when the design specifies externally bonded laminate strips with controlled width, thickness, length, surface preparation and termination details.",
+      "Use the UD fabric route when the design specifies directional surface reinforcement, broad-area bonding or wrapping around compatible geometry.",
+      "Confirm primer, putty, saturant or plate-adhesive scope separately. Compatibility cannot be inferred from the carbon material alone.",
+      "Request the selected TDS, final order specification and project-required batch documents before approval and installation.",
     ],
-    applications: ["Concrete beams", "Bridge strengthening", "Slabs", "Columns", "Masonry or timber reinforcement"],
+    applications: [
+      "Concrete beam and slab strengthening",
+      "Bridge and building load upgrades",
+      "Column and wrapped-surface reinforcement",
+      "Wall and broad-area directional reinforcement",
+      "Timber or masonry strengthening subject to engineering review",
+    ],
     specifications: [
-      ["Documented CFRP plate", "1.2 mm; width and length by quotation"],
-      ["Other CFRP plate", "Matching product data and project approval required"],
-      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
-      ["Other UD construction", "By project specification and document review"],
+      ["Documented CFRP plate", "1.2 mm nominal pultruded plate; width, length and tolerances by quotation"],
+      ["Plate source-model values", "2620 MPa tensile strength, 165 GPa modulus, 1.7% elongation, >68% fiber volume and 1.6 g/cm³ density; typical source values with test methods not stated"],
+      ["Plate design status", "Source-model values are not project design allowables or batch values"],
+      ["Documented UD fabric", "300 g/m², 0 degree UD, 0.167 mm nominal dry-fabric thickness and 100-500 mm width"],
+      ["UD fiber grade", "T300 / T700 or alternate grade by confirmed order and matching document review"],
+      ["UD performance status", "System-dependent; confirm fiber, resin, cure and test method"],
     ],
     recommendedProducts: ["structural-strengthening-system", "carbon-fiber-ud-fabric"],
-    rfqInformation: ["Project type", "Structure type", "Required material", "Fabric weight", "Plate width/thickness", "Epoxy requirement", "Project area"],
+    rfqInformation: [
+      "Structure and substrate type",
+      "Existing condition and project environment",
+      "Engineer-selected material form",
+      "Load direction and strengthening layout",
+      "UD fabric weight, width, roll length and direction",
+      "Plate width, thickness, length and bonding surface",
+      "Primer, putty, saturant or plate-adhesive scope",
+      "Project quantity and trial requirement",
+      "Destination and final application",
+      "Required TDS, order and batch documents",
+    ],
     faqs: [
       {
         question: "Can CFRP plate and UD fabric be used together?",
         answer:
-          "They may be used in the same project, but the design and epoxy system should be approved by the project engineer.",
+          "They may be specified in the same project for different strengthening actions, but each material, substrate zone, adhesive route, termination and installation procedure must follow the approved engineering design.",
       },
       {
         question: "Does FRP HOME provide structural design?",
         answer:
           "FRP HOME supplies material and data support. Structural design responsibility remains with qualified engineers.",
       },
+      {
+        question: "Is the published 1.2 mm CFRP plate strength a guaranteed project design value?",
+        answer:
+          "No. The published values are typical source-model references and the legacy test method was not stated. Project design allowables, applicable safety factors, order tolerances and batch values require qualified engineering and the approved project documentation.",
+      },
+      {
+        question: "Does 0.167 mm describe the cured thickness of 300gsm UD fabric?",
+        answer:
+          "No. It is the nominal dry-fabric reference in the current TDS. Cured laminate thickness depends on fabric construction, resin content, compaction, ply count and processing.",
+      },
+      {
+        question: "Can the same epoxy be used for both UD fabric and pultruded plate?",
+        answer:
+          "Do not assume so. UD fabric generally requires a suitable saturating or bonding resin, while plate installation requires a compatible structural adhesive. The complete system must be approved for the substrate, environment and installation method.",
+      },
     ],
-    reviewedAt: "2026-07-21",
+    reviewedAt: "2026-07-27",
     sources: [
       {
         title: "300gsm UD Carbon Fiber Fabric TDS",
@@ -852,8 +890,20 @@ export const technicalArticles: TechnicalArticle[] = [
   ...priorityTechnicalArticles,
 ];
 
+const strengtheningGuideSlugs = [
+  "cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening",
+  "cfrp-strengthening-material-rfq-checklist",
+  "ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric",
+] as const;
+
 export function getTechnicalArticle(slug: string) {
   return technicalArticles.find((article) => article.slug === slug);
+}
+
+export function getStrengtheningTechnicalGuides() {
+  return strengtheningGuideSlugs
+    .map((slug) => getTechnicalArticle(slug))
+    .filter((article) => article !== undefined);
 }
 
 export function articleStructuredData(article: TechnicalArticle) {
