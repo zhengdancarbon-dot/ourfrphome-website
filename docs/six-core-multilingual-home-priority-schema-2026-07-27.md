@@ -70,5 +70,12 @@ The production audit now verifies all nine homepages for:
 
 ## Release status
 
-The change is prepared on the recovery branch only. It has not been merged to
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-96f1lqlg3-zhendgan.vercel.app`
+- Deployment: `dpl_FsPBqzKDbyJW46WthMR5Twdvwfps`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and all 219 generated routes.
+
+The change remains on the recovery branch only. It has not been merged to
 `main`, deployed to production or submitted to Google, Yandex or IndexNow.
