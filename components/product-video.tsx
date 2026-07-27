@@ -6,14 +6,19 @@ type ProductVideoProps = {
 };
 
 export function ProductVideo({ video }: ProductVideoProps) {
+  const isLandscape = video.orientation === "landscape";
+
   return (
-    <section className="product-detail-card product-video-card" id="production-video">
+    <section
+      className={`product-detail-card product-video-card${isLandscape ? " is-landscape" : ""}`}
+      id="production-video"
+    >
       <div className="product-video-copy">
         <Eyebrow>{video.eyebrow}</Eyebrow>
         <h2>{video.title}</h2>
         <p>{video.description}</p>
       </div>
-      <div className="product-video-frame">
+      <div className={`product-video-frame${isLandscape ? " is-landscape" : ""}`}>
         <video
           aria-label={video.title}
           controls

@@ -4834,6 +4834,10 @@ a.contact-method:hover {
   gap: clamp(24px, 4vw, 48px);
 }
 
+.product-video-card.is-landscape {
+  grid-template-columns: minmax(0, 0.5fr) minmax(360px, 0.5fr);
+}
+
 .product-video-copy h2 {
   margin: 0;
   font-size: clamp(28px, 3vw, 42px);
@@ -4856,6 +4860,11 @@ a.contact-method:hover {
   border-radius: 6px;
   background: #091116;
   box-shadow: 0 24px 46px rgba(14, 27, 36, 0.2);
+}
+
+.product-video-frame.is-landscape {
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
 }
 
 .product-video-frame video {
@@ -5545,6 +5554,10 @@ a.contact-method:hover {
   }
 
   .product-video-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-video-card.is-landscape {
     grid-template-columns: minmax(0, 1fr);
   }
 

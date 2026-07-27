@@ -27,6 +27,10 @@ const videoProductPages = new Map([
     src: "/videos/3k-carbon-fiber-laminate-sheet-surface-handling.mp4",
     poster: "/images/products/3k-carbon-fiber-laminate-sheet-video-poster.jpg",
   }],
+  ["structural-strengthening-system", {
+    src: "/videos/cfrp-strengthening-plate-workshop-handling.mp4",
+    poster: "/images/products/cfrp-strengthening-plate-video-poster.jpg",
+  }],
 ]);
 const languageCodes = {
   en: "en",

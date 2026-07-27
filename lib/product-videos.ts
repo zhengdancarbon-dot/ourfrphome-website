@@ -10,6 +10,7 @@ export type ProductVideo = {
   poster: string;
   duration: string;
   uploadDate: string;
+  orientation: "portrait" | "landscape";
 };
 
 const yarnTowVideo = {
@@ -17,6 +18,7 @@ const yarnTowVideo = {
   poster: "/images/products/carbon-fiber-yarn-tow-production-creel-poster.jpg",
   duration: "PT16S",
   uploadDate: "2026-07-23",
+  orientation: "portrait" as const,
 };
 
 const yarnTowVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
@@ -81,6 +83,7 @@ const wovenFabricVideo = {
   poster: "/images/products/3k-woven-carbon-fiber-weaving-line-poster.jpg",
   duration: "PT12S",
   uploadDate: "2026-07-23",
+  orientation: "landscape" as const,
 };
 
 const wovenFabricVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
@@ -145,6 +148,7 @@ const multiaxialNcfVideo = {
   poster: "/images/products/carbon-fiber-multiaxial-ncf-production-poster.jpg",
   duration: "PT18S",
   uploadDate: "2026-07-23",
+  orientation: "portrait" as const,
 };
 
 const multiaxialNcfVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
@@ -209,6 +213,7 @@ const laminateSheetVideo = {
   poster: "/images/products/3k-carbon-fiber-laminate-sheet-video-poster.jpg",
   duration: "PT21S",
   uploadDate: "2026-07-27",
+  orientation: "portrait" as const,
 };
 
 const laminateSheetVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
@@ -268,6 +273,71 @@ const laminateSheetVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "tit
   },
 };
 
+const strengtheningPlateVideo = {
+  src: "/videos/cfrp-strengthening-plate-workshop-handling.mp4",
+  poster: "/images/products/cfrp-strengthening-plate-video-poster.jpg",
+  duration: "PT19S",
+  uploadDate: "2026-07-27",
+  orientation: "landscape" as const,
+};
+
+const strengtheningPlateVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+  en: {
+    eyebrow: "Product video",
+    title: "CFRP strengthening plate strips in a workshop",
+    description:
+      "Real workshop footage of long, narrow CFRP plate strips. Confirm the product route, including whether pultruded strengthening plate is required, then provide width, thickness, length, finish, adhesive system, quantity, project location, design responsibility and final application in the RFQ.",
+  },
+  es: {
+    eyebrow: "Vídeo del producto",
+    title: "Tiras de placa CFRP de refuerzo en taller",
+    description:
+      "Vídeo real de taller de tiras largas y estrechas de placa CFRP. Confirme el tipo de producto, incluido si requiere placa pultruida de refuerzo, y facilite en la RFQ ancho, espesor, longitud, acabado, sistema adhesivo, cantidad, ubicación del proyecto, responsabilidad de diseño y aplicación final.",
+  },
+  "pt-br": {
+    eyebrow: "Vídeo do produto",
+    title: "Tiras de placa CFRP para reforço em ambiente de fábrica",
+    description:
+      "Vídeo real de fábrica de tiras longas e estreitas de placa CFRP. Confirme o tipo de produto, incluindo se a placa pultrudada para reforço é necessária, e informe na RFQ largura, espessura, comprimento, acabamento, sistema adesivo, quantidade, local do projeto, responsabilidade de projeto e aplicação final.",
+  },
+  ru: {
+    eyebrow: "Видео продукции",
+    title: "Полосы усиливающих пластин CFRP в цехе",
+    description:
+      "Реальное цеховое видео длинных узких полос пластин CFRP. В RFQ следует подтвердить тип продукции, включая необходимость пултрузионной усиливающей пластины, а также указать ширину, толщину, длину, отделку, клеевую систему, количество, место проекта, ответственность за проектирование и конечное применение.",
+  },
+  ar: {
+    eyebrow: "فيديو المنتج",
+    title: "شرائط صفائح CFRP للتقوية داخل الورشة",
+    description:
+      "فيديو حقيقي من الورشة لشرائط طويلة وضيقة من صفائح CFRP. يجب تأكيد مسار المنتج، بما في ذلك ما إذا كانت صفيحة تقوية مسحوبة مطلوبة، مع تحديد العرض والسماكة والطول والتشطيب ونظام اللصق والكمية وموقع المشروع ومسؤولية التصميم والتطبيق النهائي في طلب العرض.",
+  },
+  fr: {
+    eyebrow: "Vidéo du produit",
+    title: "Bandes de plaques CFRP de renforcement en atelier",
+    description:
+      "Vidéo réelle en atelier de bandes longues et étroites en CFRP. Confirmez le type de produit, notamment si une plaque de renforcement pultrudée est requise, puis indiquez dans la RFQ la largeur, l'épaisseur, la longueur, la finition, le système adhésif, la quantité, le lieu du projet, la responsabilité de conception et l'application finale.",
+  },
+  ko: {
+    eyebrow: "제품 영상",
+    title: "작업 현장의 CFRP 보강 판재 스트립",
+    description:
+      "길고 좁은 CFRP 판재 스트립의 실제 작업 현장 영상입니다. 인발 성형 보강판 필요 여부를 포함한 제품 유형을 확인하고 폭, 두께, 길이, 마감, 접착 시스템, 수량, 프로젝트 위치, 설계 책임 및 최종 용도를 RFQ에 기재해야 합니다.",
+  },
+  pl: {
+    eyebrow: "Film produktu",
+    title: "Pasy płyt CFRP do wzmacniania w hali produkcyjnej",
+    description:
+      "Rzeczywisty film z hali przedstawiający długie, wąskie pasy płyt CFRP. W RFQ należy potwierdzić rodzaj produktu, w tym potrzebę zastosowania pultrudowanej płyty wzmacniającej, oraz podać szerokość, grubość, długość, wykończenie, system klejowy, ilość, lokalizację projektu, odpowiedzialność projektową i zastosowanie końcowe.",
+  },
+  tr: {
+    eyebrow: "Ürün videosu",
+    title: "Atölyedeki CFRP güçlendirme levha şeritleri",
+    description:
+      "Uzun ve dar CFRP levha şeritlerinin gerçek atölye görüntüsüdür. Pultruzyon güçlendirme levhası gerekip gerekmediği dahil ürün tipini doğrulayın; genişlik, kalınlık, uzunluk, yüzey, yapıştırıcı sistemi, miktar, proje konumu, tasarım sorumluluğu ve nihai uygulamayı RFQ içinde belirtin.",
+  },
+};
+
 export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
   if (slug === "carbon-fiber-multiaxial-ncf-fabric") {
     return {
@@ -294,6 +364,13 @@ export function getProductVideo(slug: string, locale: Locale): ProductVideo | un
     return {
       ...laminateSheetVideo,
       ...laminateSheetVideoCopy[locale],
+    };
+  }
+
+  if (slug === "structural-strengthening-system") {
+    return {
+      ...strengtheningPlateVideo,
+      ...strengtheningPlateVideoCopy[locale],
     };
   }
 
