@@ -11,6 +11,32 @@ const priorityProductPages = new Map([
   ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
+const priorityDiscoveryLinks = [
+  "/products/carbon-fiber-multiaxial-ncf-fabric",
+  "/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf",
+  "/technical-center/biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf",
+  "/technical-center/carbon-fiber-multiaxial-ncf-rfq-checklist",
+  "/products/3k-carbon-fiber-laminate-sheet",
+  "/technical-center/carbon-fiber-plate-thickness-selection-guide",
+  "/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide",
+  "/technical-center/matte-vs-glossy-3k-carbon-fiber-sheet",
+  "/products/carbon-fiber-yarn-and-tow",
+  "/technical-center/carbon-fiber-tow-rfq-checklist",
+  "/technical-center/carbon-fiber-tow-size-guide-1k-50k",
+  "/technical-center/carbon-fiber-yarn-vs-tow-vs-roving",
+  "/products/carbon-fiber-ud-fabric",
+  "/technical-center/200gsm-vs-300gsm-ud-carbon-fiber-fabric",
+  "/technical-center/300gsm-ud-carbon-fiber-fabric-rfq-guide",
+  "/technical-center/ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric",
+  "/products/structural-strengthening-system",
+  "/technical-center/1-2-mm-pultruded-cfrp-strengthening-plate-rfq-guide",
+  "/technical-center/cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening",
+  "/technical-center/cfrp-strengthening-material-rfq-checklist",
+  "/products/carbon-fiber-woven-fabric",
+  "/technical-center/3k-200gsm-carbon-fiber-fabric-selection-rfq-guide",
+  "/technical-center/plain-vs-twill-carbon-fiber-fabric",
+  "/technical-center/how-to-choose-carbon-fiber-fabric-by-gsm",
+];
 const videoProductPages = new Map([
   ["carbon-fiber-multiaxial-ncf-fabric", {
     src: "/videos/carbon-fiber-multiaxial-ncf-directional-layer-production.mp4",
@@ -210,6 +236,19 @@ async function worker() {
 
 await Promise.all(Array.from({ length: 12 }, worker));
 
+const technicalCenterResult = await fetchText(new URL("/technical-center", baseUrl));
+const llmsResult = await fetchText(new URL("/llms.txt", baseUrl));
+if (!technicalCenterResult.response.ok) failures.push(`/technical-center: HTTP ${technicalCenterResult.response.status}`);
+if (!llmsResult.response.ok) failures.push(`/llms.txt: HTTP ${llmsResult.response.status}`);
+for (const path of priorityDiscoveryLinks) {
+  if (!technicalCenterResult.text.includes(`href="${path}"`)) {
+    failures.push(`/technical-center: missing priority discovery link ${path}`);
+  }
+  if (!llmsResult.text.includes(`https://www.myfrphome.com${path}`)) {
+    failures.push(`/llms.txt: missing priority discovery URL ${path}`);
+  }
+}
+
 for (const path of priorityProductPages.keys()) {
   if (!checkedPriorityPages.has(path)) failures.push(`${path}: priority product page missing from sitemap`);
 }
@@ -246,6 +285,7 @@ console.log(JSON.stringify({
   checkedPriorityProductPages: checkedPriorityPages.size,
   checkedTechnicalArticles: checkedTechnicalPages.size,
   checkedLocalizedVideoPages: checkedVideoPages.size,
+  checkedPriorityDiscoveryLinks: priorityDiscoveryLinks.length,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

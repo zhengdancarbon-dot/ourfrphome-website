@@ -1,6 +1,7 @@
 import { applicationPages } from "@/lib/application-pages";
 import { productCatalog } from "@/lib/product-catalog";
 import { productDocuments } from "@/lib/product-documents";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { siteConfig } from "@/lib/site-config";
 import { technicalArticles } from "@/lib/technical-articles";
 
@@ -46,6 +47,19 @@ export function GET() {
   const technicalLines = technicalArticles.map((article) =>
     linkLine(article.title, `/technical-center/${article.slug}`, article.description),
   );
+  const priorityBuyerGuideLines = priorityDiscoveryRoutes.flatMap((route) => {
+    const product = productCatalog.find((item) => item.slug === route.productSlug);
+    const productLine = product
+      ? [linkLine(`${route.label}: ${product.name}`, `/products/${product.slug}`, route.description)]
+      : [];
+    const guideLines = route.guideSlugs.flatMap((slug) => {
+      const article = technicalArticles.find((item) => item.slug === slug);
+      return article
+        ? [linkLine(article.title, `/technical-center/${article.slug}`, article.description)]
+        : [];
+    });
+    return [...productLine, ...guideLines];
+  });
   const localizedEntryLines = [
     linkLine("Español", "/es", "Páginas comerciales y RFQ en español."),
     linkLine("Português do Brasil", "/pt-br", "Páginas comerciais e RFQ em português brasileiro."),
@@ -102,6 +116,7 @@ export function GET() {
     ]),
     section("Localized Site Entry Points", localizedEntryLines),
     section("Priority Commercial Products", priorityProductLines),
+    section("Priority Buyer Guides", priorityBuyerGuideLines),
     section("Russian Priority Commercial Pages", russianPriorityLines),
     section("Verified Product Documents", verifiedDocumentLines),
     section("Products", productLines),

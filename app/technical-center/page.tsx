@@ -5,6 +5,7 @@ import { ArrowRight, BookOpenText, FileCheck2, FileText, FlaskConical, Ruler } f
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
 import { productDocuments } from "@/lib/product-documents";
+import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { qualityDocuments } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
@@ -72,6 +73,45 @@ export default function TechnicalCenterPage() {
         copy="Use this center to compare product data, prepare RFQs, request TDS / SDS / COA files and connect material choices to manufacturing processes."
         image="/images/composite-materials-range.png"
       />
+
+      <section className="section section-soft">
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow="Priority buyer pathways"
+            title="Move from product selection to a complete RFQ."
+            copy="Start with the relevant commercial page, then use the connected guides and verified documents to define the order. Published references do not replace final specification, batch documentation or application engineering review."
+          />
+          <div className="priority-path-grid">
+            {priorityDiscoveryRoutes.map((route) => {
+              const product = productCatalog.find((item) => item.slug === route.productSlug);
+              const guides = route.guideSlugs.flatMap((slug) => {
+                const guide = technicalArticles.find((item) => item.slug === slug);
+                return guide ? [guide] : [];
+              });
+
+              return (
+                <article className="priority-path-card" key={route.productSlug}>
+                  <span>{route.label}</span>
+                  <h2>{route.title}</h2>
+                  <p>{route.description}</p>
+                  {product ? (
+                    <Link className="button button-blue" href={`/products/${product.slug}`}>
+                      View {product.name} <ArrowRight size={16} />
+                    </Link>
+                  ) : null}
+                  <div className="priority-path-links" aria-label={`${route.label} buyer guides`}>
+                    {guides.map((guide) => (
+                      <Link className="text-link" href={`/technical-center/${guide.slug}`} key={guide.slug}>
+                        {guide.title} <ArrowRight size={16} />
+                      </Link>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="site-shell">
@@ -144,7 +184,7 @@ export default function TechnicalCenterPage() {
             {productDocuments.map((document) => {
               const product = productCatalog.find((item) => item.slug === document.productSlug);
               return (
-                <article className="tds-library-card" key={document.href}>
+                <article className="tds-library-card" key={`${document.productSlug}-${document.href}`}>
                   <div><FileText size={28} /><span>{document.type}</span></div>
                   <h2>{document.title}</h2>
                   <p>{document.specification}</p>
