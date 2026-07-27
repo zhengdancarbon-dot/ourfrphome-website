@@ -8,8 +8,10 @@
 .vercel
 *.log
 node_modules
+morocco-commercial-promotion
 output
 outputs
+public/images/external
 site-review-screenshots
 site-review-screenshots.zip
 tmp
