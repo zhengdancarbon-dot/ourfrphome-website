@@ -1,4 +1,6 @@
 import { applicationPages } from "@/lib/application-pages";
+import { localeLabels, localizedLocales } from "@/lib/i18n/config";
+import { getLocalizedProductContent } from "@/lib/i18n/page-content";
 import { productCatalog } from "@/lib/product-catalog";
 import { productDocuments } from "@/lib/product-documents";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
@@ -17,14 +19,7 @@ function linkLine(title: string, path: string, description?: string) {
 }
 
 export function GET() {
-  const priorityProductSlugs = [
-    "carbon-fiber-multiaxial-ncf-fabric",
-    "3k-carbon-fiber-laminate-sheet",
-    "carbon-fiber-yarn-and-tow",
-    "carbon-fiber-ud-fabric",
-    "structural-strengthening-system",
-    "carbon-fiber-woven-fabric",
-  ];
+  const priorityProductSlugs = priorityDiscoveryRoutes.map((route) => route.productSlug);
   const priorityProductLines = priorityProductSlugs.flatMap((slug) => {
     const product = productCatalog.find((item) => item.slug === slug);
     return product
@@ -70,14 +65,17 @@ export function GET() {
     linkLine("Polski", "/pl", "Polskie strony produktów i RFQ."),
     linkLine("Türkçe", "/tr", "Türkçe ürün ve RFQ sayfaları."),
   ];
-  const russianPriorityLines = [
-    linkLine("Мультиаксиальная углеродная ткань NCF", "/ru/products/carbon-fiber-multiaxial-ncf-fabric"),
-    linkLine("Лист и плита из углепластика 3K", "/ru/products/3k-carbon-fiber-laminate-sheet"),
-    linkLine("Углеродная нить и жгут (tow)", "/ru/products/carbon-fiber-yarn-and-tow"),
-    linkLine("Однонаправленная углеродная ткань UD", "/ru/products/carbon-fiber-ud-fabric"),
-    linkLine("Система конструкционного усиления CFRP", "/ru/products/structural-strengthening-system"),
-    linkLine("Ткань из углеродного волокна 3K", "/ru/products/carbon-fiber-woven-fabric"),
-  ];
+  const localizedPrioritySections = localizedLocales.map((locale) => {
+    const lines = priorityProductSlugs.flatMap((slug) => {
+      const product = productCatalog.find((item) => item.slug === slug);
+      const localized = getLocalizedProductContent(locale, slug);
+      return product && localized
+        ? [linkLine(localized.name, `/${locale}/products/${slug}`, localized.description)]
+        : [];
+    });
+
+    return section(`${localeLabels[locale]} Priority Commercial Products`, lines);
+  });
 
   const content = [
     "# FRP HOME",
@@ -117,7 +115,7 @@ export function GET() {
     section("Localized Site Entry Points", localizedEntryLines),
     section("Priority Commercial Products", priorityProductLines),
     section("Priority Buyer Guides", priorityBuyerGuideLines),
-    section("Russian Priority Commercial Pages", russianPriorityLines),
+    ...localizedPrioritySections,
     section("Verified Product Documents", verifiedDocumentLines),
     section("Products", productLines),
     section("Applications", applicationLines),

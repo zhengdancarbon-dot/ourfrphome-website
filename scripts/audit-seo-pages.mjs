@@ -1,6 +1,16 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
 const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 210);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
+const localeLabels = {
+  es: "Español",
+  "pt-br": "Português BR",
+  ru: "Русский",
+  ar: "العربية",
+  fr: "Français",
+  ko: "한국어",
+  pl: "Polski",
+  tr: "Türkçe",
+};
 const expectedLocalizedCount = 19;
 const expectedTechnicalArticleCount = 24;
 const priorityProductPages = new Map([
@@ -315,6 +325,35 @@ for (const path of priorityDiscoveryLinks) {
   }
 }
 
+const llmsLines = llmsResult.text.split("\n");
+let checkedLocalizedLlmsPriorityLinks = 0;
+for (const locale of locales) {
+  const sectionHeading = `## ${localeLabels[locale]} Priority Commercial Products`;
+  if (!llmsLines.includes(sectionHeading)) {
+    failures.push(`/llms.txt: missing localized priority section ${locale}`);
+  }
+
+  for (const slug of priorityProductSlugs) {
+    const expectedUrl = `https://www.myfrphome.com/${locale}/products/${slug}`;
+    const matchingLines = llmsLines.filter((line) => line.includes(`](${expectedUrl})`));
+    if (matchingLines.length !== 1) {
+      failures.push(`/llms.txt: expected one ${locale} priority URL for ${slug}, found ${matchingLines.length}`);
+      continue;
+    }
+
+    const title = matchingLines[0].match(/^- \[([^\]]+)\]\(/)?.[1];
+    if (!title) {
+      failures.push(`/llms.txt: missing localized link title for ${locale}/${slug}`);
+      continue;
+    }
+    if (englishPriorityProductNames.includes(title)) {
+      failures.push(`/llms.txt: ${locale}/${slug} fell back to exact English product name`);
+      continue;
+    }
+    checkedLocalizedLlmsPriorityLinks += 1;
+  }
+}
+
 for (const path of priorityProductPages.keys()) {
   if (!checkedPriorityPages.has(path)) failures.push(`${path}: priority product page missing from sitemap`);
 }
@@ -356,6 +395,7 @@ console.log(JSON.stringify({
   checkedTechnicalArticles: checkedTechnicalPages.size,
   checkedLocalizedVideoPages: checkedVideoPages.size,
   checkedPriorityDiscoveryLinks: priorityDiscoveryLinks.length,
+  checkedLocalizedLlmsPriorityLinks,
   checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
   negative404Checks: 3,
   status: "PASS",
