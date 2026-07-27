@@ -43,6 +43,7 @@ import {
 import { siteConfig } from "@/lib/site-config";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
 import {
+  getAutomotiveTechnicalGuides,
   getStrengtheningTechnicalGuides,
   technicalArticles,
 } from "@/lib/technical-articles";
@@ -963,7 +964,9 @@ export function LocalizedApplicationDetailPage({ locale, slug }: LocalizedPagePr
     .filter((product) => isPhaseOneProductSlug(product.slug));
   const relatedGuides = page.slug === "structural-strengthening"
     ? getStrengtheningTechnicalGuides()
-    : [];
+    : page.slug === "automotive-carbon-fiber-parts"
+      ? getAutomotiveTechnicalGuides()
+      : [];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

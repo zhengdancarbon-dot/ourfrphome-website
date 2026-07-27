@@ -85,41 +85,44 @@ export const technicalArticles: TechnicalArticle[] = [
       "Select 3K 200gsm twill carbon fiber fabric and prepare an RFQ covering weave, width, roll length, surface target, resin process, quantity and end use.",
     image: "/images/generated/3k-twill-carbon-fiber-gloss.png",
     quickAnswer:
-      "3K 200gsm twill carbon fiber fabric is a common bidirectional reinforcement for visible CFRP surfaces and general composite laminates. A complete RFQ should confirm 3K tow, 200 g/m2 areal weight, weave, width, roll length, surface requirement, resin process, quantity and final application; the website description alone is not an order specification.",
+      "FRP HOME product FRPH-WCF-3K200-T, based on source style TCT-3K-200, is a 3K 200 g/m2 twill woven carbon reinforcement. The current TDS records 0.20 mm nominal dry-fabric thickness, 5 x 5 yarns per 10 mm in warp and weft, 1000-1500 mm available width and 100 m nominal roll length. A complete RFQ must still confirm fiber grade and sizing, selected width, roll length, surface sample, resin process, quantity and final application.",
     definition:
       "The 3K designation describes an approximate 3,000-filament tow, while 200gsm describes fabric areal weight before resin. Twill describes the woven architecture and diagonal visual pattern. These terms do not define cured laminate thickness, resin content or final part performance, which depend on the complete material and process specification.",
     comparison: {
       columns: ["RFQ point", "FRP HOME reference", "What the buyer should confirm"],
       rows: [
-        ["Tow and weight", "3K, 200 g/m2", "Required construction and acceptable tolerance"],
-        ["Weave", "Twill TDS available", "Twill or plain according to appearance and handling target"],
-        ["Width", "1000-1500 mm reference range", "Exact usable width and cutting plan"],
-        ["Roll supply", "Roll-packed dry reinforcement", "Roll length, core, protective packing and labels"],
-        ["Surface target", "Visible 3K woven texture", "Cosmetic first ply or general structural reinforcement"],
-        ["Process", "Dry carbon reinforcement", "Wet lay-up, vacuum bagging, infusion or prepreg conversion"],
+        ["Product identity", "FRPH-WCF-3K200-T; source style TCT-3K-200", "Product code, approved specification revision and required batch documents"],
+        ["Construction", "3K, 200 g/m2, twill; 5 x 5 per 10 mm nominal", "Fiber grade, sizing, areal-weight tolerance and weave appearance"],
+        ["Dry thickness", "0.20 mm nominal dry-fabric reference", "Do not use this value as cured laminate thickness"],
+        ["Width and roll", "1000-1500 mm available width; 100 m nominal roll", "Selected usable width, roll length, core, labels and packing"],
+        ["Surface target", "Appearance approved by sample", "Cosmetic first ply or general reinforcement and the accepted reference sample"],
+        ["Process", "Vacuum infusion, wet layup or compression molding listed in the TDS", "Resin system, process conditions and representative trial requirements"],
       ],
     },
     selectionAdvice: [
-      "Choose the weave from part geometry, handling and visible-surface requirements rather than appearance alone.",
-      "Confirm whether 200gsm is required as the exact product construction or only as a laminate-design target.",
-      "Match fabric width and roll length to the cutting plan to reduce seams and offcut waste.",
-      "Identify the resin system and process so compatibility and representative trial requirements can be reviewed.",
-      "Approve the final product specification and batch documents before production use.",
+      "Use product code FRPH-WCF-3K200-T and source style TCT-3K-200 when the documented 3K 200 g/m2 twill construction is required.",
+      "Approve surface appearance with a physical sample when the woven layer will remain visible; weave name alone does not define the finished cosmetic result.",
+      "Treat 0.20 mm as nominal dry-fabric thickness only. Cured laminate thickness depends on ply count, compaction, resin content and process.",
+      "Match the selected width within the 1000-1500 mm reference range and the confirmed roll length to the cutting plan to reduce seams and offcut waste.",
+      "Confirm fiber grade, sizing and resin process before ordering, and use a representative trial when compatibility or surface quality is critical.",
+      "Keep rolls dry, covered and protected from crushing, and approve final tolerances, packing and batch-document requirements in the order specification.",
     ],
     applications: [
       "Visible CFRP surface plies",
       "Automotive composite panels",
       "Sports equipment laminates",
       "Industrial composite panels",
-      "Marine covers and components",
-      "Prepreg conversion",
+      "Vacuum-infused composite parts",
+      "Compression-molded composite parts",
     ],
     specifications: [
       ["Tow size", "3K"],
-      ["Areal weight", "200 g/m2 reference construction"],
-      ["Weave", "Twill TDS available; other constructions by order review"],
-      ["Width", "1000 / 1270 / 1500 mm reference options"],
-      ["Supply form", "Dry fabric roll with export packing by confirmed order"],
+      ["Product code", "FRPH-WCF-3K200-T; source style TCT-3K-200"],
+      ["Areal weight", "200 g/m2 nominal; tolerance confirmed by order"],
+      ["Weave and count", "Twill; 5 x 5 per 10 mm warp x weft nominal"],
+      ["Nominal thickness", "0.20 mm dry-fabric reference, not cured laminate thickness"],
+      ["Available width", "1000-1500 mm; selected width confirmed by order"],
+      ["Nominal roll length", "100 m; packing confirmed by order"],
       ["Documentation", "Final values follow the approved specification and batch documents"],
     ],
     recommendedProducts: [
@@ -128,11 +131,11 @@ export const technicalArticles: TechnicalArticle[] = [
       "3k-carbon-fiber-laminate-sheet",
     ],
     rfqInformation: [
-      "3K tow requirement",
-      "200gsm construction",
-      "Weave type",
+      "FRPH-WCF-3K200-T / TCT-3K-200 reference",
+      "Fiber grade and sizing",
+      "3K, 200gsm twill construction and tolerance",
       "Width and roll length",
-      "Surface requirement",
+      "Surface sample or reference image",
       "Resin and process",
       "Trial and production quantity",
       "Packing and labels",
@@ -148,12 +151,17 @@ export const technicalArticles: TechnicalArticle[] = [
       {
         question: "Does 200gsm determine cured laminate thickness?",
         answer:
-          "No. It describes dry fabric areal weight. Cured thickness depends on compaction, resin content, ply count, process and laminate design.",
+          "No. It describes dry fabric areal weight. The TDS also lists 0.20 mm as a nominal dry-fabric reference, not cured laminate thickness. Cured thickness depends on compaction, resin content, ply count, process and laminate design.",
       },
       {
-        question: "Can plain weave be supplied instead of twill?",
+        question: "What does 5 x 5 per 10 mm mean?",
         answer:
-          "Plain and twill constructions can be reviewed, but the exact tow, weight, width, weave and tolerance must be confirmed in the quotation and final specification.",
+          "It is the nominal fiber count recorded in the TDS for warp and weft over 10 mm. It describes the woven construction and is not a tensile-strength or laminate-performance rating.",
+      },
+      {
+        question: "Are 1000-1500 mm width and 100 m roll length guaranteed for every order?",
+        answer:
+          "No. They are the current available-width range and nominal roll-length reference in the TDS. The selected width, roll length, tolerances and packing must be confirmed in the quotation and order documents.",
       },
       {
         question: "What should I send for a 3K carbon fabric quotation?",
@@ -162,7 +170,7 @@ export const technicalArticles: TechnicalArticle[] = [
       },
     ],
     publishedAt: "2026-07-21",
-    reviewedAt: "2026-07-21",
+    reviewedAt: "2026-07-27",
     sources: [
       {
         title: "3K 200gsm Twill Carbon Fiber Fabric TDS",
@@ -896,12 +904,24 @@ const strengtheningGuideSlugs = [
   "ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric",
 ] as const;
 
+const automotiveGuideSlugs = [
+  "3k-200gsm-carbon-fiber-fabric-selection-rfq-guide",
+  "plain-vs-twill-carbon-fiber-fabric",
+  "3k-vs-12k-carbon-fiber-fabric",
+] as const;
+
 export function getTechnicalArticle(slug: string) {
   return technicalArticles.find((article) => article.slug === slug);
 }
 
 export function getStrengtheningTechnicalGuides() {
   return strengtheningGuideSlugs
+    .map((slug) => getTechnicalArticle(slug))
+    .filter((article) => article !== undefined);
+}
+
+export function getAutomotiveTechnicalGuides() {
+  return automotiveGuideSlugs
     .map((slug) => getTechnicalArticle(slug))
     .filter((article) => article !== undefined);
 }

@@ -10,7 +10,7 @@ const productLastModified: Record<string, string> = {
   "carbon-fiber-multiaxial-ncf-fabric": "2026-07-23",
   "3k-carbon-fiber-laminate-sheet": "2026-07-22",
   "carbon-fiber-yarn-and-tow": "2026-07-27",
-  "carbon-fiber-woven-fabric": "2026-07-23",
+  "carbon-fiber-woven-fabric": "2026-07-27",
   "carbon-fiber-ud-fabric": "2026-07-22",
   "structural-strengthening-system": "2026-07-22",
 };
@@ -83,7 +83,7 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
 };
 
 const applicationLastModified: Record<string, string> = {
-  "automotive-carbon-fiber-parts": "2026-07-22",
+  "automotive-carbon-fiber-parts": "2026-07-27",
   "sports-equipment": "2026-07-22",
   "decorative-cfrp-panels": "2026-07-22",
   "structural-strengthening": "2026-07-27",
@@ -91,29 +91,35 @@ const applicationLastModified: Record<string, string> = {
 
 const localizedApplicationLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {
   es: {
-    "automotive-carbon-fiber-parts": "2026-07-22",
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   "pt-br": {
-    "automotive-carbon-fiber-parts": "2026-07-22",
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   ru: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   ar: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   fr: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   ko: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   pl: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
   tr: {
+    "automotive-carbon-fiber-parts": "2026-07-27",
     "structural-strengthening": "2026-07-27",
   },
 };

@@ -11,7 +11,10 @@ import {
 } from "@/lib/application-pages";
 import { productCatalog } from "@/lib/product-catalog";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
-import { getStrengtheningTechnicalGuides } from "@/lib/technical-articles";
+import {
+  getAutomotiveTechnicalGuides,
+  getStrengtheningTechnicalGuides,
+} from "@/lib/technical-articles";
 
 type ApplicationPageProps = {
   params: Promise<{ slug: string }>;
@@ -54,7 +57,9 @@ export default async function ApplicationDetailPage({ params }: ApplicationPageP
     .filter((product) => product !== undefined);
   const relatedGuides = page.slug === "structural-strengthening"
     ? getStrengtheningTechnicalGuides()
-    : [];
+    : page.slug === "automotive-carbon-fiber-parts"
+      ? getAutomotiveTechnicalGuides()
+      : [];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -221,8 +226,12 @@ export default async function ApplicationDetailPage({ params }: ApplicationPageP
               <section className="product-detail-card" id="technical-guides">
                 <SectionHeading
                   eyebrow="Buyer guides"
-                  title="Compare the strengthening materials before RFQ."
-                  copy="These source-reviewed guides explain material-form differences and the project information needed for a clearer quotation."
+                  title={page.slug === "structural-strengthening"
+                    ? "Compare the strengthening materials before RFQ."
+                    : "Compare woven carbon options before RFQ."}
+                  copy={page.slug === "structural-strengthening"
+                    ? "These source-reviewed guides explain material-form differences and the project information needed for a clearer quotation."
+                    : "These guides explain 3K 200gsm construction, weave choice and tow-size differences for automotive composite purchasing."}
                 />
                 <div className="application-detail-list">
                   {relatedGuides.map((guide) => (
