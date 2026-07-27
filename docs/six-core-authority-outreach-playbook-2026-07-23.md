@@ -12,11 +12,11 @@ The reviewed execution queue is maintained in `six-core-authority-outreach-short
 
 ## Priority Order
 
-1. Contact JEC about the public Composites Directory and supplier programs. JEC states that supplier forums connect approved suppliers with buyers who have concrete projects.
+1. Ask JEC for the current company-profile creation route. JEC's public material describes directory registration as free, but the current directory page does not expose an authenticated creation control in the verification environment.
 2. Contact China Composites Expo immediately because the 2026 exhibition is scheduled for September 1-3 and official exhibitor registration is live.
 3. Request the Composite-Expo 2027 package for the Russian and CIS market. The official site offers both stand booking and business-program participation.
 4. Ask SAMPE China, AVK and ACMA for company membership eligibility, directory fields and annual cost before paying.
-5. Review DirectIndustry and europages commercial onboarding only after the company profile package is complete.
+5. Create at most one europages and one Kompass profile after the registered address, VAT or registration number, employee range and authorized contact are confirmed. Both currently advertise a free entry route; treat optional visibility packages separately. Review DirectIndustry commercial onboarding only after budget approval.
 6. Keep Composites UK on hold unless FRP HOME has a UK office or receives written eligibility confirmation.
 
 ## Authoritative Company Profile
@@ -113,3 +113,11 @@ Campaign names:
 - AVK membership: https://www.avk-tv.de/en/members-3/members/membership/
 - Composites UK membership: https://compositesuk.co.uk/membership/
 - europages supplier onboarding: https://supplier.europages.com/en/rfc
+- europages profile requirements: https://help.europages.com/en/supplier/company-profile-basic-information
+- Kompass company directory: https://www.kompass.com/businessplace/
+- Kompass registration guide: https://in.solutions.kompass.com/blog/how-to-register-your-company-on-the-kompass-b2b-directory/
+
+The verified Batch 02 fields, tracked URLs and legal-data gate are maintained in
+`six-core-authority-directory-batch-02-2026-07-27.csv` and
+`six-core-authority-profile-kit-2026-07-27.md`. Do not reuse an older callback
+draft when a platform now provides a direct profile workflow.
