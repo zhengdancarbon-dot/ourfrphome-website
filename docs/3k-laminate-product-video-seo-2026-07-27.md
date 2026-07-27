@@ -73,3 +73,12 @@ The current verified video coverage is:
 UD strengthening fabric and the pultruded strengthening plate still require separate source identification before adding video. Candidate local files exist, but they should not be assigned to those products until the visible process and material identity are sufficiently clear.
 
 No production deployment, sitemap submission or indexing request was performed.
+
+## Vercel Preview
+
+- Preview URL: `https://ourfrphome-website-8qwwd1gpu-zhendgan.vercel.app`
+- Deployment ID: `dpl_BDmBPMZHhNf9ABNtBFR5Yo1cPgyR`
+- Vercel status: Ready
+- Vercel build: 216 pages generated; compilation and TypeScript passed.
+
+The current network cannot directly open generated `vercel.app` hosts, so the visual and response-level evidence above comes from the equivalent local production build. Vercel independently confirms the Preview build and deployment are Ready. Production remains unchanged.
