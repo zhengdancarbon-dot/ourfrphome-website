@@ -78,5 +78,12 @@ Polish and Turkish. Technical tokens and product URLs remain unchanged.
 
 ## Release status
 
-The change is prepared on the recovery branch only. It has not been merged to
-`main`, deployed to production or submitted to Google, Yandex or IndexNow.
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-50d3qc37k-zhendgan.vercel.app`
+- Deployment: `dpl_BryrUdikoL61q9M7QK3L3x9kEpkX`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and 219 generated routes
+
+The change remains on the recovery branch. It has not been merged to `main`,
+deployed to production or submitted to Google, Yandex or IndexNow.
