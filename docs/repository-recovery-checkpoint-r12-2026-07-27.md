@@ -1,28 +1,27 @@
-# Repository Recovery Checkpoint R11
+# Repository Recovery Checkpoint R12
 
 Date: 2026-07-27
 
 ## Current source state
 
 - Branch: `codex/repository-recovery-20260723`
-- Commit: `3a39f12ec1b27b7e9995ae9cfa351cd0722515a9`
 - GitHub repository: `zhengdancarbon-dot/ourfrphome-website`
 - Remote branch: `origin/codex/repository-recovery-20260723`
-- Recovery tag: `recovery/source-complete-2026-07-27-r11`
+- Recovery tag: `recovery/source-complete-2026-07-27-r12`
 
-The remote branch and tag were read back from GitHub after pushing. The branch
-reference matches the local recovery commit.
+The remote branch and tag are read back from GitHub after pushing. The branch,
+tag and offline bundle are created from the same final recovery commit.
 
 ## Offline complete-history bundle
 
 Path:
 
-`.codex-output-work/FRP-HOME-source-recovery-2026-07-27-r11.bundle`
+`.codex-output-work/FRP-HOME-source-recovery-2026-07-27-r12.bundle`
 
 The 73 MB bundle passed `git bundle verify` and records complete history for:
 
 - `codex/repository-recovery-20260723`;
-- `recovery/source-complete-2026-07-27-r11`; and
+- `recovery/source-complete-2026-07-27-r12`; and
 - `main`.
 
 This bundle remains local and intentionally is not committed to the repository.
@@ -53,5 +52,5 @@ git switch --create recovered-frp-home origin/codex/repository-recovery-20260723
 Restore from the offline bundle:
 
 ```bash
-git clone FRP-HOME-source-recovery-2026-07-27-r11.bundle recovered-frp-home
+git clone FRP-HOME-source-recovery-2026-07-27-r12.bundle recovered-frp-home
 ```
