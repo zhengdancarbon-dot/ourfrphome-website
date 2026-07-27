@@ -1,8 +1,8 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 209);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 210);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
 const expectedLocalizedCount = 19;
-const expectedTechnicalArticleCount = 23;
+const expectedTechnicalArticleCount = 24;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
@@ -131,6 +131,23 @@ async function worker() {
       }
       if (!text.includes('href="/products/structural-strengthening-system"')) {
         failures.push(`${path}: missing strengthening-system product link`);
+      }
+    }
+
+    if (path === "/technical-center/200gsm-vs-300gsm-ud-carbon-fiber-fabric") {
+      if (!text.includes("FRPH-TDS-UD200-SUPPLY-EN-R01")) failures.push(`${path}: missing 200gsm source document identity`);
+      if (!text.includes("FRPH-UD300")) failures.push(`${path}: missing 300gsm product identity`);
+      if (!text.includes("not cured-laminate or project design allowables")) {
+        failures.push(`${path}: missing dry-fabric design boundary`);
+      }
+      if (!text.includes('href="/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf"')) {
+        failures.push(`${path}: missing 200gsm supply-reference download`);
+      }
+      if (!text.includes('href="/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf"')) {
+        failures.push(`${path}: missing 300gsm product TDS download`);
+      }
+      if (!text.includes('href="/products/carbon-fiber-ud-fabric"')) {
+        failures.push(`${path}: missing UD product link`);
       }
     }
 

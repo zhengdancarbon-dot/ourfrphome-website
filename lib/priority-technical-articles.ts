@@ -4,6 +4,114 @@ const publishedAt = "2026-07-22";
 
 export const priorityTechnicalArticles: TechnicalArticle[] = [
   {
+    slug: "200gsm-vs-300gsm-ud-carbon-fiber-fabric",
+    title: "200gsm vs 300gsm UD Carbon Fiber Fabric for Strengthening",
+    description:
+      "Compare documented 200gsm and 300gsm unidirectional carbon fiber fabric references for strengthening RFQs without treating dry-fabric data as project design values.",
+    image: "/images/products/carbon-fiber-ud-fabric.webp",
+    quickAnswer:
+      "The documented 200gsm and 300gsm UD fabrics are both 0° dry carbon reinforcements, but they are not interchangeable specifications. The 200gsm supply reference records source model TCU20, 200 g/m² and 0.111 mm nominal dry-fiber thickness; it does not state width, fiber grade or usable mechanical values. The FRPH-UD300 TDS records 300 g/m², 0.167 mm nominal dry-fabric thickness and a 100-500 mm available-width reference, while fiber grade and system properties remain order-dependent. A qualified engineer must select the strengthening design, resin system, laminate schedule and acceptance basis.",
+    definition:
+      "UD carbon fiber fabric places most reinforcement in one primary direction. In these two documents, 200gsm and 300gsm identify nominal dry-fabric areal weight, not cured-system strength. Nominal dry thickness is a material reference only; cured thickness and structural capacity depend on the selected fiber, resin, impregnation, compaction, laminate schedule, substrate and test basis.",
+    comparison: {
+      columns: ["RFQ field", "200gsm supply reference", "300gsm product TDS"],
+      rows: [
+        ["Document identity", "FRPH-TDS-UD200-SUPPLY-EN-R01; source TCU20", "FRPH-TDS-UD300-EN-R01; product FRPH-UD300"],
+        ["Principal direction", "0° unidirectional", "0° unidirectional"],
+        ["Areal weight", "200 g/m² nominal", "300 g/m² nominal"],
+        ["Nominal dry thickness", "0.111 mm dry-fiber reference", "0.167 mm dry-fabric reference"],
+        ["Width", "Not stated in the source record", "100-500 mm available-width reference"],
+        ["Evidence boundary", "Legacy source-record supply reference; mechanical fields excluded", "Product TDS; fiber grade, sizing, tolerances and system performance confirmed by order"],
+      ],
+    },
+    selectionAdvice: [
+      "Start with the qualified engineer's load path, substrate assessment and approved strengthening design. Do not choose 200gsm or 300gsm from website data alone.",
+      "Use the 200gsm file only as a legacy source-record supply reference. Confirm current source, width, roll length, fiber grade, sizing and required documents before quotation.",
+      "Use FRPH-UD300 when the documented 300 g/m² construction and 100-500 mm width reference match the RFQ, then confirm selected width, tolerance, backing and roll format.",
+      "Do not compare 0.111 mm and 0.167 mm as cured-system thicknesses. Both are nominal dry-material references.",
+      "State the saturating resin, installation method, overlap or laminate schedule, environment and project test requirements so compatibility can be reviewed.",
+      "Request the applicable TDS, approved order specification and required batch-document fields before project approval or installation.",
+    ],
+    applications: [
+      "Externally bonded civil strengthening",
+      "Concrete beam, slab and wall reinforcement",
+      "Column and wrapped-surface reinforcement",
+      "Directional composite laminate buildup",
+      "Composite repair subject to system review",
+      "Pultrusion feed reinforcement subject to process review",
+    ],
+    specifications: [
+      ["200gsm reference", "TCU20 source record; 0°; 200 g/m²; 0.111 mm nominal dry-fiber thickness; black"],
+      ["200gsm missing fields", "Width, roll length, fiber grade, sizing and usable mechanical values require current order documents"],
+      ["300gsm reference", "FRPH-UD300; 0°; 300 g/m²; 0.167 mm nominal dry-fabric thickness"],
+      ["300gsm width", "100-500 mm available-width reference; selected width and tolerance by quotation"],
+      ["Fiber grade", "Exact grade and sizing by confirmed order; do not infer T300 or T700 from gsm"],
+      ["System properties", "Confirm resin, cure, laminate design, substrate and test method"],
+      ["Design boundary", "Dry-fabric references are not cured-laminate or project design allowables"],
+    ],
+    recommendedProducts: ["carbon-fiber-ud-fabric", "structural-strengthening-system"],
+    rfqInformation: [
+      "Engineer-selected areal weight and strengthening layout",
+      "Primary fiber direction and laminate schedule",
+      "Selected width, width tolerance and roll length",
+      "Secondary yarn, backing or handling requirement",
+      "Exact fiber grade and sizing",
+      "Saturating resin and installation method",
+      "Substrate, environment and project test basis",
+      "Trial and production quantity",
+      "Required TDS, COA, traceability or batch fields",
+      "Destination country and project location",
+      "Final application",
+      "Qualified design and installation responsibility",
+    ],
+    faqs: [
+      {
+        question: "Is 300gsm UD carbon fabric always stronger than 200gsm fabric?",
+        answer:
+          "No universal strength conclusion can be made from areal weight alone. Finished-system performance depends on fiber grade, resin, impregnation, laminate schedule, substrate, installation quality and the applicable test method.",
+      },
+      {
+        question: "Can 0.111 mm and 0.167 mm be used as cured laminate thicknesses?",
+        answer:
+          "No. Both values are nominal dry-material references. Cured thickness depends on resin content, compaction, laminate schedule and installation or manufacturing process.",
+      },
+      {
+        question: "Does the 200gsm supply reference confirm a current product width?",
+        answer:
+          "No. The archived source record does not state width or roll length. Current source, usable width, tolerance, roll format and availability must be confirmed in the quotation and order documents.",
+      },
+      {
+        question: "Does the 300gsm TDS guarantee T300 or T700 fiber?",
+        answer:
+          "No. The TDS states that the exact fiber grade and sizing are confirmed by order. T300, T700 or another grade may be reviewed, but gsm does not identify the fiber grade.",
+      },
+      {
+        question: "What should a strengthening RFQ include?",
+        answer:
+          "Include the engineer-selected areal weight, direction, width, roll length, backing, fiber grade, sizing, resin system, substrate, laminate or overlap plan, quantity, documents, destination and final application.",
+      },
+    ],
+    publishedAt: "2026-07-27",
+    reviewedAt: "2026-07-27",
+    sources: [
+      {
+        title: "200gsm UD Carbon Fiber Strengthening Fabric Supply Reference",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+      },
+      {
+        title: "300gsm UD Carbon Fiber Fabric TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
+      },
+      {
+        title: "UD Carbon Fiber Fabric",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/carbon-fiber-ud-fabric",
+      },
+    ],
+  },
+  {
     slug: "1-2-mm-pultruded-cfrp-strengthening-plate-rfq-guide",
     title: "1.2 mm Pultruded CFRP Strengthening Plate RFQ Guide",
     description:
