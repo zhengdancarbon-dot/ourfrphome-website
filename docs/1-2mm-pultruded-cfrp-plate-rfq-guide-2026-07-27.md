@@ -79,4 +79,11 @@ It explicitly distinguishes pultruded strengthening plate from a 3K twill lamina
 
 ## Release Status
 
-Local implementation and QA are complete. Production is unchanged. A Vercel Preview is required before any production release.
+Local implementation and QA are complete. Production is unchanged.
+
+- Vercel target: `preview`.
+- Preview status: `Ready`.
+- Preview URL: `https://ourfrphome-website-lt2s4orl5-zhendgan.vercel.app`.
+- Deployment ID: `dpl_9DmqFzQAVpj8bpdJWqRmKyE5pYfc`.
+- Vercel build: completed successfully and generated 218 pages.
+- Production deployment: not performed.
