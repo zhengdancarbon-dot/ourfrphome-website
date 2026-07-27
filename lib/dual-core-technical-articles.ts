@@ -3,6 +3,7 @@ import type { TechnicalArticle } from "@/lib/technical-articles";
 const publishedAt = "2026-07-17";
 const reviewedAt = "2026-07-22";
 const ncfSelectionReviewedAt = "2026-07-27";
+const ncfArchitectureReviewedAt = "2026-07-27";
 
 const ncfSources = [
   {
@@ -14,6 +15,15 @@ const ncfSources = [
     title: "600gsm +45°/-45° Biaxial Carbon NCF TDS",
     publisher: "FRP HOME",
     url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
+  },
+];
+
+const ncfArchitectureSources = [
+  ...ncfSources,
+  {
+    title: "400gsm 0/+45/90/-45 Quadraxial Carbon NCF Supply Reference",
+    publisher: "FRP HOME",
+    url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-400gsm-Quadraxial-Carbon-NCF-Supply-TDS.pdf",
   },
 ];
 
@@ -138,14 +148,14 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
     title: "Biaxial vs Triaxial vs Quadriaxial Carbon NCF",
     description: "Compare biaxial, triaxial and quadriaxial carbon NCF architectures by fiber direction, laminate planning and RFQ requirements.",
     image: "/images/products/carbon-fiber-multiaxial-ncf-fabric.webp",
-    quickAnswer: "Biaxial NCF combines two directions, triaxial combines three, and quadriaxial combines four. The correct format follows the required load paths and laminate schedule; more directions are not automatically better.",
-    definition: "NCF architecture describes how several directional carbon layers are assembled and stitched. Common direction sets include 0°/90°, +45°/-45°, 0°/+45°/-45° and 0°/+45°/90°/-45°, but every order must state its exact construction.",
+    quickAnswer: "Biaxial NCF combines two directions, triaxial combines three, and quadriaxial combines four. The documented FRP HOME supply references include 300gsm and 600gsm biaxial constructions plus a supplier-origin quadraxial record with four 100 g/m2 12K layers at 0/+45/90/-45, 8 g/m2 polyester stitching and 408 g/m2 total dry-fabric weight. The correct format still follows the required load paths and laminate schedule; more directions are not automatically better.",
+    definition: "NCF architecture describes how several directional carbon layers are assembled and stitched. Common direction sets include 0°/90°, +45°/-45°, 0°/+45°/-45° and 0°/+45°/90°/-45°. The documented quadraxial source record uses the final four-direction set, but every order must state the exact layer order, mass distribution, fiber source, stitch and roll format.",
     comparison: {
       columns: ["Architecture", "Direction example", "Procurement consideration"],
       rows: [
         ["Biaxial", "0°/90° or +45°/-45°", "Two-direction reinforcement and straightforward ply planning"],
         ["Triaxial", "0°/+45°/-45°", "Three-direction reinforcement in one stitched construction"],
-        ["Quadriaxial", "0°/+45°/90°/-45°", "Four-direction reinforcement and a heavier combined layer"],
+        ["Quadriaxial", "0°/+45°/90°/-45°", "Source record: four 100 g/m2 12K layers plus 8 g/m2 stitch; confirm final source and order"],
         ["Custom NCF", "Project-defined", "Requires complete layer and mass distribution details"],
       ],
     },
@@ -153,19 +163,22 @@ export const dualCoreTechnicalArticles: TechnicalArticle[] = [
       "Use the laminate engineer's load directions as the starting point.",
       "Compare combined-layer handling against the flexibility of separate plies.",
       "Confirm total gsm and the mass allocated to each direction.",
+      "For the documented quadraxial supply reference, confirm 12K standard-modulus source fiber, 800 tex, four 100 g/m2 layers, 78 dtex polyester stitch and 408 g/m2 total dry weight.",
+      "Treat the 1270 mm +/- 5 mm width and 25.72 kg / 50 m roll as source-reference values that require order confirmation.",
       "Validate drape, compaction and resin flow on representative geometry.",
     ],
     applications: ["Multidirectional panels", "Large composite structures", "Automotive CFRP", "Industrial shells", "Vacuum infusion and RTM"],
-    specifications: [["Directions", "Project-defined 0° / 90° / +45° / -45°"], ["Construction", "Biaxial / triaxial / quadriaxial"], ["Order controls", "Layer mass / stitch / width / roll / resin process"]],
+    specifications: [["Directions", "Project-defined 0° / 90° / +45° / -45°"], ["Construction", "Biaxial / triaxial / quadriaxial"], ["Quadraxial source reference", "0/+45/90/-45; 400 g/m2 carbon; 408 g/m2 total dry fabric"], ["Quadraxial roll reference", "1270 mm +/- 5 mm x 50 m; 25.72 kg"], ["Order controls", "Layer mass / fiber source / stitch / width / roll / resin process"]],
     recommendedProducts: ["carbon-fiber-multiaxial-ncf-fabric", "carbon-fiber-ud-fabric"],
-    rfqInformation: ["Architecture", "Direction set", "Mass by layer", "Total gsm", "Width", "Roll length", "Stitch", "Process", "Quantity"],
+    rfqInformation: ["Architecture", "Layer order and direction set", "Mass by layer", "Carbon and total dry gsm", "Fiber grade and sizing", "Width", "Roll length and core", "Stitch", "Process", "Packing", "Quantity", "Destination and final application"],
     faqs: [
       { question: "Is quadriaxial NCF always more efficient than biaxial NCF?", answer: "No. Efficiency depends on required load directions, ply schedule, drape, process and part geometry." },
       { question: "Can the direction order be customized?", answer: "Project-defined constructions can be reviewed when the layer sequence, mass distribution, width, volume and process are provided." },
+      { question: "Is the 400gsm quadraxial reference a batch certificate?", answer: "No. It is a supplier-origin construction reference for 0/+45/90/-45 NCF. FRP HOME manufacture, source authorization, stock and batch availability are not implied; the final specification and batch documents must be confirmed with the order." },
     ],
     publishedAt,
-    reviewedAt,
-    sources: ncfSources,
+    reviewedAt: ncfArchitectureReviewedAt,
+    sources: ncfArchitectureSources,
   },
   {
     slug: "carbon-fiber-plate-thickness-selection-guide",

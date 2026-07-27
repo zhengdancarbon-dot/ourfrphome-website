@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { technicalArticles } from "@/lib/technical-articles";
 
 const productLastModified: Record<string, string> = {
-  "carbon-fiber-multiaxial-ncf-fabric": "2026-07-23",
+  "carbon-fiber-multiaxial-ncf-fabric": "2026-07-27",
   "3k-carbon-fiber-laminate-sheet": "2026-07-22",
   "carbon-fiber-yarn-and-tow": "2026-07-27",
   "carbon-fiber-woven-fabric": "2026-07-27",

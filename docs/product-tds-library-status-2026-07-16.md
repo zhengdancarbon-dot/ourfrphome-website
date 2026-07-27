@@ -17,7 +17,7 @@ Last updated: 2026-07-22
 | --- | --- | --- | --- |
 | Carbon Fiber Woven Fabric | 3K 200gsm Twill Carbon Fiber Fabric | `正旦碳布TDS/3k twill200g.pdf` | Published |
 | UD Carbon Fiber Fabric | 300gsm UD Carbon Fiber Fabric | `正旦碳布TDS/300g碳纤维单向布.pdf` | Published with unidentified system-level mechanical values excluded |
-| Carbon Fiber Multiaxial NCF Fabric | 300gsm Biaxial Carbon Fiber Fabric | User-provided `Haining_Zhengdan_300gsm_Biaxial_Carbon_Fabric_TDS.pdf` | Published |
+| Carbon Fiber Multiaxial NCF Fabric | 300gsm and 600gsm biaxial NCF; 400gsm quadraxial supply reference | User-provided biaxial files and `正旦碳布TDS/ZD_Quadraxial_Carbon_Fabric_TDS_400gsm_EN.pdf` | Published with the quadraxial file identified as a supplier-origin reference |
 | Carbon Fiber Yarn & Tow | High Strength 12K Carbon Fiber Tow | `正旦碳布TDS/TDS-ZDCF 55T-12K.pdf` | Published as supplier-origin supply reference |
 | Prepreg Carbon Fiber Materials | WP-L5100 Carbon Fiber Prepreg | `正旦碳布TDS/预浸/ZD_Carbon_Fiber_Prepreg_TDS.pdf` | Published with reference-value disclaimer |
 | Milled Carbon Fiber Powder | 300 Mesh Milled Carbon Fiber Powder | `正旦碳布TDS/Carbon_Fiber_Powder_TDS.pdf` | Published |
@@ -30,7 +30,7 @@ Last updated: 2026-07-22
 | --- | --- | --- |
 | Woven carbon fabric | 1K 80gsm, 3K 200/210/245/280gsm, 6K 300gsm, 12K 400/600gsm | Create specification-specific sheets after product/grade selection |
 | UD carbon fabric | TCU20/23/30/53/60/90/100 and company-standard files | Cross-check grade, width, test method and intended market before publishing |
-| Multiaxial NCF | 300gsm biaxial family and 600gsm +/-45 biaxial NCF published; 0/90 300gsm, +/-45 400gsm and quadriaxial 400gsm remain in review | Add the next requested construction only after its active specification is confirmed |
+| Multiaxial NCF | 300gsm biaxial family, 600gsm +/-45 biaxial NCF and a supplier-origin 400gsm quadraxial reference are published; 0/90 300gsm and +/-45 400gsm remain in review | Confirm active source, sample and order specification before representing any reference construction as available stock |
 | Prepreg | T300 woven, T800 UD300, UD200, 12K 600gsm and resin records | Confirm active resin system and storage/cure profile per offered grade |
 | Milled powder | 200 mesh, 300 mesh, 400-500 mesh and 600-800 mesh | Publish additional mesh grades after current commercial availability is confirmed |
 | Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | The reviewed ZCP1.2 source is now published only as a pultruded structural-strengthening plate TDS. A formal 3K laminate TDS remains blocked until matching fiber, resin, layup, tolerance and test-method records are provided. |

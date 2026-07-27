@@ -71,6 +71,16 @@ export const productDocuments: ProductDocument[] = [
     fileSize: "68 KB",
   },
   {
+    productSlug: "carbon-fiber-multiaxial-ncf-fabric",
+    type: "TDS",
+    title: "400gsm 0/+45/90/-45 Quadraxial Carbon NCF Supply Reference",
+    specification: "400 g/m² carbon basis, four 100 g/m² layers, 408 g/m² total dry fabric",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-400gsm-Quadraxial-Carbon-NCF-Supply-TDS.pdf",
+    fileSize: "68 KB",
+  },
+  {
     productSlug: "carbon-fiber-yarn-and-tow",
     type: "TDS",
     title: "High Strength 12K Carbon Fiber Tow",
