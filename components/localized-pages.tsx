@@ -42,6 +42,7 @@ import {
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
+import { technicalArticles } from "@/lib/technical-articles";
 
 type LocalizedPageProps = {
   locale: Exclude<Locale, "en">;
@@ -56,6 +57,57 @@ const tdsDownloadCopy: Record<Exclude<Locale, "en">, { title: string; note: stri
   ko: { title: "기술 문서 다운로드", note: "영문 기술 문서입니다. 견적 시 사양과 배치 문서를 확인해 주세요.", action: "TDS 다운로드" },
   pl: { title: "Dokumenty techniczne do pobrania", note: "Dokument techniczny w języku angielskim. Potwierdź specyfikację i dokumenty partii w zapytaniu.", action: "Pobierz TDS" },
   tr: { title: "İndirilebilir teknik belgeler", note: "Teknik belge İngilizcedir. Teklif sırasında spesifikasyonu ve parti belgelerini doğrulayın.", action: "TDS indir" },
+};
+
+const englishGuideCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: string; note: string; action: string }> = {
+  es: {
+    eyebrow: "Guías de compra",
+    title: "Guías técnicas relacionadas en inglés",
+    note: "Compare opciones y prepare una RFQ más completa. Los valores finales se confirman en la cotización y los documentos del producto.",
+    action: "Leer guía en inglés",
+  },
+  "pt-br": {
+    eyebrow: "Guias de compra",
+    title: "Guias técnicas relacionadas em inglês",
+    note: "Compare opções e prepare uma RFQ mais completa. Os valores finais são confirmados na cotação e nos documentos do produto.",
+    action: "Ler guia em inglês",
+  },
+  ru: {
+    eyebrow: "Руководства для закупки",
+    title: "Связанные технические руководства на английском языке",
+    note: "Сравните варианты и подготовьте более полный RFQ. Окончательные значения подтверждаются в предложении и документации на продукцию.",
+    action: "Открыть руководство на английском",
+  },
+  ar: {
+    eyebrow: "أدلة الشراء",
+    title: "أدلة فنية مرتبطة باللغة الإنجليزية",
+    note: "قارن الخيارات وجهز طلب عرض سعر أكثر اكتمالاً. يتم تأكيد القيم النهائية في عرض السعر ووثائق المنتج.",
+    action: "قراءة الدليل بالإنجليزية",
+  },
+  fr: {
+    eyebrow: "Guides d'achat",
+    title: "Guides techniques associés en anglais",
+    note: "Comparez les options et préparez une RFQ plus complète. Les valeurs finales sont confirmées dans l'offre et les documents produit.",
+    action: "Lire le guide en anglais",
+  },
+  ko: {
+    eyebrow: "구매 가이드",
+    title: "관련 영문 기술 가이드",
+    note: "옵션을 비교하고 더 완전한 RFQ를 준비하십시오. 최종 값은 견적서와 제품 문서에서 확인됩니다.",
+    action: "영문 가이드 보기",
+  },
+  pl: {
+    eyebrow: "Poradniki zakupowe",
+    title: "Powiązane poradniki techniczne w języku angielskim",
+    note: "Porównaj opcje i przygotuj pełniejsze RFQ. Wartości końcowe są potwierdzane w ofercie i dokumentacji produktu.",
+    action: "Przeczytaj poradnik po angielsku",
+  },
+  tr: {
+    eyebrow: "Satın alma rehberleri",
+    title: "İngilizce ilgili teknik rehberler",
+    note: "Seçenekleri karşılaştırın ve daha eksiksiz bir RFQ hazırlayın. Nihai değerler teklif ve ürün belgelerinde doğrulanır.",
+    action: "İngilizce rehberi oku",
+  },
 };
 
 const featuredProductSlugs = [
@@ -542,6 +594,18 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
     .slice(0, 4);
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const downloadableDocuments = getProductDocuments(product.slug);
+  const relatedGuides = featuredProductSlugs.includes(
+    product.slug as (typeof featuredProductSlugs)[number],
+  )
+    ? technicalArticles
+        .filter((article) => article.recommendedProducts.includes(product.slug))
+        .sort((a, b) =>
+          (b.reviewedAt ?? b.publishedAt ?? "").localeCompare(
+            a.reviewedAt ?? a.publishedAt ?? "",
+          ),
+        )
+        .slice(0, 3)
+    : [];
   const firstSpecTable = product.tds.tables[0];
   const inquiryHref = localizedLink(
     `/contact?product=${encodeURIComponent(product.name)}&message=${encodeURIComponent(
@@ -629,6 +693,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               [copy.common.applications, "#applications"],
               ["RFQ", "#rfq-info"],
               ...(downloadableDocuments.length > 0 ? [[copy.common.documents, "#documents"]] : []),
+              ...(relatedGuides.length > 0 ? [[englishGuideCopy[locale].eyebrow, "#technical-guides"]] : []),
               [copy.common.faq, "#faq"],
             ].map(([label, href]) => (
               <a href={href} key={href}>{label}</a>
@@ -759,6 +824,31 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                       </span>
                       <ArrowRight size={18} />
                     </a>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            {relatedGuides.length > 0 ? (
+              <section className="product-detail-card" id="technical-guides">
+                <SectionHeading
+                  eyebrow={englishGuideCopy[locale].eyebrow}
+                  title={englishGuideCopy[locale].title}
+                  copy={englishGuideCopy[locale].note}
+                />
+                <div className="application-detail-list">
+                  {relatedGuides.map((guide) => (
+                    <Link
+                      href={`/technical-center/${guide.slug}`}
+                      hrefLang="en"
+                      key={guide.slug}
+                    >
+                      <span>
+                        <strong>{guide.title}</strong>
+                        <small>{englishGuideCopy[locale].action}</small>
+                      </span>
+                      <ArrowRight size={17} />
+                    </Link>
                   ))}
                 </div>
               </section>

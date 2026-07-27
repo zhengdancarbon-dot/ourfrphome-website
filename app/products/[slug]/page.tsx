@@ -439,6 +439,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               ["How to Choose", "#how-to-choose"],
               ["RFQ Info", "#rfq-info"],
               ["Documents", "#documents"],
+              ...(relatedGuides.length > 0 ? [["Buyer guides", "#technical-guides"]] : []),
               ["FAQ", "#faq"],
             ].map(([label, href]) => (
               <a href={href} key={href}>{label}</a>
