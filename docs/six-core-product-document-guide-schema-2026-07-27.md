@@ -61,5 +61,12 @@ changing any public URL, page metadata, form behavior or visible design.
 ## Release Status
 
 The change is limited to structured entity relationships and audit coverage.
-Production remains unchanged pending explicit approval. Preview evidence will be
-recorded after the same-commit Preview is created.
+Production remains unchanged pending explicit approval.
+
+- Vercel Preview: `https://ourfrphome-website-78ofbwah1-zhendgan.vercel.app`
+- Deployment: `dpl_8ia6pWo5LYVKN1VkYuqHwA55r12a`
+- Vercel state: `READY`
+- Vercel build: passed TypeScript and generated all 219 routes.
+- Direct `vercel.app` access from the current execution network timed out after
+  20 seconds. No remote page-response result is inferred. The browser evidence
+  above comes from the same-commit local production build.
