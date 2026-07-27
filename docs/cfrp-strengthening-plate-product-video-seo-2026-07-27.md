@@ -52,4 +52,12 @@ This also corrected the existing Woven Fabric landscape video presentation witho
 
 ## Release Status
 
-Local implementation and verification are complete. Production is unchanged. A Vercel Preview will be created for review before any production deployment.
+Local implementation and verification are complete. Production is unchanged.
+
+- Preview URL: `https://ourfrphome-website-1yf70i6pn-zhendgan.vercel.app`
+- Deployment ID: `dpl_4xhNhtczjsscKQ3HzAomubb4rQhH`
+- Vercel target: Preview
+- Vercel status: Ready
+- Vercel build: completed in 37 seconds and generated 216 pages
+
+The current network may prevent reliable direct access to `vercel.app`, so the equivalent local production build supplied the full automated and responsive browser evidence. No production deployment was performed.
