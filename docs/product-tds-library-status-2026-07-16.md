@@ -1,6 +1,6 @@
 # FRP HOME Product TDS Library Status
 
-Last updated: 2026-07-22
+Last updated: 2026-07-27
 
 ## Publishing standard
 
@@ -16,7 +16,7 @@ Last updated: 2026-07-22
 | Product page | Published TDS | Local data basis | Status |
 | --- | --- | --- | --- |
 | Carbon Fiber Woven Fabric | 3K 200gsm Twill Carbon Fiber Fabric | `正旦碳布TDS/3k twill200g.pdf` | Published |
-| UD Carbon Fiber Fabric | 300gsm UD Carbon Fiber Fabric | `正旦碳布TDS/300g碳纤维单向布.pdf` | Published with unidentified system-level mechanical values excluded |
+| UD Carbon Fiber Fabric | 300gsm product TDS; 200gsm strengthening-fabric supply reference | `正旦碳布TDS/300g碳纤维单向布.pdf`; `正旦碳布TDS/TCU20 carbon fiber fabric - T300.pdf` | Published separately; the 200gsm file retains only readable construction fields and excludes damaged mechanical values, old approval language and unsupported current-source claims |
 | Carbon Fiber Multiaxial NCF Fabric | 300gsm and 600gsm biaxial NCF; 400gsm quadraxial supply reference | User-provided biaxial files and `正旦碳布TDS/ZD_Quadraxial_Carbon_Fabric_TDS_400gsm_EN.pdf` | Published with the quadraxial file identified as a supplier-origin reference |
 | Carbon Fiber Yarn & Tow | High Strength 12K Carbon Fiber Tow | `正旦碳布TDS/TDS-ZDCF 55T-12K.pdf` | Published as supplier-origin supply reference |
 | Prepreg Carbon Fiber Materials | WP-L5100 Carbon Fiber Prepreg | `正旦碳布TDS/预浸/ZD_Carbon_Fiber_Prepreg_TDS.pdf` | Published with reference-value disclaimer |
@@ -35,7 +35,7 @@ Last updated: 2026-07-22
 | Milled powder | 200 mesh, 300 mesh, 400-500 mesh and 600-800 mesh | Publish additional mesh grades after current commercial availability is confirmed |
 | Carbon plates | 1.2/1.4/1.5/3.0/5.0 mm source sheets and test records | The reviewed ZCP1.2 source is now published only as a pultruded structural-strengthening plate TDS. A formal 3K laminate TDS remains blocked until matching fiber, resin, layup, tolerance and test-method records are provided. |
 | Carbon sleeves | 3K and 12K sleeves in multiple diameters | Confirm braid angle, diameter tolerance and roll/package format |
-| Structural strengthening | 300gsm UD fabric and ZCP1.2 pultruded plate TDS files published; mesh, resin and anchor records remain available for review | Build any combined system document only after component compatibility is reviewed |
+| Structural strengthening | 200gsm UD supply reference, 300gsm UD product TDS and ZCP1.2 pultruded plate TDS published; resin and anchor records remain available for review | Build any combined system document only after component compatibility is reviewed |
 | Aramid / honeycomb | Aramid honeycomb source TDS | Confirm product is actively supplied and identify material grade |
 | Custom parts / tubes | Carbon tube reference and plate records | Create drawing-specific inspection sheets rather than generic guaranteed values |
 

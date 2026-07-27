@@ -308,11 +308,11 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Refuerzo unidireccional con la mayoría de fibras orientadas en una dirección para resistencia y rigidez controladas.",
       heroCopy:
-        "Para cotizar, indique grado de fibra, g/m², ancho, dirección, proceso de resina, cantidad, uso final y país de destino. La página ofrece un TDS en inglés para el producto UD de 300gsm.",
+        "Para cotizar, indique grado de fibra, g/m², ancho, dirección, proceso de resina, cantidad, uso final y país de destino. La página ofrece un TDS en inglés para 300gsm y una referencia de suministro de origen heredado para tejido de refuerzo 200gsm.",
       seo: {
         title: "Tejido UD de fibra de carbono | Refuerzo unidireccional",
         description:
-          "Tejido UD de carbono con producto de 300 g/m² documentado y otras construcciones bajo revisión para laminados y refuerzo estructural.",
+          "Tejido UD de carbono con referencias documentadas de 200 g/m² y 300 g/m² para laminados y refuerzo estructural; especificación final por pedido.",
       },
       intro: [
         "El tejido UD coloca la mayor parte de la fibra en una dirección para reforzar la trayectoria principal de carga.",
@@ -321,8 +321,8 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       applications: ["Refuerzo de concreto", "Pultrusión", "Reparación compuesta", "Laminados direccionales", "Componentes deportivos"],
       faqs: [
         {
-          question: "¿Hay un TDS para tejido UD de 300gsm?",
-          answer: "Sí. La página ofrece un TDS en inglés para el producto UD de 300gsm. La especificación definitiva debe confirmarse para el pedido y el lote.",
+          question: "¿Qué documentos están disponibles para tejido UD de 200gsm y 300gsm?",
+          answer: "La página ofrece un TDS en inglés para el producto UD de 300gsm y una referencia de suministro basada en un registro heredado para tejido de refuerzo 200gsm. La fuente actual, el grado, el sizing, el ancho, el rollo y los documentos de lote deben confirmarse para el pedido.",
         },
         {
           question: "¿Cuál es la diferencia entre UD y woven?",
@@ -625,11 +625,11 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       description:
         "Reforço unidirecional com a maioria das fibras orientadas em uma direção para resistência e rigidez controladas.",
       heroCopy:
-        "Para cotação, informe grau da fibra, g/m², largura, direção, processo de resina, quantidade, uso final e país de destino. A página oferece um TDS em inglês para o produto UD de 300gsm.",
+        "Para cotação, informe grau da fibra, g/m², largura, direção, processo de resina, quantidade, uso final e país de destino. A página oferece um TDS em inglês para 300gsm e uma referência de fornecimento de origem legada para tecido de reforço 200gsm.",
       seo: {
         title: "Tecido UD de fibra de carbono | Reforço unidirecional",
         description:
-          "Tecido UD de carbono com produto de 300 g/m² documentado e outras construções sob análise para laminados e reforço estrutural.",
+          "Tecido UD de carbono com referências documentadas de 200 g/m² e 300 g/m² para laminados e reforço estrutural; especificação final por pedido.",
       },
       intro: [
         "O tecido UD coloca a maior parte da fibra em uma direção para reforçar a principal trajetória de carga.",
@@ -638,8 +638,8 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
       applications: ["Reforço de concreto", "Pultrusão", "Reparo compósito", "Laminados direcionais", "Componentes esportivos"],
       faqs: [
         {
-          question: "Existe TDS para tecido UD de 300gsm?",
-          answer: "Sim. A página oferece um TDS em inglês para o produto UD de 300gsm. A especificação final deve ser confirmada para o pedido e o lote.",
+          question: "Quais documentos estão disponíveis para tecido UD de 200gsm e 300gsm?",
+          answer: "A página oferece um TDS em inglês para o produto UD de 300gsm e uma referência de fornecimento baseada em registro legado para tecido de reforço 200gsm. Fonte atual, grau, sizing, largura, rolo e documentos de lote devem ser confirmados para o pedido.",
         },
         {
           question: "Qual é a diferença entre UD e woven?",
@@ -1028,8 +1028,8 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         { name: "Resina epoxi estructural", href: "/products/structural-strengthening-system", note: "Bonding e impregnación por proyecto." },
       ],
       commonSpecifications: [
-        ["Tejido UD documentado", "300 g/m²; otras construcciones bajo revisión"],
-        ["Ancho tejido UD", "100-500 mm documentado para 300 g/m²"],
+        ["Referencias UD documentadas", "200 g/m² para refuerzo; TDS de producto 300 g/m²"],
+        ["Ancho UD documentado", "100-500 mm para el producto 300 g/m²; 200 g/m² según cotización"],
         ["Placa CFRP documentada", "1.2 mm; ancho y longitud según cotización"],
       ],
       selectionGuide: [
@@ -1203,8 +1203,8 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         { name: "Resina epóxi estrutural", href: "/products/structural-strengthening-system", note: "Colagem e impregnação por projeto." },
       ],
       commonSpecifications: [
-        ["Tecido UD documentado", "300 g/m²; outras construções sob análise"],
-        ["Largura do tecido UD", "100-500 mm documentado para 300 g/m²"],
+        ["Referências UD documentadas", "200 g/m² para reforço; TDS de produto 300 g/m²"],
+        ["Largura UD documentada", "100-500 mm para o produto 300 g/m²; 200 g/m² conforme cotação"],
         ["Placa CFRP documentada", "1.2 mm; largura e comprimento conforme cotação"],
       ],
       selectionGuide: [

@@ -82,17 +82,17 @@ export const productCatalog: ProductCatalogItem[] = [
     },
     specs: [
       { label: "Fiber direction", value: "0 degree unidirectional" },
-      { label: "Documented areal weight", value: "300 g/m²" },
-      { label: "Documented width", value: "100-500 mm" },
+      { label: "Published references", value: "200 g/m² strengthening supply reference; 300 g/m² product TDS" },
+      { label: "Documented width", value: "100-500 mm for the 300 g/m² product" },
       { label: "Other constructions", value: "By project specification and matching document review" },
     ],
     intro: [
       "Carbon Fiber UD Fabric places most of the carbon fiber in one principal direction, allowing engineers to build tensile strength and stiffness exactly where the laminate or reinforcement system needs it.",
       "The material is suitable for CFRP strengthening, pultruded profiles, directional reinforcement strips, fishing rod components, sports goods and other components where directional performance is more important than a balanced woven appearance.",
-      "FRP HOME publishes a TDS for a 300 g/m² UD fabric in 100-500 mm widths. Other weights, widths and fiber constructions require matching product records and order confirmation.",
+      "FRP HOME publishes a product TDS for a 300 g/m² UD fabric in 100-500 mm widths and a separately labeled legacy-source supply reference for a 200 g/m² strengthening fabric. Other weights, widths and fiber constructions require matching product records and order confirmation.",
     ],
     highlights: [
-      { label: "Published fabric", value: "300 g/m² UD carbon fabric" },
+      { label: "Published fabric references", value: "200 g/m² strengthening / 300 g/m² general UD" },
       { label: "Published width", value: "100-500 mm" },
       { label: "Resin process", value: "Epoxy wet layup, pultrusion, lamination" },
       { label: "Supply form", value: "Rolls, slit rolls, export cartons or pallets" },
@@ -109,12 +109,13 @@ export const productCatalog: ProductCatalogItem[] = [
       codePrefix: "FRPH-UD",
       revision: "Rev. 2026-06",
       note:
-        "The 300 g/m² row below is supported by the published FRP HOME TDS. Other constructions remain quotation items until matching product data are confirmed.",
+        "The 300 g/m² row is supported by a product TDS. The 200 g/m² row is a clearly labeled legacy-source supply reference with narrower evidence. Other constructions remain quotation items until matching product data are confirmed.",
       tables: [
         {
           title: "Documented and order-review UD fabric scope",
           columns: ["Product / inquiry", "Areal weight", "Width", "Fiber direction", "Thickness / status", "Order review"],
           rows: [
+            ["FRPH-UD200-SUPPLY", "200 g/m²", "By quotation", "0°", "0.111 mm nominal dry-fiber reference", "Confirm current source, grade, sizing, width, roll and batch documents"],
             ["FRPH-UD300", "300 g/m²", "100-500 mm", "0°", "0.167 mm nominal / published TDS", "Confirm grade, sizing, roll and batch documents"],
             ["Other UD construction", "By project specification", "By project specification", "Project-defined", "Matching product data required", "Technical and commercial review"],
           ],
@@ -685,7 +686,7 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "CFRP Strengthening System | UD Fabric & Plate",
       description:
-        "CFRP strengthening system supplier for 300gsm UD carbon fabric, pultruded plates and epoxy resin for concrete, bridge and building reinforcement.",
+        "CFRP strengthening system supplier with documented 200gsm and 300gsm UD fabric references, pultruded plates and epoxy review for civil reinforcement.",
       keywords: [
         ...commonKeywords,
         "pultruded carbon fiber plate",
@@ -695,7 +696,7 @@ export const productCatalog: ProductCatalogItem[] = [
       ],
     },
     specs: [
-      { label: "UD fabric", value: "300 g/m² documented; other constructions by project review" },
+      { label: "UD fabric", value: "200 g/m² supply reference; 300 g/m² product TDS" },
       { label: "CFRP plate", value: "1.2 mm documented; width and length by quotation" },
       { label: "Epoxy resin", value: "Primer / saturant / plate adhesive by project" },
       { label: "Structure type", value: "Concrete / steel / masonry / bridge / building" },
@@ -704,11 +705,11 @@ export const productCatalog: ProductCatalogItem[] = [
       "Carbon Fiber Structural Strengthening System is designed for externally bonded reinforcement of concrete, masonry, timber and steel structures when used with compatible structural epoxy materials.",
       "UD carbon fiber fabric provides surface bonding and directional reinforcement for beams, slabs, columns and walls. Pultruded CFRP plate or laminate provides high-strength linear reinforcement for bridges, beams and strengthening projects.",
       "Structural epoxy resin is used as bonding and impregnation resin with carbon fabric or CFRP plate according to the selected strengthening method.",
-      "FRP HOME publishes source-reviewed data for a 1.2 mm pultruded CFRP strengthening plate. Other dimensions require quotation and document review. Engineering design, substrate evaluation and adhesive selection remain the responsibility of the project engineer.",
+      "FRP HOME publishes a legacy-source 200 g/m² strengthening-fabric supply reference, a 300 g/m² UD product TDS and source-reviewed data for a 1.2 mm pultruded CFRP strengthening plate. Final material selection, dimensions, substrate evaluation and adhesive compatibility remain subject to quotation and qualified engineering review.",
     ],
     highlights: [
+      { label: "Published UD references", value: "200 g/m² and 300 g/m²" },
       { label: "Published plate", value: "1.2 mm pultruded CFRP strengthening plate" },
-      { label: "Width", value: "Confirmed in the quotation" },
       { label: "Length", value: "Confirmed in the quotation" },
       { label: "System use", value: "Externally bonded reinforcement with epoxy adhesive" },
     ],

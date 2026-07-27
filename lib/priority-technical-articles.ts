@@ -155,7 +155,8 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       "Civil engineering distribution",
     ],
     specifications: [
-      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Documented UD references", "200 g/m² strengthening supply reference; 300 g/m² product TDS"],
+      ["Documented 300 g/m² width", "100-500 mm"],
       ["Other UD construction", "By project specification and matching document review"],
       ["Plate reference", "Width, thickness and length by selected product TDS and quotation"],
       ["Epoxy", "Primer / saturant / plate adhesive by approved project system"],
@@ -198,8 +199,13 @@ export const priorityTechnicalArticles: TechnicalArticle[] = [
       },
     ],
     publishedAt,
-    reviewedAt: publishedAt,
+    reviewedAt: "2026-07-27",
     sources: [
+      {
+        title: "200gsm UD Carbon Fiber Strengthening Fabric Supply Reference",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+      },
       {
         title: "300gsm UD Carbon Fiber Fabric for Structural Strengthening TDS",
         publisher: "FRP HOME",

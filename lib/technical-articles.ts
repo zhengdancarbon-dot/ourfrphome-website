@@ -676,15 +676,15 @@ export const technicalArticles: TechnicalArticle[] = [
       "Compare pultruded CFRP plates and UD carbon fiber fabric for concrete, bridge and building strengthening systems.",
     image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
     quickAnswer:
-      "Use pultruded CFRP plate when the approved strengthening design calls for a narrow, dimension-controlled laminate strip. Use UD carbon fiber fabric when the design requires directional reinforcement over broader, curved or wrapped surfaces. FRP HOME's published references cover a 1.2 mm pultruded plate and a 300 g/m² UD fabric; neither document replaces structural design or approval of the complete adhesive system.",
+      "Use pultruded CFRP plate when the approved strengthening design calls for a narrow, dimension-controlled laminate strip. Use UD carbon fiber fabric when the design requires directional reinforcement over broader, curved or wrapped surfaces. FRP HOME's published references cover a 1.2 mm pultruded plate, a 300 g/m² UD product TDS and a narrower legacy-source 200 g/m² strengthening-fabric supply reference; none replaces structural design or approval of the complete adhesive system.",
     definition:
       "Pultruded CFRP strengthening plate is a cured, dimensioned laminate used as an externally bonded system component. UD carbon fiber fabric is a dry reinforcement that places most fibers in one direction and must be impregnated or bonded with an approved resin system. They are different material forms with different RFQ fields, installation controls and engineering responsibilities.",
     comparison: {
       columns: ["Item", "CFRP plate", "UD carbon fiber fabric"],
       rows: [
-        ["Published FRP HOME reference", "FRPH-CFRP-PLATE-1.2; source model ZCP1.2", "FRPH-UD300"],
+        ["Published FRP HOME reference", "FRPH-CFRP-PLATE-1.2; source model ZCP1.2", "FRPH-UD300 product TDS; FRPH-UD200-SUPPLY legacy-source reference"],
         ["Supplied form", "Pultruded, cured CFRP laminate strip", "Dry unidirectional carbon reinforcement roll"],
-        ["Documented size basis", "1.2 mm nominal thickness; width, length and tolerances by quotation", "300 g/m²; 0.167 mm nominal dry-fabric thickness; 100-500 mm width"],
+        ["Documented size basis", "1.2 mm nominal thickness; width, length and tolerances by quotation", "300 g/m²: 0.167 mm nominal and 100-500 mm width; 200 g/m² source reference: 0.111 mm nominal, width by quotation"],
         ["Geometry", "Linear strip reinforcement", "Broad, curved or wrapped surface reinforcement"],
         ["Bonding route", "Compatible structural plate adhesive", "Compatible saturating or bonding resin system"],
         ["RFQ focus", "Width, length, thickness tolerance, bonding surface and adhesive", "Areal weight, width, roll length, direction, backing and resin"],
@@ -709,7 +709,8 @@ export const technicalArticles: TechnicalArticle[] = [
       ["Documented CFRP plate", "1.2 mm nominal pultruded plate; width, length and tolerances by quotation"],
       ["Plate source-model values", "2620 MPa tensile strength, 165 GPa modulus, 1.7% elongation, >68% fiber volume and 1.6 g/cm³ density; typical source values with test methods not stated"],
       ["Plate design status", "Source-model values are not project design allowables or batch values"],
-      ["Documented UD fabric", "300 g/m², 0 degree UD, 0.167 mm nominal dry-fabric thickness and 100-500 mm width"],
+      ["Documented 300 g/m² UD fabric", "0 degree UD, 0.167 mm nominal dry-fabric thickness and 100-500 mm width"],
+      ["200 g/m² strengthening supply reference", "0 degree UD, 0.111 mm nominal dry-fiber thickness; width, grade, sizing and current source by quotation"],
       ["UD fiber grade", "T300 / T700 or alternate grade by confirmed order and matching document review"],
       ["UD performance status", "System-dependent; confirm fiber, resin, cure and test method"],
     ],
@@ -748,6 +749,11 @@ export const technicalArticles: TechnicalArticle[] = [
           "No. It is the nominal dry-fabric reference in the current TDS. Cured laminate thickness depends on fabric construction, resin content, compaction, ply count and processing.",
       },
       {
+        question: "Is the 200gsm strengthening-fabric supply reference a current batch certificate?",
+        answer:
+          "No. It is derived from a legacy TCU20 source record and retains only clearly readable construction fields. Current source, fiber grade, sizing, width, roll, resin compatibility and batch documentation must be confirmed before quotation and project approval.",
+      },
+      {
         question: "Can the same epoxy be used for both UD fabric and pultruded plate?",
         answer:
           "Do not assume so. UD fabric generally requires a suitable saturating or bonding resin, while plate installation requires a compatible structural adhesive. The complete system must be approved for the substrate, environment and installation method.",
@@ -755,6 +761,11 @@ export const technicalArticles: TechnicalArticle[] = [
     ],
     reviewedAt: "2026-07-27",
     sources: [
+      {
+        title: "200gsm UD Carbon Fiber Strengthening Fabric Supply Reference",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+      },
       {
         title: "300gsm UD Carbon Fiber Fabric TDS",
         publisher: "FRP HOME",

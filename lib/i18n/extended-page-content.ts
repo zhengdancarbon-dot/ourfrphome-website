@@ -104,7 +104,7 @@ const packs: Record<ExtendedLocale, Pack> = {
 const productDefinitions: Record<ProductSlug, { category: keyof Pack["categories"]; focus: string; apps: Array<keyof Pack["applications"]> }> = {
   "carbon-fiber-woven-fabric": { category: "woven", focus: "1K / 3K / 6K / 12K, plain / twill, g/m2, width", apps: ["panels", "automotive", "sports", "civilDrone"] },
   "spread-tow-carbon-fiber-fabric": { category: "spread", focus: "8x8mm / 10x10mm, tow, g/m2, width", apps: ["panels", "automotive", "sports"] },
-  "carbon-fiber-ud-fabric": { category: "ud", focus: "300 g/m2 documented, width, fiber direction, other constructions by review", apps: ["pultrusion", "concrete", "infusion"] },
+  "carbon-fiber-ud-fabric": { category: "ud", focus: "documented 200 and 300 g/m2 references, width, fiber direction, other constructions by review", apps: ["pultrusion", "concrete", "infusion"] },
   "carbon-fiber-yarn-and-tow": { category: "yarn", focus: "1K / 3K / 6K / 12K / 24K / 50K, T300 / T700, sizing", apps: ["pultrusion", "infusion", "molding"] },
   "prepreg-carbon-fiber-materials": { category: "prepreg", focus: "woven / UD / spread tow, resin content, cure profile", apps: ["automotive", "sports", "molding"] },
   "chopped-carbon-fiber": { category: "chopped", focus: "3 mm / 6 mm / 12 mm, sizing, matrix", apps: ["plastics", "automotive"] },
@@ -259,17 +259,17 @@ const russianPriorityProductCopy: Partial<Record<ProductSlug, DualCoreCopy>> = {
   },
   "carbon-fiber-ud-fabric": {
     description: "Однонаправленная углеродная ткань UD для направленного армирования композитов и систем усиления; доступность массы, ширины и марки волокна подтверждается по запросу.",
-    heroCopy: "Для предложения укажите марку волокна, поверхностную плотность, ширину, направление волокон, смоляной процесс, количество, конечное применение и страну назначения. Для 300gsm доступен проверенный TDS.",
-    seoDescription: "Поставщик однонаправленной углеродной ткани UD, включая 300gsm для композитов и конструкционного усиления; ширина и спецификация по запросу.",
+    heroCopy: "Для предложения укажите марку волокна, поверхностную плотность, ширину, направление волокон, смоляной процесс, количество, конечное применение и страну назначения. Доступны TDS для 300gsm и отдельная справочная запись поставки для ткани усиления 200gsm на основе архивного источника.",
+    seoDescription: "Поставщик однонаправленной углеродной ткани UD с документированными справочными данными 200gsm и 300gsm для композитов и конструкционного усиления.",
     intro: ["Ткань UD концентрирует основную часть волокон в одном направлении и выбирается по направлению расчетной нагрузки и процессу.", "Значения для конкретного заказа подтверждаются по TDS, партии, ширине, смоляной системе и конечному применению."],
-    faqs: [{ question: "Есть ли TDS для ткани UD 300gsm?", answer: "Да. На странице доступен TDS для ткани UD 300gsm. Окончательная спецификация подтверждается для заказа и партии." }, { question: "Подходит ли любая ткань UD для усиления конструкций?", answer: "Нет. Для системы усиления необходимо проверить ткань, совместимую эпоксидную смолу, основание, расчетную схему и применимые нормы. Проект и способ монтажа должны быть подтверждены квалифицированным инженером." }, { question: "Что указать в запросе?", answer: "Укажите марку волокна, g/m², ширину, направление волокон, смоляной процесс, количество, проект и страну назначения." }],
+    faqs: [{ question: "Какие документы доступны для ткани UD 200gsm и 300gsm?", answer: "На странице доступны TDS продукта UD 300gsm и справочная запись поставки ткани усиления 200gsm на основе архивного источника. Текущий источник, марка, аппрет, ширина, рулон и документы партии подтверждаются для заказа." }, { question: "Подходит ли любая ткань UD для усиления конструкций?", answer: "Нет. Для системы усиления необходимо проверить ткань, совместимую эпоксидную смолу, основание, расчетную схему и применимые нормы. Проект и способ монтажа должны быть подтверждены квалифицированным инженером." }, { question: "Что указать в запросе?", answer: "Укажите марку волокна, g/m², ширину, направление волокон, смоляной процесс, количество, проект и страну назначения." }],
   },
   "structural-strengthening-system": {
     description: "Система конструкционного усиления CFRP включает однонаправленную углеродную ткань UD, пултрузионные углепластиковые ламели и совместимую эпоксидную смолу для гражданских проектов усиления.",
     heroCopy: "Материал выбирается по проектной схеме, основанию, требуемому направлению усиления, размерам ламели или плотности ткани, эпоксидной системе и требованиям квалифицированного инженера.",
     seoDescription: "Поставщик ткани UD, пултрузионных углепластиковых ламелей CFRP и эпоксидной смолы для усиления бетона, мостов и зданий.",
     intro: ["Ткань UD подходит для адаптации к поверхности и направленного усиления, а пултрузионная ламель CFRP используется как готовый жесткий элемент системы.", "Проектные нагрузки, подготовка основания, расчет, монтаж и приемка определяются квалифицированным инженером и применимыми нормами."],
-    faqs: [{ question: "Когда выбирать ткань UD, а когда ламель CFRP?", answer: "Выбор зависит от геометрии, основания, направления нагрузки, проектной схемы и способа монтажа. Решение должен подтвердить квалифицированный инженер." }, { question: "Какие проверенные TDS доступны для системы усиления?", answer: "На странице доступны TDS для углеродной ткани UD 300gsm и пултрузионной ламели CFRP толщиной 1.2 мм. Документы отражают только указанные исходные данные; окончательный выбор материала, расчет и монтаж проверяются для конкретного проекта." }, { question: "Какие данные нужны для предложения?", answer: "Укажите тип сооружения, основание, проектную площадь, ткань или ламель, размеры, эпоксидную систему, количество, страну назначения и доступные проектные документы." }],
+    faqs: [{ question: "Когда выбирать ткань UD, а когда ламель CFRP?", answer: "Выбор зависит от геометрии, основания, направления нагрузки, проектной схемы и способа монтажа. Решение должен подтвердить квалифицированный инженер." }, { question: "Какие документы доступны для системы усиления?", answer: "На странице доступны TDS ткани UD 300gsm, архивная справочная запись поставки ткани усиления 200gsm и TDS пултрузионной ламели CFRP 1.2 мм. Данные применяются только к указанным документам; выбор, расчет и монтаж проверяются для проекта." }, { question: "Какие данные нужны для предложения?", answer: "Укажите тип сооружения, основание, проектную площадь, ткань или ламель, размеры, эпоксидную систему, количество, страну назначения и доступные проектные документы." }],
   },
   "carbon-fiber-woven-fabric": {
     description: "Ткань из углеродного волокна в полотняном и саржевом переплетении для сухой укладки, инфузии, формования и видимых поверхностей CFRP.",
@@ -315,11 +315,11 @@ const additionalPriorityProductCopy: Record<
     },
     "carbon-fiber-ud-fabric": {
       description: "نسيج ألياف كربون أحادي الاتجاه UD للتقوية الاتجاهية في المواد المركبة وأنظمة التقوية الإنشائية، مع مراجعة الوزن السطحي والعرض ودرجة الليف لكل طلب.",
-      heroCopy: "لطلب السعر، حدد درجة الليف وg/m² والعرض واتجاه الألياف وعملية الراتنج والكمية والاستخدام النهائي ودولة الوجهة. يتوفر TDS موثق لمنتج 300gsm.",
-      seoDescription: "مورد نسيج ألياف كربون أحادي الاتجاه UD، بما في ذلك 300gsm الموثق، للمواد المركبة والتقوية الإنشائية.",
+      heroCopy: "لطلب السعر، حدد درجة الليف وg/m² والعرض واتجاه الألياف وعملية الراتنج والكمية والاستخدام النهائي ودولة الوجهة. يتوفر TDS لمنتج 300gsm ومرجع توريد منفصل من سجل قديم لنسيج تقوية 200gsm.",
+      seoDescription: "مورد نسيج ألياف كربون أحادي الاتجاه UD مع مراجع موثقة لوزني 200gsm و300gsm للمواد المركبة والتقوية الإنشائية.",
       intro: ["يركز نسيج UD معظم الألياف في اتجاه واحد ويُختار وفق مسار الحمل وعملية التصنيع.", "تُراجع مواصفة الطلب والدفعة والعرض وتوافق الراتنج والاستخدام النهائي قبل التوريد."],
       faqs: [
-        { question: "هل يتوفر TDS لنسيج UD بوزن 300gsm؟", answer: "نعم. يمكن تنزيل TDS لمنتج UD بوزن 300gsm من الصفحة، مع تأكيد المواصفة النهائية لكل طلب ودفعة." },
+        { question: "ما المستندات المتوفرة لنسيج UD بوزني 200gsm و300gsm؟", answer: "تتوفر ورقة TDS لمنتج UD بوزن 300gsm ومرجع توريد مستند إلى سجل قديم لنسيج تقوية 200gsm. يجب تأكيد المصدر الحالي ودرجة الليف ومواد sizing والعرض واللفة ووثائق الدفعة للطلب." },
         { question: "هل يصلح أي نسيج UD للتقوية الإنشائية؟", answer: "لا. يجب أن تتوافق الألياف والبنية والراتنج مع تصميم المشروع والركيزة وطريقة التركيب، ويجب اعتماد الاختيار من مهندس مؤهل." },
         { question: "ما المعلومات المطلوبة للطلب؟", answer: "حدد درجة الليف وg/m² والعرض واتجاه الألياف وعملية الراتنج والكمية والمشروع ودولة الوجهة." },
       ],
@@ -331,7 +331,7 @@ const additionalPriorityProductCopy: Record<
       intro: ["يوفر نسيج UD تقوية اتجاهية قابلة للتكيف مع السطح، بينما تعمل صفيحة CFRP المسحوبة كعنصر صلب جاهز ضمن النظام.", "تظل الأحمال والتصميم وإعداد الركيزة والتركيب والقبول من مسؤولية مهندس مؤهل والمتطلبات المطبقة على المشروع."],
       faqs: [
         { question: "متى يُستخدم نسيج UD ومتى تُستخدم صفيحة CFRP؟", answer: "يعتمد الاختيار على الهندسة والركيزة واتجاه الحمل وتصميم التقوية وطريقة التركيب، ويجب أن يؤكده مهندس المشروع." },
-        { question: "ما مستندات TDS المتوفرة؟", answer: "تتضمن الصفحة TDS لنسيج UD بوزن 300gsm ولصفيحة CFRP مسحوبة بسماكة 1.2 mm. تنطبق البيانات فقط على المنتجات المحددة في المستندات." },
+        { question: "ما المستندات الفنية المتوفرة؟", answer: "تتضمن الصفحة TDS لنسيج UD بوزن 300gsm ومرجع توريد قديم لنسيج تقوية 200gsm وTDS لصفيحة CFRP مسحوبة بسماكة 1.2 mm. تنطبق البيانات فقط على المنتجات المحددة في كل مستند." },
         { question: "ما البيانات المطلوبة لعرض السعر؟", answer: "حدد نوع المنشأ والركيزة ومساحة المشروع والنسيج أو الصفيحة والأبعاد ونظام الإيبوكسي والكمية ودولة الوجهة ومستندات التصميم المتاحة." },
       ],
     },
@@ -361,11 +361,11 @@ const additionalPriorityProductCopy: Record<
     },
     "carbon-fiber-ud-fabric": {
       description: "Tissu carbone unidirectionnel UD pour le renfort directionnel des composites et des systèmes de renforcement, avec masse surfacique, largeur et grade confirmés par demande.",
-      heroCopy: "Pour le devis, précisez grade de fibre, g/m², largeur, direction des fibres, procédé résine, quantité, usage final et destination. Un TDS vérifié est disponible pour le produit 300gsm.",
-      seoDescription: "Fournisseur de tissu carbone unidirectionnel UD, dont un produit 300gsm documenté, pour composites et renforcement structurel.",
+      heroCopy: "Pour le devis, précisez grade de fibre, g/m², largeur, direction des fibres, procédé résine, quantité, usage final et destination. Un TDS est disponible pour le 300gsm et une référence de fourniture distincte issue d'un ancien dossier couvre le tissu de renforcement 200gsm.",
+      seoDescription: "Fournisseur de tissu carbone unidirectionnel UD avec références documentées 200gsm et 300gsm pour composites et renforcement structurel.",
       intro: ["Le tissu UD concentre l'essentiel des fibres dans une direction et se choisit selon le trajet de charge et le procédé.", "La spécification de commande, le lot, la largeur, la compatibilité résine et l'usage final sont confirmés avant fourniture."],
       faqs: [
-        { question: "Un TDS est-il disponible pour le tissu UD 300gsm ?", answer: "Oui. Le TDS du produit UD 300gsm est téléchargeable sur la page. La spécification finale reste à confirmer pour chaque commande et lot." },
+        { question: "Quels documents sont disponibles pour les tissus UD 200gsm et 300gsm ?", answer: "La page propose le TDS du produit UD 300gsm et une référence de fourniture issue d'un ancien dossier pour le tissu de renforcement 200gsm. Source actuelle, grade, ensimage, largeur, rouleau et documents de lot restent à confirmer pour la commande." },
         { question: "Tout tissu UD convient-il au renforcement structurel ?", answer: "Non. La fibre, la construction et la résine doivent correspondre au projet, au support et à la méthode de pose, sous validation d'un ingénieur qualifié." },
         { question: "Quelles données fournir pour un devis ?", answer: "Précisez grade de fibre, g/m², largeur, direction des fibres, procédé résine, quantité, projet et pays de destination." },
       ],
@@ -377,7 +377,7 @@ const additionalPriorityProductCopy: Record<
       intro: ["Le tissu UD s'adapte au support pour un renfort directionnel, tandis que la lamelle CFRP pultrudée constitue un élément rigide du système.", "Charges, calcul, préparation du support, pose et réception restent sous la responsabilité de l'ingénieur qualifié et des exigences du projet."],
       faqs: [
         { question: "Quand choisir un tissu UD ou une lamelle CFRP ?", answer: "Le choix dépend de la géométrie, du support, de la direction de charge, du calcul et de la méthode de pose. Il doit être confirmé par l'ingénieur du projet." },
-        { question: "Quels TDS sont disponibles ?", answer: "La page propose les TDS du tissu UD 300gsm et d'une lamelle CFRP pultrudée de 1.2 mm. Les données ne s'appliquent qu'aux produits identifiés dans ces documents." },
+        { question: "Quels documents techniques sont disponibles ?", answer: "La page propose le TDS du tissu UD 300gsm, une référence de fourniture ancienne pour le tissu de renforcement 200gsm et le TDS d'une lamelle CFRP pultrudée de 1.2 mm. Les données ne s'appliquent qu'au produit identifié dans chaque document." },
         { question: "Quelles données fournir pour un devis ?", answer: "Indiquez type de structure, support, surface du projet, tissu ou lamelle, dimensions, système époxy, quantité, pays de destination et documents de conception disponibles." },
       ],
     },
@@ -407,11 +407,11 @@ const additionalPriorityProductCopy: Record<
     },
     "carbon-fiber-ud-fabric": {
       description: "복합재와 구조 보강 시스템의 방향성 보강을 위한 일방향 UD 탄소섬유 원단으로, 면중량, 폭 및 섬유 등급을 주문별로 검토합니다.",
-      heroCopy: "견적 시 섬유 등급, g/m², 폭, 섬유 방향, 수지 공정, 수량, 최종 용도 및 도착 국가를 알려주십시오. 300gsm 제품의 검증된 TDS를 제공합니다.",
-      seoDescription: "복합재 및 구조 보강용 300gsm 문서화 제품을 포함한 일방향 UD 탄소섬유 원단 공급업체입니다.",
+      heroCopy: "견적 시 섬유 등급, g/m², 폭, 섬유 방향, 수지 공정, 수량, 최종 용도 및 도착 국가를 알려주십시오. 300gsm 제품 TDS와 기존 원본 기록에 근거한 200gsm 보강 원단 공급 참조 자료를 제공합니다.",
+      seoDescription: "복합재 및 구조 보강용 200gsm 및 300gsm 문서화 참조 자료를 제공하는 일방향 UD 탄소섬유 원단 공급업체입니다.",
       intro: ["UD 원단은 대부분의 섬유를 한 방향에 배치하며, 하중 경로와 제조 공정에 따라 선택합니다.", "공급 전에 주문 사양, 배치, 폭, 수지 호환성 및 최종 용도를 확인합니다."],
       faqs: [
-        { question: "300gsm UD 원단 TDS가 있습니까?", answer: "예. 페이지에서 300gsm UD 제품 TDS를 다운로드할 수 있습니다. 최종 사양은 주문과 배치별로 확인합니다." },
+        { question: "200gsm 및 300gsm UD 원단에 어떤 문서가 있습니까?", answer: "300gsm UD 제품 TDS와 기존 원본 기록에 근거한 200gsm 보강 원단 공급 참조 자료를 제공합니다. 현재 공급원, 등급, 사이징, 폭, 롤 및 배치 문서는 주문별로 확인해야 합니다." },
         { question: "모든 UD 원단을 구조 보강에 사용할 수 있습니까?", answer: "아닙니다. 섬유, 원단 구조 및 수지는 프로젝트 설계, 바탕면 및 시공 방법과 일치해야 하며 자격을 갖춘 엔지니어가 선택을 확인해야 합니다." },
         { question: "견적에 필요한 정보는 무엇입니까?", answer: "섬유 등급, g/m², 폭, 섬유 방향, 수지 공정, 수량, 프로젝트 및 도착 국가를 알려주십시오." },
       ],
@@ -423,7 +423,7 @@ const additionalPriorityProductCopy: Record<
       intro: ["UD 원단은 표면 형상에 맞춘 방향성 보강에 사용되며, 인발 CFRP 판은 시스템의 강성 보강 요소로 사용됩니다.", "하중, 설계, 바탕면 준비, 시공 및 검수는 자격을 갖춘 엔지니어와 프로젝트 요구사항에 따라 결정해야 합니다."],
       faqs: [
         { question: "UD 원단과 CFRP 판 중 무엇을 선택해야 합니까?", answer: "형상, 바탕면, 하중 방향, 보강 설계 및 시공 방법에 따라 달라지며 프로젝트 엔지니어가 확인해야 합니다." },
-        { question: "어떤 TDS를 제공합니까?", answer: "300gsm UD 원단과 1.2 mm 인발 CFRP 보강판 TDS를 제공합니다. 데이터는 문서에 명시된 제품에만 적용됩니다." },
+        { question: "어떤 기술 문서를 제공합니까?", answer: "300gsm UD 원단 TDS, 기존 원본 기반 200gsm 보강 원단 공급 참조 자료 및 1.2 mm 인발 CFRP 보강판 TDS를 제공합니다. 각 데이터는 해당 문서에 명시된 제품에만 적용됩니다." },
         { question: "견적에 필요한 정보는 무엇입니까?", answer: "구조물 유형, 바탕면, 프로젝트 면적, 원단 또는 판, 치수, 에폭시 시스템, 수량, 도착 국가 및 보유 설계 문서를 알려주십시오." },
       ],
     },
@@ -453,11 +453,11 @@ const additionalPriorityProductCopy: Record<
     },
     "carbon-fiber-ud-fabric": {
       description: "Jednokierunkowa tkanina węglowa UD do kierunkowego zbrojenia kompozytów i systemów wzmocnień, z masą powierzchniową, szerokością i gatunkiem potwierdzanymi dla zapytania.",
-      heroCopy: "Do wyceny podaj gatunek włókna, g/m², szerokość, kierunek włókien, proces żywiczny, ilość, zastosowanie końcowe i kraj docelowy. Dostępny jest zweryfikowany TDS produktu 300gsm.",
-      seoDescription: "Dostawca jednokierunkowej tkaniny węglowej UD, w tym udokumentowanego produktu 300gsm, do kompozytów i wzmocnień konstrukcyjnych.",
+      heroCopy: "Do wyceny podaj gatunek włókna, g/m², szerokość, kierunek włókien, proces żywiczny, ilość, zastosowanie końcowe i kraj docelowy. Dostępny jest TDS produktu 300gsm oraz oddzielna referencja dostawy tkaniny wzmacniającej 200gsm oparta na starszym zapisie źródłowym.",
+      seoDescription: "Dostawca jednokierunkowej tkaniny węglowej UD z udokumentowanymi referencjami 200gsm i 300gsm do kompozytów i wzmocnień konstrukcyjnych.",
       intro: ["Tkanina UD skupia większość włókien w jednym kierunku i jest dobierana do toru obciążenia oraz procesu.", "Przed dostawą potwierdzamy specyfikację zamówienia, partię, szerokość, zgodność z żywicą i zastosowanie końcowe."],
       faqs: [
-        { question: "Czy jest dostępny TDS tkaniny UD 300gsm?", answer: "Tak. TDS produktu UD 300gsm można pobrać ze strony. Ostateczna specyfikacja jest potwierdzana dla zamówienia i partii." },
+        { question: "Jakie dokumenty są dostępne dla tkaniny UD 200gsm i 300gsm?", answer: "Strona udostępnia TDS produktu UD 300gsm oraz referencję dostawy tkaniny wzmacniającej 200gsm opartą na starszym zapisie. Aktualne źródło, gatunek, sizing, szerokość, rolka i dokumenty partii wymagają potwierdzenia w zamówieniu." },
         { question: "Czy każda tkanina UD nadaje się do wzmocnień konstrukcyjnych?", answer: "Nie. Włókno, konstrukcja i żywica muszą odpowiadać projektowi, podłożu i metodzie montażu, a wybór powinien zatwierdzić wykwalifikowany inżynier." },
         { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj gatunek włókna, g/m², szerokość, kierunek włókien, proces żywiczny, ilość, projekt i kraj docelowy." },
       ],
@@ -469,7 +469,7 @@ const additionalPriorityProductCopy: Record<
       intro: ["Tkanina UD dopasowuje się do powierzchni i zapewnia zbrojenie kierunkowe, a pultrudowana płyta CFRP stanowi sztywny element systemu.", "Obciążenia, obliczenia, przygotowanie podłoża, montaż i odbiór określa wykwalifikowany inżynier zgodnie z wymaganiami projektu."],
       faqs: [
         { question: "Kiedy wybrać tkaninę UD, a kiedy płytę CFRP?", answer: "Wybór zależy od geometrii, podłoża, kierunku obciążenia, projektu wzmocnienia i metody montażu. Powinien go potwierdzić inżynier projektu." },
-        { question: "Jakie dokumenty TDS są dostępne?", answer: "Strona udostępnia TDS tkaniny UD 300gsm oraz pultrudowanej płyty CFRP 1.2 mm. Dane dotyczą wyłącznie produktów wskazanych w dokumentach." },
+        { question: "Jakie dokumenty techniczne są dostępne?", answer: "Strona udostępnia TDS tkaniny UD 300gsm, starszą referencję dostawy tkaniny wzmacniającej 200gsm oraz TDS pultrudowanej płyty CFRP 1.2 mm. Dane dotyczą wyłącznie produktu wskazanego w każdym dokumencie." },
         { question: "Jakie dane są potrzebne do wyceny?", answer: "Podaj typ konstrukcji, podłoże, powierzchnię projektu, tkaninę lub płytę, wymiary, system epoksydowy, ilość, kraj docelowy i dostępne dokumenty projektowe." },
       ],
     },
@@ -499,11 +499,11 @@ const additionalPriorityProductCopy: Record<
     },
     "carbon-fiber-ud-fabric": {
       description: "Kompozitler ve yapısal güçlendirme sistemlerinde yönlü takviye için tek yönlü UD karbon fiber kumaş; g/m², genişlik ve fiber sınıfı talebe göre doğrulanır.",
-      heroCopy: "Teklif için fiber sınıfı, g/m², genişlik, fiber yönü, reçine prosesi, miktar, nihai kullanım ve varış ülkesini belirtin. 300gsm ürün için doğrulanmış TDS mevcuttur.",
-      seoDescription: "Kompozit ve yapısal güçlendirme için belgeli 300gsm ürün dahil tek yönlü UD karbon fiber kumaş tedarikçisi.",
+      heroCopy: "Teklif için fiber sınıfı, g/m², genişlik, fiber yönü, reçine prosesi, miktar, nihai kullanım ve varış ülkesini belirtin. 300gsm ürün TDS'si ile eski bir kaynak kaydına dayanan ayrı 200gsm güçlendirme kumaşı tedarik referansı mevcuttur.",
+      seoDescription: "Kompozit ve yapısal güçlendirme için belgeli 200gsm ve 300gsm referansları bulunan tek yönlü UD karbon fiber kumaş tedarikçisi.",
       intro: ["UD kumaş, fiberlerin çoğunu tek yönde toplar ve yük yolu ile üretim prosesine göre seçilir.", "Tedarik öncesinde sipariş spesifikasyonu, parti, genişlik, reçine uyumu ve nihai kullanım doğrulanır."],
       faqs: [
-        { question: "300gsm UD kumaş TDS'si var mı?", answer: "Evet. 300gsm UD ürün TDS'si sayfadan indirilebilir. Nihai spesifikasyon sipariş ve parti için ayrıca doğrulanır." },
+        { question: "200gsm ve 300gsm UD kumaş için hangi belgeler var?", answer: "Sayfada 300gsm UD ürün TDS'si ve eski bir kaynak kaydına dayanan 200gsm güçlendirme kumaşı tedarik referansı bulunur. Güncel kaynak, sınıf, sizing, genişlik, rulo ve parti belgeleri siparişte doğrulanmalıdır." },
         { question: "Her UD kumaş yapısal güçlendirme için uygun mudur?", answer: "Hayır. Fiber, yapı ve reçine proje tasarımına, yüzeye ve uygulama yöntemine uygun olmalı; seçim yetkin bir mühendis tarafından onaylanmalıdır." },
         { question: "Teklif için hangi veriler gerekir?", answer: "Fiber sınıfı, g/m², genişlik, fiber yönü, reçine prosesi, miktar, proje ve varış ülkesini belirtin." },
       ],
@@ -515,7 +515,7 @@ const additionalPriorityProductCopy: Record<
       intro: ["UD kumaş yüzeye uyum sağlayarak yönlü takviye sunar; pultrüzyon CFRP plaka ise sistemin rijit takviye elemanıdır.", "Yükler, hesap, yüzey hazırlığı, uygulama ve kabul yetkin mühendis ile proje gerekliliklerine göre belirlenmelidir."],
       faqs: [
         { question: "UD kumaş mı yoksa CFRP plaka mı seçilmelidir?", answer: "Seçim geometriye, yüzeye, yük yönüne, güçlendirme tasarımına ve uygulama yöntemine bağlıdır; proje mühendisi tarafından doğrulanmalıdır." },
-        { question: "Hangi TDS belgeleri mevcuttur?", answer: "Sayfada 300gsm UD kumaş ve 1.2 mm pultrüzyon CFRP güçlendirme plakası TDS'leri bulunur. Veriler yalnızca belgelerde tanımlanan ürünler için geçerlidir." },
+        { question: "Hangi teknik belgeler mevcuttur?", answer: "Sayfada 300gsm UD kumaş TDS'si, eski kaynak temelli 200gsm güçlendirme kumaşı tedarik referansı ve 1.2 mm pultrüzyon CFRP plaka TDS'si bulunur. Veriler yalnızca ilgili belgede tanımlanan ürün için geçerlidir." },
         { question: "Teklif için hangi bilgiler gerekir?", answer: "Yapı tipi, yüzey, proje alanı, kumaş veya plaka, boyutlar, epoksi sistemi, miktar, varış ülkesi ve mevcut tasarım belgelerini paylaşın." },
       ],
     },

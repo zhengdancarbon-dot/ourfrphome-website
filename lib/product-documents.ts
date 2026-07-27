@@ -31,6 +31,16 @@ export const productDocuments: ProductDocument[] = [
     fileSize: "67 KB",
   },
   {
+    productSlug: "carbon-fiber-ud-fabric",
+    type: "TDS",
+    title: "200gsm UD Carbon Fiber Strengthening Fabric Supply Reference",
+    specification: "200 g/m², 0° UD, 0.111 mm nominal dry-fiber thickness",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+    fileSize: "68 KB",
+  },
+  {
     productSlug: "structural-strengthening-system",
     type: "TDS",
     title: "300gsm UD Carbon Fiber Fabric for Strengthening",
@@ -39,6 +49,16 @@ export const productDocuments: ProductDocument[] = [
     revision: "Rev. 01 / 2026-07",
     href: "/downloads/tds/FRP-HOME-300gsm-UD-Carbon-Fiber-Fabric-TDS.pdf",
     fileSize: "67 KB",
+  },
+  {
+    productSlug: "structural-strengthening-system",
+    type: "TDS",
+    title: "200gsm UD Carbon Fiber Strengthening Fabric Supply Reference",
+    specification: "200 g/m², 0° UD, 0.111 mm nominal dry-fiber thickness",
+    language: "English",
+    revision: "Rev. 01 / 2026-07",
+    href: "/downloads/tds/FRP-HOME-200gsm-UD-Carbon-Fiber-Strengthening-Supply-TDS.pdf",
+    fileSize: "68 KB",
   },
   {
     productSlug: "structural-strengthening-system",

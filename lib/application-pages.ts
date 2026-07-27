@@ -221,7 +221,8 @@ export const applicationPages: ApplicationPage[] = [
       { name: "Structural Epoxy Resin", href: "/products/structural-strengthening-system", note: "Bonding and impregnation resin by project requirement." },
     ],
     commonSpecifications: [
-      ["Documented UD fabric", "300 g/m²; 100-500 mm width"],
+      ["Documented UD references", "200 g/m² strengthening supply reference; 300 g/m² product TDS"],
+      ["Documented 300 g/m² width", "100-500 mm"],
       ["Other UD constructions", "By project specification and document review"],
       ["Documented CFRP plate", "1.2 mm; width and length by quotation"],
       ["Other CFRP plate dimensions", "Require matching product data and project approval"],
