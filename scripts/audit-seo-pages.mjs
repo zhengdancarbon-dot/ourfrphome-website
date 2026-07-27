@@ -298,6 +298,24 @@ async function worker() {
       }
     }
 
+    if (path === "/products") {
+      if (!text.includes('data-priority-document-hub-link="products-directory"')) {
+        failures.push(`${path}: missing priority document hub CTA`);
+      }
+      if (!text.includes('href="/technical-resources"')) {
+        failures.push(`${path}: priority document hub CTA has incorrect URL`);
+      }
+    }
+
+    if (path === "/technical-center") {
+      if (!text.includes('data-priority-document-hub-link="technical-center"')) {
+        failures.push(`${path}: missing verified document hub link`);
+      }
+      if (!text.includes('href="/technical-resources"')) {
+        failures.push(`${path}: verified document hub link has incorrect URL`);
+      }
+    }
+
     const isTechnicalArticle = /^\/technical-center\/[^/]+$/.test(path);
     if (isTechnicalArticle) {
       checkedTechnicalPages.add(path);
@@ -408,6 +426,9 @@ const technicalCenterResult = await fetchText(new URL("/technical-center", baseU
 const llmsResult = await fetchText(new URL("/llms.txt", baseUrl));
 if (!technicalCenterResult.response.ok) failures.push(`/technical-center: HTTP ${technicalCenterResult.response.status}`);
 if (!llmsResult.response.ok) failures.push(`/llms.txt: HTTP ${llmsResult.response.status}`);
+if (!llmsResult.text.includes("[Verified Technical Documents](https://www.myfrphome.com/technical-resources)")) {
+  failures.push("/llms.txt: missing verified technical document hub discovery link");
+}
 for (const path of priorityDiscoveryLinks) {
   if (!technicalCenterResult.text.includes(`href="${path}"`)) {
     failures.push(`/technical-center: missing priority discovery link ${path}`);
@@ -495,6 +516,7 @@ console.log(JSON.stringify({
   checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
   checkedPriorityHomepages: checkedPriorityHomepages.size,
   checkedPriorityDocuments: priorityDocumentLinks.length,
+  checkedPriorityDocumentHubEntrypoints: 3,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

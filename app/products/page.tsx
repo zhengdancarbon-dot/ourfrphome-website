@@ -221,7 +221,11 @@ export default function ProductsPage() {
               <Link href="/contact" className="button button-outline">
                 Request a Quote <ArrowRight size={17} />
               </Link>
-              <Link href="/technical-center" className="button button-outline">
+              <Link
+                href="/technical-resources"
+                className="button button-outline"
+                data-priority-document-hub-link="products-directory"
+              >
                 Download TDS <FileText size={17} />
               </Link>
             </div>

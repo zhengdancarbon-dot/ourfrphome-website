@@ -170,6 +170,15 @@ export default function TechnicalCenterPage() {
               </article>
             ))}
           </div>
+          <div className="products-directory-actions">
+            <Link
+              className="button button-blue"
+              data-priority-document-hub-link="technical-center"
+              href="/technical-resources"
+            >
+              Browse verified technical documents <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 

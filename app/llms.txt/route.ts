@@ -107,6 +107,7 @@ export function GET() {
       linkLine("Products", "/products"),
       linkLine("Applications", "/applications"),
       linkLine("Technical Center", "/technical-center"),
+      linkLine("Verified Technical Documents", "/technical-resources", "Reviewed TDS and specification downloads for priority products."),
       linkLine("Digital Catalog", "/catalog"),
       linkLine("Packaging and Shipping", "/packaging-shipping"),
       linkLine("Compliance and End-Use Review", "/compliance-end-use-review"),
