@@ -127,7 +127,7 @@ const localizedApplicationLastModified: Partial<Record<LocalizedLocale, Record<s
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: "/", changeFrequency: "weekly", priority: 1, lastModified: new Date("2026-07-21") },
-    { path: "/products", changeFrequency: "weekly", priority: 0.95 },
+    { path: "/products", changeFrequency: "weekly", priority: 0.95, lastModified: new Date("2026-07-27") },
     { path: "/applications", changeFrequency: "monthly", priority: 0.85 },
     { path: "/processes", changeFrequency: "monthly", priority: 0.85 },
     { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-27") },
@@ -201,17 +201,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ? localizedApplicationLastModified[locale]?.[applicationSlug]
       : undefined;
     const localizedDate = localizedLastModified || localizedApplicationDate;
+    const localizedStaticDate = locale !== defaultLocale && route.path === "/products"
+      ? routeLastModified
+      : undefined;
     const entryLastModified = locale === defaultLocale
       ? routeLastModified
       : localizedDate
         ? new Date(localizedDate)
-        : undefined;
+        : localizedStaticDate;
 
     return {
       url: absoluteUrl(localePath(route.path, locale)),
       ...(entryLastModified ? { lastModified: entryLastModified } : {}),
       changeFrequency: route.changeFrequency,
-      priority: locale === defaultLocale ? route.priority : Math.max(route.priority - 0.05, 0.5),
+      priority: locale === defaultLocale
+        ? route.priority
+        : Number(Math.max(route.priority - 0.05, 0.5).toFixed(2)),
       ...(alternates(route.path) ? { alternates: alternates(route.path) } : {}),
     };
   }

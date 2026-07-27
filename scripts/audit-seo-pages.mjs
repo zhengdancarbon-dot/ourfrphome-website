@@ -11,6 +11,7 @@ const priorityProductPages = new Map([
   ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
   ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
 ]);
+const priorityProductSlugs = [...priorityProductPages.keys()].map((path) => path.split("/").pop());
 const priorityDiscoveryLinks = [
   "/products/carbon-fiber-multiaxial-ncf-fabric",
   "/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf",
@@ -109,6 +110,7 @@ const internalResources = new Set();
 const checkedPriorityPages = new Set();
 const checkedVideoPages = new Set();
 const checkedTechnicalPages = new Set();
+const checkedLocalizedPriorityDirectories = new Set();
 let cursor = 0;
 
 async function worker() {
@@ -128,6 +130,22 @@ async function worker() {
     const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
+    }
+
+    const localizedProductsDirectory = path.match(/^\/(es|pt-br|ru|ar|fr|ko|pl|tr)\/products$/)?.[1];
+    if (localizedProductsDirectory) {
+      checkedLocalizedPriorityDirectories.add(path);
+      if (!text.includes("data-priority-products=\"true\"")) {
+        failures.push(`${path}: missing localized priority-product section`);
+      }
+      for (const slug of priorityProductSlugs) {
+        if (!text.includes(`data-priority-product-slug=\"${slug}\"`)) {
+          failures.push(`${path}: missing priority product card ${slug}`);
+        }
+        if (!text.includes(`href=\"/${localizedProductsDirectory}/products/${slug}\"`)) {
+          failures.push(`${path}: missing localized priority product link ${slug}`);
+        }
+      }
     }
 
     const isTechnicalArticle = /^\/technical-center\/[^/]+$/.test(path);
@@ -262,6 +280,10 @@ if (checkedTechnicalPages.size !== expectedTechnicalArticleCount) {
   failures.push(`Expected ${expectedTechnicalArticleCount} technical articles, found ${checkedTechnicalPages.size}`);
 }
 
+if (checkedLocalizedPriorityDirectories.size !== locales.length) {
+  failures.push(`Expected ${locales.length} localized priority product directories, found ${checkedLocalizedPriorityDirectories.size}`);
+}
+
 for (const resource of internalResources) {
   const response = await fetch(new URL(resource, baseUrl), { redirect: "manual" });
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
@@ -286,6 +308,7 @@ console.log(JSON.stringify({
   checkedTechnicalArticles: checkedTechnicalPages.size,
   checkedLocalizedVideoPages: checkedVideoPages.size,
   checkedPriorityDiscoveryLinks: priorityDiscoveryLinks.length,
+  checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
   negative404Checks: 3,
   status: "PASS",
 }, null, 2));

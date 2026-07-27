@@ -123,6 +123,49 @@ const featuredProductSlugs = [
   "structural-strengthening-system",
 ] as const;
 
+const priorityProductsCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: string; note: string }> = {
+  es: {
+    eyebrow: "Productos prioritarios",
+    title: "Rutas de compra para seis grupos principales.",
+    note: "Empiece por el producto correspondiente y confirme especificación, cantidad, proceso, destino, aplicación final y documentos requeridos en la RFQ.",
+  },
+  "pt-br": {
+    eyebrow: "Produtos prioritários",
+    title: "Rotas de compra para seis grupos principais.",
+    note: "Comece pelo produto relevante e confirme especificação, quantidade, processo, destino, aplicação final e documentos necessários na RFQ.",
+  },
+  ru: {
+    eyebrow: "Приоритетные продукты",
+    title: "Закупочные маршруты по шести ключевым группам.",
+    note: "Начните с нужного продукта и укажите в RFQ спецификацию, количество, процесс, страну назначения, конечное применение и требуемые документы.",
+  },
+  ar: {
+    eyebrow: "المنتجات ذات الأولوية",
+    title: "مسارات شراء لست مجموعات رئيسية.",
+    note: "ابدأ بالمنتج المناسب، ثم أكد في طلب عرض السعر المواصفة والكمية وعملية التصنيع والوجهة والاستخدام النهائي والمستندات المطلوبة.",
+  },
+  fr: {
+    eyebrow: "Produits prioritaires",
+    title: "Parcours d'achat pour six groupes principaux.",
+    note: "Commencez par le produit concerné, puis précisez dans la RFQ la spécification, la quantité, le procédé, la destination, l'application finale et les documents requis.",
+  },
+  ko: {
+    eyebrow: "우선 제품",
+    title: "6개 핵심 제품군을 위한 구매 경로.",
+    note: "관련 제품에서 시작하여 RFQ에 사양, 수량, 공정, 목적지, 최종 용도 및 필요한 문서를 명시하십시오.",
+  },
+  pl: {
+    eyebrow: "Produkty priorytetowe",
+    title: "Ścieżki zakupowe dla sześciu głównych grup.",
+    note: "Zacznij od odpowiedniego produktu, a następnie określ w RFQ specyfikację, ilość, proces, miejsce docelowe, zastosowanie końcowe i wymagane dokumenty.",
+  },
+  tr: {
+    eyebrow: "Öncelikli ürünler",
+    title: "Altı ana ürün grubu için satın alma yolları.",
+    note: "İlgili ürünle başlayın ve RFQ içinde spesifikasyon, miktar, proses, varış noktası, nihai kullanım ve gerekli belgeleri belirtin.",
+  },
+};
+
 const featuredApplicationSlugs = [
   "automotive-carbon-fiber-parts",
   "civil-uav-drone-components",
@@ -336,6 +379,10 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
   const content = localizedProductsPageContent[locale];
   const copy = getUiCopy(locale);
   const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
+  const priorityCopy = priorityProductsCopy[locale];
+  const priorityProducts = featuredProductSlugs
+    .map((slug) => productCatalog.find((product) => product.slug === slug))
+    .filter((product) => product !== undefined);
 
   return (
     <>
@@ -347,6 +394,38 @@ export function LocalizedProductsPage({ locale }: LocalizedPageProps) {
         copy={content.copy}
         image="/images/composite-materials-range-products.webp"
       />
+      <section className="section section-soft" data-priority-products>
+        <div className="site-shell">
+          <SectionHeading
+            eyebrow={priorityCopy.eyebrow}
+            title={priorityCopy.title}
+            copy={priorityCopy.note}
+          />
+          <div className="priority-path-grid">
+            {priorityProducts.map((product) => {
+              const localized = localizedProduct(product, locale);
+              return (
+                <article
+                  className="priority-path-card"
+                  data-priority-product-slug={product.slug}
+                  key={product.slug}
+                >
+                  <span>{localized.category}</span>
+                  <h2>{localized.name}</h2>
+                  <p>{localized.heroCopy}</p>
+                  <Link
+                    className="button button-blue"
+                    href={localizedLink(`/products/${product.slug}`, locale)}
+                    prefetch={false}
+                  >
+                    {copy.common.viewProductPage} <ArrowRight size={16} />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       <section className="section">
         <div className="site-shell">
           <div className="products-directory-intro" id="product-catalog">
