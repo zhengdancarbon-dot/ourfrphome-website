@@ -1,8 +1,8 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 208);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 209);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
 const expectedLocalizedCount = 19;
-const expectedTechnicalArticleCount = 22;
+const expectedTechnicalArticleCount = 23;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
@@ -120,6 +120,17 @@ async function worker() {
       }
       if (!text.includes('href="/products/carbon-fiber-ud-fabric"')) {
         failures.push(`${path}: missing UD product link`);
+      }
+    }
+
+    if (path === "/technical-center/1-2-mm-pultruded-cfrp-strengthening-plate-rfq-guide") {
+      if (!text.includes("FRPH-CFRP-PLATE-1.2")) failures.push(`${path}: missing documented product code`);
+      if (!text.includes("test method not stated")) failures.push(`${path}: missing source-method boundary`);
+      if (!text.includes('href="/downloads/tds/FRP-HOME-1.2mm-Pultruded-CFRP-Strengthening-Plate-TDS.pdf"')) {
+        failures.push(`${path}: missing verified 1.2 mm plate TDS download`);
+      }
+      if (!text.includes('href="/products/structural-strengthening-system"')) {
+        failures.push(`${path}: missing strengthening-system product link`);
       }
     }
 

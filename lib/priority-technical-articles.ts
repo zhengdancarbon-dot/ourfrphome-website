@@ -4,6 +4,110 @@ const publishedAt = "2026-07-22";
 
 export const priorityTechnicalArticles: TechnicalArticle[] = [
   {
+    slug: "1-2-mm-pultruded-cfrp-strengthening-plate-rfq-guide",
+    title: "1.2 mm Pultruded CFRP Strengthening Plate RFQ Guide",
+    description:
+      "Prepare a specification-first RFQ for documented 1.2 mm pultruded CFRP strengthening plate covering dimensions, bonding surface, structural epoxy, project quantity and engineering responsibility.",
+    image: "/images/products/pultruded-cfrp-plate-stacked-hero.webp",
+    quickAnswer:
+      "FRP HOME document FRPH-TDS-CFRPPL12-EN-R01 identifies product FRPH-CFRP-PLATE-1.2, source model ZCP1.2, as a 1.2 mm nominal pultruded CFRP laminate for externally bonded civil strengthening. Its 2620 MPa tensile strength, 165 GPa modulus, 1.7% elongation, >68% fiber volume and 1.6 g/cm3 density are typical archived source-model values with no stated test methods. They are not batch values or project design allowables. A complete RFQ must still confirm width, length, tolerances, bonding surface, structural epoxy, quantity, destination, final application and qualified engineering approval.",
+    definition:
+      "Pultruded CFRP strengthening plate is a cured, narrow carbon-fiber-reinforced polymer laminate made as a dimensioned strip for an externally bonded strengthening system. The plate is only one system component. Structural design, substrate acceptance, anchorage or termination details, compatible adhesive, installation controls and project testing remain project-specific engineering responsibilities.",
+    comparison: {
+      columns: ["RFQ field", "Documented ZCP1.2 reference", "Order or project confirmation"],
+      rows: [
+        ["Product identity", "FRPH-CFRP-PLATE-1.2; source model ZCP1.2", "Approved specification revision, traceability and required batch documents"],
+        ["Product form", "Pultruded CFRP strengthening laminate", "Externally bonded system layout and qualified engineering approval"],
+        ["Thickness", "1.2 mm nominal", "Width, length, thickness tolerance and measured acceptance criteria"],
+        ["Typical source properties", "2620 MPa strength; 165 GPa modulus; 1.7% elongation", "Test methods are not stated; do not use as batch values or project design allowables"],
+        ["Other source references", ">68% fiber volume; 1.6 g/cm3 density", "Selected order documents and any project-specific verification"],
+        ["Bonding system", "Not fixed by the plate TDS", "Bonding surface, compatible structural epoxy, substrate preparation and installation procedure"],
+      ],
+    },
+    selectionAdvice: [
+      "Start with the qualified engineer's strengthening design and substrate assessment. Do not select plate dimensions from a website table alone.",
+      "Use FRPH-CFRP-PLATE-1.2 when the documented 1.2 mm nominal pultruded plate is the intended reference, then confirm the current revision and traceability scope.",
+      "State finished width, cut length, thickness tolerance, edge condition and packing requirement. The TDS does not publish a universal width, length or tolerance.",
+      "Define the required bonding surface and the engineer-approved structural epoxy system. Plate supply does not establish adhesive compatibility or substrate preparation.",
+      "Treat the published mechanical and physical values as typical archived source-model references because the source does not state test methods. Request the required test basis and batch or COA fields in the quotation.",
+      "Provide project quantity, destination, structure type, final application and responsible engineering party for compliance and order review.",
+    ],
+    applications: [
+      "Externally bonded concrete beam strengthening",
+      "Concrete slab strengthening",
+      "Bridge and building load upgrades",
+      "Linear CFRP reinforcement strips",
+      "Timber strengthening subject to engineering review",
+      "Masonry strengthening subject to engineering review",
+    ],
+    specifications: [
+      ["Document ID", "FRPH-TDS-CFRPPL12-EN-R01"],
+      ["Product code", "FRPH-CFRP-PLATE-1.2; source model ZCP1.2"],
+      ["Product form", "Pultruded CFRP strengthening laminate"],
+      ["Nominal thickness", "1.2 mm; width, length and tolerances by quotation"],
+      ["Typical source strength", "2620 MPa; test method not stated"],
+      ["Typical source modulus", "165 GPa; test method not stated"],
+      ["Other typical source values", "1.7% elongation; >68% fiber volume; 1.6 g/cm3 density"],
+      ["Evidence boundary", "Typical archived source-model values, not a batch certificate or project design allowables"],
+    ],
+    recommendedProducts: ["structural-strengthening-system"],
+    rfqInformation: [
+      "FRPH-CFRP-PLATE-1.2 reference and required revision",
+      "Structure and substrate type",
+      "Engineer-selected plate layout",
+      "Plate width, cut length and quantity",
+      "Thickness and dimensional tolerances",
+      "Bonding-surface requirement",
+      "Structural epoxy and substrate-preparation scope",
+      "Edge, label and packing requirements",
+      "Required TDS, COA, traceability or test fields",
+      "Destination country and project location",
+      "Final application",
+      "Qualified design and installation responsibility",
+    ],
+    faqs: [
+      {
+        question: "Are 2620 MPa and 165 GPa guaranteed for every 1.2 mm CFRP plate shipment?",
+        answer:
+          "No. They are typical values retained from the archived ZCP1.2 source model, and the source does not state test methods. Confirm the approved order specification, test basis and required batch or COA values before purchase approval.",
+      },
+      {
+        question: "Does 1.2 mm define the complete CFRP strengthening plate specification?",
+        answer:
+          "No. The RFQ must also define width, length, tolerances, bonding surface, edge and packing requirements, quantity, structural epoxy scope, destination and final application.",
+      },
+      {
+        question: "Can FRP HOME approve the strengthening design from the plate TDS?",
+        answer:
+          "No. The TDS supports material and RFQ review. A qualified structural engineer must approve design actions, substrate acceptance, anchorage or termination details, adhesive system and installation controls.",
+      },
+      {
+        question: "Is pultruded strengthening plate the same as a 3K twill carbon fiber sheet?",
+        answer:
+          "No. This product is a pultruded linear strengthening laminate. A 3K twill laminate sheet is a separate product route with different surface, layup, machining and application requirements.",
+      },
+      {
+        question: "What should a buyer send for a 1.2 mm CFRP plate quotation?",
+        answer:
+          "Send the engineer-selected plate layout, width, cut length, quantity, tolerances, bonding-surface requirement, approved adhesive scope, substrate and structure information, required documents, destination and final application.",
+      },
+    ],
+    publishedAt: "2026-07-27",
+    reviewedAt: "2026-07-27",
+    sources: [
+      {
+        title: "1.2 mm Pultruded CFRP Strengthening Plate TDS",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/downloads/tds/FRP-HOME-1.2mm-Pultruded-CFRP-Strengthening-Plate-TDS.pdf",
+      },
+      {
+        title: "Carbon Fiber Structural Strengthening System",
+        publisher: "FRP HOME",
+        url: "https://www.myfrphome.com/products/structural-strengthening-system",
+      },
+    ],
+  },
+  {
     slug: "300gsm-ud-carbon-fiber-fabric-rfq-guide",
     title: "300gsm UD Carbon Fiber Fabric RFQ Guide",
     description:
