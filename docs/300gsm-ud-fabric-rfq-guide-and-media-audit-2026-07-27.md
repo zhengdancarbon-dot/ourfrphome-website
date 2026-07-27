@@ -70,4 +70,11 @@ No localized article routes were created, and no untranslated content is exposed
 
 ## Release Status
 
-Local implementation and QA are complete. Production is unchanged. A Vercel Preview will be created before any production release.
+Local implementation and QA are complete. Production is unchanged.
+
+- Vercel target: `preview`.
+- Preview status: `Ready`.
+- Preview URL: `https://ourfrphome-website-nxwws0nrz-zhendgan.vercel.app`.
+- Deployment ID: `dpl_Em5uCBGnJ4sJfL2Y8R2kracSScKA`.
+- Vercel build: completed successfully after restoring the prior build cache.
+- Production deployment: not performed.
