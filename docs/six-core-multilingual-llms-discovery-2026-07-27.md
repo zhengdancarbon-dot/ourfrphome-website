@@ -71,5 +71,12 @@ authorization, capacity, price, inventory, customer case, rating, review or new
 performance claim was introduced. Public URLs, metadata, canonical and
 hreflang remain unchanged.
 
-The change is prepared on the recovery branch only. It has not been merged to
+Vercel Preview:
+
+- URL: `https://ourfrphome-website-knmivxkuq-zhendgan.vercel.app`
+- Deployment: `dpl_2B3gmp46ay9rCajivCVzhVgYoWng`
+- State: `READY`
+- Vercel build: PASS, including TypeScript and all 219 generated routes.
+
+The change remains on the recovery branch only. It has not been merged to
 `main`, deployed to production or submitted to Google, Yandex or IndexNow.
