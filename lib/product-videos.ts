@@ -204,6 +204,70 @@ const multiaxialNcfVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "tit
   },
 };
 
+const laminateSheetVideo = {
+  src: "/videos/3k-carbon-fiber-laminate-sheet-surface-handling.mp4",
+  poster: "/images/products/3k-carbon-fiber-laminate-sheet-video-poster.jpg",
+  duration: "PT21S",
+  uploadDate: "2026-07-27",
+};
+
+const laminateSheetVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+  en: {
+    eyebrow: "Product video",
+    title: "3K twill carbon laminate sheet under protective film",
+    description:
+      "A real workshop view of a 3K twill carbon surface moving under protective film on flat-sheet handling equipment. Confirm sheet size, thickness, finish, appearance-critical faces, CNC drawings and film requirements in the RFQ.",
+  },
+  es: {
+    eyebrow: "Vídeo del producto",
+    title: "Placa laminada de carbono 3K twill bajo película protectora",
+    description:
+      "Vista real de taller de una superficie de carbono 3K twill bajo película protectora en un equipo de manipulación de placas. Confirme en la RFQ tamaño, espesor, acabado, caras visibles, planos CNC y requisitos de la película.",
+  },
+  "pt-br": {
+    eyebrow: "Vídeo do produto",
+    title: "Placa laminada de carbono 3K twill sob filme protetor",
+    description:
+      "Vista real de fábrica de uma superfície de carbono 3K twill sob filme protetor em um equipamento de manuseio de placas. Confirme na RFQ tamanho, espessura, acabamento, faces visíveis, desenhos CNC e requisitos do filme.",
+  },
+  ru: {
+    eyebrow: "Видео продукции",
+    title: "Листовой ламинат 3K twill под защитной пленкой",
+    description:
+      "Реальный вид из цеха: поверхность углеродного ламината 3K twill проходит под защитной пленкой на оборудовании для работы с плоскими листами. Размер, толщину, отделку, лицевые стороны, чертежи CNC и требования к пленке следует подтвердить в RFQ.",
+  },
+  ar: {
+    eyebrow: "فيديو المنتج",
+    title: "صفيحة كربون 3K twill تحت طبقة حماية",
+    description:
+      "مشهد حقيقي من الورشة لسطح كربون 3K twill تحت طبقة حماية على معدات مناولة الصفائح المسطحة. يجب تأكيد المقاس والسماكة والتشطيب والأسطح الظاهرة ورسومات CNC ومتطلبات طبقة الحماية في طلب العرض.",
+  },
+  fr: {
+    eyebrow: "Vidéo du produit",
+    title: "Plaque stratifiée carbone 3K twill sous film protecteur",
+    description:
+      "Vue réelle en atelier d'une surface carbone 3K twill sous film protecteur sur un équipement de manutention de plaques. Confirmez dans la RFQ les dimensions, l'épaisseur, la finition, les faces visibles, les plans CNC et les exigences du film.",
+  },
+  ko: {
+    eyebrow: "제품 영상",
+    title: "보호 필름 아래의 3K twill 탄소섬유 적층판",
+    description:
+      "평판 취급 설비에서 보호 필름 아래로 이동하는 3K twill 탄소섬유 표면의 실제 작업 현장 영상입니다. 판재 크기, 두께, 마감, 외관면, CNC 도면 및 필름 요구사항은 RFQ에서 확인해야 합니다.",
+  },
+  pl: {
+    eyebrow: "Film produktu",
+    title: "Laminowana płyta węglowa 3K twill pod folią ochronną",
+    description:
+      "Rzeczywisty widok hali: powierzchnia węglowa 3K twill przesuwa się pod folią ochronną na urządzeniu do obsługi płaskich płyt. Wymiary, grubość, wykończenie, strony widoczne, rysunki CNC i wymagania dotyczące folii należy potwierdzić w RFQ.",
+  },
+  tr: {
+    eyebrow: "Ürün videosu",
+    title: "Koruyucu film altındaki 3K twill karbon laminat levha",
+    description:
+      "Düz levha taşıma ekipmanında koruyucu film altında ilerleyen 3K twill karbon yüzeyinin gerçek atölye görüntüsüdür. Levha ölçüsü, kalınlık, yüzey, görünür yüzler, CNC çizimleri ve film gereksinimleri RFQ sırasında doğrulanmalıdır.",
+  },
+};
+
 export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
   if (slug === "carbon-fiber-multiaxial-ncf-fabric") {
     return {
@@ -223,6 +287,13 @@ export function getProductVideo(slug: string, locale: Locale): ProductVideo | un
     return {
       ...wovenFabricVideo,
       ...wovenFabricVideoCopy[locale],
+    };
+  }
+
+  if (slug === "3k-carbon-fiber-laminate-sheet") {
+    return {
+      ...laminateSheetVideo,
+      ...laminateSheetVideoCopy[locale],
     };
   }
 

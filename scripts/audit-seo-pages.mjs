@@ -23,6 +23,10 @@ const videoProductPages = new Map([
     src: "/videos/3k-woven-carbon-fiber-weaving-line.mp4",
     poster: "/images/products/3k-woven-carbon-fiber-weaving-line-poster.jpg",
   }],
+  ["3k-carbon-fiber-laminate-sheet", {
+    src: "/videos/3k-carbon-fiber-laminate-sheet-surface-handling.mp4",
+    poster: "/images/products/3k-carbon-fiber-laminate-sheet-video-poster.jpg",
+  }],
 ]);
 const languageCodes = {
   en: "en",

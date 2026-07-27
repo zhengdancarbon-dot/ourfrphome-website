@@ -8,7 +8,7 @@ import { technicalArticles } from "@/lib/technical-articles";
 
 const productLastModified: Record<string, string> = {
   "carbon-fiber-multiaxial-ncf-fabric": "2026-07-27",
-  "3k-carbon-fiber-laminate-sheet": "2026-07-22",
+  "3k-carbon-fiber-laminate-sheet": "2026-07-27",
   "carbon-fiber-yarn-and-tow": "2026-07-27",
   "carbon-fiber-woven-fabric": "2026-07-27",
   "carbon-fiber-ud-fabric": "2026-07-27",
