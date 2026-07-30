@@ -130,6 +130,19 @@ products and civil-UAV application routes return the updated civil-use wording
 and contain no `FPV`, military, weapon, missile or combat terms. The sitemap
 remains at 210 URLs.
 
+## Technical Center Schema Release
+
+The Technical Center collection-schema correction at commit `10d2b6f` was
+released to Vercel Production as deployment `dpl_DNLtCkPZ3VmEia3vMXGrA7N9Td5X`.
+Vercel reports `READY` and aliases the deployment to
+`https://www.myfrphome.com`.
+
+Production verification confirms that `/technical-center` now emits one
+`CollectionPage` and one 24-item `ItemList`, with no Article-detail entities
+on the hub. A sampled technical article continues to emit its Article Schema.
+The sitemap retains 210 URLs and records the Technical Center's real
+`2026-07-30` update date.
+
 ## Residual Limit
 
 The current execution environment can read the production HTML but its
