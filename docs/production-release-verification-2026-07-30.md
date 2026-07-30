@@ -119,6 +119,17 @@ sitemap submission remains a separate logged-in console action; it must use
 the existing `sitemap.xml` entry and does not require individual submission of
 the 210 URLs.
 
+## Civil-Use Copy Release
+
+The small terminology correction at commit `02ecd03` was released to Vercel
+Production as deployment `dpl_48njZajpw2dck9U82ySLh5tMK3g4`. It aliases
+`https://www.myfrphome.com` and is `READY`.
+
+Production checks confirmed that the 3K laminate sheet, custom carbon-fiber
+products and civil-UAV application routes return the updated civil-use wording
+and contain no `FPV`, military, weapon, missile or combat terms. The sitemap
+remains at 210 URLs.
+
 ## Residual Limit
 
 The current execution environment can read the production HTML but its
