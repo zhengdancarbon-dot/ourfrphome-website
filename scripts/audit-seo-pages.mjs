@@ -335,6 +335,18 @@ async function worker() {
       if (!text.includes('href="/technical-resources"')) {
         failures.push(`${path}: verified document hub link has incorrect URL`);
       }
+      if (!text.includes('"@type":"CollectionPage"')) {
+        failures.push(`${path}: missing CollectionPage structured data`);
+      }
+      if (!text.includes('"@id":"https://www.myfrphome.com/technical-center#technical-article-list"')) {
+        failures.push(`${path}: missing technical article ItemList`);
+      }
+      if (!text.includes(`"numberOfItems":${expectedTechnicalArticleCount}`)) {
+        failures.push(`${path}: technical article ItemList count is incorrect`);
+      }
+      if (occurrenceCount(text, '"@type":"Article"') > 0) {
+        failures.push(`${path}: article-detail schema must be emitted only on article routes`);
+      }
     }
 
     const isTechnicalArticle = /^\/technical-center\/[^/]+$/.test(path);

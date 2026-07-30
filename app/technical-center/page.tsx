@@ -7,8 +7,8 @@ import { productCatalog } from "@/lib/product-catalog";
 import { productDocuments } from "@/lib/product-documents";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
-import { qualityDocuments } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
+import { qualityDocuments } from "@/lib/site-taxonomy";
 import { technicalArticles } from "@/lib/technical-articles";
 
 export const metadata: Metadata = createPageMetadata({
@@ -35,33 +35,28 @@ const resources = [
   { icon: FileCheck2, title: "Packing Documents", copy: "Commercial invoice, packing list, labels and supporting export files." },
 ];
 
-const articleSchema = technicalArticles.map((guide) => ({
+const technicalCenterSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": `${absoluteUrl(`/technical-center/${guide.slug}`)}#article`,
-  headline: guide.title,
-  description: guide.description,
-  image: absoluteUrl(guide.image),
-  url: absoluteUrl(`/technical-center/${guide.slug}`),
-  mainEntityOfPage: absoluteUrl(`/technical-center/${guide.slug}`),
+  "@type": "CollectionPage",
+  "@id": `${absoluteUrl("/technical-center")}#collection`,
+  name: "Carbon Fiber Technical Center and Material Selection Guides",
+  description:
+    "Technical center for carbon fiber product data sheets, material selection guides, prepreg handling, CFRP machining, process selection and documentation requests.",
+  url: absoluteUrl("/technical-center"),
   inLanguage: "en",
-  ...(guide.publishedAt ? { datePublished: guide.publishedAt } : {}),
-  ...(guide.reviewedAt ? { dateModified: guide.reviewedAt } : {}),
-  ...(guide.sources ? { citation: guide.sources.map((source) => source.url) } : {}),
-  author: {
-    "@type": "Organization",
-    name: siteConfig.companyName,
-    url: absoluteUrl("/about"),
+  mainEntity: {
+    "@type": "ItemList",
+    "@id": `${absoluteUrl("/technical-center")}#technical-article-list`,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: technicalArticles.length,
+    itemListElement: technicalArticles.map((guide, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: guide.title,
+      item: absoluteUrl(`/technical-center/${guide.slug}`),
+    })),
   },
-  publisher: {
-    "@type": "Organization",
-    name: siteConfig.companyName,
-    logo: {
-      "@type": "ImageObject",
-      url: absoluteUrl("/images/brand/frphome-logo-original.jpg"),
-    },
-  },
-}));
+};
 
 export default function TechnicalCenterPage() {
   return (
@@ -264,7 +259,7 @@ export default function TechnicalCenterPage() {
       <InquiryBand />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(technicalCenterSchema) }}
       />
     </>
   );

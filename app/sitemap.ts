@@ -130,7 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/products", changeFrequency: "weekly", priority: 0.95, lastModified: new Date("2026-07-27") },
     { path: "/applications", changeFrequency: "monthly", priority: 0.85 },
     { path: "/processes", changeFrequency: "monthly", priority: 0.85 },
-    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-27") },
+    { path: "/technical-center", changeFrequency: "monthly", priority: 0.85, lastModified: new Date("2026-07-30") },
     { path: "/quality-control", changeFrequency: "monthly", priority: 0.75 },
     { path: "/about", changeFrequency: "monthly", priority: 0.75 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
