@@ -102,6 +102,23 @@ Google sitemap discovery.
    titles or meta descriptions.
 5. Keep the existing URL, canonical, hreflang and compliance language stable.
 
+## Same-Day Production Recheck
+
+After the final IndexNow notification, the live production site was audited
+again from the production domain:
+
+- `pnpm seo:audit https://www.myfrphome.com`: passed;
+- `pnpm analytics:audit`: passed; TDS, catalog, email and WhatsApp events
+  retain approved UTM values plus Google, Bing and Yandex click identifiers;
+- the live XML sitemap still exposes 210 URLs;
+- the homepage, NCF, 3K laminate sheet, Yarn & Tow, Spanish NCF and Russian
+  Yarn & Tow routes each returned HTTP 200.
+
+The deployment is therefore operationally stable. Google Search Console
+sitemap submission remains a separate logged-in console action; it must use
+the existing `sitemap.xml` entry and does not require individual submission of
+the 210 URLs.
+
 ## Residual Limit
 
 The current execution environment can read the production HTML but its

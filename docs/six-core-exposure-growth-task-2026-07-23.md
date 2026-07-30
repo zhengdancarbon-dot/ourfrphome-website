@@ -88,6 +88,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 49. Reconciled the 2026-07-27 weekly report with production and the recovered source. Production still serves a 207-URL release and omits video source, poster and `VideoObject` output on the sampled NCF, Yarn & Tow and 3K Woven page groups, while recovery commit `1567772` retains the real tracked media, nine-language mappings, 210-URL audit result and Ready 219-route Preview. This is deployment drift rather than renewed source deletion. Metadata remains frozen because the 14-day / 50-impression threshold is unproven; no placeholder media or unsupported claims were added. Evidence is recorded in `docs/production-recovery-deployment-drift-2026-07-28.md`.
 50. Released the verified recovery branch to Vercel Production as deployment `dpl_2d8adkTSEbXGnwUNNAqa78aeYSM3`, aliasing `https://www.myfrphome.com`. Required inquiry and measurement environment variables were confirmed present without revealing values. Production now serves a 210-URL sitemap; core routes, sampled EN/ES/PT-BR/AR priority pages, self-canonicals, 10-link NCF hreflang group, production video/poster/`VideoObject` output and unpublished `/en` 404 behavior were verified. Evidence is recorded in `docs/production-release-verification-2026-07-30.md`.
 51. Corrected the Vercel Production `INDEXNOW_KEY` mismatch against the live protocol key file and refreshed the Production runtime as deployment `dpl_Dbe4y895CFLKqJecgJAe7TF4X6yQ`. IndexNow then accepted one exact 27-URL batch covering the genuinely updated English and eight localized NCF, Yarn & Tow and Woven Fabric video pages with HTTP 200. No unchanged bulk URLs, metadata rewrites or unsupported content claims were submitted.
+52. Performed a same-day post-release production recheck after the final IndexNow batch. `pnpm seo:audit https://www.myfrphome.com` and `pnpm analytics:audit` passed; the live sitemap remains at 210 URLs; the homepage plus English NCF, 3K laminate sheet, Yarn & Tow, Spanish NCF and Russian Yarn & Tow sample routes returned HTTP 200. The UTM and Google/Bing/Yandex click-id preservation controls remain intact. Google sitemap submission is still a logged-in console action, not a bulk URL-submission task.
 
 ### In Progress
 
@@ -98,7 +99,7 @@ No search volume is inferred from this baseline. Low-volume positions are direct
 
 ### Next
 
-1. Complete the normal-browser review of the Ready Preview and one controlled RFQ delivery check; after explicit production approval, promote the verified recovery release so production no longer serves the older 207-URL/video-incomplete version. Request one recrawl only after that deployment.
+1. Submit the existing production sitemap once through the already verified Google Search Console, Bing Webmaster Tools and Yandex Webmaster properties; request a recrawl only for the homepage and three materially updated priority video pages.
 2. Add further product videos only where real footage can be identified accurately and does not duplicate an existing page asset.
 3. Re-export GSC and Yandex data after the next complete reporting window. Compare the post-2026-07-27 release window after 2026-08-10, then apply the 14-day / 50-impression rule before changing metadata.
 
