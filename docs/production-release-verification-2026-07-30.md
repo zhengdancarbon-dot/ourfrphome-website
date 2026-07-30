@@ -143,6 +143,17 @@ on the hub. A sampled technical article continues to emit its Article Schema.
 The sitemap retains 210 URLs and records the Technical Center's real
 `2026-07-30` update date.
 
+## Article Publication-Date Release
+
+The verified article-publication-date completion at commit `614c7f5` was
+released to Vercel Production as deployment `dpl_Ce2CQpigxTewuvYRKootGQkKXmst`.
+Vercel reports `READY` and aliases the deployment to
+`https://www.myfrphome.com`.
+
+Production samples from the original comparison, NCF and Tow RFQ guide groups
+each expose Article Schema with their history-backed `datePublished` values.
+No article copy, product claim, URL, title or meta-description was changed.
+
 ## Residual Limit
 
 The current execution environment can read the production HTML but its
