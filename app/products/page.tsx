@@ -121,7 +121,7 @@ const productGroups = [
     id: "custom-carbon-fiber-products",
     title: "Custom Carbon Fiber Products",
     description:
-      "Custom carbon fiber parts, CNC plates, civil UAV frames, FPV drone frames, molded components, tube assemblies and composite products based on drawings or samples.",
+      "Custom carbon fiber parts, CNC plates, civil UAV frames, remote-controlled model parts, molded components, tube assemblies and composite products based on drawings or samples.",
     keyProducts:
       "CNC CFRP plates, custom tubes, molded components, carbon covers and assemblies",
     commonApplications:

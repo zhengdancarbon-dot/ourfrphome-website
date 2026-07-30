@@ -906,7 +906,7 @@ export const productCatalog: ProductCatalogItem[] = [
         "CNC ready carbon fiber sheet",
         "carbon fiber plate CNC cutting",
         "carbon fiber panel cut to drawing",
-        "FPV drone carbon fiber plate",
+        "carbon fiber plate for civil UAV frames",
         "RC model carbon fiber sheet",
       ],
     },
@@ -918,7 +918,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     intro: [
       "3K Carbon Fiber Laminate Sheet is a cured carbon composite sheet with a 3K woven surface. It is widely used when buyers need a carbon appearance together with stable panel thickness.",
-      "The inner layup can be woven, UD or mixed depending on required stiffness, cost and machining behavior. Thicker sheets can be supplied for CNC-machined parts, civil UAV frames, FPV drone frames, RC model parts, tooling and fixtures, and industrial panels.",
+      "The inner layup can be woven, UD or mixed depending on required stiffness, cost and machining behavior. Thicker sheets can be supplied for CNC-machined parts, civil UAV frames, remote-controlled model parts, tooling and fixtures, and industrial panels.",
       "FRP HOME can reserve the surface finish, thickness, panel size, tolerance, inner layup and packing method according to the customer's part requirement.",
     ],
     highlights: [
@@ -928,7 +928,7 @@ export const productCatalog: ProductCatalogItem[] = [
       { label: "Finish", value: "Glossy or matte clear surface" },
     ],
     applications: [
-      "Civil UAV and FPV drone frames",
+      "Civil UAV frames and remote-controlled model parts",
       "RC model parts and CNC machined plates",
       "Automotive interior trim and covers",
       "Fishing rod and leisure product components",
@@ -990,9 +990,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "Buyers often use sheet, plate, panel and laminate for the same commercial family. The controlled thickness, layup, surface, dimensions, tolerance and drawing are more important than the name alone.",
       },
       {
-        question: "Can 3K carbon fiber laminate sheet be used for civil UAV or FPV drone frames?",
+        question: "Can 3K carbon fiber laminate sheet be used for civil UAV or remote-controlled model frames?",
         answer:
-          "Yes. Many customers use carbon fiber laminate sheets for civil UAV frames, FPV drone frames, RC model parts and inspection equipment panels. Thickness, layup and machining tolerance should be confirmed by the drawing and load requirement.",
+          "Yes. Carbon fiber laminate sheets can be reviewed for civil UAV frames, remote-controlled model parts and inspection-equipment panels. Thickness, layup and machining tolerance should be confirmed by the drawing and load requirement.",
       },
     ],
   },
@@ -1496,7 +1496,7 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "Carbon Products",
     category: "Finished Composites",
     description:
-      "Custom carbon fiber parts, molded products, CNC plates, civil UAV frames, FPV drone frames, tubes, assemblies and composite components according to drawings or samples.",
+      "Custom carbon fiber parts, molded products, CNC plates, civil UAV frames, remote-controlled model parts, tubes, assemblies and composite components according to drawings or samples.",
     heroCopy:
       "Custom carbon fiber products can be developed from plates, tubes, prepreg, wet layup or molded laminates for industrial, automotive, sports and equipment applications.",
     image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
@@ -1510,7 +1510,7 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "Custom Carbon Fiber Products and Composite Parts",
       description:
-        "Custom carbon fiber products supplier for CNC plates, civil UAV frames, FPV drone frames, tubes, molded parts, covers and lightweight composite components.",
+        "Custom carbon fiber products supplier for CNC plates, civil UAV frames, remote-controlled model parts, tubes, molded parts, covers and lightweight composite components.",
       keywords: [
         ...commonKeywords,
         "custom carbon fiber products",
@@ -1518,7 +1518,7 @@ export const productCatalog: ProductCatalogItem[] = [
         "CNC carbon fiber parts",
         "carbon fiber OEM products",
         "civil UAV carbon fiber parts",
-        "FPV drone carbon fiber frame",
+        "carbon fiber frame for civil UAV",
       ],
     },
     specs: [
@@ -1529,7 +1529,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     intro: [
       "Custom Carbon Fiber Products are developed when standard plates, tubes or fabrics need to become finished components. The project may start from drawings, CAD files, samples or an application brief.",
-      "Typical products include carbon plates with CNC holes, civil UAV frames, FPV drone frames, RC model parts, tube assemblies, covers, brackets, sports equipment pieces, fixtures and lightweight industrial components.",
+      "Typical products include carbon plates with CNC holes, civil UAV frames, remote-controlled model parts, tube assemblies, covers, brackets, sports equipment pieces, fixtures and lightweight industrial components.",
       "FRP HOME can review material selection, laminate style, finish, dimensional tolerance, machining, bonding and packing requirements before confirming feasibility and quotation.",
     ],
     highlights: [
@@ -1540,7 +1540,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     applications: [
       "Automotive and tuning components",
-      "Civil UAV, FPV drone and RC model parts",
+      "Civil UAV and remote-controlled model parts",
       "Sports equipment and accessories",
       "Fishing rod and leisure product components",
       "Industrial machine components",
@@ -1557,7 +1557,7 @@ export const productCatalog: ProductCatalogItem[] = [
           columns: ["Product group", "Typical material by review", "Indicative process", "Surface option by order", "Input required"],
           rows: [
             ["CNC plates", "3K plate / UD plate by review", "Cutting, drilling, chamfering", "Matte / glossy by order", "DXF, STEP or drawing"],
-            ["Civil UAV and FPV drone frames", "3K plate / UD plate by review", "CNC cutting and drilling", "Matte / glossy by order", "DXF, STEP or drawing"],
+            ["Civil UAV and remote-controlled model frames", "3K plate / UD plate by review", "CNC cutting and drilling", "Matte / glossy by order", "DXF, STEP or drawing"],
             ["Tube assemblies", "3K tube / pultruded tube by review", "Cutting, bonding, drilling", "Matte / glossy / painted by order", "Drawing and load condition"],
             ["Molded parts", "Prepreg / wet layup by review", "Compression, vacuum bagging, curing", "3K / painted / clear coat by order", "CAD and surface requirement"],
             ["Composite covers", "Woven carbon / hybrid by review", "Layup and finishing", "Visible carbon or painted by order", "Sample or drawing"],
@@ -1583,9 +1583,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "A drawing, CAD file, sample photo, dimensions, material preference and target application help confirm feasibility and price.",
       },
       {
-        question: "Can you make civil UAV, FPV drone or RC model carbon fiber parts?",
+        question: "Can you make civil UAV or remote-controlled model carbon fiber parts?",
         answer:
-          "Yes. We can review civil UAV frames, FPV drone frames, RC model plates, commercial drone components and inspection equipment parts according to drawings, material requirements and machining tolerance.",
+          "Yes. We can review civil UAV frames, remote-controlled model plates, commercial drone components and inspection-equipment parts according to drawings, material requirements and machining tolerance.",
       },
       {
         question: "Can you make production directly without samples?",

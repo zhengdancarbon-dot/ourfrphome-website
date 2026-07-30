@@ -41,7 +41,7 @@ export const applications = [
   },
   {
     name: "Civil UAV & Drone Parts",
-    description: "Carbon plates, tubes and custom machined parts for civil UAV, FPV drone, agricultural drone, mapping drone and inspection drone applications.",
+    description: "Carbon plates, tubes and custom machined parts for civil UAV, agricultural drone, mapping drone, inspection drone and remote-controlled model applications.",
     products: "3K Laminate Sheet · Carbon Tubes · CNC Parts · Custom Products",
   },
   {

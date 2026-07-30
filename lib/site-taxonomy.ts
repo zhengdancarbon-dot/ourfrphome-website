@@ -160,7 +160,7 @@ export const materialApplications: MaterialApplication[] = [
   },
   {
     name: "Civil UAV / Drone Components",
-    description: "Carbon plates, tubes and machined parts for civil UAV, FPV and inspection drones.",
+    description: "Carbon plates, tubes and machined parts for civil UAV, agricultural, mapping and inspection drones.",
     recommended: "3K sheets, pultruded tubes, CNC CFRP parts",
     href: "/applications/civil-uav-drone-components",
     image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
