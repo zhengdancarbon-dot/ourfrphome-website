@@ -3,9 +3,9 @@
 Date: 2026-07-30  
 Production domain: `https://www.myfrphome.com`  
 Source branch: `codex/repository-recovery-20260723`  
-Source commit: `b0a2f84434d7859c48008199e23ad9b794562862`  
-Vercel deployment: `dpl_2d8adkTSEbXGnwUNNAqa78aeYSM3`  
-Deployment URL: `https://ourfrphome-website-oh976oauk-zhendgan.vercel.app`
+Source commit: `94f315b` (documentation-only follow-up to the verified runtime)
+Final Vercel deployment: `dpl_Dbe4y895CFLKqJecgJAe7TF4X6yQ`
+Deployment URL: `https://ourfrphome-website-8u1azd824-zhendgan.vercel.app`
 
 ## Release Result
 
@@ -19,6 +19,10 @@ Vercel completed the production build successfully:
 - 219 routes generated;
 - deployment state: `READY`;
 - Production alias: `https://www.myfrphome.com`.
+
+The final production deployment refreshed the `INDEXNOW_KEY` runtime
+environment after correcting a key mismatch. It did not change public page
+content, URLs, metadata or structured data.
 
 ## Production Environment Gate
 
@@ -81,6 +85,12 @@ All sampled canonical links are self-referencing production URLs.
 - Arabic mobile menu opened and closed with the correct accessible state.
 
 ## Post-Launch Operations
+
+The 27 materially updated NCF, Yarn & Tow and Woven Fabric language pages were
+submitted through IndexNow after the final deployment. The endpoint accepted
+the batch with HTTP 200. This supplies a timely update notification to
+IndexNow-supported engines such as Bing and Yandex; it is not a substitute for
+Google sitemap discovery.
 
 1. Submit the updated sitemap once in Google Search Console, Bing Webmaster
    Tools and Yandex Webmaster.
