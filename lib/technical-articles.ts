@@ -27,6 +27,7 @@ export type TechnicalArticle = {
 export const technicalArticles: TechnicalArticle[] = [
   {
     slug: "3k-vs-12k-carbon-fiber-fabric",
+    publishedAt: "2026-06-28",
     title: "3K vs 12K Carbon Fiber Fabric",
     description:
       "Compare 3K and 12K carbon fiber fabric by appearance, areal weight, laminate build-up, handling and common applications.",
@@ -186,6 +187,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "plain-vs-twill-carbon-fiber-fabric",
+    publishedAt: "2026-06-28",
     title: "Plain vs Twill Carbon Fiber Fabric",
     description:
       "Compare plain weave and twill weave carbon fiber fabric for drape, stability, surface appearance and RFQ selection.",
@@ -233,6 +235,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "spread-tow-vs-traditional-carbon-fiber-fabric",
+    publishedAt: "2026-06-28",
     title: "Spread Tow vs Traditional Carbon Fiber Fabric",
     description:
       "Compare spread tow carbon fabric with traditional woven carbon fiber fabric for checker pattern, thickness, surface appearance and process selection.",
@@ -280,6 +283,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "ud-carbon-fiber-fabric-vs-woven-carbon-fiber-fabric",
+    publishedAt: "2026-06-28",
     title: "UD Carbon Fiber Fabric vs Woven Carbon Fiber Fabric",
     description:
       "Compare unidirectional carbon fiber fabric and woven carbon fiber fabric by fiber direction, load path, handling and application.",
@@ -327,6 +331,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "prepreg-vs-dry-carbon-fiber-fabric",
+    publishedAt: "2026-06-28",
     title: "Prepreg vs Dry Carbon Fiber Fabric",
     description:
       "Compare prepreg carbon fiber materials and dry carbon fiber fabric by resin content, storage, process control and application.",
@@ -374,6 +379,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "carbon-fiber-yarn-vs-tow-vs-roving",
+    publishedAt: "2026-06-28",
     title: "Carbon Fiber Yarn vs Tow vs Roving",
     description:
       "Understand carbon fiber yarn, tow and roving terms for weaving, braiding, winding, pultrusion, prepreg and chopping applications.",
@@ -518,6 +524,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "chopped-carbon-fiber-vs-milled-carbon-fiber-powder",
+    publishedAt: "2026-06-28",
     title: "Chopped Carbon Fiber vs Milled Carbon Fiber Powder",
     description:
       "Compare chopped carbon fiber and milled carbon fiber powder for plastic reinforcement, resin modification, conductivity and compound selection.",
@@ -565,6 +572,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "how-to-choose-carbon-fiber-fabric-by-gsm",
+    publishedAt: "2026-06-28",
     title: "How to Choose Carbon Fiber Fabric by GSM",
     description:
       "Choose carbon fiber fabric by areal weight, tow size, weave, laminate thickness and application requirements.",
@@ -624,6 +632,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "roll-wrapped-vs-pultruded-carbon-fiber-tube",
+    publishedAt: "2026-06-28",
     title: "Roll-Wrapped vs Pultruded Carbon Fiber Tube",
     description:
       "Compare roll-wrapped and pultruded carbon fiber tubes by process, fiber orientation, appearance, cost and application.",
@@ -671,6 +680,7 @@ export const technicalArticles: TechnicalArticle[] = [
   },
   {
     slug: "cfrp-plate-vs-carbon-fiber-fabric-for-structural-strengthening",
+    publishedAt: "2026-06-28",
     title: "CFRP Plate vs Carbon Fiber Fabric for Structural Strengthening",
     description:
       "Compare pultruded CFRP plates and UD carbon fiber fabric for concrete, bridge and building strengthening systems.",

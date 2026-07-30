@@ -353,6 +353,7 @@ async function worker() {
     if (isTechnicalArticle) {
       checkedTechnicalPages.add(path);
       if (!text.includes('"@type":"Article"')) failures.push(`${path}: missing Article structured data`);
+      if (!text.includes('"datePublished":')) failures.push(`${path}: missing Article publication date`);
       if (!text.includes('"@type":"FAQPage"')) failures.push(`${path}: missing FAQ structured data`);
       if (!text.includes('"@type":"BreadcrumbList"')) failures.push(`${path}: missing breadcrumb structured data`);
     }
