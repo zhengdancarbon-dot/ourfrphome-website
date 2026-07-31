@@ -582,6 +582,24 @@ for (const resource of internalResources) {
   if (response.status >= 400) failures.push(`${resource}: linked resource HTTP ${response.status}`);
 }
 
+for (const [productSlug, { src }] of videoProductPages) {
+  const response = await fetch(new URL(src, baseUrl), { redirect: "manual" });
+  const contentType = response.headers.get("content-type") || "";
+  if (!response.ok) failures.push(`${productSlug}: product video HTTP ${response.status}`);
+  if (!contentType.startsWith("video/")) {
+    failures.push(`${productSlug}: product video content-type is ${contentType || "missing"}`);
+  }
+}
+
+for (const documentPath of priorityDocumentLinks) {
+  const response = await fetch(new URL(documentPath, baseUrl), { redirect: "manual" });
+  const contentType = response.headers.get("content-type") || "";
+  if (!response.ok) failures.push(`${documentPath}: priority document HTTP ${response.status}`);
+  if (!contentType.startsWith("application/pdf")) {
+    failures.push(`${documentPath}: priority document content-type is ${contentType || "missing"}`);
+  }
+}
+
 for (const path of ["/en", "/es/products/not-a-real-product", "/pt-br/technical-center/not-translated"]) {
   const response = await fetch(new URL(path, baseUrl), { redirect: "manual" });
   if (response.status !== 404) failures.push(`${path}: expected 404, found ${response.status}`);
@@ -606,6 +624,7 @@ console.log(JSON.stringify({
   checkedLocalizedPriorityDirectories: checkedLocalizedPriorityDirectories.size,
   checkedPriorityHomepages: checkedPriorityHomepages.size,
   checkedPriorityDocuments: priorityDocumentLinks.length,
+  checkedPriorityVideoAssets: videoProductPages.size,
   checkedPriorityDocumentHubEntrypoints: 3,
   negative404Checks: 3,
   status: "PASS",
