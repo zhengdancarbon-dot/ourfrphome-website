@@ -1,0 +1,29 @@
+market,language,product,target_url,query,search_intent,priority,validation_status,route_note
+Russia,Russian,3K laminate sheet,/ru/products/3k-carbon-fiber-laminate-sheet,углепластиковая плита 3K,commercial,P1,existing Yandex map,Keep separate from pultruded strengthening plate
+Russia,Russian,3K laminate sheet,/ru/products/3k-carbon-fiber-laminate-sheet,лист углепластика 3K,commercial,P1,existing Yandex map,Monitor sheet versus plate wording
+Russia,Russian,3K laminate sheet,/ru/products/3k-carbon-fiber-laminate-sheet,купить углепластиковую плиту 3K,transactional,P1,existing Yandex map,Use only as a query-monitoring term
+Russia,Russian,3K laminate sheet,/ru/products/3k-carbon-fiber-laminate-sheet,саржевый лист углепластика 3K,transactional,P1,existing Yandex map,Keep 3K twill surface clear
+Russia,Russian,3K laminate sheet,/ru/products/3k-carbon-fiber-laminate-sheet,углепластиковая плита под ЧПУ,transactional,P1,existing Yandex map,Route drawing-based RFQs here
+Russia,Russian,Multiaxial NCF,/ru/products/carbon-fiber-multiaxial-ncf-fabric,мультиаксиальная углеродная ткань NCF,commercial,P1,existing Yandex map,Use separate NCF query group
+Russia,Russian,Multiaxial NCF,/ru/products/carbon-fiber-multiaxial-ncf-fabric,биаксиальная углеродная ткань 300 г м2,transactional,P1,existing Yandex map,Keep 300gsm TDS scope visible
+Russia,Russian,Multiaxial NCF,/ru/products/carbon-fiber-multiaxial-ncf-fabric,биаксиальная углеродная ткань 600 г м2,transactional,P1,existing Yandex map,Keep 600gsm TDS scope visible
+Russia,Russian,Multiaxial NCF,/ru/products/carbon-fiber-multiaxial-ncf-fabric,углеродная ткань +45 -45,transactional,P1,existing Yandex map,Keep technical directions unchanged
+Poland,Polish,3K laminate sheet,/pl/products/3k-carbon-fiber-laminate-sheet,płyta z włókna węglowego 3K,commercial,P1,native review plus GSC required,Do not modify metadata until evidence threshold
+Poland,Polish,3K laminate sheet,/pl/products/3k-carbon-fiber-laminate-sheet,arkusz z włókna węglowego 3K,commercial,P1,native review plus GSC required,Monitor plate versus sheet wording
+Poland,Polish,3K laminate sheet,/pl/products/3k-carbon-fiber-laminate-sheet,płyta karbonowa 3K CNC,transactional,P1,native review plus GSC required,Route drawing-based RFQs here
+Poland,Polish,3K laminate sheet,/pl/products/3k-carbon-fiber-laminate-sheet,matowa płyta karbonowa 3K,transactional,P2,native review plus GSC required,Finish is confirmed by quotation
+Poland,Polish,3K laminate sheet,/pl/products/3k-carbon-fiber-laminate-sheet,błyszcząca płyta karbonowa 3K,transactional,P2,native review plus GSC required,Finish is confirmed by quotation
+South Korea,Korean,3K laminate sheet,/ko/products/3k-carbon-fiber-laminate-sheet,3K 카본 플레이트,commercial,P1,native review plus GSC or Naver data required,Do not change technical strings
+South Korea,Korean,3K laminate sheet,/ko/products/3k-carbon-fiber-laminate-sheet,3K 탄소섬유 판,commercial,P1,native review plus GSC or Naver data required,Monitor local terminology
+South Korea,Korean,3K laminate sheet,/ko/products/3k-carbon-fiber-laminate-sheet,카본 파이버 시트 3K,commercial,P1,native review plus GSC or Naver data required,Monitor sheet terminology
+South Korea,Korean,3K laminate sheet,/ko/products/3k-carbon-fiber-laminate-sheet,카본 판 CNC 가공,transactional,P1,native review plus GSC or Naver data required,Route drawing-based RFQs here
+South Korea,Korean,3K laminate sheet,/ko/products/3k-carbon-fiber-laminate-sheet,무광 카본 플레이트,transactional,P2,native review plus GSC or Naver data required,Finish is confirmed by quotation
+Ukraine,Ukrainian,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,карбонова пластина 3K,commercial,P1,native review required before local-language publication,Use English page only until uk locale launches
+Ukraine,Ukrainian,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,лист вуглепластику 3K,commercial,P1,native review required before local-language publication,Do not route to Russian page by default
+Ukraine,Ukrainian,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,карбоновий лист 3K CNC,transactional,P1,native review required before local-language publication,Future uk route only after full QA
+Vietnam,Vietnamese,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,tấm sợi carbon 3K,commercial,P1,native review required before local-language publication,Use English page until vi locale launches
+Vietnam,Vietnamese,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,tấm carbon 3K,commercial,P1,native review required before local-language publication,Monitor English and Vietnamese terms separately
+Vietnam,Vietnamese,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,gia công CNC tấm carbon,transactional,P1,native review required before local-language publication,Future vi route only after full QA
+Thailand,Thai,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,แผ่นคาร์บอนไฟเบอร์ 3K,commercial,P1,native review required before local-language publication,Use English page until th locale launches
+Thailand,Thai,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,แผ่นคาร์บอน 3K,commercial,P1,native review required before local-language publication,Monitor English and Thai terms separately
+Thailand,Thai,3K laminate sheet,/products/3k-carbon-fiber-laminate-sheet,รับตัด CNC แผ่นคาร์บอน,transactional,P1,native review required before local-language publication,Future th route only after full QA
