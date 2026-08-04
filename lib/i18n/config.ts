@@ -1,6 +1,6 @@
 export const defaultLocale = "en" as const;
-export const activeLocales = ["en", "es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"] as const;
-export const localizedLocales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"] as const;
+export const activeLocales = ["en", "es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"] as const;
+export const localizedLocales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"] as const;
 export const futureLocales = [] as const;
 
 export type Locale = (typeof activeLocales)[number];
@@ -18,6 +18,9 @@ export const localeLabels: Record<Locale, string> = {
   ko: "한국어",
   pl: "Polski",
   tr: "Türkçe",
+  uk: "Українська",
+  vi: "Tiếng Việt",
+  th: "ไทย",
 };
 
 export const localeShortLabels: Record<Locale, string> = {
@@ -30,6 +33,9 @@ export const localeShortLabels: Record<Locale, string> = {
   ko: "KO",
   pl: "PL",
   tr: "TR",
+  uk: "UK",
+  vi: "VI",
+  th: "TH",
 };
 
 export const hreflangLocales: Record<Locale, string> = {
@@ -42,6 +48,9 @@ export const hreflangLocales: Record<Locale, string> = {
   ko: "ko",
   pl: "pl",
   tr: "tr",
+  uk: "uk",
+  vi: "vi",
+  th: "th",
 };
 
 export const ogLocales: Record<Locale, string> = {
@@ -54,6 +63,9 @@ export const ogLocales: Record<Locale, string> = {
   ko: "ko_KR",
   pl: "pl_PL",
   tr: "tr_TR",
+  uk: "uk_UA",
+  vi: "vi_VN",
+  th: "th_TH",
 };
 
 export const localeLocationLabels: Record<Locale, string> = {
@@ -66,6 +78,9 @@ export const localeLocationLabels: Record<Locale, string> = {
   ko: "중국 저장성",
   pl: "Zhejiang, Chiny",
   tr: "Zhejiang, Çin",
+  uk: "Чжецзян, Китай",
+  vi: "Chiết Giang, Trung Quốc",
+  th: "เจ้อเจียง, จีน",
 };
 
 export function isActiveLocale(value: string): value is Locale {

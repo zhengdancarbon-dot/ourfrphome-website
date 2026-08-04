@@ -23,6 +23,9 @@ const zoomLabels: Record<Locale, { enlarge: string; open: string; close: string 
   ko: { enlarge: "이미지 확대", open: "확대 이미지 열기", close: "확대 이미지 닫기" },
   pl: { enlarge: "Powiększ obraz", open: "Otwórz powiększony obraz", close: "Zamknij powiększony obraz" },
   tr: { enlarge: "Görseli büyüt", open: "Büyütülmüş görseli aç", close: "Büyütülmüş görseli kapat" },
+  uk: { enlarge: "Збільшити зображення", open: "Відкрити збільшене зображення", close: "Закрити збільшене зображення" },
+  vi: { enlarge: "Phóng to ảnh", open: "Mở ảnh phóng to", close: "Đóng ảnh phóng to" },
+  th: { enlarge: "ขยายภาพ", open: "เปิดภาพขยาย", close: "ปิดภาพขยาย" },
 };
 
 export function ProductImageZoom({ src, alt, sizes, priority = false }: ProductImageZoomProps) {

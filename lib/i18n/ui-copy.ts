@@ -538,6 +538,9 @@ export function getRfqPrefillMessage(locale: Locale, productName: string) {
     ko: `${productName} 견적을 요청합니다. 필요한 사양과 수량은 아래와 같습니다.`,
     pl: `Proszę o ofertę na ${productName}. Wymagana specyfikacja i ilość znajdują się poniżej.`,
     tr: `${productName} için teklif rica ederim. Hedef teknik özellik ve miktar aşağıdadır.`,
+    uk: `Прошу надати пропозицію на ${productName}. Потрібні специфікація та кількість наведені нижче.`,
+    vi: `Vui lòng báo giá ${productName}. Thông số và số lượng cần thiết được nêu bên dưới.`,
+    th: `โปรดเสนอราคาสำหรับ ${productName} ข้อมูลจำเพาะและปริมาณที่ต้องการระบุไว้ด้านล่าง`,
   };
 
   return messages[locale];

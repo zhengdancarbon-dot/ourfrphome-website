@@ -21,7 +21,7 @@ const yarnTowVideo = {
   orientation: "portrait" as const,
 };
 
-const yarnTowVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+const yarnTowVideoCopy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>> = {
   en: {
     eyebrow: "Production video",
     title: "Carbon fiber tow spools on a production creel",
@@ -86,7 +86,7 @@ const wovenFabricVideo = {
   orientation: "landscape" as const,
 };
 
-const wovenFabricVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+const wovenFabricVideoCopy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>> = {
   en: {
     eyebrow: "Weaving video",
     title: "Twill carbon fiber fabric moving through the loom",
@@ -151,7 +151,7 @@ const multiaxialNcfVideo = {
   orientation: "portrait" as const,
 };
 
-const multiaxialNcfVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+const multiaxialNcfVideoCopy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>> = {
   en: {
     eyebrow: "Production video",
     title: "Directional carbon layers on production equipment",
@@ -216,7 +216,7 @@ const laminateSheetVideo = {
   orientation: "portrait" as const,
 };
 
-const laminateSheetVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+const laminateSheetVideoCopy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>> = {
   en: {
     eyebrow: "Product video",
     title: "3K twill carbon laminate sheet under protective film",
@@ -281,7 +281,7 @@ const strengtheningPlateVideo = {
   orientation: "landscape" as const,
 };
 
-const strengtheningPlateVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+const strengtheningPlateVideoCopy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>> = {
   en: {
     eyebrow: "Product video",
     title: "CFRP strengthening plate strips in a workshop",
@@ -338,39 +338,52 @@ const strengtheningPlateVideoCopy: Record<Locale, Pick<ProductVideo, "eyebrow" |
   },
 };
 
+const emergingLocaleVideoCopy: Record<Extract<Locale, "uk" | "vi" | "th">, Pick<ProductVideo, "eyebrow" | "title" | "description">> = {
+  uk: { eyebrow: "Відео продукту", title: "Відео виробництва вуглецевих композитних матеріалів", description: "Відео з виробництва. У RFQ підтвердьте специфікацію, кількість, країну призначення та кінцеве використання." },
+  vi: { eyebrow: "Video sản phẩm", title: "Video sản xuất vật liệu composite carbon", description: "Video từ khu vực sản xuất. Trong RFQ, xác nhận thông số, số lượng, quốc gia đến và mục đích sử dụng cuối." },
+  th: { eyebrow: "วิดีโอผลิตภัณฑ์", title: "วิดีโอการผลิตวัสดุคอมโพสิตคาร์บอน", description: "วิดีโอจากพื้นที่ผลิต โปรดยืนยันข้อมูลจำเพาะ ปริมาณ ประเทศปลายทาง และการใช้งานปลายทางใน RFQ" },
+};
+
+function videoCopyForLocale(
+  copy: Partial<Record<Locale, Pick<ProductVideo, "eyebrow" | "title" | "description">>>,
+  locale: Locale,
+) {
+  return copy[locale] ?? (locale in emergingLocaleVideoCopy ? emergingLocaleVideoCopy[locale as keyof typeof emergingLocaleVideoCopy] : copy.en!);
+}
+
 export function getProductVideo(slug: string, locale: Locale): ProductVideo | undefined {
   if (slug === "carbon-fiber-multiaxial-ncf-fabric") {
     return {
       ...multiaxialNcfVideo,
-      ...multiaxialNcfVideoCopy[locale],
+      ...videoCopyForLocale(multiaxialNcfVideoCopy, locale),
     };
   }
 
   if (slug === "carbon-fiber-yarn-and-tow") {
     return {
       ...yarnTowVideo,
-      ...yarnTowVideoCopy[locale],
+      ...videoCopyForLocale(yarnTowVideoCopy, locale),
     };
   }
 
   if (slug === "carbon-fiber-woven-fabric") {
     return {
       ...wovenFabricVideo,
-      ...wovenFabricVideoCopy[locale],
+      ...videoCopyForLocale(wovenFabricVideoCopy, locale),
     };
   }
 
   if (slug === "3k-carbon-fiber-laminate-sheet") {
     return {
       ...laminateSheetVideo,
-      ...laminateSheetVideoCopy[locale],
+      ...videoCopyForLocale(laminateSheetVideoCopy, locale),
     };
   }
 
   if (slug === "structural-strengthening-system") {
     return {
       ...strengtheningPlateVideo,
-      ...strengtheningPlateVideoCopy[locale],
+      ...videoCopyForLocale(strengtheningPlateVideoCopy, locale),
     };
   }
 

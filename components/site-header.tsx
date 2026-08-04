@@ -22,6 +22,9 @@ const mobileMenuLabels = {
   ko: { open: "기본 메뉴 열기", close: "기본 메뉴 닫기" },
   pl: { open: "Otwórz menu główne", close: "Zamknij menu główne" },
   tr: { open: "Ana menüyü aç", close: "Ana menüyü kapat" },
+  uk: { open: "Відкрити головне меню", close: "Закрити головне меню" },
+  vi: { open: "Mở menu chính", close: "Đóng menu chính" },
+  th: { open: "เปิดเมนูหลัก", close: "ปิดเมนูหลัก" },
 } satisfies Record<Locale, { open: string; close: string }>;
 
 export function SiteHeader() {

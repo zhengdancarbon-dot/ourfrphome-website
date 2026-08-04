@@ -1,6 +1,6 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 210);
-const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 267);
+const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"];
 const localeLabels = {
   es: "Español",
   "pt-br": "Português BR",
@@ -10,6 +10,9 @@ const localeLabels = {
   ko: "한국어",
   pl: "Polski",
   tr: "Türkçe",
+  uk: "Українська",
+  vi: "Tiếng Việt",
+  th: "ไทย",
 };
 const expectedLocalizedCount = 19;
 const expectedTechnicalArticleCount = 24;
@@ -104,6 +107,9 @@ const languageCodes = {
   ko: "ko",
   pl: "pl",
   tr: "tr",
+  uk: "uk",
+  vi: "vi",
+  th: "th",
 };
 const priorityDocumentLinks = [
   "/downloads/tds/FRP-HOME-300gsm-Biaxial-Carbon-Fabric-TDS.pdf",
@@ -178,7 +184,7 @@ async function worker() {
     if (!matches(text, /<title>[^<]+<\/title>/i)) failures.push(`${path}: missing title`);
     if (!matches(text, /<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/i)) failures.push(`${path}: missing H1`);
 
-    const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr))?\/products\/[^/]+$/.test(path);
+    const isProductDetail = /^(?:\/(?:es|pt-br|ru|ar|fr|ko|pl|tr|uk|vi|th))?\/products\/[^/]+$/.test(path);
     if (isProductDetail && !text.includes('"@type":"Product"')) {
       failures.push(`${path}: missing Product structured data entity`);
     }
@@ -228,7 +234,7 @@ async function worker() {
       }
     }
 
-    const localizedProductsDirectory = path.match(/^\/(es|pt-br|ru|ar|fr|ko|pl|tr)\/products$/)?.[1];
+    const localizedProductsDirectory = path.match(/^\/(es|pt-br|ru|ar|fr|ko|pl|tr|uk|vi|th)\/products$/)?.[1];
     if (localizedProductsDirectory) {
       checkedLocalizedPriorityDirectories.add(path);
       if (!text.includes("data-priority-products=\"true\"")) {

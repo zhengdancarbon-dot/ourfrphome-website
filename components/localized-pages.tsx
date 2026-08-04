@@ -63,6 +63,9 @@ const tdsDownloadCopy: Record<Exclude<Locale, "en">, { title: string; note: stri
   ko: { title: "기술 문서 다운로드", note: "영문 기술 문서입니다. 견적 시 사양과 배치 문서를 확인해 주세요.", action: "TDS 다운로드" },
   pl: { title: "Dokumenty techniczne do pobrania", note: "Dokument techniczny w języku angielskim. Potwierdź specyfikację i dokumenty partii w zapytaniu.", action: "Pobierz TDS" },
   tr: { title: "İndirilebilir teknik belgeler", note: "Teknik belge İngilizcedir. Teklif sırasında spesifikasyonu ve parti belgelerini doğrulayın.", action: "TDS indir" },
+  uk: { title: "Технічні документи для завантаження", note: "Технічний документ англійською мовою. Підтвердьте специфікацію та документи партії в запиті.", action: "Завантажити TDS" },
+  vi: { title: "Tài liệu kỹ thuật để tải xuống", note: "Tài liệu kỹ thuật bằng tiếng Anh. Vui lòng xác nhận thông số và tài liệu lô hàng khi hỏi giá.", action: "Tải TDS" },
+  th: { title: "เอกสารเทคนิคสำหรับดาวน์โหลด", note: "เอกสารเทคนิคเป็นภาษาอังกฤษ โปรดยืนยันข้อมูลจำเพาะและเอกสารล็อตเมื่อขอราคา", action: "ดาวน์โหลด TDS" },
 };
 
 const englishGuideCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: string; note: string; action: string }> = {
@@ -114,6 +117,9 @@ const englishGuideCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: 
     note: "Seçenekleri karşılaştırın ve daha eksiksiz bir RFQ hazırlayın. Nihai değerler teklif ve ürün belgelerinde doğrulanır.",
     action: "İngilizce rehberi oku",
   },
+  uk: { eyebrow: "Посібники для закупівлі", title: "Пов’язані технічні посібники англійською", note: "Порівняйте варіанти та підготуйте повніший RFQ. Остаточні значення підтверджуються в пропозиції та документах на продукт.", action: "Відкрити посібник англійською" },
+  vi: { eyebrow: "Hướng dẫn mua hàng", title: "Hướng dẫn kỹ thuật liên quan bằng tiếng Anh", note: "So sánh các lựa chọn và chuẩn bị RFQ đầy đủ hơn. Giá trị cuối cùng được xác nhận trong báo giá và tài liệu sản phẩm.", action: "Đọc hướng dẫn tiếng Anh" },
+  th: { eyebrow: "คู่มือการจัดซื้อ", title: "คู่มือเทคนิคที่เกี่ยวข้องภาษาอังกฤษ", note: "เปรียบเทียบตัวเลือกและเตรียม RFQ ให้ครบถ้วนขึ้น ค่าขั้นสุดท้ายยืนยันในใบเสนอราคาและเอกสารผลิตภัณฑ์", action: "อ่านคู่มือภาษาอังกฤษ" },
 };
 
 const featuredProductSlugs = priorityDiscoveryRoutes.map((route) => route.productSlug);
@@ -159,6 +165,9 @@ const priorityProductsCopy: Record<Exclude<Locale, "en">, { eyebrow: string; tit
     title: "Altı ana ürün grubu için satın alma yolları.",
     note: "İlgili ürünle başlayın ve RFQ içinde spesifikasyon, miktar, proses, varış noktası, nihai kullanım ve gerekli belgeleri belirtin.",
   },
+  uk: { eyebrow: "Пріоритетні продукти", title: "Закупівельні маршрути для шести ключових груп.", note: "Почніть із потрібного продукту та вкажіть у RFQ специфікацію, кількість, процес, країну призначення, кінцеве використання й потрібні документи." },
+  vi: { eyebrow: "Sản phẩm ưu tiên", title: "Lộ trình mua hàng cho sáu nhóm chính.", note: "Bắt đầu với sản phẩm phù hợp và xác nhận thông số, số lượng, quy trình, nơi đến, ứng dụng cuối cùng và tài liệu cần thiết trong RFQ." },
+  th: { eyebrow: "ผลิตภัณฑ์สำคัญ", title: "เส้นทางจัดซื้อสำหรับผลิตภัณฑ์หลักหกกลุ่ม", note: "เริ่มจากผลิตภัณฑ์ที่เกี่ยวข้องและระบุข้อมูลจำเพาะ ปริมาณ กระบวนการ ปลายทาง การใช้งานปลายทาง และเอกสารที่ต้องการใน RFQ" },
 };
 
 const featuredApplicationSlugs = [

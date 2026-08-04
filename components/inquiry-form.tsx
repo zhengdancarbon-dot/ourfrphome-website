@@ -37,6 +37,9 @@ const fieldValidationMessages: Record<Locale, string> = {
   ko: "이 항목을 확인해 주세요.",
   pl: "Sprawdź to pole.",
   tr: "Lütfen bu alanı kontrol edin.",
+  uk: "Перевірте це поле.",
+  vi: "Vui lòng kiểm tra trường này.",
+  th: "โปรดตรวจสอบช่องนี้",
 };
 
 const attributionSessionKey = "frp-home-rfq-attribution";
