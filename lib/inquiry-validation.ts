@@ -8,6 +8,7 @@ export type InquiryValues = {
   email: string;
   whatsapp: string;
   product: string;
+  productSlug: string;
   country: string;
   quantity: string;
   destinationCountry: string;
@@ -49,6 +50,7 @@ const validProductNames = new Set([
   ...productCatalog.map((product) => product.name),
   "Custom / Other",
 ]);
+const validProductSlugs = new Set(productCatalog.map((product) => product.slug));
 
 const initialValues: InquiryValues = {
   name: "",
@@ -56,6 +58,7 @@ const initialValues: InquiryValues = {
   email: "",
   whatsapp: "",
   product: "",
+  productSlug: "",
   country: "",
   quantity: "",
   destinationCountry: "",
@@ -111,6 +114,9 @@ export function normalizeInquiryPayload(input: Record<string, unknown>): Inquiry
     email: cleanValue(input.email),
     whatsapp: cleanValue(input.whatsapp),
     product: cleanValue(input.product),
+    productSlug: validProductSlugs.has(cleanValue(input.productSlug))
+      ? cleanValue(input.productSlug)
+      : "",
     country: cleanValue(input.country),
     quantity: cleanValue(input.quantity),
     destinationCountry: cleanValue(input.destinationCountry),

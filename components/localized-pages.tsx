@@ -32,6 +32,7 @@ import {
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocumentId, getProductDocuments } from "@/lib/product-documents";
+import { getCoreProductRelatedProducts } from "@/lib/core-product-links";
 import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
@@ -723,10 +724,12 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
   const copy = getUiCopy(locale);
   const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
   const activeRfqType = rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
-  const relatedProducts = productCatalog
+  const fallbackRelatedProducts = productCatalog
     .filter((item) => item.slug !== product.slug)
     .filter((item) => isPhaseOneProductSlug(item.slug))
     .slice(0, 4);
+  const relatedProducts = getCoreProductRelatedProducts(product, fallbackRelatedProducts)
+    .filter((item) => isPhaseOneProductSlug(item.slug));
   const productImageSlots = product.gallery?.length ? product.gallery : [product.image];
   const downloadableDocuments = getProductDocuments(product.slug);
   const relatedGuides = featuredProductSlugs.includes(
@@ -956,6 +959,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                       data-analytics-event="tds_download"
                       data-product-slug={product.slug}
                       data-document-title={document.title}
+                      data-document-type={document.type}
                       data-document-id={getProductDocumentId(document)}
                       download
                       href={document.href}
@@ -963,7 +967,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                     >
                       <FileText size={23} />
                       <span>
-                        <strong>{document.type === "SPEC" ? `Download ${document.type}` : tdsDownloadCopy[locale].action}</strong>
+                        <strong>{document.type === "SPEC" ? "English SPEC / RFQ Guide" : tdsDownloadCopy[locale].action}</strong>
                         <small>{document.title}</small>
                         <small>{document.revision} · English · {document.fileSize}</small>
                       </span>
@@ -1049,10 +1053,11 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
               <div><Settings2 size={21} /><span><strong>{translateLabel(locale, "Review")}</strong><small>{copy.common.endUseReview}</small></span></div>
             </div>
           </div>
-          <Suspense fallback={<RfqFallbackForm productName={product.name} productType={activeRfqType.value} locale={locale} sourcePage={`/${locale}/products/${product.slug}`} />}>
+          <Suspense fallback={<RfqFallbackForm productName={product.name} productSlug={product.slug} productType={activeRfqType.value} locale={locale} sourcePage={`/${locale}/products/${product.slug}`} />}>
             <InquiryForm
               initialProduct={product.name}
               initialProductType={activeRfqType.value}
+              productSlug={product.slug}
               locale={locale}
             />
           </Suspense>

@@ -19,10 +19,10 @@ const expectedTechnicalArticleCount = 24;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
-  ["/products/carbon-fiber-yarn-and-tow", ["Carbon Fiber Tow Supplier", "Carbon Fiber Yarn & Tow"]],
+  ["/products/carbon-fiber-yarn-and-tow", ["12K Carbon Fiber Tow Supplier", "Carbon Fiber Yarn & Tow"]],
   ["/products/carbon-fiber-ud-fabric", ["300gsm UD Carbon Fiber Fabric Supplier", "UD Carbon Fiber Fabric"]],
   ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
-  ["/products/carbon-fiber-woven-fabric", ["3K Woven Carbon Fiber Fabric", "Woven Carbon Fiber Fabric"]],
+  ["/products/carbon-fiber-woven-fabric", ["3K 200gsm Twill Carbon Fiber Fabric Supplier", "Woven Carbon Fiber Fabric"]],
 ]);
 const priorityProductSlugs = [...priorityProductPages.keys()].map((path) => path.split("/").pop());
 const priorityProductResourceCounts = new Map([

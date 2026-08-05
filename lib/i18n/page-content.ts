@@ -1383,6 +1383,8 @@ const specTextTranslations: Record<"es" | "pt-br", Record<string, string>> = {
     "Standard woven fabric range": "Rango estándar de tejido woven",
     "Representative woven fabric range. Actual construction, pick count and yarn brand are confirmed before production.":
       "Rango representativo de tejido woven. La construcción real, la densidad del tejido y la marca del hilo se confirman antes de producción.",
+    "Published TDS records support the documented 300 g/m² biaxial and 600 g/m² +45°/-45° entries. Other layer sequences and fiber distributions require matching source data and order review.":
+      "Los TDS publicados respaldan las entradas documentadas de biaxial 300 g/m² y 600 g/m² +45°/-45°. Otras secuencias de capas y distribuciones de fibra requieren datos de fuente correspondientes y revisión del pedido.",
     "Brand and tow options for inquiry": "Opciones de marca y tow para consulta",
     "Brand and grade availability changes with allocation and market supply. Final yarn TDS must follow the selected manufacturer's batch documentation.":
       "La disponibilidad de marca y grado cambia según asignación y suministro del mercado. El TDS final del hilo debe seguir la documentación de lote del fabricante seleccionado.",
@@ -1419,6 +1421,8 @@ const specTextTranslations: Record<"es" | "pt-br", Record<string, string>> = {
     "Standard woven fabric range": "Faixa padrão de tecido woven",
     "Representative woven fabric range. Actual construction, pick count and yarn brand are confirmed before production.":
       "Faixa representativa de tecido woven. A construção real, a densidade da trama e a marca do fio são confirmadas antes da produção.",
+    "Published TDS records support the documented 300 g/m² biaxial and 600 g/m² +45°/-45° entries. Other layer sequences and fiber distributions require matching source data and order review.":
+      "Os TDS publicados dão suporte às opções documentadas biaxiais de 300 g/m² e de 600 g/m² +45°/-45°. Outras sequências de camadas e distribuições de fibra exigem dados de fonte correspondentes e revisão do pedido.",
     "Brand and tow options for inquiry": "Opções de marca e tow para consulta",
     "Brand and grade availability changes with allocation and market supply. Final yarn TDS must follow the selected manufacturer's batch documentation.":
       "A disponibilidade de marca e grau muda conforme alocação e oferta do mercado. O TDS final do fio deve seguir a documentação de lote do fabricante selecionado.",

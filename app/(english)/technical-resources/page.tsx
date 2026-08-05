@@ -158,6 +158,7 @@ export default function TechnicalResourcesPage() {
                     data-product-slug={document.productSlug}
                     data-related-product-slugs={products.map((product) => product.slug).join(",")}
                     data-document-title={document.title}
+                    data-document-type={document.type}
                     data-document-id={getProductDocumentId(document)}
                     download
                     href={document.href}

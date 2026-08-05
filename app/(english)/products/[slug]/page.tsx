@@ -19,6 +19,7 @@ import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
 import { getProductDocumentId, getProductDocuments } from "@/lib/product-documents";
+import { getCoreProductRelatedProducts } from "@/lib/core-product-links";
 import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
@@ -106,11 +107,20 @@ function inferRfqType(product: ProductCatalogItem) {
 function selectionGuidance(product: ProductCatalogItem) {
   const source = `${product.name} ${product.category}`.toLowerCase();
 
+  if (product.slug === "carbon-fiber-woven-fabric") {
+    return [
+      "Use the published 3K 200 g/m² twill construction when a documented woven fabric is required.",
+      "For another weave, tow size or visible pattern, provide the requested construction and an appearance reference for review.",
+      "Confirm width and roll length; the published TDS records 1000-1500 mm width and a 100 m nominal roll.",
+      "State the intended resin process and final application so that material compatibility can be reviewed.",
+      "Provide quantity, delivery country, packing requirement and required documents before quotation.",
+    ];
+  }
   if (product.slug === "carbon-fiber-multiaxial-ncf-fabric") {
     return [
-      "Choose the NCF architecture: UD, biaxial, triaxial or quadriaxial.",
-      "State every fiber direction, such as 0°/90° or +45°/-45°.",
-      "Confirm whether 300gsm, 600gsm or another total and per-layer weight is required.",
+      "Start with the documented 300gsm biaxial or 600gsm +45°/-45° scope when it matches the request.",
+      "State every fiber direction, such as 0°/90° or +45°/-45°; other architectures remain order review.",
+      "Confirm total and per-layer gsm rather than assuming a laminate recommendation from the website.",
       "Provide width, roll length, stitch requirement and cutting plan.",
       "Identify vacuum infusion, RTM, prepreg conversion or another resin process.",
       "Attach the laminate schedule and provide quantity, destination and final application.",
@@ -128,12 +138,11 @@ function selectionGuidance(product: ProductCatalogItem) {
   }
   if (product.slug === "carbon-fiber-ud-fabric") {
     return [
-      "Confirm the main load direction.",
-      "Select the required areal weight.",
-      "Choose width according to laminate design or strengthening area.",
-      "Confirm fiber grade and modulus requirement.",
-      "Confirm resin compatibility and processing method.",
-      "Confirm whether the application is composite manufacturing or structural strengthening.",
+      "State the fibre direction defined by the customer's laminate or qualified engineering review.",
+      "Start from the documented 300 g/m² product TDS or identify the separate 200 g/m² supply-reference scope.",
+      "Choose width, roll length, grade and sizing against the selected process and source documents.",
+      "Provide the resin or adhesive system for compatibility review; do not rely on a generic resin-consumption value.",
+      "For strengthening work, identify the structure and use a qualified engineer to confirm the material system and installation method.",
     ];
   }
   if (product.slug === "spread-tow-carbon-fiber-fabric") {
@@ -165,8 +174,9 @@ function selectionGuidance(product: ProductCatalogItem) {
   }
   if (source.includes("yarn") || source.includes("tow")) {
     return [
-      "Specify tow size, grade, sizing, package weight and compatible downstream process.",
-      "Use neutral brand requests; availability depends on batch, stock, order quantity and compliance review.",
+      "Use the published 12K supply reference only for its stated scope; 3K, 24K and 50K requests require source-specific confirmation.",
+      "Specify tow size, grade, sizing, linear-density request, bobbin format and compatible downstream process.",
+      "Use neutral source or brand requests; availability depends on batch, stock, order quantity and compliance review.",
       "End-use and end-user information may be required before quotation or shipment.",
     ];
   }
@@ -176,9 +186,10 @@ function selectionGuidance(product: ProductCatalogItem) {
     source.includes("strengthening")
   ) {
     return [
-      "Identify project type, reinforcement design, target area and required CFRP fabric or plate dimensions.",
-      "Confirm whether structural epoxy resin, primer, saturant or plate adhesive is required.",
-      "Project suitability should be reviewed by the customer's qualified engineering team.",
+      "Choose the material route first: documented 300 g/m² UD fabric, 200 g/m² supply reference, or documented 1.2 mm pultruded plate.",
+      "Identify project type, dimensions, target area and bonding-surface requirement without treating the website as a structural design.",
+      "Confirm whether structural epoxy resin, primer, saturant or plate adhesive is required for project review.",
+      "Project suitability, substrate preparation and installation should be approved by the customer's qualified engineering team.",
     ];
   }
   if (source.includes("tube") || source.includes("sheet") || source.includes("custom")) {
@@ -325,10 +336,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const downloadableDocuments = getProductDocuments(product.slug);
 
   const productIndex = productCatalog.findIndex((item) => item.slug === product.slug) + 1;
-  const relatedProducts = productCatalog
+  const fallbackRelatedProducts = productCatalog
     .filter((item) => item.slug !== product.slug)
     .sort((a, b) => Number(b.category === product.category) - Number(a.category === product.category))
     .slice(0, 5);
+  const relatedProducts = getCoreProductRelatedProducts(product, fallbackRelatedProducts);
   const activeRfqType =
     rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const fit = recommendedFit(product);
@@ -657,6 +669,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                         data-analytics-event="tds_download"
                         data-product-slug={product.slug}
                         data-document-title={document.title}
+                        data-document-type={document.type}
                         data-document-id={getProductDocumentId(document)}
                         download
                         href={document.href}
@@ -664,7 +677,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       >
                         <FileText size={23} />
                         <span>
-                          <strong>Download {document.type}</strong>
+                          <strong>{document.type === "SPEC" ? "English SPEC / RFQ Guide" : `Download English ${document.type}`}</strong>
                           <small>{document.title}</small>
                           <small>{document.revision} · {document.language} · {document.fileSize}</small>
                         </span>
@@ -787,6 +800,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             fallback={
               <RfqFallbackForm
                 productName={product.name}
+                productSlug={product.slug}
                 productType={activeRfqType.value}
                 message={`Please quote ${product.name}. My target specification and quantity are below.`}
                 sourcePage={`/products/${product.slug}`}
@@ -796,6 +810,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <InquiryForm
               initialProduct={product.name}
               initialProductType={activeRfqType.value}
+              productSlug={product.slug}
             />
           </Suspense>
         </div>

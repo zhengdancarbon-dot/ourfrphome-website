@@ -165,15 +165,16 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "3K twill carbon fiber woven fabric",
     position: "18% 50%",
     seo: {
-      title: "3K Woven Carbon Fiber Fabric | Plain & Twill",
+      title: "3K 200gsm Twill Carbon Fiber Fabric Supplier",
       description:
-        "3K woven carbon fiber fabric supplier for documented 200gsm twill carbon cloth, with other tow sizes and weaves reviewed for visible CFRP and laminates.",
+        "Supplier of documented 3K 200gsm twill carbon fiber fabric, with width, roll, resin process and other woven constructions confirmed by order review.",
       keywords: [
         ...commonKeywords,
         "carbon fiber woven fabric",
         "woven carbon fiber cloth 200 g/m²",
+        "3K 200gsm twill carbon fiber fabric supplier",
         "3K twill carbon fiber fabric",
-        "12K carbon fiber fabric 600 g/m²",
+        "carbon fiber cloth manufacturer",
       ],
     },
     specs: [
@@ -368,7 +369,7 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "Carbon Multiaxial NCF Fabric Supplier | 300/600gsm",
       description:
-        "Source 300gsm and 600gsm biaxial carbon NCF in +45°/-45° or 0°/90°, plus triaxial and quadriaxial fabrics for infusion, RTM and custom widths.",
+        "Supplier of documented 300gsm biaxial and 600gsm +45°/-45° carbon NCF, with other architectures, widths and process requirements reviewed for quotation.",
       keywords: [
         ...commonKeywords,
         "carbon fiber multiaxial fabric supplier",
@@ -417,7 +418,7 @@ export const productCatalog: ProductCatalogItem[] = [
       codePrefix: "FRPH-MAX",
       revision: "Rev. 2026-06",
       note:
-        "Indicative NCF architecture list compiled for website product pages. Final layer sequence and fiber distribution are engineered by order.",
+        "Published TDS records support the documented 300 g/m² biaxial and 600 g/m² +45°/-45° entries. Other layer sequences and fiber distributions require matching source data and order review.",
       tables: [
         {
           title: "Documented and order-review NCF formats",
@@ -1611,13 +1612,14 @@ export const productCatalog: ProductCatalogItem[] = [
     visualLabel: "12K / 24K / 50K carbon fiber tow spools",
     position: "71% 42%",
     seo: {
-      title: "Carbon Fiber Tow Supplier | 1K-50K Yarn",
+      title: "12K Carbon Fiber Tow Supplier | Yarn & Tow Sourcing",
       description:
-        "Carbon fiber tow supplier for 1K, 3K, 6K, 12K, 24K, 48K and 50K yarn used in weaving, winding, pultrusion and prepreg. Request grade and sizing.",
+        "Carbon fiber yarn and tow sourcing with a published 12K supply reference; other tow sizes, grade, sizing, bobbin format and batch documents are confirmed for quotation.",
       keywords: [
         ...commonKeywords,
         "carbon fiber yarn supplier",
-        "carbon fiber tow 12K",
+        "12K carbon fiber tow supplier",
+        "carbon fiber tow bobbin supplier",
         "Zhongfu Shenying carbon fiber",
         "Jilin Chemical Fiber carbon fiber",
         "Hengshen carbon fiber",

@@ -202,6 +202,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                       data-analytics-event="tds_download"
                       data-product-slug={document.productSlug}
                       data-document-title={document.title}
+                      data-document-type={document.type}
                       data-document-id={getProductDocumentId(document)}
                       download
                       href={document.href}

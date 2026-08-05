@@ -204,6 +204,7 @@ export function SiteLayoutContent({ children }: SiteLayoutContentProps) {
               var params = {};
               params.link_url = absoluteHref;
               params.document_title = link.getAttribute("data-document-title") || undefined;
+              params.document_type = link.getAttribute("data-document-type") || undefined;
               params.document_id = link.getAttribute("data-document-id") || undefined;
               params.product_id = link.getAttribute("data-product-id") || link.getAttribute("data-product-slug") || undefined;
               params.product_family = link.getAttribute("data-product-family") || undefined;

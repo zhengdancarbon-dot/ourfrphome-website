@@ -97,6 +97,7 @@ function formatInquiry(values: ReturnType<typeof validateInquiryPayload>["values
     `Email: ${values.email}`,
     `WhatsApp: ${values.whatsapp || "Not provided"}`,
     `Product Type: ${values.product}`,
+    `Product Page: ${values.productSlug || "Not provided"}`,
     `Buyer Country: ${values.country || "Not provided"}`,
     `Quantity: ${values.quantity || "Not provided"}`,
     `Destination Country: ${values.destinationCountry || "Not provided"}`,

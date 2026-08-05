@@ -7,12 +7,14 @@ import { siteConfig } from "@/lib/site-config";
 
 export function RfqFallbackForm({
   productName,
+  productSlug,
   productType = "woven-fabric",
   message,
   locale = defaultLocale,
   sourcePage,
 }: {
   productName?: string;
+  productSlug?: string;
   productType?: string;
   message?: string;
   locale?: Locale;
@@ -32,6 +34,7 @@ export function RfqFallbackForm({
       encType="multipart/form-data"
     >
       <input name="product" type="hidden" value={activeType.label} />
+      <input name="productSlug" type="hidden" value={productSlug ?? ""} />
       <input name="locale" type="hidden" value={locale} />
       <input name="sourcePage" type="hidden" value={fallbackSourcePage} />
       <div className="rfq-fallback-head">

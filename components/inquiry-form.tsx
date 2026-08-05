@@ -108,6 +108,7 @@ function trackRfqEvent(
   eventName: "rfq_view" | "rfq_start" | "rfq_submit",
   productType: string,
   productName: string,
+  productSlug: string,
   locale: Locale,
   sourcePage: string,
 ) {
@@ -115,7 +116,7 @@ function trackRfqEvent(
     frpTrackEvent?: (eventName: string, params: Record<string, unknown>) => void;
     gtag?: (...args: unknown[]) => void;
   };
-  const product = products.find((item) => item.name === productName);
+  const product = products.find((item) => item.slug === productSlug || item.name === productName);
   const registryEntry = product ? productSeoRegistryById[product.slug] : undefined;
   const params = {
     product_id: product?.slug,
@@ -136,10 +137,12 @@ function trackRfqEvent(
 export function InquiryForm({
   initialProduct,
   initialProductType,
+  productSlug,
   locale = defaultLocale,
 }: {
   initialProduct?: string;
   initialProductType?: string;
+  productSlug?: string;
   locale?: Locale;
 } = {}) {
   const searchParams = useSearchParams();
@@ -148,6 +151,8 @@ export function InquiryForm({
   const [persistedAttributionQuery, setPersistedAttributionQuery] = useState("");
   const copy = getUiCopy(locale);
   const selectedProduct = searchParams.get("product") ?? initialProduct ?? "";
+  const selectedProductSlug =
+    productSlug ?? products.find((item) => item.name === selectedProduct)?.slug ?? "";
   const initialMessage = searchParams.get("message") ?? "";
   const [productType, setProductType] = useState(
     initialProductType ?? inferProductType(selectedProduct),
@@ -186,8 +191,8 @@ export function InquiryForm({
   useEffect(() => {
     if (hasTrackedView.current) return;
     hasTrackedView.current = true;
-    trackRfqEvent("rfq_view", productType, selectedProduct, locale, sourcePage);
-  }, [locale, productType, selectedProduct, sourcePage]);
+    trackRfqEvent("rfq_view", productType, selectedProduct, selectedProductSlug, locale, sourcePage);
+  }, [locale, productType, selectedProduct, selectedProductSlug, sourcePage]);
 
   const activeProductType =
     rfqProductTypes.find((type) => type.value === productType) ?? rfqProductTypes[1];
@@ -233,6 +238,7 @@ export function InquiryForm({
         "rfq_submit",
         activeProductType.label,
         selectedProductDetail,
+        selectedProductSlug,
         locale,
         sourcePage,
       );
@@ -247,7 +253,14 @@ export function InquiryForm({
   function handleFormStart() {
     if (hasTrackedStart.current) return;
     hasTrackedStart.current = true;
-    trackRfqEvent("rfq_start", activeProductType.label, selectedProductDetail, locale, sourcePage);
+    trackRfqEvent(
+      "rfq_start",
+      activeProductType.label,
+      selectedProductDetail,
+      selectedProductSlug,
+      locale,
+      sourcePage,
+    );
   }
 
   if (status === "success") {
@@ -266,6 +279,7 @@ export function InquiryForm({
   return (
     <form className="inquiry-form rfq-form" onFocusCapture={handleFormStart} onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
+      <input name="productSlug" type="hidden" value={selectedProductSlug} readOnly />
       <input name="locale" type="hidden" value={locale} readOnly />
       <input name="sourcePage" type="hidden" value={sourcePage} readOnly />
       <div className="rfq-type-select" aria-label={copy.rfq.productType}>

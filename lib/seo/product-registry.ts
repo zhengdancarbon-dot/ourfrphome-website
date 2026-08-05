@@ -64,10 +64,10 @@ function entry(
 
 export const productSeoRegistry: ProductSeoRegistryEntry[] = [
   entry("carbon-fiber-multiaxial-ncf-fabric", "multiaxial-ncf", "carbon fiber multiaxial fabric supplier", ["biaxial carbon fiber fabric", "300gsm biaxial carbon fabric", "600gsm +45/-45 carbon NCF", "custom width carbon multiaxial fabric"], "tds_download"),
-  entry("carbon-fiber-woven-fabric", "woven-fabric", "3K woven carbon fiber fabric", ["3K 200gsm twill carbon fiber fabric", "carbon fiber cloth supplier", "carbon fiber fabric for vacuum infusion"], "tds_download"),
+  entry("carbon-fiber-woven-fabric", "woven-fabric", "3K 200gsm twill carbon fiber fabric supplier", ["3K twill carbon fiber fabric", "carbon fiber cloth supplier", "carbon fiber fabric for vacuum infusion"], "tds_download"),
   entry("carbon-fiber-ud-fabric", "ud-fabric", "UD carbon fiber fabric supplier", ["300gsm UD carbon fiber fabric", "unidirectional carbon fiber reinforcement", "carbon fiber strengthening fabric"], "tds_download"),
   entry("spread-tow-carbon-fiber-fabric", "spread-tow", "spread tow carbon fiber fabric", ["spread tow carbon fabric supplier", "8x8mm carbon fiber fabric", "10x10mm carbon fiber fabric"]),
-  entry("carbon-fiber-yarn-and-tow", "yarn-and-tow", "carbon fiber tow supplier", ["12K carbon fiber tow", "carbon fiber yarn supplier", "PAN based carbon fiber tow"], "tds_download"),
+  entry("carbon-fiber-yarn-and-tow", "yarn-and-tow", "12K carbon fiber tow supplier", ["carbon fiber yarn supplier", "carbon fiber tow bobbin supplier", "PAN based carbon fiber tow"], "tds_download"),
   entry("prepreg-carbon-fiber-materials", "prepreg", "carbon fiber prepreg supplier", ["woven carbon fiber prepreg", "UD carbon prepreg", "carbon fiber prepreg materials"], "tds_download"),
   entry("chopped-carbon-fiber", "chopped-fiber", "chopped carbon fiber supplier", ["short carbon fiber for resin", "chopped carbon fiber for plastic reinforcement", "carbon fiber chopped strands"]),
   entry("milled-carbon-fiber-powder", "milled-powder", "milled carbon fiber powder", ["carbon fiber powder supplier", "300 mesh milled carbon fiber", "carbon powder for plastic and resin"], "tds_download"),
