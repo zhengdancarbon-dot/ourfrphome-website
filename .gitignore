@@ -12,6 +12,10 @@ data/seo/.generated/
 reports/seo/weekly-report.md
 reports/seo/opportunities.csv
 reports/seo/cannibalization.csv
+reports/seo/six-core-performance.csv
+reports/seo/country-performance.csv
+reports/seo/decision-queue.csv
+reports/seo/weekly-dashboard.html
 output
 tmp
 .codex-output-work

@@ -4,6 +4,22 @@ import path from "node:path";
 export const root = process.cwd();
 export const dataRoot = path.join(root, "data", "seo");
 
+export const sixCoreProducts = [
+  { id: "carbon-fiber-woven-fabric", name: "Woven Carbon Fiber Fabric", path: "/products/carbon-fiber-woven-fabric" },
+  { id: "carbon-fiber-multiaxial-ncf-fabric", name: "Carbon Fiber Multiaxial NCF Fabric", path: "/products/carbon-fiber-multiaxial-ncf-fabric" },
+  { id: "carbon-fiber-ud-fabric", name: "UD Carbon Fiber Fabric", path: "/products/carbon-fiber-ud-fabric" },
+  { id: "3k-carbon-fiber-laminate-sheet", name: "3K Carbon Fiber Laminate Sheet", path: "/products/3k-carbon-fiber-laminate-sheet" },
+  { id: "carbon-fiber-yarn-and-tow", name: "Carbon Fiber Yarn & Tow", path: "/products/carbon-fiber-yarn-and-tow" },
+  { id: "structural-strengthening-system", name: "Carbon Fiber Structural Strengthening System", path: "/products/structural-strengthening-system" },
+];
+
+const localePrefix = /^\/(?:es|pt-br|ru|ar|fr|ko|pl|tr|uk|vi|th)(?=\/|$)/;
+
+export function coreProductFor(value) {
+  const normalized = normalizePath(value).replace(localePrefix, "") || "/";
+  return sixCoreProducts.find((product) => product.id === value || product.path === normalized) || null;
+}
+
 export function parseCsv(text) {
   const rows = [];
   let row = [];
