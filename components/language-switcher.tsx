@@ -35,6 +35,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
             href={phaseOneLocalePath(targetPath, targetLocale)}
             hrefLang={hreflangLocales[targetLocale]}
             prefetch={false}
+            data-analytics-event="language_switch"
             aria-current={targetLocale === locale ? "page" : undefined}
             key={targetLocale}
           >

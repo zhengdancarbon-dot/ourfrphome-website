@@ -4,7 +4,7 @@ import path from "node:path";
 import vm from "node:vm";
 
 const root = process.cwd();
-const layoutPath = path.join(root, "app/layout.tsx");
+const layoutPath = path.join(root, "components/site-layout-content.tsx");
 const layoutSource = fs.readFileSync(layoutPath, "utf8");
 const scriptMarker = '<Script id="conversion-click-tracking"';
 const markerIndex = layoutSource.indexOf(scriptMarker);
@@ -17,11 +17,20 @@ const functionEnd = layoutSource.indexOf("})();", functionStart);
 assert.notEqual(functionStart, -1, "conversion tracking function start was not found");
 assert.notEqual(functionEnd, -1, "conversion tracking function end was not found");
 
-const activeLocales = ["en", "es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr"];
+const activeLocales = ["en", "es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"];
 const trackingSource = layoutSource
   .slice(functionStart, functionEnd + 5)
   .replace('${yandexMetricaId || "null"}', "null")
-  .replace("${JSON.stringify(activeLocales)}", JSON.stringify(activeLocales));
+  .replace("${JSON.stringify(activeLocales)}", JSON.stringify(activeLocales))
+  .replace(
+    "${JSON.stringify(productAnalyticsContextById)}",
+    JSON.stringify({
+      "carbon-fiber-multiaxial-ncf-fabric": {
+        product_id: "carbon-fiber-multiaxial-ncf-fabric",
+        product_family: "multiaxial-ncf",
+      },
+    }),
+  );
 
 function createSessionStorage(initial = {}) {
   const values = new Map(Object.entries(initial));
@@ -68,6 +77,7 @@ function runTrackingScenario({ pathname, search, link, sessionStorage }) {
     },
   };
 
+  window.addEventListener = () => {};
   const context = vm.createContext({ document, URLSearchParams, window });
   new vm.Script(trackingSource, { filename: "conversion-click-tracking.js" }).runInContext(context);
 
@@ -92,6 +102,7 @@ const tdsEvents = runTrackingScenario({
       "data-analytics-event": "tds_download",
       "data-document-title": "600gsm Biaxial Carbon NCF TDS",
       "data-product-slug": "carbon-fiber-multiaxial-ncf-fabric",
+      "data-document-id": "carbon-fiber-multiaxial-ncf-fabric:TDS:FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf",
     },
   }),
 });
@@ -101,7 +112,10 @@ const tds = tdsEvents[0];
 assert.equal(tds.command, "event");
 assert.equal(tds.eventName, "tds_download");
 assert.equal(tds.params.locale, "es");
-assert.equal(tds.params.product_slug, "carbon-fiber-multiaxial-ncf-fabric");
+assert.equal(tds.params.product_id, "carbon-fiber-multiaxial-ncf-fabric");
+assert.equal(tds.params.product_family, "multiaxial-ncf");
+assert.equal(tds.params.page_type, "product");
+assert.equal(tds.params.document_id, "carbon-fiber-multiaxial-ncf-fabric:TDS:FRP-HOME-600gsm-PlusMinus45-Biaxial-Carbon-NCF-TDS.pdf");
 assert.equal(tds.params.document_title, "600gsm Biaxial Carbon NCF TDS");
 assert.equal(tds.params.utm_source, "sales_email");
 assert.equal(tds.params.utm_medium, "outreach");

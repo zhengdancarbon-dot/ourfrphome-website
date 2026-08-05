@@ -145,3 +145,7 @@ export const productDocuments: ProductDocument[] = [
 export function getProductDocuments(productSlug: string) {
   return productDocuments.filter((document) => document.productSlug === productSlug);
 }
+
+export function getProductDocumentId(document: ProductDocument) {
+  return `${document.productSlug}:${document.type}:${document.href.split("/").pop()}`;
+}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpenText, FileCheck2, FileText, FlaskConical, Ruler } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
-import { productDocuments } from "@/lib/product-documents";
+import { getProductDocumentId, productDocuments } from "@/lib/product-documents";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -203,6 +203,7 @@ export default function TechnicalCenterPage() {
                       data-analytics-event="tds_download"
                       data-product-slug={document.productSlug}
                       data-document-title={document.title}
+                      data-document-id={getProductDocumentId(document)}
                       download
                       href={document.href}
                     >

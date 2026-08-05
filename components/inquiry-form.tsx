@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import {
   MAX_ATTACHMENT_SIZE_MB,
   validateInquiryPayload,
@@ -17,6 +17,7 @@ import {
   translateRfqTypeLabel,
 } from "@/lib/i18n/ui-copy";
 import { products } from "@/lib/site-data";
+import { productSeoRegistryById } from "@/lib/seo/product-registry";
 import { rfqProductTypes } from "@/lib/site-taxonomy";
 import { siteConfig } from "@/lib/site-config";
 import {
@@ -103,7 +104,8 @@ function inferProductType(productName: string) {
   return "woven-fabric";
 }
 
-function trackRfqSubmit(
+function trackRfqEvent(
+  eventName: "rfq_view" | "rfq_start" | "rfq_submit",
   productType: string,
   productName: string,
   locale: Locale,
@@ -113,18 +115,21 @@ function trackRfqSubmit(
     frpTrackEvent?: (eventName: string, params: Record<string, unknown>) => void;
     gtag?: (...args: unknown[]) => void;
   };
+  const product = products.find((item) => item.name === productName);
+  const registryEntry = product ? productSeoRegistryById[product.slug] : undefined;
   const params = {
-    product_type: productType,
-    product_name: productName || productType,
+    product_id: product?.slug,
+    product_family: registryEntry?.family ?? productType,
+    page_type: "rfq",
     locale,
     source_page: sourcePage,
     ...getAttributionEventParameters(sourcePage),
   };
 
   if (analytics.frpTrackEvent) {
-    analytics.frpTrackEvent("rfq_submit", params);
+    analytics.frpTrackEvent(eventName, params);
   } else {
-    analytics.gtag?.("event", "rfq_submit", params);
+    analytics.gtag?.("event", eventName, params);
   }
 }
 
@@ -149,6 +154,8 @@ export function InquiryForm({
   );
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<InquiryErrors>({});
+  const hasTrackedView = useRef(false);
+  const hasTrackedStart = useRef(false);
   const sourcePage = createAttributedSourcePage(
     pathname || "/contact",
     currentAttributionQuery || persistedAttributionQuery,
@@ -175,6 +182,12 @@ export function InquiryForm({
 
     return () => window.clearTimeout(timeoutId);
   }, [currentAttributionQuery]);
+
+  useEffect(() => {
+    if (hasTrackedView.current) return;
+    hasTrackedView.current = true;
+    trackRfqEvent("rfq_view", productType, selectedProduct, locale, sourcePage);
+  }, [locale, productType, selectedProduct, sourcePage]);
 
   const activeProductType =
     rfqProductTypes.find((type) => type.value === productType) ?? rfqProductTypes[1];
@@ -216,7 +229,8 @@ export function InquiryForm({
         setStatus("idle");
         return;
       }
-      trackRfqSubmit(
+      trackRfqEvent(
+        "rfq_submit",
         activeProductType.label,
         selectedProductDetail,
         locale,
@@ -228,6 +242,12 @@ export function InquiryForm({
     } catch {
       setStatus("error");
     }
+  }
+
+  function handleFormStart() {
+    if (hasTrackedStart.current) return;
+    hasTrackedStart.current = true;
+    trackRfqEvent("rfq_start", activeProductType.label, selectedProductDetail, locale, sourcePage);
   }
 
   if (status === "success") {
@@ -244,7 +264,7 @@ export function InquiryForm({
   }
 
   return (
-    <form className="inquiry-form rfq-form" onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
+    <form className="inquiry-form rfq-form" onFocusCapture={handleFormStart} onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
       <input name="product" type="hidden" value={activeProductType.label} readOnly />
       <input name="locale" type="hidden" value={locale} readOnly />
       <input name="sourcePage" type="hidden" value={sourcePage} readOnly />

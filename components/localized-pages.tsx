@@ -31,7 +31,7 @@ import {
   translateRfqTypeLabel,
 } from "@/lib/i18n/ui-copy";
 import { productCatalog, getProductBySlug, type ProductCatalogItem } from "@/lib/product-catalog";
-import { getProductDocuments } from "@/lib/product-documents";
+import { getProductDocumentId, getProductDocuments } from "@/lib/product-documents";
 import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { priorityDiscoveryRoutes } from "@/lib/priority-discovery";
@@ -956,6 +956,7 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
                       data-analytics-event="tds_download"
                       data-product-slug={product.slug}
                       data-document-title={document.title}
+                      data-document-id={getProductDocumentId(document)}
                       download
                       href={document.href}
                       key={document.href}

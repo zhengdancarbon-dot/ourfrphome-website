@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, ClipboardList, FileText } from "lucide-react";
 import { InquiryBand, PageHero, SectionHeading } from "@/components/ui";
 import { productCatalog } from "@/lib/product-catalog";
-import { productDocuments } from "@/lib/product-documents";
+import { getProductDocumentId, productDocuments } from "@/lib/product-documents";
 import { createPageMetadata } from "@/lib/seo";
 import {
   articleBreadcrumbSchema,
@@ -202,6 +202,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                       data-analytics-event="tds_download"
                       data-product-slug={document.productSlug}
                       data-document-title={document.title}
+                      data-document-id={getProductDocumentId(document)}
                       download
                       href={document.href}
                       key={document.href}

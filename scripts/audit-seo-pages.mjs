@@ -181,6 +181,11 @@ async function worker() {
       !isLocalized && locales.every((locale) => pathnameSet.has(path === "/" ? `/${locale}` : `/${locale}${path}`));
 
     if (response.status !== 200) failures.push(`${path}: HTTP ${response.status}`);
+    const activeLocale = path === "/" ? "en" : locales.find((locale) => path === `/${locale}` || path.startsWith(`/${locale}/`)) || "en";
+    const expectedDirection = activeLocale === "ar" ? "rtl" : "ltr";
+    const htmlTag = text.match(/<html\s+([^>]+)>/i)?.[1] || "";
+    if (!htmlTag.includes(`lang="${languageCodes[activeLocale]}"`)) failures.push(`${path}: root html lang is incorrect`);
+    if (!htmlTag.includes(`dir="${expectedDirection}"`)) failures.push(`${path}: root html dir is incorrect`);
     if (!matches(text, /<title>[^<]+<\/title>/i)) failures.push(`${path}: missing title`);
     if (!matches(text, /<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/i)) failures.push(`${path}: missing H1`);
 
@@ -496,7 +501,7 @@ async function worker() {
 
     if (isLocalized || hasLocalizedAlternates) {
       const hreflangs = values(text, /<link[^>]+rel="alternate"[^>]+hrefLang="([^"]+)"/gi);
-      const expected = ["en", "es", "pt-BR", "ru", "ar", "fr", "ko", "pl", "tr", "x-default"];
+      const expected = ["en", "es", "pt-BR", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th", "x-default"];
       for (const code of expected) {
         if (!hreflangs.includes(code)) failures.push(`${path}: missing hreflang ${code}`);
       }
@@ -514,8 +519,14 @@ await Promise.all(Array.from({ length: 12 }, worker));
 
 const technicalCenterResult = await fetchText(new URL("/technical-center", baseUrl));
 const llmsResult = await fetchText(new URL("/llms.txt", baseUrl));
+const internalSalesResult = await fetchText(new URL("/internal-sales-link-guide", baseUrl));
 if (!technicalCenterResult.response.ok) failures.push(`/technical-center: HTTP ${technicalCenterResult.response.status}`);
 if (!llmsResult.response.ok) failures.push(`/llms.txt: HTTP ${llmsResult.response.status}`);
+if (!internalSalesResult.response.ok) failures.push(`/internal-sales-link-guide: HTTP ${internalSalesResult.response.status}`);
+if (pathnameSet.has("/internal-sales-link-guide")) failures.push(`/internal-sales-link-guide: must not be in sitemap`);
+if (!/name="robots" content="noindex(?:, nofollow)?"/i.test(internalSalesResult.text)) {
+  failures.push(`/internal-sales-link-guide: missing noindex robots directive`);
+}
 if (!llmsResult.text.includes("[Verified Technical Documents](https://www.myfrphome.com/technical-resources)")) {
   failures.push("/llms.txt: missing verified technical document hub discovery link");
 }
@@ -633,5 +644,6 @@ console.log(JSON.stringify({
   checkedPriorityVideoAssets: videoProductPages.size,
   checkedPriorityDocumentHubEntrypoints: 3,
   negative404Checks: 3,
+  internalSalesGuideNoindex: true,
   status: "PASS",
 }, null, 2));

@@ -8,6 +8,10 @@ node_modules
 *.log
 .env*
 !.env.example
+data/seo/.generated/
+reports/seo/weekly-report.md
+reports/seo/opportunities.csv
+reports/seo/cannibalization.csv
 output
 tmp
 .codex-output-work

@@ -7,8 +7,17 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "analytics:audit": "node scripts/audit-conversion-attribution.mjs",
     "seo:audit": "node scripts/audit-seo-pages.mjs",
+    "seo:audit:local": "node scripts/audit-seo-pages.mjs http://localhost:3107",
+    "seo:audit:production": "node scripts/audit-seo-pages.mjs https://www.myfrphome.com",
+    "seo:audit:locales": "node scripts/audit-locales.mjs http://localhost:3107",
+    "seo:audit:schema": "node scripts/audit-schema.mjs http://localhost:3107",
+    "seo:audit:content": "node scripts/audit-content.mjs",
+    "seo:data:import": "node scripts/import-seo-data.mjs --source=csv",
+    "seo:data:import:api": "node scripts/import-seo-data.mjs --source=api",
+    "seo:report": "node scripts/generate-seo-report.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {

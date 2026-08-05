@@ -18,7 +18,7 @@ import { ProductVideo } from "@/components/product-video";
 import { RfqFallbackForm } from "@/components/rfq-fallback-form";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getProductBySlug, productCatalog, type ProductCatalogItem } from "@/lib/product-catalog";
-import { getProductDocuments } from "@/lib/product-documents";
+import { getProductDocumentId, getProductDocuments } from "@/lib/product-documents";
 import { createProductResourceSchemas } from "@/lib/product-resource-schema";
 import { createProductVideoSchema, getProductVideo } from "@/lib/product-videos";
 import { absoluteUrl, createB2bProductPageSchema, createPageMetadata } from "@/lib/seo";
@@ -657,6 +657,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                         data-analytics-event="tds_download"
                         data-product-slug={product.slug}
                         data-document-title={document.title}
+                        data-document-id={getProductDocumentId(document)}
                         download
                         href={document.href}
                         key={document.href}
