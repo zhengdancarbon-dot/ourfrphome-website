@@ -18,6 +18,7 @@
     "seo:data:import": "node scripts/import-seo-data.mjs --source=csv",
     "seo:data:import:api": "node scripts/import-seo-data.mjs --source=api",
     "seo:data:validate": "node scripts/validate-seo-data.mjs",
+    "seo:data:test": "node scripts/test-seo-data-pipeline.mjs",
     "seo:report": "node scripts/generate-seo-report.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"
   },

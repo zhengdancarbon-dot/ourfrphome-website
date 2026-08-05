@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { coreProductFor, csvEscape, normalizePath, number, readCsvDirectory, root, sixCoreProducts } from "./seo-data-utils.mjs";
 
-const reportDirectory = path.join(root, "reports", "seo");
+const reportDirectory = path.resolve(process.env.SEO_REPORT_ROOT || path.join(root, "reports", "seo"));
 fs.mkdirSync(reportDirectory, { recursive: true });
 
 const gsc = readCsvDirectory("gsc");

@@ -9,6 +9,10 @@ node_modules
 .env*
 !.env.example
 data/seo/.generated/
+data/seo/gsc/*.csv
+data/seo/ga4/*.csv
+data/seo/yandex/*.csv
+data/seo/sales/*.csv
 reports/seo/weekly-report.md
 reports/seo/opportunities.csv
 reports/seo/cannibalization.csv

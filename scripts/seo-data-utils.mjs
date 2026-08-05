@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const root = process.cwd();
-export const dataRoot = path.join(root, "data", "seo");
+export const dataRoot = path.resolve(process.env.SEO_DATA_ROOT || path.join(root, "data", "seo"));
 
 export const sixCoreProducts = [
   { id: "carbon-fiber-woven-fabric", name: "Woven Carbon Fiber Fabric", path: "/products/carbon-fiber-woven-fabric" },
@@ -20,8 +20,8 @@ export function coreProductFor(value) {
   return sixCoreProducts.find((product) => product.id === value || product.path === normalized) || null;
 }
 
-export function parseCsv(text) {
-  const rows = [];
+export function parseCsvDocument(text) {
+  const valuesByRow = [];
   let row = [];
   let cell = "";
   let quoted = false;
@@ -38,7 +38,7 @@ export function parseCsv(text) {
     } else if (!quoted && (character === "\n" || character === "\r")) {
       if (character === "\r" && text[index + 1] === "\n") index += 1;
       row.push(cell.trim());
-      if (row.some(Boolean)) rows.push(row);
+      if (row.some(Boolean)) valuesByRow.push(row);
       row = [];
       cell = "";
     } else {
@@ -46,18 +46,31 @@ export function parseCsv(text) {
     }
   }
   row.push(cell.trim());
-  if (row.some(Boolean)) rows.push(row);
-  if (!rows.length) return [];
-  const headers = rows.shift().map((header) => header.trim());
-  return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] || ""])));
+  if (row.some(Boolean)) valuesByRow.push(row);
+  if (!valuesByRow.length) return { headers: [], rows: [], rawRows: [] };
+  const headers = valuesByRow.shift().map((header) => header.trim());
+  return {
+    headers,
+    rawRows: valuesByRow,
+    rows: valuesByRow.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] || ""]))),
+  };
 }
 
-export function readCsvDirectory(source) {
+export function parseCsv(text) {
+  return parseCsvDocument(text).rows;
+}
+
+export function readCsvFiles(source) {
   const directory = path.join(dataRoot, source);
   if (!fs.existsSync(directory)) return [];
   return fs.readdirSync(directory)
     .filter((file) => file.endsWith(".csv"))
-    .flatMap((file) => parseCsv(fs.readFileSync(path.join(directory, file), "utf8")));
+    .sort()
+    .map((file) => ({ file, ...parseCsvDocument(fs.readFileSync(path.join(directory, file), "utf8")) }));
+}
+
+export function readCsvDirectory(source) {
+  return readCsvFiles(source).flatMap((document) => document.rows);
 }
 
 export function number(value) {

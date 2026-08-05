@@ -33,11 +33,22 @@ Use real Google Search Console, GA4, Yandex and de-identified sales evidence to 
 
 ## 30-day cadence
 
+The production release day, 2026-08-05, is a partial-day baseline and is not used as a full-day comparison window.
+
 | Period | Work | Deliverable |
 | --- | --- | --- |
 | Days 0-14 | Import weekly GSC, GA4, Yandex and sales exports; check index coverage and sitemap health. | Baseline dashboard; no metadata changes. |
 | Days 15-21 | Review the decision queue and draft only evidence-qualified page or conversion proposals. | Review packet; no automatic publication. |
 | Days 22-30 | Approve at most one controlled product-page test per evidence-qualified issue; continue country and conversion review. | Comparison report and next 30-day queue. |
+
+## Fixed reporting windows
+
+| Window | Date range | Allowed action |
+| --- | --- | --- |
+| Baseline | 2026-08-05 | Save sitemap, index, event and RFQ delivery evidence; fix faults only. |
+| First full-week report | 2026-08-06 through 2026-08-12 | Validate data completeness; do not normally change metadata. |
+| First 14-day checkpoint | 2026-08-06 through 2026-08-19 | Prepare only evidence-qualified proposals. |
+| First 30-day review | 2026-08-06 through 2026-09-04 | Decide the next product, conversion, paid-search or authority investment. |
 
 ## Google Ads preparation only
 
