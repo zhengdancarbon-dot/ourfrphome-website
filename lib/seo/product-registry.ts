@@ -72,6 +72,7 @@ export const productSeoRegistry: ProductSeoRegistryEntry[] = [
   entry("chopped-carbon-fiber", "chopped-fiber", "chopped carbon fiber supplier", ["short carbon fiber for resin", "chopped carbon fiber for plastic reinforcement", "carbon fiber chopped strands"]),
   entry("milled-carbon-fiber-powder", "milled-powder", "milled carbon fiber powder", ["carbon fiber powder supplier", "300 mesh milled carbon fiber", "carbon powder for plastic and resin"], "tds_download"),
   entry("3k-carbon-fiber-laminate-sheet", "3k-laminate-sheet", "3K carbon fiber plate supplier", ["3K carbon fiber sheet", "twill carbon fiber laminate sheet", "custom thickness carbon fiber plate", "carbon fiber plate CNC cutting"], "tds_download"),
+  entry("fiber-optic-cable-drum", "fiber-optic-cable-drum", "fiber optic cable drum supplier", ["fiber optic pay-off spool", "internal pay-off fiber drum", "G.657.A2 fiber optic drum", "fiber optic cable deployment drum"]),
   entry("3k-surface-carbon-fiber-tube", "carbon-fiber-tube", "3K surface carbon fiber tube", ["3K twill carbon fiber tube", "visible carbon fiber tube", "carbon fiber tube supplier"]),
   entry("filament-wound-carbon-fiber-tube", "carbon-fiber-tube", "filament wound carbon fiber tube", ["filament winding carbon tube", "carbon fiber tube for industrial components", "custom filament wound CFRP tube"]),
   entry("pultruded-carbon-fiber-tube", "carbon-fiber-tube", "pultruded carbon fiber tube", ["pultruded CFRP tube", "carbon fiber profile supplier", "carbon fiber structural tube"]),

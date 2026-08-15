@@ -150,7 +150,7 @@ const priorityProductsSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${absoluteUrl("/products")}#priority-products`,
-  name: "Priority carbon fiber products for RFQ",
+  name: "Priority industrial products for RFQ",
   numberOfItems: priorityProducts.length,
   itemListOrder: "https://schema.org/ItemListOrderAscending",
   itemListElement: priorityProducts.map((product, index) => ({
@@ -190,7 +190,7 @@ export default function ProductsPage() {
         <div className="site-shell">
           <SectionHeading
             eyebrow="Priority products"
-            title="Six procurement routes for current priority materials."
+            title="Priority procurement routes for current materials and equipment."
             copy="Start with the relevant product page, then confirm specification, quantity, process, destination, final application and required TDS, COA or inspection documents in the RFQ. Published references remain subject to quotation and order confirmation."
           />
           <div className="priority-path-grid">

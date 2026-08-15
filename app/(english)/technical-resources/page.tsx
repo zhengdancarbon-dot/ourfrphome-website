@@ -128,7 +128,7 @@ export default function TechnicalResourcesPage() {
         <div className="site-shell">
           <SectionHeading
             eyebrow="Verified downloads"
-            title="Technical documents for the six priority product groups."
+            title="Published technical documents for priority product groups."
             copy="These English PDF files are published from reviewed source records. Confirm the final order specification, revision, batch documents and test requirements in the RFQ."
           />
           <div className="tds-library-grid">

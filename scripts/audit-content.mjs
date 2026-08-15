@@ -9,7 +9,11 @@ const registrySource = fs.readFileSync(registryPath, "utf8");
 const catalogSource = fs.readFileSync(catalogPath, "utf8");
 const registryIds = [...registrySource.matchAll(/entry\("([^"]+)"/g)].map((match) => match[1]);
 const catalogIds = [...catalogSource.matchAll(/slug: "([^"]+)"/g)].map((match) => match[1]);
-assert.equal(registryIds.length, 16, "The product SEO registry must contain the 16 public catalog products.");
+assert.equal(
+  registryIds.length,
+  catalogIds.length,
+  "The product SEO registry must contain every public catalog product.",
+);
 assert.equal(new Set(registryIds).size, registryIds.length, "The product SEO registry has duplicate product IDs.");
 for (const productId of registryIds) assert.ok(catalogIds.includes(productId), `${productId} is absent from the product catalog.`);
 assert.match(registrySource, /publicationStatus: "draft"/, "Candidate specifications must remain draft-only.");

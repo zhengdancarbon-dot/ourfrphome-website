@@ -128,47 +128,47 @@ const featuredProductSlugs = priorityDiscoveryRoutes.map((route) => route.produc
 const priorityProductsCopy: Record<Exclude<Locale, "en">, { eyebrow: string; title: string; note: string }> = {
   es: {
     eyebrow: "Productos prioritarios",
-    title: "Rutas de compra para seis grupos principales.",
+    title: "Rutas de compra para productos prioritarios.",
     note: "Empiece por el producto correspondiente y confirme especificación, cantidad, proceso, destino, aplicación final y documentos requeridos en la RFQ.",
   },
   "pt-br": {
     eyebrow: "Produtos prioritários",
-    title: "Rotas de compra para seis grupos principais.",
+    title: "Rotas de compra para produtos prioritários.",
     note: "Comece pelo produto relevante e confirme especificação, quantidade, processo, destino, aplicação final e documentos necessários na RFQ.",
   },
   ru: {
     eyebrow: "Приоритетные продукты",
-    title: "Закупочные маршруты по шести ключевым группам.",
+    title: "Закупочные маршруты по приоритетным продуктам.",
     note: "Начните с нужного продукта и укажите в RFQ спецификацию, количество, процесс, страну назначения, конечное применение и требуемые документы.",
   },
   ar: {
     eyebrow: "المنتجات ذات الأولوية",
-    title: "مسارات شراء لست مجموعات رئيسية.",
+    title: "مسارات شراء للمنتجات ذات الأولوية.",
     note: "ابدأ بالمنتج المناسب، ثم أكد في طلب عرض السعر المواصفة والكمية وعملية التصنيع والوجهة والاستخدام النهائي والمستندات المطلوبة.",
   },
   fr: {
     eyebrow: "Produits prioritaires",
-    title: "Parcours d'achat pour six groupes principaux.",
+    title: "Parcours d'achat pour les produits prioritaires.",
     note: "Commencez par le produit concerné, puis précisez dans la RFQ la spécification, la quantité, le procédé, la destination, l'application finale et les documents requis.",
   },
   ko: {
     eyebrow: "우선 제품",
-    title: "6개 핵심 제품군을 위한 구매 경로.",
+    title: "우선 제품을 위한 구매 경로.",
     note: "관련 제품에서 시작하여 RFQ에 사양, 수량, 공정, 목적지, 최종 용도 및 필요한 문서를 명시하십시오.",
   },
   pl: {
     eyebrow: "Produkty priorytetowe",
-    title: "Ścieżki zakupowe dla sześciu głównych grup.",
+    title: "Ścieżki zakupowe dla produktów priorytetowych.",
     note: "Zacznij od odpowiedniego produktu, a następnie określ w RFQ specyfikację, ilość, proces, miejsce docelowe, zastosowanie końcowe i wymagane dokumenty.",
   },
   tr: {
     eyebrow: "Öncelikli ürünler",
-    title: "Altı ana ürün grubu için satın alma yolları.",
+    title: "Öncelikli ürünler için satın alma yolları.",
     note: "İlgili ürünle başlayın ve RFQ içinde spesifikasyon, miktar, proses, varış noktası, nihai kullanım ve gerekli belgeleri belirtin.",
   },
-  uk: { eyebrow: "Пріоритетні продукти", title: "Закупівельні маршрути для шести ключових груп.", note: "Почніть із потрібного продукту та вкажіть у RFQ специфікацію, кількість, процес, країну призначення, кінцеве використання й потрібні документи." },
-  vi: { eyebrow: "Sản phẩm ưu tiên", title: "Lộ trình mua hàng cho sáu nhóm chính.", note: "Bắt đầu với sản phẩm phù hợp và xác nhận thông số, số lượng, quy trình, nơi đến, ứng dụng cuối cùng và tài liệu cần thiết trong RFQ." },
-  th: { eyebrow: "ผลิตภัณฑ์สำคัญ", title: "เส้นทางจัดซื้อสำหรับผลิตภัณฑ์หลักหกกลุ่ม", note: "เริ่มจากผลิตภัณฑ์ที่เกี่ยวข้องและระบุข้อมูลจำเพาะ ปริมาณ กระบวนการ ปลายทาง การใช้งานปลายทาง และเอกสารที่ต้องการใน RFQ" },
+  uk: { eyebrow: "Пріоритетні продукти", title: "Закупівельні маршрути для пріоритетних продуктів.", note: "Почніть із потрібного продукту та вкажіть у RFQ специфікацію, кількість, процес, країну призначення, кінцеве використання й потрібні документи." },
+  vi: { eyebrow: "Sản phẩm ưu tiên", title: "Lộ trình mua hàng cho các sản phẩm ưu tiên.", note: "Bắt đầu với sản phẩm phù hợp và xác nhận thông số, số lượng, quy trình, nơi đến, ứng dụng cuối cùng và tài liệu cần thiết trong RFQ." },
+  th: { eyebrow: "ผลิตภัณฑ์สำคัญ", title: "เส้นทางจัดซื้อสำหรับผลิตภัณฑ์สำคัญ", note: "เริ่มจากผลิตภัณฑ์ที่เกี่ยวข้องและระบุข้อมูลจำเพาะ ปริมาณ กระบวนการ ปลายทาง การใช้งานปลายทาง และเอกสารที่ต้องการใน RFQ" },
 };
 
 const featuredApplicationSlugs = [

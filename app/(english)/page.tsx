@@ -50,7 +50,7 @@ const priorityProductsSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${absoluteUrl("/")}#priority-products`,
-  name: "Priority carbon fiber products for RFQ",
+  name: "Priority industrial products for RFQ",
   inLanguage: "en",
   numberOfItems: featuredProducts.length,
   itemListOrder: "https://schema.org/ItemListOrderAscending",
@@ -284,7 +284,7 @@ export default function HomePage() {
           <div className="section-title-row">
             <div>
               <Eyebrow>Featured products</Eyebrow>
-              <h2>High-demand carbon fiber material pages.</h2>
+              <h2>High-demand industrial material and equipment pages.</h2>
             </div>
             <Link href="/products" className="text-link">
               View all products <ArrowRight size={17} />

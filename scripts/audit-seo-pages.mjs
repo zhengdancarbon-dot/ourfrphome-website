@@ -1,5 +1,5 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 267);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 280);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"];
 const localeLabels = {
   es: "Español",
@@ -14,11 +14,12 @@ const localeLabels = {
   vi: "Tiếng Việt",
   th: "ไทย",
 };
-const expectedLocalizedCount = 19;
-const expectedTechnicalArticleCount = 24;
+const expectedLocalizedCount = 20;
+const expectedTechnicalArticleCount = 25;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
+  ["/products/fiber-optic-cable-drum", ["Fiber Optic Cable Drum", "Fiber Optic Cable Drum"]],
   ["/products/carbon-fiber-yarn-and-tow", ["12K Carbon Fiber Tow Supplier", "Carbon Fiber Yarn & Tow"]],
   ["/products/carbon-fiber-ud-fabric", ["300gsm UD Carbon Fiber Fabric Supplier", "UD Carbon Fiber Fabric"]],
   ["/products/structural-strengthening-system", ["CFRP Strengthening System", "Carbon Fiber Structural Strengthening System"]],
@@ -40,6 +41,11 @@ const englishPriorityGuideCounts = new Map([
   ["carbon-fiber-ud-fabric", 4],
   ["structural-strengthening-system", 4],
   ["carbon-fiber-woven-fabric", 4],
+  ["fiber-optic-cable-drum", 1],
+]);
+const priorityResourceProductSlugs = new Set([
+  ...priorityProductResourceCounts.keys(),
+  ...englishPriorityGuideCounts.keys(),
 ]);
 const englishPriorityProductNames = [
   "Carbon Fiber Multiaxial NCF Fabric",
@@ -48,6 +54,7 @@ const englishPriorityProductNames = [
   "UD Carbon Fiber Fabric",
   "Carbon Fiber Structural Strengthening System",
   "Woven Carbon Fiber Fabric",
+  "Fiber Optic Cable Drum",
 ];
 const priorityDiscoveryLinks = [
   "/products/carbon-fiber-multiaxial-ncf-fabric",
@@ -58,6 +65,8 @@ const priorityDiscoveryLinks = [
   "/technical-center/carbon-fiber-plate-thickness-selection-guide",
   "/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide",
   "/technical-center/matte-vs-glossy-3k-carbon-fiber-sheet",
+  "/products/fiber-optic-cable-drum",
+  "/technical-center/fiber-optic-cable-drum-rfq-checklist",
   "/products/carbon-fiber-yarn-and-tow",
   "/technical-center/carbon-fiber-tow-rfq-checklist",
   "/technical-center/carbon-fiber-tow-size-guide-1k-50k",
@@ -203,8 +212,8 @@ async function worker() {
       if (!text.includes('"@type":"ItemList"')) {
         failures.push(`${path}: missing homepage priority ItemList structured data`);
       }
-      if (!text.includes('"numberOfItems":6')) {
-        failures.push(`${path}: homepage priority ItemList does not contain six products`);
+      if (!text.includes(`"numberOfItems":${priorityProductSlugs.length}`)) {
+        failures.push(`${path}: homepage priority ItemList has an incorrect product count`);
       }
       if (!text.includes(`\"inLanguage\":\"${languageCodes[homepageLocale]}\"`)) {
         failures.push(`${path}: homepage priority ItemList has incorrect language`);
@@ -259,8 +268,8 @@ async function worker() {
       if (!text.includes('"@type":"ItemList"')) {
         failures.push(`${path}: missing localized priority ItemList structured data`);
       }
-      if (!text.includes('"numberOfItems":6')) {
-        failures.push(`${path}: localized priority ItemList does not contain six products`);
+      if (!text.includes(`"numberOfItems":${priorityProductSlugs.length}`)) {
+        failures.push(`${path}: localized priority ItemList has an incorrect product count`);
       }
       if (!text.includes(`\"inLanguage\":\"${languageCodes[localizedProductsDirectory]}\"`)) {
         failures.push(`${path}: localized priority ItemList has incorrect language`);
@@ -279,8 +288,8 @@ async function worker() {
       if (!text.includes('"@type":"ItemList"')) {
         failures.push(`${path}: missing priority ItemList structured data`);
       }
-      if (!text.includes('"numberOfItems":6')) {
-        failures.push(`${path}: priority ItemList does not contain six products`);
+      if (!text.includes(`"numberOfItems":${priorityProductSlugs.length}`)) {
+        failures.push(`${path}: priority ItemList has an incorrect product count`);
       }
       for (const slug of priorityProductSlugs) {
         if (!text.includes(`data-priority-product-slug=\"${slug}\"`)) {
@@ -412,39 +421,45 @@ async function worker() {
     const priorityDocumentCount = productSlug
       ? priorityProductResourceCounts.get(productSlug)
       : undefined;
-    if (productSlug && priorityDocumentCount) {
+    const expectedGuideCount = productSlug
+      ? path.startsWith("/products/")
+        ? englishPriorityGuideCounts.get(productSlug) ?? 0
+        : Math.min(englishPriorityGuideCounts.get(productSlug) ?? 0, 3)
+      : 0;
+    if (productSlug && (priorityDocumentCount || expectedGuideCount)) {
       checkedPriorityResourcePages.add(path);
       const productionPath = path === "/" ? "" : path;
       const productUrl = `https://www.myfrphome.com${productionPath}`;
-      const expectedGuideCount = path.startsWith("/products/")
-        ? englishPriorityGuideCounts.get(productSlug)
-        : Math.min(englishPriorityGuideCounts.get(productSlug) ?? 0, 3);
 
-      if (!text.includes(`\"@id\":\"${productUrl}#technical-documents\"`)) {
+      if (priorityDocumentCount && !text.includes(`\"@id\":\"${productUrl}#technical-documents\"`)) {
         failures.push(`${path}: missing product technical-document ItemList`);
       }
-      if (!text.includes(`\"@id\":\"${productUrl}#buyer-guides\"`)) {
+      if (expectedGuideCount && !text.includes(`\"@id\":\"${productUrl}#buyer-guides\"`)) {
         failures.push(`${path}: missing product buyer-guide ItemList`);
       }
-      if (!text.includes(`\"subjectOf\":[{\"@id\":\"${productUrl}#technical-documents\"},{\"@id\":\"${productUrl}#buyer-guides\"}]`)) {
-        failures.push(`${path}: Product entity does not reference both resource lists`);
+      const expectedSubjectOf = [
+        ...(priorityDocumentCount ? [`{\"@id\":\"${productUrl}#technical-documents\"}`] : []),
+        ...(expectedGuideCount ? [`{\"@id\":\"${productUrl}#buyer-guides\"}`] : []),
+      ].join(",");
+      if (!text.includes(`\"subjectOf\":[${expectedSubjectOf}]`)) {
+        failures.push(`${path}: Product entity does not reference the expected resource lists`);
       }
       if (!text.includes(`\"about\":{\"@id\":\"${productUrl}#product\"}`)) {
         failures.push(`${path}: resource entities do not reference the Product entity`);
       }
-      if (occurrenceCount(text, '\"@type\":\"DigitalDocument\"') < priorityDocumentCount) {
+      if (priorityDocumentCount && occurrenceCount(text, '\"@type\":\"DigitalDocument\"') < priorityDocumentCount) {
         failures.push(`${path}: expected ${priorityDocumentCount} DigitalDocument entities`);
       }
-      if (!text.includes(`\"numberOfItems\":${priorityDocumentCount},\"itemListElement\"`)) {
+      if (priorityDocumentCount && !text.includes(`\"numberOfItems\":${priorityDocumentCount},\"itemListElement\"`)) {
         failures.push(`${path}: technical-document ItemList count is incorrect`);
       }
-      if (!text.includes(`\"numberOfItems\":${expectedGuideCount},\"itemListElement\"`)) {
+      if (expectedGuideCount && !text.includes(`\"numberOfItems\":${expectedGuideCount},\"itemListElement\"`)) {
         failures.push(`${path}: buyer-guide ItemList count is incorrect`);
       }
-      if (occurrenceCount(text, '\"@type\":\"Article\"') < expectedGuideCount) {
+      if (expectedGuideCount && occurrenceCount(text, '\"@type\":\"Article\"') < expectedGuideCount) {
         failures.push(`${path}: expected ${expectedGuideCount} buyer-guide Article entities`);
       }
-      if (!text.includes('\"encodingFormat\":\"application/pdf\"')) {
+      if (priorityDocumentCount && !text.includes('\"encodingFormat\":\"application/pdf\"')) {
         failures.push(`${path}: missing PDF encoding format`);
       }
       if (!text.includes('\"inLanguage\":\"en\"')) {
@@ -487,10 +502,11 @@ async function worker() {
         failures.push(`${path}: priority H1 no longer contains ${h1Term}`);
       }
       if (!matches(text, /href="\/contact\?product=[^"]+"/i)) failures.push(`${path}: missing product-prefilled RFQ link`);
+      const requiresVerifiedDownload = path !== "/products/fiber-optic-cable-drum";
       const hasVerifiedDownload = path === "/products/3k-carbon-fiber-laminate-sheet"
         ? matches(text, /href="\/downloads\/specifications\/FRP-HOME-3K-Carbon-Fiber-Laminate-Sheet-RFQ-Specification-Guide\.pdf"/i)
         : matches(text, /href="\/downloads\/tds\/[^"]+\.pdf"/i);
-      if (!hasVerifiedDownload) failures.push(`${path}: missing verified product download`);
+      if (requiresVerifiedDownload && !hasVerifiedDownload) failures.push(`${path}: missing verified product download`);
       if (!text.includes('"@type":"FAQPage"')) failures.push(`${path}: missing FAQ structured data`);
       if (!text.includes('"@type":"BreadcrumbList"')) failures.push(`${path}: missing breadcrumb structured data`);
     }
@@ -589,7 +605,7 @@ if (checkedPriorityHomepages.size !== locales.length + 1) {
   failures.push(`Expected ${locales.length + 1} priority homepages, found ${checkedPriorityHomepages.size}`);
 }
 
-const expectedPriorityResourcePageCount = priorityProductResourceCounts.size * (locales.length + 1);
+const expectedPriorityResourcePageCount = priorityResourceProductSlugs.size * (locales.length + 1);
 if (checkedPriorityResourcePages.size !== expectedPriorityResourcePageCount) {
   failures.push(`Expected ${expectedPriorityResourcePageCount} priority product resource pages, found ${checkedPriorityResourcePages.size}`);
 }

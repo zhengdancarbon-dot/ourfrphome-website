@@ -32,6 +32,16 @@ export const priorityDiscoveryRoutes: PriorityDiscoveryRoute[] = [
     ],
   },
   {
+    productSlug: "fiber-optic-cable-drum",
+    label: "Fiber Optic Cable Drum",
+    title: "Define internal pay-off configuration and prepare the RFQ",
+    description:
+      "Start with the required fiber length and short, mid or long series, then confirm integration, destination, packing and final civil or industrial application.",
+    guideSlugs: [
+      "fiber-optic-cable-drum-rfq-checklist",
+    ],
+  },
+  {
     productSlug: "carbon-fiber-yarn-and-tow",
     label: "Yarn & Tow",
     title: "Specify tow size, source grade and conversion process",

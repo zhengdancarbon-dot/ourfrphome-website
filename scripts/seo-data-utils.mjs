@@ -11,6 +11,7 @@ export const sixCoreProducts = [
   { id: "3k-carbon-fiber-laminate-sheet", name: "3K Carbon Fiber Laminate Sheet", path: "/products/3k-carbon-fiber-laminate-sheet" },
   { id: "carbon-fiber-yarn-and-tow", name: "Carbon Fiber Yarn & Tow", path: "/products/carbon-fiber-yarn-and-tow" },
   { id: "structural-strengthening-system", name: "Carbon Fiber Structural Strengthening System", path: "/products/structural-strengthening-system" },
+  { id: "fiber-optic-cable-drum", name: "Fiber Optic Cable Drum", path: "/products/fiber-optic-cable-drum" },
 ];
 
 const localePrefix = /^\/(?:es|pt-br|ru|ar|fr|ko|pl|tr|uk|vi|th)(?=\/|$)/;
