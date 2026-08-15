@@ -128,6 +128,17 @@ const productGroups = [
       "Drawing-based OEM components for industrial, automotive, sports and commercial equipment",
     slugs: ["custom-carbon-fiber-products"],
   },
+  {
+    id: "specialty-fiber-optic-equipment",
+    title: "Specialty Fiber Optic Equipment",
+    description:
+      "Internal pay-off fiber optic cable drums for qualified civil and industrial cable-deployment projects.",
+    keyProducts:
+      "Short, mid and long fiber optic cable drum series",
+    commonApplications:
+      "Civil and industrial integration projects subject to technical, destination and end-use review",
+    slugs: ["fiber-optic-cable-drum"],
+  },
 ];
 
 const productMap = new Map(products.map((product) => [product.slug, product]));

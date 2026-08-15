@@ -76,6 +76,7 @@ function inferRfqType(product: ProductCatalogItem) {
     return "aramid-hybrid-fabric";
   }
   if (product.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
+  if (product.slug === "fiber-optic-cable-drum") return "fiber-optic-cable-drum";
   if (product.slug === "prepreg-carbon-fiber-materials") return "prepreg";
   if (product.slug === "structural-strengthening-system") {
     return "structural-strengthening";
@@ -134,6 +135,15 @@ function selectionGuidance(product: ProductCatalogItem) {
       "Provide flatness, thickness tolerance, holes, countersinks and edge requirements.",
       "Attach DXF, STEP or a dimensioned PDF for CNC cutting and drilling review.",
       "Confirm protective film, packing, destination and final application.",
+    ];
+  }
+  if (product.slug === "fiber-optic-cable-drum") {
+    return [
+      "Choose the short, mid or long drum series from the required fiber length: 1-15 km, 20-40 km or 50-60 km.",
+      "Use the published G.657.A2 and 0.25 mm references only for RFQ preparation; confirm the current selected configuration before ordering.",
+      "State the terminal or equipment integration requirement without assuming a configuration from the website.",
+      "Describe the final civil or industrial application, destination country and delivery quantity for end-use and commercial review.",
+      "Confirm export packing, documents and any inspection requirement in the quotation because source manual packing and mass references are not fixed public values.",
     ];
   }
   if (product.slug === "carbon-fiber-ud-fabric") {
@@ -299,6 +309,21 @@ function recommendedFit(product: ProductCatalogItem) {
         "Buyers looking for finished woven fabric",
         "Projects without clear process or sizing requirement",
         "Orders without end-use and destination information where review is required",
+      ],
+    };
+  }
+  if (product.slug === "fiber-optic-cable-drum") {
+    return {
+      recommended: [
+        "Qualified civil and industrial cable-deployment projects",
+        "Temporary inspection and monitoring installations",
+        "Telecommunications or equipment-integration trials",
+        "Projects with a documented fiber length and destination country",
+      ],
+      notRecommended: [
+        "Applications without a declared final end use",
+        "Orders that rely on unconfirmed terminal or equipment compatibility",
+        "Restricted or sensitive uses outside compliance review",
       ],
     };
   }
@@ -636,7 +661,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <SectionHeading
                 eyebrow="RFQ information required"
                 title={`Details requested for ${activeRfqType.label}.`}
-                copy={brandAvailabilityNotice}
+                copy={product.slug === "fiber-optic-cable-drum"
+                  ? "Configuration, end use, destination and documents are reviewed before quotation. The public page does not approve restricted or sensitive applications."
+                  : brandAvailabilityNotice}
               />
               <div className="rfq-required-grid">
                 {activeRfqType.fields.map((field) => (

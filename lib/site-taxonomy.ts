@@ -500,6 +500,18 @@ export const rfqProductTypes: RfqProductType[] = [
     ],
   },
   {
+    value: "fiber-optic-cable-drum",
+    label: "Fiber Optic Cable Drum",
+    fields: [
+      { name: "fiberLengthRequirement", label: "Required fiber length", placeholder: "1 km / 5 km / 15 km / 20-40 km / 50-60 km" },
+      { name: "drumSeries", label: "Drum series", placeholder: "ZY-SI / ZY-MI / ZY-LI / custom" },
+      { name: "fiberSpecification", label: "Fiber specification", placeholder: "G.657.A2 / 0.25 mm / confirm current scope" },
+      { name: "integrationRequirement", label: "Integration requirement", placeholder: "State the required terminal or equipment interface" },
+      { name: "deploymentEnvironment", label: "Civil or industrial application", placeholder: "Describe the intended final civil or industrial use" },
+      { name: "packingRequirement", label: "Packing requirement", placeholder: "Quantity, export packing and destination requirement" },
+    ],
+  },
+  {
     value: "structural-strengthening",
     label: "Structural Strengthening System",
     fields: [

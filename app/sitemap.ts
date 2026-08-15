@@ -13,6 +13,7 @@ const productLastModified: Record<string, string> = {
   "carbon-fiber-woven-fabric": "2026-07-27",
   "carbon-fiber-ud-fabric": "2026-07-27",
   "structural-strengthening-system": "2026-07-27",
+  "fiber-optic-cable-drum": "2026-08-15",
 };
 
 const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<string, string>>> = {

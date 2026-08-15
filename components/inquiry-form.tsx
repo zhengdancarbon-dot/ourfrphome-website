@@ -74,6 +74,7 @@ function inferProductType(productName: string) {
     return "aramid-hybrid-fabric";
   }
   if (product?.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
+  if (product?.slug === "fiber-optic-cable-drum") return "fiber-optic-cable-drum";
   if (product?.slug === "prepreg-carbon-fiber-materials") return "prepreg";
   if (product?.slug === "structural-strengthening-system") {
     return "structural-strengthening";

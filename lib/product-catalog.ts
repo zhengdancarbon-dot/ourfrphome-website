@@ -1715,6 +1715,124 @@ export const productCatalog: ProductCatalogItem[] = [
       },
     ],
   },
+  {
+    slug: "fiber-optic-cable-drum",
+    name: "Fiber Optic Cable Drum",
+    shortName: "Fiber Optic Drum",
+    category: "Industrial Fiber Optic Cable Handling",
+    description:
+      "Internal pay-off fiber optic cable drums for qualified civil and industrial cable-deployment projects, available in short, mid and long series with source-manual length ranges from 1 km to 60 km.",
+    heroCopy:
+      "Fiber optic cable drums keep a selected length of optical fiber in a protected housing and pay it out from the inside. Select the required length, drum series, integration requirement, quantity, destination and final civil or industrial application for review before quotation.",
+    image: "/images/products/fiber-optic-cable-drum.webp",
+    gallery: [
+      "/images/products/fiber-optic-cable-drum.webp",
+      "/images/products/fiber-optic-cable-drum-mid.webp",
+      "/images/products/fiber-optic-cable-drum-short.webp",
+    ],
+    visualLabel: "Long, mid and short fiber optic cable drum series",
+    position: "50% 48%",
+    seo: {
+      title: "Fiber Optic Cable Drum | Internal Pay-Off Spool Supplier",
+      description:
+        "Fiber optic cable drums with internal cable pay-off for qualified civil and industrial integration projects. Source-manual references include G.657.A2 fiber, 0.25 mm fiber diameter and 1-60 km series options.",
+      keywords: [
+        "fiber optic cable drum",
+        "fiber optic pay-off spool",
+        "internal pay-off fiber drum",
+        "G.657.A2 fiber drum",
+        "custom fiber optic cable drum",
+      ],
+    },
+    specs: [
+      { label: "Series", value: "ZY-SI / ZY-MI / ZY-LI" },
+      { label: "Source-manual length ranges", value: "1-15 km / 20-40 km / 50-60 km" },
+      { label: "Fiber reference", value: "G.657.A2 / 0.25 mm" },
+      { label: "Pay-off method", value: "Internal cable pay-off" },
+      { label: "Operating temperature reference", value: "-40°C to +60°C" },
+    ],
+    intro: [
+      "Fiber Optic Cable Drums are self-contained housings designed to hold a selected length of fiber and support internal cable pay-off during qualified civil and industrial cable-deployment projects.",
+      "The supplied product manuals describe three standard formats: ZY-SI for 1-15 km, ZY-MI for 20-40 km and ZY-LI for 50-60 km. The published source references G.657.A2 fiber, 0.25 mm fiber diameter, at least 55 N fiber tensile force and an ABS housing.",
+      "Dimensions, packing, mass, terminal configuration and supporting equipment must be confirmed against the current order specification. The supplied manual versions contain inconsistent packing and mass data, so those values are not published as fixed commitments on this page.",
+      "Availability is subject to final end-use, end-user, destination and compliance review. This public page is limited to qualified civil and industrial applications and does not approve restricted or sensitive uses.",
+    ],
+    highlights: [
+      { label: "Standard series", value: "Short / mid / long internal pay-off drums" },
+      { label: "Source-manual fiber", value: "G.657.A2 / 0.25 mm" },
+      { label: "Source-manual housing", value: "ABS" },
+      { label: "Customization", value: "Non-standard length and configuration by technical review" },
+    ],
+    applications: [
+      "Temporary industrial monitoring and inspection installations",
+      "Controlled civil cable-deployment trials",
+      "Telecommunications and equipment-integration projects",
+      "Tunnel, pipeline and enclosed-space inspection set-ups",
+      "Qualified fixed or mobile civil infrastructure projects",
+      "Custom fiber-length projects subject to technical and compliance review",
+    ],
+    tds: {
+      codePrefix: "FRPH-FOD",
+      revision: "Source-manual reference reviewed 2026-08",
+      note:
+        "This table consolidates the supplied product manuals for RFQ preparation. Selected length, dimensions, packing, mass, terminal configuration, current revision and permitted end use are confirmed in the quotation and order documents.",
+      tables: [
+        {
+          title: "Standard fiber optic cable drum series",
+          columns: ["Series", "Model", "Source-manual fiber length", "Overall dimensions", "Fiber reference", "Pay-off method"],
+          rows: [
+            ["Short", "ZY-SI", "1-15 km", "120 mm × 330 mm", "G.657.A2 / 0.25 mm", "Internal cable pay-off"],
+            ["Mid", "ZY-MI", "20-40 km", "130 mm × 470 mm", "G.657.A2 / 0.25 mm", "Internal cable pay-off"],
+            ["Long", "ZY-LI", "50-60 km", "170 mm × 470 mm", "G.657.A2 / 0.25 mm", "Internal cable pay-off"],
+          ],
+        },
+        {
+          title: "Published reference and order confirmation",
+          columns: ["Item", "Source-manual reference", "Order confirmation"],
+          rows: [
+            ["Fiber tensile force", "At least 55 N", "Confirm current construction and batch documentation"],
+            ["Operating temperature", "-40°C to +60°C", "Confirm against the selected configuration and intended environment"],
+            ["Housing", "ABS", "Confirm selected model and finish"],
+            ["Length options", "1 / 5 / 10 / 15 / 20 / 25 / 30 / 35 / 40 / 50 / 60 km references", "Confirm the requested length and delivery schedule"],
+            ["Packing and mass", "Not published as fixed values", "Confirm current export packing and mass in the quotation"],
+          ],
+        },
+        {
+          title: "RFQ review items",
+          columns: ["Required information", "Why it matters", "Confirmation basis"],
+          rows: [
+            ["Required fiber length and series", "Determines the drum format and supply scope", "Quotation review"],
+            ["Integration or terminal requirement", "Determines the applicable configuration", "Current technical document"],
+            ["Civil or industrial application", "Supports end-use and technical review", "Buyer declaration"],
+            ["Destination and quantity", "Supports export packing and delivery planning", "Commercial review"],
+            ["Required documents", "Identifies document and inspection needs", "Order agreement"],
+          ],
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Which fiber lengths are available for the standard drum series?",
+        answer:
+          "The supplied manuals identify short, mid and long series covering 1-15 km, 20-40 km and 50-60 km respectively. Tell us the requested length so that the applicable model and current documentation can be reviewed.",
+      },
+      {
+        question: "Are packing dimensions and product mass fixed?",
+        answer:
+          "No. The supplied manual versions contain inconsistent packing and mass references. FRP HOME confirms the current product mass, carton, export packing and shipment details in the quotation and order documents.",
+      },
+      {
+        question: "Can the fiber drum be customized?",
+        answer:
+          "Non-standard length and configuration requests can be reviewed. Please provide the required length, integration requirement, quantity, destination country and civil or industrial end use.",
+      },
+      {
+        question: "What information is needed before quotation?",
+        answer:
+          "Please provide the requested drum series or fiber length, integration requirement, quantity, destination country, required documents and final civil or industrial application. End-use and end-user review may be required before quotation or shipment.",
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string) {
