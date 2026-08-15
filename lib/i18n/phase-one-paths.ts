@@ -19,6 +19,7 @@ export const phaseOneProductSlugs = [
   "3k-carbon-fiber-laminate-sheet",
   "structural-strengthening-system",
   "filament-wound-carbon-fiber-tube",
+  "fiber-optic-cable-drum",
 ] as const;
 
 export const phaseOneApplicationSlugs = [

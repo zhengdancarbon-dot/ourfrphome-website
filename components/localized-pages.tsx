@@ -206,6 +206,7 @@ function inferRfqType(product: ProductCatalogItem) {
   if (product.slug === "spread-tow-carbon-fiber-fabric") return "spread-tow-fabric";
   if (product.slug === "carbon-fiber-yarn-and-tow") return "yarn-tow";
   if (product.slug === "prepreg-carbon-fiber-materials") return "prepreg";
+  if (product.slug === "fiber-optic-cable-drum") return "fiber-optic-cable-drum";
   if (product.slug === "structural-strengthening-system") return "structural-strengthening";
   if (source.includes("chopped") || source.includes("milled") || source.includes("powder")) return "chopped-powder";
   if (source.includes("prepreg")) return "prepreg";
@@ -231,7 +232,6 @@ export function createLocalizedHomeMetadata(locale: Exclude<Locale, "en">): Meta
 export function LocalizedHomePage({ locale }: LocalizedPageProps) {
   const content = localizedHomeContent[locale];
   const copy = getUiCopy(locale);
-  const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
   const featuredProducts = featuredProductSlugs
     .map((slug) => productCatalog.find((product) => product.slug === slug))
     .filter((product) => product !== undefined);
@@ -327,7 +327,7 @@ export function LocalizedHomePage({ locale }: LocalizedPageProps) {
                     <h3>{localized.name}</h3>
                     <p>{localized.description}</p>
                     <dl>
-                      {hasDetailedTranslatedSpecs
+                      {(locale === "es" || locale === "pt-br") && product.slug !== "fiber-optic-cable-drum"
                         ? product.specs.slice(0, 3).map((spec) => (
                             <div key={spec.label}>
                               <dt>{translateLabel(locale, spec.label)}</dt>
@@ -722,7 +722,8 @@ export function LocalizedProductDetailPage({ locale, slug }: LocalizedPageProps 
   if (!product || !content) notFound();
 
   const copy = getUiCopy(locale);
-  const hasDetailedTranslatedSpecs = locale === "es" || locale === "pt-br";
+  const hasDetailedTranslatedSpecs =
+    (locale === "es" || locale === "pt-br") && product.slug !== "fiber-optic-cable-drum";
   const activeRfqType = rfqProductTypes.find((type) => type.value === inferRfqType(product)) ?? rfqProductTypes[1];
   const fallbackRelatedProducts = productCatalog
     .filter((item) => item.slug !== product.slug)

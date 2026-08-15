@@ -1,5 +1,6 @@
 import type { ExtendedLocale, Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
+import { fiberOpticCableDrumLocalizedContent } from "@/lib/i18n/fiber-optic-cable-drum-content";
 import {
   extendedApplicationContent,
   extendedCatalogContent,
@@ -554,6 +555,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         },
       ],
     },
+    "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.es,
   },
   "pt-br": {
     "carbon-fiber-woven-fabric": {
@@ -871,8 +873,17 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         },
       ],
     },
+    "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent["pt-br"],
   },
-  ...extendedProductContent,
+  ru: { ...extendedProductContent.ru, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.ru },
+  ar: { ...extendedProductContent.ar, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.ar },
+  fr: { ...extendedProductContent.fr, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.fr },
+  ko: { ...extendedProductContent.ko, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.ko },
+  pl: { ...extendedProductContent.pl, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.pl },
+  tr: { ...extendedProductContent.tr, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.tr },
+  uk: { ...extendedProductContent.uk, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.uk },
+  vi: { ...extendedProductContent.vi, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.vi },
+  th: { ...extendedProductContent.th, "fiber-optic-cable-drum": fiberOpticCableDrumLocalizedContent.th },
 };
 
 export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(typeof phaseOneApplicationSlugs)[number], LocalizedApplicationContent>> = {

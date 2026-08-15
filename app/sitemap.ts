@@ -83,6 +83,8 @@ const localizedProductLastModified: Partial<Record<LocalizedLocale, Record<strin
   },
 };
 
+const localizedFiberOpticCableDrumLastModified = "2026-08-15";
+
 const applicationLastModified: Record<string, string> = {
   "automotive-carbon-fiber-parts": "2026-07-27",
   "sports-equipment": "2026-07-22",
@@ -194,6 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : undefined;
     const localizedLastModified = locale !== defaultLocale && productSlug
       ? localizedProductLastModified[locale]?.[productSlug]
+        ?? (productSlug === "fiber-optic-cable-drum" ? localizedFiberOpticCableDrumLastModified : undefined)
       : undefined;
     const applicationSlug = route.path.startsWith("/applications/")
       ? route.path.slice("/applications/".length)

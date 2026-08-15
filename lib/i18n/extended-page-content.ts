@@ -1,4 +1,5 @@
 import type { ExtendedLocale } from "@/lib/i18n/config";
+import { fiberOpticCableDrumLocalizedContent } from "@/lib/i18n/fiber-optic-cable-drum-content";
 import type { LocalizedApplicationContent, LocalizedProductContent } from "@/lib/i18n/page-content";
 import { phaseOneApplicationSlugs, phaseOneProductSlugs } from "@/lib/i18n/phase-one-paths";
 import { extendedProductTranslations, extendedUiCopy } from "@/lib/i18n/extended-ui-copy";
@@ -128,6 +129,7 @@ const productDefinitions: Record<ProductSlug, { category: keyof Pack["categories
   "3k-carbon-fiber-laminate-sheet": { category: "strengthening", focus: "3K twill surface, thickness, panel dimensions, matte / glossy finish, CNC drawing", apps: ["panels", "automotive", "sports"] },
   "structural-strengthening-system": { category: "strengthening", focus: "UD fabric, pultruded CFRP plate, epoxy resin, project dimensions", apps: ["concrete", "pultrusion"] },
   "filament-wound-carbon-fiber-tube": { category: "tube", focus: "diameter, wall thickness, winding angle, resin system, tolerance", apps: ["molding", "automotive", "sports"] },
+  "fiber-optic-cable-drum": { category: "yarn", focus: "fiber length, drum series, fiber specification, integration requirement, deployment environment", apps: ["molding"] },
 };
 
 const focusTerms: Record<ExtendedLocale, Record<string, string>> = {
@@ -566,6 +568,9 @@ function localizeFocus(locale: ExtendedLocale, focus: string) {
 function makeProducts(locale: ExtendedLocale) {
   const pack = packs[locale];
   return Object.fromEntries(phaseOneProductSlugs.map((slug) => {
+    if (slug === "fiber-optic-cable-drum") {
+      return [slug, fiberOpticCableDrumLocalizedContent[locale]];
+    }
     const definition = productDefinitions[slug];
     const focus = localizeFocus(locale, definition.focus);
     const name = extendedProductTranslations[locale][
