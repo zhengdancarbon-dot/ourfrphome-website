@@ -1,6 +1,7 @@
 import { absoluteUrl } from "@/lib/seo";
 import { dualCoreTechnicalArticles } from "@/lib/dual-core-technical-articles";
 import { fiberOpticTechnicalArticles } from "@/lib/fiber-optic-technical-articles";
+import { geoBuyerTechnicalArticles } from "@/lib/geo-buyer-technical-articles";
 import { priorityTechnicalArticles } from "@/lib/priority-technical-articles";
 
 export type TechnicalArticle = {
@@ -919,6 +920,7 @@ export const technicalArticles: TechnicalArticle[] = [
   ...dualCoreTechnicalArticles,
   ...priorityTechnicalArticles,
   ...fiberOpticTechnicalArticles,
+  ...geoBuyerTechnicalArticles,
 ];
 
 const strengtheningGuideSlugs = [

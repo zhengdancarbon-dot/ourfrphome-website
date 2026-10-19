@@ -1,5 +1,5 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 280);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 282);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"];
 const localeLabels = {
   es: "Español",
@@ -15,7 +15,7 @@ const localeLabels = {
   th: "ไทย",
 };
 const expectedLocalizedCount = 20;
-const expectedTechnicalArticleCount = 25;
+const expectedTechnicalArticleCount = 27;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
@@ -61,6 +61,7 @@ const priorityDiscoveryLinks = [
   "/technical-center/300gsm-vs-600gsm-biaxial-carbon-ncf",
   "/technical-center/biaxial-vs-triaxial-vs-quadriaxial-carbon-ncf",
   "/technical-center/carbon-fiber-multiaxial-ncf-rfq-checklist",
+  "/technical-center/carbon-ncf-roll-acceptance-vacuum-infusion",
   "/products/3k-carbon-fiber-laminate-sheet",
   "/technical-center/carbon-fiber-plate-thickness-selection-guide",
   "/technical-center/3k-carbon-fiber-plate-cnc-rfq-guide",
@@ -81,6 +82,7 @@ const priorityDiscoveryLinks = [
   "/technical-center/cfrp-strengthening-material-rfq-checklist",
   "/products/carbon-fiber-woven-fabric",
   "/technical-center/3k-200gsm-carbon-fiber-fabric-selection-rfq-guide",
+  "/technical-center/3k-200gsm-twill-carbon-fabric-sample-approval",
   "/technical-center/plain-vs-twill-carbon-fiber-fabric",
   "/technical-center/how-to-choose-carbon-fiber-fabric-by-gsm",
 ];
