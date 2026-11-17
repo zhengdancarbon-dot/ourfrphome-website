@@ -44,7 +44,7 @@ export const technicalArticles: TechnicalArticle[] = [
         ["Tow size", "Fine 3K tow", "Larger 12K tow"],
         ["Appearance", "Classic small carbon texture", "Larger and more industrial texture"],
         ["Published FRP HOME evidence", "3K 200 g/m² twill fabric TDS", "Tow/fabric construction requires matching product data"],
-        ["Use case", "Visible parts, automotive, sports, UAV panels", "Large panels, industrial laminates, faster thickness build"],
+        ["Use case", "Visible parts, automotive and sports panels", "Large panels, industrial laminates, faster thickness build"],
         ["RFQ focus", "Weave, surface finish, width, roll length", "Areal weight, panel size, ply count, process"],
       ],
     },
@@ -53,7 +53,7 @@ export const technicalArticles: TechnicalArticle[] = [
       "Choose 12K when larger panels or heavier laminate build-up are more important.",
       "Confirm whether the part is cosmetic, structural or both.",
     ],
-    applications: ["Automotive trim", "Sports equipment", "Civil UAV panels", "Industrial panels", "Decorative CFRP"],
+    applications: ["Automotive trim", "Sports equipment", "Industrial panels", "Decorative CFRP"],
     specifications: [
       ["Documented 3K fabric", "200 g/m² twill; 1000-1500 mm; 100 m nominal"],
       ["12K woven request", "Confirm construction, weight, width, grade and matching TDS"],
@@ -261,7 +261,7 @@ export const technicalArticles: TechnicalArticle[] = [
       "Choose traditional woven fabric for standard 3K twill, plain, satin or general laminate use.",
       "Confirm process: wet lay-up, vacuum bagging, compression molding or prepreg conversion.",
     ],
-    applications: ["Decorative CFRP panels", "Automotive surfaces", "Sports equipment skins", "Civil UAV covers", "Thin laminate panels"],
+    applications: ["Decorative CFRP panels", "Automotive surfaces", "Sports equipment skins", "Industrial covers", "Thin laminate panels"],
     specifications: [
       ["Pattern size", "8x8mm / 10x10mm / custom"],
       ["Tow size", "12K / 24K / custom"],
@@ -658,7 +658,7 @@ export const technicalArticles: TechnicalArticle[] = [
       "Choose pultruded when continuous length, axial stiffness and repeatable profile supply matter.",
       "Provide OD, ID, wall thickness, length and surface requirements for either process.",
     ],
-    applications: ["Sports poles", "Commercial drone arms", "Automation supports", "Industrial profiles", "Camera rigs"],
+    applications: ["Sports poles", "Equipment supports", "Automation supports", "Industrial profiles", "Camera rigs"],
     specifications: [
       ["Roll-wrapped OD", "6-100 mm typical"],
       ["Pultruded shape", "Round, square, rectangular or custom profile"],
@@ -845,7 +845,7 @@ export const technicalArticles: TechnicalArticle[] = [
     applications: [
       "Automotive composite panels",
       "Marine and industrial panels",
-      "Civil UAV covers and fairings",
+      "Industrial covers and housings",
       "Composite tooling and enclosures",
       "Sandwich panels with compatible core materials",
     ],

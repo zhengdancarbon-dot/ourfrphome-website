@@ -1,5 +1,5 @@
 const baseUrl = new URL(process.argv[2] || "http://localhost:3107");
-const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 282);
+const expectedTotal = Number(process.env.EXPECTED_SITEMAP_URLS || 270);
 const locales = ["es", "pt-br", "ru", "ar", "fr", "ko", "pl", "tr", "uk", "vi", "th"];
 const localeLabels = {
   es: "Español",
@@ -14,8 +14,9 @@ const localeLabels = {
   vi: "Tiếng Việt",
   th: "ไทย",
 };
-const expectedLocalizedCount = 20;
+const expectedLocalizedCount = 19;
 const expectedTechnicalArticleCount = 27;
+const sensitiveUsePattern = /\b(?:drone|uav|uas|aircraft|aerospace|aviation|aerial|military|weapon|missile|combat|dual-use)\b|无人机|军用|武器|导弹|作战|беспилот|дрон|бпла|طائرات بدون طيار|무인|드론|โดรน/iu;
 const priorityProductPages = new Map([
   ["/products/carbon-fiber-multiaxial-ncf-fabric", ["Carbon Multiaxial NCF Fabric", "Carbon Fiber Multiaxial NCF Fabric"]],
   ["/products/3k-carbon-fiber-laminate-sheet", ["3K Carbon Fiber Plate", "3K Carbon Fiber Laminate Sheet"]],
@@ -192,6 +193,8 @@ async function worker() {
       !isLocalized && locales.every((locale) => pathnameSet.has(path === "/" ? `/${locale}` : `/${locale}${path}`));
 
     if (response.status !== 200) failures.push(`${path}: HTTP ${response.status}`);
+    const sensitiveUseMatch = text.match(sensitiveUsePattern);
+    if (sensitiveUseMatch) failures.push(`${path}: sensitive-use term in HTML: ${sensitiveUseMatch[0]}`);
     const activeLocale = path === "/" ? "en" : locales.find((locale) => path === `/${locale}` || path.startsWith(`/${locale}/`)) || "en";
     const expectedDirection = activeLocale === "ar" ? "rtl" : "ltr";
     const htmlTag = text.match(/<html\s+([^>]+)>/i)?.[1] || "";
@@ -540,6 +543,7 @@ const llmsResult = await fetchText(new URL("/llms.txt", baseUrl));
 const internalSalesResult = await fetchText(new URL("/internal-sales-link-guide", baseUrl));
 if (!technicalCenterResult.response.ok) failures.push(`/technical-center: HTTP ${technicalCenterResult.response.status}`);
 if (!llmsResult.response.ok) failures.push(`/llms.txt: HTTP ${llmsResult.response.status}`);
+if (sensitiveUsePattern.test(llmsResult.text)) failures.push("/llms.txt: sensitive-use term");
 if (!internalSalesResult.response.ok) failures.push(`/internal-sales-link-guide: HTTP ${internalSalesResult.response.status}`);
 if (pathnameSet.has("/internal-sales-link-guide")) failures.push(`/internal-sales-link-guide: must not be in sitemap`);
 if (!/name="robots" content="noindex(?:, nofollow)?"/i.test(internalSalesResult.text)) {
@@ -640,6 +644,17 @@ for (const path of ["/en", "/es/products/not-a-real-product", "/pt-br/technical-
   if (response.status !== 404) failures.push(`${path}: expected 404, found ${response.status}`);
 }
 
+const removedApplicationPath = "/applications/civil-uav-drone-components";
+for (const locale of ["en", ...locales]) {
+  const path = locale === "en" ? removedApplicationPath : `/${locale}${removedApplicationPath}`;
+  const destination = locale === "en" ? "/applications" : `/${locale}/products`;
+  if (pathnameSet.has(path)) failures.push(`${path}: removed application must not appear in sitemap`);
+  const response = await fetch(new URL(path, baseUrl), { redirect: "manual" });
+  if (response.status !== 308 || response.headers.get("location") !== destination) {
+    failures.push(`${path}: expected 308 redirect to ${destination}`);
+  }
+}
+
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
@@ -662,6 +677,8 @@ console.log(JSON.stringify({
   checkedPriorityVideoAssets: videoProductPages.size,
   checkedPriorityDocumentHubEntrypoints: 3,
   negative404Checks: 3,
+  removedApplicationRedirects: locales.length + 1,
+  sensitiveUsePagesChecked: pathnames.length,
   internalSalesGuideNoindex: true,
   status: "PASS",
 }, null, 2));

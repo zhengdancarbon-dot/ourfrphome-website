@@ -93,7 +93,7 @@
       ["Sheet size", "Standard and customized formats"],
       ["Processing", "Cutting / drilling / CNC machining by review"]
     ],
-    "applications": ["Structural strengthening", "Drone frames", "RC parts", "Industrial fixtures", "Custom machined components"],
+    "applications": ["Structural strengthening", "Industrial panels", "Precision fixtures", "Custom machined components"],
     "imagePlaceholder": "Insert carbon fiber plate image here"
   },
   {
@@ -108,7 +108,7 @@
       ["Length", "Customized"],
       ["Shape", "Round / square / rectangular / profile by review"]
     ],
-    "applications": ["Drones", "Sports equipment", "Industrial automation", "Marine hardware", "Consumer products"],
+    "applications": ["Industrial equipment", "Sports equipment", "Industrial automation", "Marine hardware", "Consumer products"],
     "imagePlaceholder": "Insert carbon fiber tube image here"
   },
   {

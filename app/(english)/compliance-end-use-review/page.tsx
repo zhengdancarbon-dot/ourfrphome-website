@@ -24,10 +24,9 @@ const reviewTriggers = [
   "High-performance carbon fiber",
   "Prepreg carbon fiber materials",
   "Carbon fiber yarn and tow",
-  "Aerospace-related applications",
+  "Destination-specific document requirements",
   "Pressure vessel applications",
-  "Civil UAV / drone components",
-  "dual-use sensitive applications",
+  "Complex end-use or end-user requirements",
 ];
 
 const requiredFields = [

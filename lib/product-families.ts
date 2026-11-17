@@ -25,7 +25,7 @@ export const productFamilies: ProductFamily[] = [
       "Carbon Fiber Multiaxial NCF Fabric",
     ],
     commonApplications:
-      "Composite laminates, visible CFRP surfaces, civil UAV components, automotive panels and industrial shells.",
+      "Composite laminates, visible CFRP surfaces, automotive panels and industrial shells.",
     items: [
       { label: "Carbon Fiber Multiaxial NCF Fabric", href: "/products/carbon-fiber-multiaxial-ncf-fabric" },
       { label: "Woven Carbon Fiber Fabric", href: "/products/carbon-fiber-woven-fabric" },
@@ -122,7 +122,7 @@ export const productFamilies: ProductFamily[] = [
       "CNC Machined CFRP Parts",
     ],
     commonApplications:
-      "Civil UAV parts, sports equipment, automation parts, structural profiles and machined components.",
+      "Industrial equipment, sports equipment, automation parts, structural profiles and machined components.",
     items: [
       { label: "3K Carbon Fiber Laminate Sheet", href: "/products/3k-carbon-fiber-laminate-sheet" },
       { label: "Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube" },

@@ -223,7 +223,7 @@ export const productCatalog: ProductCatalogItem[] = [
           columns: ["Option", "Typical texture", "Common use"],
           rows: [
             ["1K", "Fine texture", "Premium decorative small parts"],
-            ["3K", "Classic carbon look", "Automotive, sports, civil UAV and decorative parts"],
+            ["3K", "Classic carbon look", "Automotive, sports and decorative parts"],
             ["6K", "Medium texture", "Sports and industrial composites"],
             ["12K", "Larger tow", "Larger panels and industrial laminates"],
             ["Spread Tow", "Flat checker pattern", "Visible CFRP surfaces"],
@@ -907,8 +907,8 @@ export const productCatalog: ProductCatalogItem[] = [
         "CNC ready carbon fiber sheet",
         "carbon fiber plate CNC cutting",
         "carbon fiber panel cut to drawing",
-        "carbon fiber plate for civil UAV frames",
-        "RC model carbon fiber sheet",
+        "carbon fiber plate for industrial fixtures",
+        "CNC carbon fiber equipment panel",
       ],
     },
     specs: [
@@ -919,7 +919,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     intro: [
       "3K Carbon Fiber Laminate Sheet is a cured carbon composite sheet with a 3K woven surface. It is widely used when buyers need a carbon appearance together with stable panel thickness.",
-      "The inner layup can be woven, UD or mixed depending on required stiffness, cost and machining behavior. Thicker sheets can be supplied for CNC-machined parts, civil UAV frames, remote-controlled model parts, tooling and fixtures, and industrial panels.",
+      "The inner layup can be woven, UD or mixed depending on required stiffness, cost and machining behavior. Thicker sheets can be reviewed for CNC-machined parts, tooling, fixtures and industrial panels.",
       "FRP HOME can reserve the surface finish, thickness, panel size, tolerance, inner layup and packing method according to the customer's part requirement.",
     ],
     highlights: [
@@ -929,8 +929,8 @@ export const productCatalog: ProductCatalogItem[] = [
       { label: "Finish", value: "Glossy or matte clear surface" },
     ],
     applications: [
-      "Civil UAV frames and remote-controlled model parts",
-      "RC model parts and CNC machined plates",
+      "Industrial equipment panels and fixtures",
+      "CNC-machined plates and brackets",
       "Automotive interior trim and covers",
       "Fishing rod and leisure product components",
       "Industrial fixtures and lightweight panels",
@@ -991,9 +991,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "Buyers often use sheet, plate, panel and laminate for the same commercial family. The controlled thickness, layup, surface, dimensions, tolerance and drawing are more important than the name alone.",
       },
       {
-        question: "Can 3K carbon fiber laminate sheet be used for civil UAV or remote-controlled model frames?",
+        question: "Can 3K carbon fiber laminate sheet be used for industrial equipment panels?",
         answer:
-          "Yes. Carbon fiber laminate sheets can be reviewed for civil UAV frames, remote-controlled model parts and inspection-equipment panels. Thickness, layup and machining tolerance should be confirmed by the drawing and load requirement.",
+          "Yes. Carbon fiber laminate sheets can be reviewed for equipment panels, fixtures and CNC parts. Thickness, layup and machining tolerance should be confirmed by the drawing and load requirement.",
       },
     ],
   },
@@ -1003,7 +1003,7 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "3K Carbon Tube",
     category: "Roll-Wrapped Tube",
     description:
-      "3K twill surface carbon fiber tubes for visible lightweight structures, sporting goods, commercial drone components, inspection equipment, automation parts and custom composite assemblies.",
+      "3K twill surface carbon fiber tubes for visible lightweight structures, sporting goods, industrial equipment, automation parts and custom composite assemblies.",
     heroCopy:
       "3K surface carbon fiber tubes combine a premium woven carbon appearance with roll-wrapped laminate options for stiffness, weight and visual requirements.",
     image: "/images/products/3k-surface-carbon-fiber-tube.webp",
@@ -1017,14 +1017,14 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "3K Surface Carbon Fiber Tube Supplier",
       description:
-        "3K twill surface carbon fiber tube supplier offering roll-wrapped tubes with custom diameter, wall thickness, finish and length for sports, commercial drone and industrial equipment parts.",
+        "3K twill surface carbon fiber tube supplier offering roll-wrapped tubes with custom diameter, wall thickness, finish and length for sports and industrial equipment parts.",
       keywords: [
         ...commonKeywords,
         "3K carbon fiber tube",
         "roll wrapped carbon fiber tube",
         "twill carbon fiber tube",
         "carbon fiber tube supplier",
-        "commercial drone carbon tube",
+        "industrial carbon tube for equipment",
       ],
     },
     specs: [
@@ -1046,10 +1046,10 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     applications: [
       "Sports equipment and poles",
-      "Commercial drone and inspection equipment components",
+      "Industrial equipment components",
       "Fishing rod and leisure product components",
       "Automotive interior and exterior components",
-      "Camera rigs, RC model parts and consumer products",
+      "Camera rigs, fixtures and consumer products",
     ],
     tds: {
       codePrefix: "FRPH-RT3K",
@@ -1092,9 +1092,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "Yes. Glossy and matte clear finishes are common for 3K surface tubes.",
       },
       {
-        question: "Can 3K carbon tubes be supplied for commercial drone or RC model parts?",
+        question: "Can 3K carbon tubes be supplied for industrial equipment parts?",
         answer:
-          "Yes. Custom diameter, wall thickness, length, surface finish and cutting can be reviewed for commercial drone components, RC model parts, camera rigs and inspection equipment.",
+          "Yes. Custom diameter, wall thickness, length, surface finish and cutting can be reviewed for equipment supports, camera rigs and automation components.",
       },
     ],
   },
@@ -1206,7 +1206,7 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "Pultruded Tube",
     category: "Pultruded Profile",
     description:
-      "Pultruded carbon fiber tubes and profiles with high axial stiffness, stable dimensions and efficient production for industrial, agricultural drone, inspection equipment and commercial applications.",
+      "Pultruded carbon fiber tubes and profiles with high axial stiffness, stable dimensions and efficient production for industrial equipment and commercial applications.",
     heroCopy:
       "Pultruded carbon fiber tubes are continuous profiles with fibers aligned mainly along the tube length, suitable for lightweight beams, supports and industrial assemblies.",
     image: "/images/products/pultruded-carbon-fiber-tube.webp",
@@ -1219,14 +1219,14 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "Pultruded Carbon Fiber Tube and Profile Supplier",
       description:
-        "Pultruded carbon fiber tube supplier offering round, square and custom carbon profiles for industrial lightweight structures, agricultural drone parts and inspection equipment assemblies.",
+        "Pultruded carbon fiber tube supplier offering round, square and custom carbon profiles for industrial lightweight structures and equipment assemblies.",
       keywords: [
         ...commonKeywords,
         "pultruded carbon fiber tube",
         "carbon fiber pultruded profile",
         "carbon tube supplier",
         "lightweight carbon profile",
-        "agricultural drone carbon tube",
+        "industrial pultruded carbon tube",
       ],
     },
     specs: [
@@ -1249,8 +1249,8 @@ export const productCatalog: ProductCatalogItem[] = [
     applications: [
       "Automation and machine frames",
       "Telescopic poles and supports",
-      "Agricultural drone structural parts",
-      "Mapping and inspection equipment supports",
+      "Machine and automation supports",
+      "Inspection equipment supports",
       "Fishing rod and leisure product components",
       "Industrial lightweight structures",
       "Pultruded carbon profile assemblies",
@@ -1266,7 +1266,7 @@ export const productCatalog: ProductCatalogItem[] = [
           columns: ["Type", "Typical size range", "Typical wall thickness", "Typical length", "Surface by order", "Indicative use"],
           rows: [
             ["Round tube", "3-80 mm OD typical", "0.5-5.0 mm typical", "1000-6000 mm typical", "Black / painted by order", "Inspection equipment supports"],
-            ["Square tube", "5x5-80x80 mm typical", "0.8-5.0 mm typical", "1000-6000 mm typical", "Black / painted by order", "Agricultural drone and equipment frames"],
+            ["Square tube", "5x5-80x80 mm typical", "0.8-5.0 mm typical", "1000-6000 mm typical", "Black / painted by order", "Equipment frames and fixtures"],
             ["Rectangular tube", "Custom by drawing", "By drawing", "1000-6000 mm typical or by order", "Black / painted by order", "Industrial profiles"],
             ["Custom profile", "By drawing", "By drawing", "By drawing", "By order", "OEM assemblies"],
           ],
@@ -1497,7 +1497,7 @@ export const productCatalog: ProductCatalogItem[] = [
     shortName: "Carbon Products",
     category: "Finished Composites",
     description:
-      "Custom carbon fiber parts, molded products, CNC plates, civil UAV frames, remote-controlled model parts, tubes, assemblies and composite components according to drawings or samples.",
+      "Custom carbon fiber parts, molded products, CNC plates, tubes, assemblies and industrial composite components according to drawings or samples.",
     heroCopy:
       "Custom carbon fiber products can be developed from plates, tubes, prepreg, wet layup or molded laminates for industrial, automotive, sports and equipment applications.",
     image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
@@ -1511,15 +1511,15 @@ export const productCatalog: ProductCatalogItem[] = [
     seo: {
       title: "Custom Carbon Fiber Products and Composite Parts",
       description:
-        "Custom carbon fiber products supplier for CNC plates, civil UAV frames, remote-controlled model parts, tubes, molded parts, covers and lightweight composite components.",
+        "Custom carbon fiber products supplier for CNC plates, tubes, molded parts, covers and lightweight industrial composite components.",
       keywords: [
         ...commonKeywords,
         "custom carbon fiber products",
         "carbon fiber composite parts",
         "CNC carbon fiber parts",
         "carbon fiber OEM products",
-        "civil UAV carbon fiber parts",
-        "carbon fiber frame for civil UAV",
+        "industrial carbon fiber parts",
+        "carbon fiber machine components",
       ],
     },
     specs: [
@@ -1530,7 +1530,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     intro: [
       "Custom Carbon Fiber Products are developed when standard plates, tubes or fabrics need to become finished components. The project may start from drawings, CAD files, samples or an application brief.",
-      "Typical products include carbon plates with CNC holes, civil UAV frames, remote-controlled model parts, tube assemblies, covers, brackets, sports equipment pieces, fixtures and lightweight industrial components.",
+      "Typical products include carbon plates with CNC holes, tube assemblies, covers, brackets, sports equipment pieces, fixtures and lightweight industrial components.",
       "FRP HOME can review material selection, laminate style, finish, dimensional tolerance, machining, bonding and packing requirements before confirming feasibility and quotation.",
     ],
     highlights: [
@@ -1541,7 +1541,7 @@ export const productCatalog: ProductCatalogItem[] = [
     ],
     applications: [
       "Automotive and tuning components",
-      "Civil UAV and remote-controlled model parts",
+      "Equipment frames and fixtures",
       "Sports equipment and accessories",
       "Fishing rod and leisure product components",
       "Industrial machine components",
@@ -1558,7 +1558,7 @@ export const productCatalog: ProductCatalogItem[] = [
           columns: ["Product group", "Typical material by review", "Indicative process", "Surface option by order", "Input required"],
           rows: [
             ["CNC plates", "3K plate / UD plate by review", "Cutting, drilling, chamfering", "Matte / glossy by order", "DXF, STEP or drawing"],
-            ["Civil UAV and remote-controlled model frames", "3K plate / UD plate by review", "CNC cutting and drilling", "Matte / glossy by order", "DXF, STEP or drawing"],
+            ["Industrial equipment frames", "3K plate / UD plate by review", "CNC cutting and drilling", "Matte / glossy by order", "DXF, STEP or drawing"],
             ["Tube assemblies", "3K tube / pultruded tube by review", "Cutting, bonding, drilling", "Matte / glossy / painted by order", "Drawing and load condition"],
             ["Molded parts", "Prepreg / wet layup by review", "Compression, vacuum bagging, curing", "3K / painted / clear coat by order", "CAD and surface requirement"],
             ["Composite covers", "Woven carbon / hybrid by review", "Layup and finishing", "Visible carbon or painted by order", "Sample or drawing"],
@@ -1584,9 +1584,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "A drawing, CAD file, sample photo, dimensions, material preference and target application help confirm feasibility and price.",
       },
       {
-        question: "Can you make civil UAV or remote-controlled model carbon fiber parts?",
+        question: "Can you make industrial equipment components from carbon fiber?",
         answer:
-          "Yes. We can review civil UAV frames, remote-controlled model plates, commercial drone components and inspection-equipment parts according to drawings, material requirements and machining tolerance.",
+          "Yes. We can review CNC plates, equipment frames, fixtures and composite covers according to drawings, material requirements and machining tolerance.",
       },
       {
         question: "Can you make production directly without samples?",
@@ -1684,7 +1684,7 @@ export const productCatalog: ProductCatalogItem[] = [
           title: "Export compliance support",
           columns: ["Item", "Typical support", "Remark"],
           rows: [
-            ["License-related experience", "Dual-use item export license application document preparation", "Subject to actual product grade, destination and regulation review"],
+            ["Export document support", "License application document preparation where required", "Subject to actual product grade, destination and regulation review"],
             ["Buyer information", "End-use, end-user, application and destination details may be required", "Confirmed before quotation or shipment"],
             ["Supplier documents", "COA, TDS, packing list and batch information where available", "Final documents depend on selected brand and batch"],
             ["Compliance position", "Order reviewed according to export terms and applicable controls", "Approval depends on competent authority review"],
@@ -1709,9 +1709,9 @@ export const productCatalog: ProductCatalogItem[] = [
           "Inquiry options include 1K, 3K, 6K, 12K, 24K, 48K and 50K carbon fiber tow. Final availability, grade, sizing, package and batch documents are confirmed for each quotation.",
       },
       {
-        question: "Can you support dual-use item export license documentation?",
+        question: "Can you support export license documentation where required?",
         answer:
-          "For carbon fiber yarn and tow projects that may involve dual-use item review, we can support the preparation of license application materials, end-use information and related export documents. Approval depends on the actual product, destination, end use and competent authority review.",
+          "For carbon fiber yarn and tow projects that require export-control review, we can support the preparation of license application materials, end-use information and related export documents. Approval depends on the actual product, destination, end use and competent authority review.",
       },
     ],
   },

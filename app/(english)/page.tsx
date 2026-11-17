@@ -234,7 +234,7 @@ export default function HomePage() {
           <div className="finder-feature-panel">
             <Image
               src="/images/products/3k-carbon-fiber-laminate-stack.webp"
-              alt="Carbon fiber laminate stack for automotive and drone composite parts"
+              alt="Carbon fiber laminate stack for automotive and industrial composite parts"
               fill
               sizes="(max-width: 900px) 100vw, 44vw"
             />

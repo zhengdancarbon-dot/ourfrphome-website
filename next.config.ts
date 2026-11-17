@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/applications/civil-uav-drone-components",
+        destination: "/applications",
+        permanent: true,
+      },
+      {
+        source: "/:locale(es|pt-br|ru|ar|fr|ko|pl|tr|uk|vi|th)/applications/civil-uav-drone-components",
+        destination: "/:locale/products",
+        permanent: true,
+      },
+      {
         source: "/request-a-quote",
         destination: "/contact",
         permanent: true,

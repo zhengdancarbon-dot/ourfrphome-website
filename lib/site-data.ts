@@ -40,13 +40,13 @@ export const applications = [
     products: "3K Fabric · 3K Laminate Sheet · 3K Tubes · Custom Products",
   },
   {
-    name: "Civil UAV & Drone Parts",
-    description: "Carbon plates, tubes and custom machined parts for civil UAV, agricultural drone, mapping drone, inspection drone and remote-controlled model applications.",
+    name: "Industrial Equipment",
+    description: "Carbon plates, tubes and custom machined parts for automation, fixtures and equipment enclosures.",
     products: "3K Laminate Sheet · Carbon Tubes · CNC Parts · Custom Products",
   },
   {
-    name: "RC Models & Hobby Parts",
-    description: "Lightweight carbon fiber sheets, tubes and CNC parts for RC model frames, accessories and commercial model components.",
+    name: "Precision Components",
+    description: "Carbon fiber sheets, tubes and CNC parts for instrument supports, fixtures and commercial equipment components.",
     products: "3K Laminate Sheet · 3K Tubes · Pultruded Tubes · Custom Products",
   },
   {

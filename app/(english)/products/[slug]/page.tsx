@@ -223,7 +223,7 @@ function recommendedFit(product: ProductCatalogItem) {
         "Visible CFRP surfaces",
         "Automotive parts",
         "Sports equipment",
-        "Civil UAV components",
+        "Industrial equipment components",
         "Decorative composite panels",
         "General composite laminates",
       ],

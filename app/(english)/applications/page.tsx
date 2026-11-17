@@ -21,7 +21,7 @@ export const metadata: Metadata = createPageMetadata({
     "construction reinforcement carbon fiber",
   ],
   path: "/applications",
-  image: "/images/composite-applications.png",
+  image: "/images/composite-materials-range-products.webp",
 });
 
 export default function ApplicationsPage() {

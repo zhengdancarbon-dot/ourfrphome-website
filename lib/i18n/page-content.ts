@@ -257,7 +257,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         "El tejido woven combina fibras de carbono en dos direcciones para obtener manejo estable, buena apariencia y laminados equilibrados.",
         "3K twill es una opción común para superficies visibles; 12K puede usarse en paneles más grandes e industriales.",
       ],
-      applications: ["Partes automotrices visibles", "Paneles CFRP", "Equipos deportivos", "Componentes civiles UAV", "Laminados industriales"],
+      applications: ["Partes automotrices visibles", "Paneles CFRP", "Equipos deportivos", "Componentes industriales", "Laminados industriales"],
       faqs: [
         {
           question: "¿Qué TDS está disponible para el tejido woven?",
@@ -575,7 +575,7 @@ export const localizedProductContent: Record<Exclude<Locale, "en">, Record<(type
         "O tecido woven combina fibras em duas direções para manuseio estável, boa aparência e laminados equilibrados.",
         "3K twill é comum em superfícies visíveis; 12K pode ser usado em painéis maiores e industriais.",
       ],
-      applications: ["Peças automotivas visíveis", "Painéis CFRP", "Equipamentos esportivos", "Componentes civis UAV", "Laminados industriais"],
+      applications: ["Peças automotivas visíveis", "Painéis CFRP", "Equipamentos esportivos", "Componentes industriais", "Laminados industriais"],
       faqs: [
         {
           question: "Qual TDS está disponível para o tecido woven?",
@@ -932,49 +932,6 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         },
       ],
     },
-    "civil-uav-drone-components": {
-      title: "Materiales de fibra de carbono para UAV civiles y drones",
-      description:
-        "Placas, tubos, varillas, tejido 3K, spread tow y piezas CFRP personalizadas para UAV civil, inspección y drones comerciales.",
-      quickAnswer:
-        "Placas, tubos, varillas y piezas CNC de carbono se usan en UAV civiles y drones donde se requiere estructura ligera, rigidez y estabilidad dimensional.",
-      seo: {
-        title: "Materiales de carbono para UAV civil y drones | Placas, tubos y piezas CNC",
-        description:
-          "Materiales CFRP para drones civiles: placas, tubos, varillas, tejido 3K, spread tow y piezas personalizadas según plano.",
-      },
-      why: [
-        "Placas y tubos CFRP ofrecen alta rigidez con bajo peso.",
-        "Piezas CNC facilitan geometría repetible cuando hay planos.",
-        "Superficies 3K o spread tow pueden usarse cuando importa la apariencia.",
-      ],
-      recommendedMaterials: [
-        { name: "Placa de carbono", href: "/products/3k-carbon-fiber-laminate-sheet", note: "Bastidores, brazos y soportes." },
-        { name: "Tubo de carbono", href: "/products/3k-surface-carbon-fiber-tube", note: "Brazos y estructuras ligeras." },
-        { name: "Piezas CFRP CNC", href: "/products/custom-carbon-fiber-products", note: "Componentes según plano." },
-      ],
-      commonSpecifications: [
-        ["Espesor de placa", "1 / 1.5 / 2 / 3 / 4 / 5 mm o custom"],
-        ["Tubo", "OD / ID / espesor según plano"],
-        ["Superficie", "3K twill, mate, brillo o lijada"],
-      ],
-      selectionGuide: [
-        "Use placa para bastidores y soportes planos.",
-        "Use tubo para brazos y estructuras ligeras.",
-        "Confirme uso civil o comercial y país de destino.",
-      ],
-      rfqDetails: ["Tipo de componente", "Dimensiones", "Plano", "Acabado", "Cantidad", "Aplicación civil", "Destino"],
-      faqs: [
-        {
-          question: "¿Pueden suministrar piezas para drones comerciales?",
-          answer: "Podemos revisar placas, tubos y piezas CNC para UAV civil, inspección, agricultura y fotografía aérea.",
-        },
-        {
-          question: "¿Qué archivos ayudan a cotizar?",
-          answer: "DXF, STEP, PDF, espesor, acabado, tolerancia y cantidad.",
-        },
-      ],
-    },
     "plastic-resin-reinforcement": {
       title: "Fibra de carbono para refuerzo de plástico y resina",
       description:
@@ -1104,49 +1061,6 @@ export const localizedApplicationContent: Record<Exclude<Locale, "en">, Record<(
         {
           question: "Prepreg ou tecido seco?",
           answer: "Prepreg ajuda na repetibilidade; tecido seco é prático para wet lay-up e menor volume.",
-        },
-      ],
-    },
-    "civil-uav-drone-components": {
-      title: "Materiais de fibra de carbono para UAV civil e drones",
-      description:
-        "Placas, tubos, hastes, tecido 3K, spread tow e peças CFRP personalizadas para UAV civil, inspeção e drones comerciais.",
-      quickAnswer:
-        "Placas, tubos, hastes e peças CNC de carbono são usados em UAV civis e drones quando estrutura leve, rigidez e estabilidade dimensional são necessárias.",
-      seo: {
-        title: "Materiais de carbono para UAV civil e drones | Placas, tubos e CNC",
-        description:
-          "Materiais CFRP para drones civis: placas, tubos, hastes, tecido 3K, spread tow e peças personalizadas conforme desenho.",
-      },
-      why: [
-        "Placas e tubos CFRP oferecem alta rigidez com baixo peso.",
-        "Peças CNC facilitam geometria repetível quando há desenhos.",
-        "Superfícies 3K ou spread tow podem ser usadas quando aparência importa.",
-      ],
-      recommendedMaterials: [
-        { name: "Placa de carbono", href: "/products/3k-carbon-fiber-laminate-sheet", note: "Frames, braços e suportes." },
-        { name: "Tubo de carbono", href: "/products/3k-surface-carbon-fiber-tube", note: "Braços e estruturas leves." },
-        { name: "Peças CFRP CNC", href: "/products/custom-carbon-fiber-products", note: "Componentes conforme desenho." },
-      ],
-      commonSpecifications: [
-        ["Espessura da placa", "1 / 1.5 / 2 / 3 / 4 / 5 mm ou custom"],
-        ["Tubo", "OD / ID / parede conforme desenho"],
-        ["Superfície", "3K twill, fosca, brilhante ou lixada"],
-      ],
-      selectionGuide: [
-        "Use placa para frames e suportes planos.",
-        "Use tubo para braços e estruturas leves.",
-        "Confirme uso civil ou comercial e país de destino.",
-      ],
-      rfqDetails: ["Tipo de componente", "Dimensões", "Desenho", "Acabamento", "Quantidade", "Aplicação civil", "Destino"],
-      faqs: [
-        {
-          question: "Podem fornecer peças para drones comerciais?",
-          answer: "Podemos revisar placas, tubos e peças CNC para UAV civil, inspeção, agricultura e fotografia aérea.",
-        },
-        {
-          question: "Quais arquivos ajudam na cotação?",
-          answer: "DXF, STEP, PDF, espessura, acabamento, tolerância e quantidade.",
         },
       ],
     },

@@ -159,13 +159,6 @@ export const materialApplications: MaterialApplication[] = [
     image: "/images/products/3k-surface-carbon-fiber-tube.webp",
   },
   {
-    name: "Civil UAV / Drone Components",
-    description: "Carbon plates, tubes and machined parts for civil UAV, agricultural, mapping and inspection drones.",
-    recommended: "3K sheets, pultruded tubes, CNC CFRP parts",
-    href: "/applications/civil-uav-drone-components",
-    image: "/images/products/custom-carbon-fiber-cnc-panels-hero.webp",
-  },
-  {
     name: "Composite Manufacturing",
     description: "Dry reinforcements and prepregs for layup, infusion, autoclave and compression molding.",
     recommended: "Woven fabric, UD fabric, NCF, prepreg",
@@ -222,7 +215,7 @@ export const manufacturingProcesses: ManufacturingProcess[] = [
     description: "Dry reinforcement stacks infused with resin under vacuum.",
     recommended: "Woven fabric, NCF, UD fabric",
     href: "/processes#vacuum-infusion",
-    image: "/images/composite-applications.png",
+    image: "/images/composite-materials-range-products.webp",
   },
   {
     name: "Prepreg / Autoclave Molding",

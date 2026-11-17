@@ -18,7 +18,6 @@ import {
   MapPin,
   PackageCheck,
   Phone,
-  Plane,
   ScanLine,
   Settings2,
   Ship,
@@ -344,8 +343,8 @@ export default function CatalogPageRoute() {
             <div className={styles.applicationHero}>
               <ImagePlaceholder
                 label="Carbon composite applications"
-                imageSrc="/images/composite-applications.png"
-                imageAlt="Carbon composite automotive, industrial and civil mobility components"
+                imageSrc="/images/composite-materials-range-products.webp"
+                imageAlt="Carbon fiber fabric, laminate and tube material formats"
               />
             </div>
             <div className={styles.applicationGrid}>
@@ -353,7 +352,7 @@ export default function CatalogPageRoute() {
               <Feature icon={Target} title="Sports equipment" text="Rods, boards, frames and performance components." />
               <Feature icon={Ship} title="Marine" text="Masts, hull panels, paddles and water-sports products." />
               <Feature icon={Construction} title="Construction" text="Externally bonded strengthening and infrastructure repair." />
-              <Feature icon={Plane} title="Drones & UAV" text="Frames, tubes, plates and mapping or inspection equipment." />
+              <Feature icon={ScanLine} title="Precision components" text="CNC-cut parts, instrument supports and machine brackets." />
               <Feature icon={Settings2} title="Industrial" text="Automation, fixtures, machine parts and composite housings." />
             </div>
           </div>

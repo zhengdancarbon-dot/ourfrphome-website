@@ -173,7 +173,6 @@ const priorityProductsCopy: Record<Exclude<Locale, "en">, { eyebrow: string; tit
 
 const featuredApplicationSlugs = [
   "automotive-carbon-fiber-parts",
-  "civil-uav-drone-components",
   "plastic-resin-reinforcement",
   "structural-strengthening",
 ] as const;

@@ -37,7 +37,7 @@ const productGroups = [
     keyProducts:
       "Woven fabric, UD fabric, spread tow fabric, multiaxial NCF, hybrid and aramid fabrics",
     commonApplications:
-      "Composite laminates, visible CFRP surfaces, automotive, sports, civil UAV and industrial panels",
+      "Composite laminates, visible CFRP surfaces, automotive, sports and industrial panels",
     slugs: [
       "carbon-fiber-multiaxial-ncf-fabric",
       "carbon-fiber-woven-fabric",
@@ -86,7 +86,7 @@ const productGroups = [
     keyProducts:
       "Carbon fiber tube, roll-wrapped tube, filament-wound tube, pultruded tube, sheet, plate, rod and CNC CFRP parts",
     commonApplications:
-      "Civil UAV components, sports equipment, automation supports, fixtures and lightweight assemblies",
+      "Industrial equipment, sports equipment, automation supports, fixtures and lightweight assemblies",
     slugs: [
       "3k-carbon-fiber-laminate-sheet",
       "3k-surface-carbon-fiber-tube",
@@ -121,7 +121,7 @@ const productGroups = [
     id: "custom-carbon-fiber-products",
     title: "Custom Carbon Fiber Products",
     description:
-      "Custom carbon fiber parts, CNC plates, civil UAV frames, remote-controlled model parts, molded components, tube assemblies and composite products based on drawings or samples.",
+      "Custom carbon fiber parts, CNC plates, molded components, tube assemblies and industrial composite products based on drawings or samples.",
     keyProducts:
       "CNC CFRP plates, custom tubes, molded components, carbon covers and assemblies",
     commonApplications:

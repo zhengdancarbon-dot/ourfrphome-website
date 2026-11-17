@@ -33,11 +33,10 @@ const salesLinkGroups: SalesLinkGroup[] = [
     ],
   },
   {
-    title: "Civil UAV / Drone Customers",
-    description: "Use only civil and commercial terms when sharing drone-related pages.",
+    title: "Industrial Equipment Customers",
+    description: "Use this set for equipment supports, fixtures, CNC plates and drawing-based composite parts.",
     links: [
-      { label: "Civil UAV / Drone Components", href: "/applications/civil-uav-drone-components", note: "Civil UAV material guide." },
-      { label: "Carbon Fiber Sheet / Plate", href: "/products/3k-carbon-fiber-laminate-sheet", note: "Frames, arms and panels." },
+      { label: "Carbon Fiber Sheet / Plate", href: "/products/3k-carbon-fiber-laminate-sheet", note: "CNC panels and fixtures." },
       { label: "Carbon Fiber Tube", href: "/products/3k-surface-carbon-fiber-tube", note: "Visible lightweight tube structures." },
       { label: "Carbon Fiber Rod", href: "/products/pultruded-carbon-fiber-tube", note: "Pultruded profiles and rods by review." },
       { label: "Spread Tow Carbon Fiber Fabric", href: "/products/spread-tow-carbon-fiber-fabric", note: "Thin visual skins." },

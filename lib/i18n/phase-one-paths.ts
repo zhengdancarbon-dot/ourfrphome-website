@@ -24,7 +24,6 @@ export const phaseOneProductSlugs = [
 
 export const phaseOneApplicationSlugs = [
   "automotive-carbon-fiber-parts",
-  "civil-uav-drone-components",
   "plastic-resin-reinforcement",
   "structural-strengthening",
 ] as const;

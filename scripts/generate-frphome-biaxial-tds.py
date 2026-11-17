@@ -361,7 +361,7 @@ story.extend([
     section_title("Typical applications"),
     make_table([
         ["Market", "Representative uses"],
-        ["Mobility", "Automotive structures, civil UAV components, lightweight panels"],
+        ["Mobility", "Automotive structures and lightweight industrial panels"],
         ["Marine", "Hull, deck, stiffener, tube and shell reinforcement"],
         ["Industrial", "Composite molds, machine structures, profiles and enclosures"],
         ["Sports and leisure", "Bicycle, board, paddle, protective and performance components"],
